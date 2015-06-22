@@ -1,6 +1,0 @@
-E:\Activ4Pets-22May2015\source\EncryptHelper\bin\Debug\EncryptHelper.exe.config
-E:\Activ4Pets-22May2015\source\EncryptHelper\bin\Debug\EncryptHelper.exe
-E:\Activ4Pets-22May2015\source\EncryptHelper\bin\Debug\EncryptHelper.pdb
-E:\Activ4Pets-22May2015\source\EncryptHelper\obj\Debug\EncryptHelper.csprojResolveAssemblyReference.cache
-E:\Activ4Pets-22May2015\source\EncryptHelper\obj\Debug\EncryptHelper.exe
-E:\Activ4Pets-22May2015\source\EncryptHelper\obj\Debug\EncryptHelper.pdb
