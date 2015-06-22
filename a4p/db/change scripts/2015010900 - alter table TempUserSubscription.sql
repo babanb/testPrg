@@ -1,1 +1,0 @@
-  alter table dbo.TempUserSubscription add  isCreatedbyOwner bit not null default (1)
