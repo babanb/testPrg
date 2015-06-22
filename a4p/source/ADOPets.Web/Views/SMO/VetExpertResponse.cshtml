@@ -1,0 +1,134 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording;
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@model ADOPets.Web.ViewModels.SMO.ExpertRelationViewModel
+@{
+    ViewBag.Title = Resources.Smo_Edit_Title;
+    int userId = ViewBag.UserId;
+    bool flagResponse = false;
+    if (Model.IsFinal)
+    {
+        flagResponse = true;
+    }
+}
+<link href="@Url.Content("~/Content/css/flaticon.css")" rel="stylesheet">
+
+<div class="clearfix"></div>
+<div id="pageTitle">
+    <div class="row">
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.PetId)
+        @Html.HiddenFor(model => model.ExpertRelId)
+        @Html.Hidden("IndexURL", Url.Action("Index", "SMO"))
+        @Html.Hidden("EditVDURL", Url.Action("VetExpertResponse", "SMO"))
+        @Html.Hidden("SaveSMOResponse", Url.Action("SaveSMOResponse", "SMO"))
+        @Html.Hidden("hdnInvalidImagetype", @Resources.Gallery_Add_ImageValidation)
+
+        <div class="col-md-8">
+
+            <h1>@Resources.Smo_Edit_SMOID - @(Html.DisplayFor(a => a.SMOId))<span class="label label-primary">@Model.RequestStatus</span></h1>
+        </div>
+        <div class="col-md-4">
+            <a href="@Url.Action("Index", "SMO")" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i>@Resources.Smo_Edit_BackButton</a>
+            <a href="@Url.Action("ExpertCommittee", "SMO", new { id = @Model.Id })" class="btn btn-success pull-right" style="margin-right:10px;"><i class="fa fa-envelope"></i>@Resources.Smo_Edit_Committee</a>
+        </div>
+    </div>
+</div>
+<div id="mainContainer">
+    @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()))
+    {
+        <div id="hiderightsidebar">
+            <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+        </div>
+        <div id="showrightsidebar">
+            <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt=""/>
+        </div>
+    }
+    <div id="cover4econsult" style="background:@Url.Content("~/images/smo-cover.jpg") center left repeat; padding:2% 20%;">
+        <div class="consultSteptab radius3" style="width: 40%;">
+            <a href="@Url.Action("Edit", "SMO", new { id = Model.Id })" class="zoomin">@Resources.Smo_Edit_lblStep1<br>
+                <span>@Resources.Smo_Edit_SMODetails</span><i class="fa fa-arrow-right"></i></a>
+        </div>
+        <div class="consultSteptab radius3 active" style="width: 40%;">
+            @if (flagResponse)
+            {
+                <a href="@Url.Action("ShowVetExpertResponse", "SMO", new { id = Model.Id })" class="zoomin">@Resources.Smo_Edit_lblStep2<br>
+                    <span>@Resources.Smo_Edit_ViewResponse
+                    </span><i class="fa fa-arrow-right"></i></a> 
+            }
+            else
+            {
+                <a href="@Url.Action("VetExpertResponse", "SMO", new { id = Model.Id })" class="zoomin">@Resources.Smo_Edit_lblStep2<br>
+                    <span>@Resources.Smo_Edit_GiveResponse
+                    </span><i class="fa fa-arrow-right"></i></a> 
+            }
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div>
+        <div class="form-group" id="divExpertResponse">
+            @Html.LabelRequiredFor(model => model.ExpertResponse, new { @style = "font-weight:bold;" })
+            @Html.TextAreaFor(modelItem => modelItem.ExpertResponse, new { @class = "form-control", @rows = "3", @placeholder = Resources.Smo_Edit_ExpertResponsePlaceHolder })
+            <span class="field-validation-valid" id="spnExpertResponse" data-valmsg-for="ExpertResponse" data-valmsg-replace="true">@Resources.SMO_ExpertResponse_ExpertResponseRequired</span>
+            <input type="hidden" id="hdnExpertResponseErrorMessage" name="hdnExpertResponseErrorMessage" value="@Resources.SMO_ExpertResponse_ExpertResponseRequired" />
+        </div>
+        @using (Html.BeginForm("VetExpertResponse", "SMO", new { Id = Model.ExpertRelId }, FormMethod.Post, new { enctype = "multipart/form-data", @id = "addPhotoGalleryForm", @class = "form-horizontal defaultForm", @role = "form" }))
+        { 
+            <link href="@Url.Content("~/Content/css/expertportal.css")" rel="stylesheet">
+            <div class="row attachment2">
+                <div class="col-md-1">
+                    <a href="#" class="btn btn-success attachBtn" id="btnFileUpload"><span class="fa fa-paperclip"></span>
+                        <input type="file" id="customattch"></a>
+                </div>
+                <div class="col-md-11">
+                    @if (Model.lstAttachment != null && Model.lstAttachment.Count > 0)
+                    {
+                        foreach (var item in Model.lstAttachment)
+                        {   <div class="btn-group" data-fileid="@item.Id">
+                            <a href="@Url.Action("GetFile", "SMO", new { fileName = item.DocumentPath })" id="@("viewDocument" + ViewBag.DocumentType)" class="btn btn-default">
+                                @Html.CreateDivFromFileExtension(item.DocumentPath) @item.DocumentName
+                            </a>
+                            <button type="button" class="btn btn-default" onclick="removeFile('@item.Id','@item.SMOId')" ><span class="fa fa-times"></span></button>
+                        </div>
+                        }
+                    }
+
+                    <div id="dvAlbumPhotoList">
+                    </div>
+                    <div id="dvGalleryUploadError" class="error">
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <hr>
+            <div class="form-inline">
+                <center>
+                   <div>
+                        <a href="@Url.Action("Edit", "SMO", new { id = Model.Id })" class="btn btn-primary btn-lg"><i class="fa fa-arrow-left"></i>@Resources.SMO_Index_Back</a>                 
+                        <a href="#" id="btnSaveResponse" class="btn btn-success btn-lg">@Resources.Smo_Edit_BtnSave</a>                   
+                        <a href="#" id="btnSubmitResponse" class="btn btn-success btn-lg">@Resources.Smo_Edit_BtnSubmit</a>
+                    </div>
+                        </center>
+                <div class="clearfix"></div>
+            </div>
+        }
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<div id="ConfrimModel" class="modal fade" tabindex="-1" role="dialog"></div>
+<script type="text/javascript" src="~/Scripts/external/ajaxupload.js"></script>
+<script type="text/javascript" src="~/Scripts/customs/views/SMO/VetExpertResponse.js"></script>
+<style>
+    .dvprocessing {
+        display: none;
+        position: absolute;
+        background: #fff;
+    }
+
+    #img-load {
+        position: absolute;
+    }
+</style>

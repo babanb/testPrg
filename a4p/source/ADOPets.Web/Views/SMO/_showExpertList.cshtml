@@ -1,0 +1,76 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording;
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@model ADOPets.Web.ViewModels.SMO.DetailsViewModel
+@Html.Hidden("UrlDeleteAssignedExpert", Url.Action("DeleteAssignedExpert", "SMO"))
+@Html.Hidden("UrlConfirmDeleteAssignedExpert", Url.Action("DeleteConfirmAssignedExpert", "SMO"))
+@Html.Hidden("UrlAsignedExpert", Url.Action("AssignedExperts", "SMO"))
+
+<table id="table_id" class="table table-bordered" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th width="25%">@Resources.Smo_Edit_ExpertName</th>
+            <th width="25%">@Resources.Smo_Edit_Speciality</th>
+            <th width="15%">@Resources.Smo_Edit_Response</th>
+            <th width="20%">@Resources.Smo_Edit_Bio</th>
+            @if (@Model.SMOREquest.SMORequestStatusId != SMORequestStatusEnum.Complete)
+            { 
+                <th>@Resources.Smo_Edit_Action</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var smoexpert in Model.SMOExpertsList)
+        {
+            <tr>
+                <td>@((smoexpert.User.FirstName == null && smoexpert.User.LastName == null) ? "" : smoexpert.User.FirstName + @Html.Raw(" ") + smoexpert.User.LastName)</td>
+                <td>@(smoexpert.User.Veterinarian == null ? "" : (smoexpert.User.Veterinarian.VetSpecialtyID == null ? "" : "" + @Html.EnumDisplay(smoexpert.User.Veterinarian.VetSpecialtyID)))</td>
+                <td>
+                    @if (smoexpert.IsFinal)
+                    {
+                        <a href="@Url.Action("ShowExpertResponse", "SMO", new { id = @smoexpert.ID, vetexpertId = @smoexpert.VetExpertID })" class="expertResponseModel"  data-toggle="modal" data-target=".bs-example-modal-lg"><strong>@Resources.Smo_Edit_ExpertResponceAvailable</strong></a>
+                    }
+                    else
+                    {
+                        <strong>@Resources.Smo_Edit_ExpertResponceUnAvailable</strong>
+                    }
+
+                </td>
+                <td>
+                    @if (@Model.SMOREquest.SMORequestStatusId != SMORequestStatusEnum.Complete)
+                    { 
+                        <a href="@Url.Action("AddBioForExpert", "SMO", new { id = @smoexpert.User.Id })" class="addBio" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-file-text-o"></i></a> 
+                        if (!smoexpert.IsFinal)
+                        {
+                        <small class="text-danger">@Resources.Smo_Edit_Mandatory</small>
+                        }
+                    }
+                    else
+                    {
+                        if (smoexpert.IsFinal)
+                        {
+                        <a href="@Url.Action("ShowBioForExpert", "SMO", new { id = @smoexpert.User.Id })" class="showBio" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-file-text-o"></i></a> 
+                        }
+                    }
+                </td>
+
+                @if (@Model.SMOREquest.SMORequestStatusId != SMORequestStatusEnum.Complete)
+                {  <td>
+                    @if (!smoexpert.IsFinal)
+                    {
+                        <a href="#" data-smoid="@smoexpert.SMORequestID" data-vetid="@smoexpert.User.Id" data-id="@smoexpert.ID" class="btn btn-warning btn-sm deleteBio" data-toggle="confirmation" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
+@*<a href="javascript:void(0);" data-href="@Url.Action("DeleteAssignedExpert", "SMO", new {id=@smoexpert.ID })" data-smoid="@smoexpert.SMORequestID" data-vetid="@smoexpert.User.Id" data-id="@smoexpert.ID" class="btn btn-warning btn-sm" data-toggle="confirmation" data-placement="bottom" title="" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>*@
+                    }   </td>
+
+                }
+
+            </tr> 
+        }
+
+    </tbody>
+</table>
+
+<div id="showBioModel" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="deleteModalTest" class="modal fade" tabindex="-1" role="dialog"></div>
+<div class="clearfix"></div>

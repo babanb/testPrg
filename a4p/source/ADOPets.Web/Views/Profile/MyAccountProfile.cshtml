@@ -1,0 +1,177 @@
+﻿@model OwnerEditViewModel
+@using Model
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using ADOPets.Web.ViewModels.Profile
+@using Resources = ADOPets.Web.Resources.Wording
+@{
+    ViewBag.Title = Resources.Profile_MyAccountProfile_Title;
+}
+
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>@ViewBag.Title</h1>
+        </div>
+        <div class="col-md-6" style="text-align: right;">
+            <a href="@Url.Action("OwnerEdit", "Profile")" class="btn btn-success editBtn" id="ownerEditProfile" data-toggle="modal" data-target="#editProfile"><i class="fa fa-pencil"></i>@Resources.Profile_MyAccountProfile_Edit</a>
+            @*<a href="#" class="btn btn-primary" id="changePwd"><i class="fa fa-key"></i>@Resources.Profile_ChangePassword_ChangePass</a>*@
+            <a href="@Url.Action("ChangePasswordPopup", "Profile")" class="btn btn-primary" id="changePwd"><i class="fa fa-key"></i>@Resources.Profile_ChangePassword_ChangePass</a>
+
+        </div>
+    </div>
+</div>
+<div id="mainContainer">
+    <div class="well well-sm">
+        <div class="column">
+            <div class="detailrow">
+                <div>
+                    <label>@Resources.Profile_OwnerEdit_UserId</label></div>
+                <div class="colonspace">:</div>
+                <div>@Model.OwnerId</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.FirstName)</div>
+                <div class="colonspace">:</div>
+                <div>@Model.FirstName</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.MiddleName)</div>
+                <div class="colonspace">:</div>
+                <div>@Model.MiddleName</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.LastName)</div>
+                <div class="colonspace">:</div>
+                <div>@Model.LastName</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.BirthDate)</div>
+                <div class="colonspace">:</div>
+                <div>@(Model.BirthDate == null ? "" : @Model.BirthDate.Value.ToString("MM/dd/yyyy"))</div>
+                <div class="clearfix"></div>
+            </div>
+            @if (Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()))
+            {
+                <div class="detailrow">
+                    <div>@Html.LabelFor(m => m.Speciality)</div>
+                    <div class="colonspace">:</div>
+                    <div>@Model.Speciality</div>
+                    <div class="clearfix"></div>
+                </div>
+            }
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.Gender)</div>
+                <div class="colonspace">:</div>
+                <div>@(Model.Gender == null ? "" : @Html.EnumDisplayFor(m => m.Gender).ToString())</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.Email)</div>
+                <div class="colonspace">:</div>
+                <div>@Model.Email</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.TimeZone)</div>
+                <div class="colonspace">:</div>
+                <div>@(Model.TimeZone == null ? "" : @EnumHelper.GetResourceValueForEnumValue(Model.TimeZone).ToString())</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.IsSearchable)</div>
+                <div class="colonspace">:</div>
+                <div>
+                    @if (Model.IsSearchable == true)
+                    {<text>@Resources.Profile_OwnerDetail_isSearchableYes</text>}
+                    else
+                    { <text>@Resources.Profile_OwnerDetail_isSearchableNo</text>}
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+
+        <div class="column">
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.Address1)</div>
+                <div class="colonspace">:</div>
+                <div>@Model.Address1</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.Address2)</div>
+                <div class="colonspace">:</div>
+                <div>@Model.Address2</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.City)</div>
+                <div class="colonspace">:</div>
+                <div>@Model.City</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.Country)</div>
+                <div class="colonspace">:</div>
+                <div>@(Model.Country == null ? "" : @Html.EnumDisplayFor(m => m.Country).ToString())</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.State)</div>
+                <div class="colonspace">:</div>
+                <div>@(Model.State == null ? "" : @Html.EnumDisplayFor(m => m.State).ToString())</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.Zip)</div>
+                <div class="colonspace">:</div>
+                <div>@Model.Zip</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.PrimaryPhone) </div>
+                <div class="colonspace">:</div>
+                <div>@Model.PrimaryPhone</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.SecondaryPhone)</div>
+                <div class="colonspace">:</div>
+                <div>@Model.SecondaryPhone</div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="detailrow">
+                <div>@Html.LabelFor(m => m.CreationDate)</div>
+                <div class="colonspace">:</div>
+                <div>@(Model.CreationDate == null ? "" : @Model.CreationDate.Value.ToString("MM/dd/yyyy"))</div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div id="EditprofModel" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="ChangePwdModel" class="modal fade" tabindex="-1" role="dialog"></div>
+<script src="@Url.Content("~/Scripts/customs/views/Profile/MyAccountProfile.js")"></script>

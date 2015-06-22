@@ -1,0 +1,67 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Econsultation.WithdrawEC
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Resources.Econsultation_Add_Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">@Resources.Econsultation_Withdraw_ConfirmationMsg</h4>
+        </div>
+        @using (Ajax.BeginForm("WithdrawConfirm", "Econsultation", new AjaxOptions
+        {
+            UpdateTargetId = "econsultWithdrawConfirm",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogWithdraw"
+        }, new { @class = "form-horizontal defaultForm", @role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.Id)
+            <div class="modal-body">
+                <div class="columnfull" style="width: 80%;">
+                    <div class="detailrow">
+                        <div>@Resources.Econsultation_Index_PetName</div>
+                        <div class="colonspace">:</div>
+                        <div>@Model.PetName.ToString()</div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="detailrow">
+                        <div>@Resources.Econsultation_Add_PetCondition</div>
+                        <div class="colonspace">:</div>
+                        <div>@Model.PetCondition.ToString()</div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="detailrow">
+                        <div>@Resources.Econsultation_Add_Date</div>
+                        <div class="colonspace">:</div>
+                        <div>@Model.Date.Value.ToShortDateString()</div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="detailrow">
+                        <div>@Resources.Econsultation_Add_Time</div>
+                        <div class="colonspace">:</div>
+                        <div>@Model.Time.Value.ToShortTimeString()</div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="detailrow">
+                        <div>@Resources.Econsultation_Add_Status</div>
+                        <div class="colonspace">:</div>
+                        <div>@Model.EconsultationStatus.Value.ToString()</div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Econsultation_Add_Close</button>
+                <button type="submit" class="btn btn-primary">@Resources.Econsultation_View_Title</button>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    function CloseDialogWithdraw() {
+        location.reload();
+    }
+</script>

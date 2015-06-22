@@ -1,0 +1,70 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Condition.EditViewModel
+@using ADOPets.Web.Common.Extensions
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">@Resources.Condition_Edit_Title</h4>
+        </div>
+        @using (Ajax.BeginForm("Edit", "Condition", new AjaxOptions
+        {
+            UpdateTargetId = "conditionList",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogCondition"
+        }, new { @id = "editConditionForm", @class = "form-horizontal defaultForm", @role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="modal-body">
+
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.PetId)
+
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.PathologyName, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => model.PathologyName, new { @class = "form-control", placeholder = Resources.Condition_Edit_PathologyNamePlaceHolder })
+                        @Html.ValidationMessageFor(model => model.PathologyName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.VisitDate, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        <div class="input-group date">
+                            @Html.TextBoxFor(model => model.VisitDate, new { @class = "form-control datepicker datepickerCustomValidation", placeholder = Resources.Condition_Edit_VisitDatePlaceHolder, @Value = Model.VisitDate.ToString("d") })
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.VisitDate)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EndDate, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        <div class="input-group date">
+                            @Html.TextBoxFor(model => model.EndDate, new { @class = "form-control datepicker datepickerCustomValidation", placeholder = Resources.Condition_Edit_EndDatePlaceHolder, @Value = Model.EndDate.HasValue ? Model.EndDate.Value.ToString("d") : string.Empty })
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.EndDate)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Comment, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextAreaFor(model => model.Comment, new { @class = "form-control", @rows = "3", placeholder = Resources.Condition_Edit_CommentPlaceHolder })
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.Condition_Edit_SaveChanges</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Condition_Edit_Cancel</button>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="~/Scripts/customs/views/Condition/Form.js"></script>

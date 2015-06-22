@@ -1,0 +1,96 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Calender.EditViewModel
+
+<div class="modal-dialog" id="editReminder">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Resources.CloseButton</span></button>
+            <h4 class="modal-title" id="myModalLabel">@Resources.Calendar_Edit_Title</h4>
+        </div>
+
+        @using (Ajax.BeginForm("Edit", "Calender", new AjaxOptions
+        {
+            UpdateTargetId = "reminderList",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogReminder"
+        }, new { @id = "editReminderForm", @class = "form-horizontal defaultForm", @role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="modal-body">
+
+
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.UserId)
+                @Html.HiddenFor(model => model.RedirectToActionName)
+
+
+                <div class="form-group">
+                    <label for="Reason" class="col-sm-4 control-label">@Resources.Calendar_Edit_Reason<span class="mendetory-star">*</span></label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => model.Reason, new { @class = "form-control", placeholder = Resources.Calendar_Edit_ReasonPlaceHolder })
+                        @Html.ValidationMessageFor(model => model.Reason)
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="datePicker" class="col-sm-4 control-label">@Resources.Calendar_Edit_Date<span class="mendetory-star">*</span></label>
+                    <div class="col-sm-8">
+                        <div class="input-group date">
+                            @Html.TextBoxFor(model => model.Date, new { id = "addReminderDate", @class = "form-control datepicker", @Value = Model.Date.ToShortDateString() })
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            @Html.ValidationMessageFor(model => model.Date)
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="enddate" class="col-sm-4 control-label">@Resources.Calendar_Edit_Time</label>
+                    <div class="col-sm-8">
+                        <div class="input-group date">
+                            @Html.TextBoxFor(model=>model.Time, null, new { @class = "form-control timepicker1" })
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Veterinarian" class="col-sm-4 control-label">@Resources.Calendar_Edit_Veterinarian</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => model.Physician, new { @class = "form-control", placeholder = Resources.Calendar_Edit_PhysicianPlaceHolder })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="Comment" class="col-sm-4 control-label">@Resources.Calendar_Edit_Comment</label>
+                    <div class="col-sm-8">
+                        @Html.TextAreaFor(model => model.Comment, new { @class = "form-control", @rows = "2", placeholder = Resources.Calendar_Edit_CommentPlaceHolder })
+                    </div>
+                </div>
+
+                @*@if (Convert.ToDateTime(Model.Date.ToShortDateString()) > Convert.ToDateTime(DateTime.Now.ToShortDateString()))
+                {*@
+                    
+                      <div class="form-group">
+                    <div class="col-sm-8 pull-right">
+                        @Html.CheckBoxFor(model => model.SendNotification, new { id = "mailNotificationCheckBox" })&nbsp;&nbsp;&nbsp;
+                        @Html.Label(Resources.Calendar_Edit_Email, new { id = "mailNotificationLabel", @class = "control-label" })
+                    </div>
+                </div>
+               @* }*@
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.Calendar_Edit_SaveChanges</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Calendar_Edit_Cancel</button>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/customs/views/Calender/Add.js"></script>

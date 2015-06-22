@@ -1,0 +1,136 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Econsultation.EditDetailsModel
+@using System.ComponentModel.DataAnnotations;
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Resources.Econsultation_Add_Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">@Resources.Econsultation_Edit_DateTime</h4>
+        </div>
+
+        @using (Ajax.BeginForm("EditDetails", "Econsultation", new AjaxOptions
+         {
+             UpdateTargetId = "econsultConfirm",
+             HttpMethod = "POST",
+             InsertionMode = InsertionMode.Replace,
+             OnSuccess = "CloseDialogEconsultation"
+         }, new { @id = "editEconsultationForm", @class = "form-horizontal defaultForm", @role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Id)
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="datePicker" class="col-sm-4 control-label">@Resources.Econsultation_Add_Date<span class="mendetory-star">*</span></label>
+                    <div class="col-sm-8">
+                        <div class="input-group date">
+                            @Html.TextBoxFor(m => m.Date, null, new { @class = "form-control datepicker datepickerCustomValidation ", @Value = Model.ECTime.ToShortDateString() })
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Date)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ecDate" class="col-sm-4 control-label">@Resources.Econsultation_Add_Time<span class="mendetory-star">*</span></label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            @if (DomainHelper.GetDomain() == DomainTypeEnum.India)
+                            {
+                                @Html.TextBoxFor(m => m.Time, new { @class = "form-control timepicker1", @name = "timePicker", @Value = Model.ECTime.ToString("HH:mm") })
+                            }
+                            else
+                            {
+                                @Html.TextBoxFor(m => m.Time, new { @class = "form-control timepicker1", @name = "timePicker", @Value = Model.ECTime.ToString("hh:mm tt") })    
+                            }
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Time)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ecstatus" class="col-sm-4 control-label">@Resources.Econsultation_Add_Status<span class="mendetory-star">*</span></label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            @Html.EnumDropDownListFor(model => model.EconsultationStatus, new List<EConsultationStatusEnum> { EConsultationStatusEnum.PaymentPending }, null, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.EconsultationStatus)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="timezone" class="col-sm-4 control-label">@Resources.Users_AddUser_TimeZone <span class="mendetory-star">*</span></label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            @Html.EnumDisplay(Model.ECTimeZone)
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Econsultation_Add_Close</button>
+                    <button type="submit" id="submit" class="btn btn-primary">@Resources.Econsultation_Add_SaveChange</button>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+<link href="@Url.Content("~/Content/css/fullcalendar.min.css")" rel="stylesheet">
+<script src="@Url.Content("~/Scripts/external/fullcalendar.min.js")"></script>
+<script src="@Url.Content("~/Scripts/external/lang-all.js")"></script>
+
+<script type="text/javascript">
+    var culture = GetCurrentCulture();
+
+    function CloseDialogEconsultation() {
+        //location.reload();
+        window.location.href = "/Econsultation/Index";
+    }
+
+    $(document).ready(function () {
+
+        if (culture == 'en-IN') {
+            culture = 'en-gb';
+        }
+
+        $('.timepicker1').datetimepicker({
+            language: culture,
+            pickDate: false,
+            autoclose: true
+        });
+
+        jQuery("#EconsultationStatus option:contains('@EConsultationStatusEnum.InProgress')").remove();
+
+        jQuery("#EconsultationStatus option:contains('@EConsultationStatusEnum.Complete')").remove();
+
+        jQuery("#EconsultationStatus option:contains('@EConsultationStatusEnum.Closed')").remove();
+
+        $('#submit').click(function () {
+
+            var someDate = new Date($("#Date").val());
+            var today;
+            var currentDate = new Date();
+            var year = currentDate.getFullYear();
+            var year1 = someDate.getFullYear();
+            //alert(year);
+            var month = currentDate.getMonth() + 1;  // added +1 because javascript counts month from 0
+            var month1 = someDate.getMonth() + 1;
+            //alert(month);
+            var day = currentDate.getDate();
+            var day1 = someDate.getDate();
+            
+            var dateOne = new Date(year, month, day); //Year, Month, Date
+            var dateTwo = new Date(year1, month1, day1); //Year, Month, Date
+          //  console.log(dateOne);
+          //  console.log(dateTwo);
+          //  console.log(dateOne >= dateTwo);
+            if (dateOne > dateTwo) {
+                alert('Select valid Date');
+                return false;
+            } else {                
+                return true;
+            }            
+        });
+    });    
+</script>

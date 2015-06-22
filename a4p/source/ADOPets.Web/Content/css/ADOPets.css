@@ -1,0 +1,482 @@
+﻿
+#dvNoRecords {
+    padding: 10px 15px;
+}
+
+#userName a {
+    border-bottom: none;
+}
+
+    #userName a:hover, #userName a:active, #userName a:visited {
+        text-decoration: none;
+    }
+
+.field-validation-error {
+    color: #a94442;
+    font-size: 13px;
+}
+
+select.input-validation-error {
+     color: #a94442;
+    font-size: 13px;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+#PlanBilling .input-validation-error {
+    margin-top: 8px;
+}
+
+.input-validation-error {
+    /*border: 1px solid #ff0000;
+    background-color: #ffeeee;*/
+    border: 1px solid #a94442;
+}
+
+.validation-summary-errors {
+    color: #a94442;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.btnPopup {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+    .btnPopup:focus, .btnPopup:active:focus, .btnPopup.active:focus {
+        outline: thin dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+
+    .btnPopup:hover, .btnPopup:focus {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .btnPopup:active, .btnPopup.active {
+        background-image: none;
+        outline: 0;
+        -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+        box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    }
+
+.btn-sm, .btn-group-sm > .btnPopup {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.btn-default {
+    border-color: rgba(0,0,0,.125);
+}
+
+.popover.left {
+    /*margin-left: -25px;*/
+}
+.popover {
+width:200px;
+}
+.popover-title, .popover-content {width:100% !important;}
+.required:after {
+    content: "*";
+    font-size: large;
+    font-weight: bold;
+    color: #a94442;
+}
+
+#profilecover #profileeditbtn a i {
+    padding-right: 0;
+}
+
+#mrsubcatnavlevel1 .nav li {
+    width: 33.33% !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+}
+
+    #mrsubcatnavlevel1 .nav li a {
+        border-radius: 0 !important;
+        margin: 0 !important;
+        border: 0 !important;
+    }
+
+    #mrsubcatnavlevel1 .nav li a {
+        float: none !important;
+        width: auto !important;
+    }
+
+#mrsubcatnavlevel1 .nav-tabs {
+    border-bottom: none!important;
+}
+
+.hideslash:before {
+    display: none !important;
+}
+
+.show-rightButtons {
+    position: absolute;
+    top: -55px;
+    right: 15px;
+    z-index: 500;
+}
+
+.vitalMain {
+    position: relative;
+}
+
+
+/*signup*/
+
+#BasePlanName {
+    font-weight: 600;
+    font-size: 15px;
+    text-align: left;
+    margin-bottom: 10px;
+    color: #0075ba;
+    /*padding:5px;
+	background:#c5e9fa;
+	margin:0;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;*/
+}
+
+
+
+/*!
+ * Timepicker Component for Twitter Bootstrap 3
+ *
+ * Copyright 2014 Nate Hollingsworth
+ *
+ * Forked from: https://github.com/jdewit/bootstrap-timepicker
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+.bootstrap-timepicker {
+    position: relative !important;
+}
+
+    .bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu {
+        left: auto;
+        right: 0;
+    }
+
+.bootstrap-timepicker-widget {
+    z-index: 1200;
+}
+
+.bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu:before {
+    left: auto;
+    right: 12px;
+}
+
+.bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu:after {
+    left: auto;
+    right: 13px;
+}
+
+.bootstrap-timepicker-widget.dropdown-menu {
+    padding: 4px;
+    min-width: 0;
+}
+
+    .bootstrap-timepicker-widget.dropdown-menu.open {
+        display: inline-block;
+    }
+
+    .bootstrap-timepicker-widget.dropdown-menu:before {
+        border-bottom: 7px solid rgba(0, 0, 0, 0.2);
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        content: "";
+        display: inline-block;
+        position: absolute;
+    }
+
+    .bootstrap-timepicker-widget.dropdown-menu:after {
+        border-bottom: 6px solid #FFF;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        content: "";
+        display: inline-block;
+        position: absolute;
+    }
+
+.bootstrap-timepicker-widget.timepicker-orient-left:before {
+    left: 6px;
+}
+
+.bootstrap-timepicker-widget.timepicker-orient-left:after {
+    left: 7px;
+}
+
+.bootstrap-timepicker-widget.timepicker-orient-right:before {
+    right: 6px;
+}
+
+.bootstrap-timepicker-widget.timepicker-orient-right:after {
+    right: 7px;
+}
+
+.bootstrap-timepicker-widget.timepicker-orient-top:before {
+    top: -7px;
+}
+
+.bootstrap-timepicker-widget.timepicker-orient-top:after {
+    top: -6px;
+}
+
+.bootstrap-timepicker-widget.timepicker-orient-bottom:before {
+    bottom: -7px;
+    border-bottom: 0;
+    border-top: 7px solid #999;
+}
+
+.bootstrap-timepicker-widget.timepicker-orient-bottom:after {
+    bottom: -6px;
+    border-bottom: 0;
+    border-top: 6px solid #fff;
+}
+
+.bootstrap-timepicker-widget a.btn,
+.bootstrap-timepicker-widget input {
+    border-radius: 4px;
+}
+
+.bootstrap-timepicker-widget table {
+    width: 100%;
+    margin: 0;
+}
+
+    .bootstrap-timepicker-widget table td {
+        text-align: center;
+        height: 30px;
+        margin: 0;
+        padding: 2px;
+    }
+
+        .bootstrap-timepicker-widget table td:not(.separator) {
+            min-width: 25px;
+        }
+
+        .bootstrap-timepicker-widget table td span {
+            width: 100%;
+        }
+
+        .bootstrap-timepicker-widget table td a {
+            border: 1px transparent solid;
+            width: 100%;
+            display: inline-block;
+            margin: 0;
+            padding: 8px 0;
+            outline: 0;
+            color: #333;
+        }
+
+            .bootstrap-timepicker-widget table td a:hover {
+                text-decoration: none;
+                background-color: #eee;
+                border-radius: 4px;
+                border-color: #ddd;
+            }
+
+            .bootstrap-timepicker-widget table td a i {
+                margin-top: 2px;
+                font-size: 18px;
+            }
+
+        .bootstrap-timepicker-widget table td input {
+            width: 50px;
+            margin: 0;
+            text-align: center;
+        }
+
+.bootstrap-timepicker-widget .modal-content {
+    padding: 4px;
+}
+
+@media (min-width: 767px) {
+    .bootstrap-timepicker-widget.modal {
+        width: 200px;
+        margin-left: -100px;
+    }
+}
+
+@media (max-width: 767px) {
+    .bootstrap-timepicker {
+        width: 100%;
+    }
+
+        .bootstrap-timepicker .dropdown-menu {
+            width: 100%;
+        }
+}
+
+.cbx-md {
+    width: 23px;
+    height: 23px;
+    font-size: 17px;
+}
+
+.cbx {
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 3px;
+}
+
+.datepicker.input-validation-error {
+    margin-top: 0 !important;
+}
+
+.hideShowCollapsPanel {
+    display: block;
+    height: auto !important;
+}
+
+#PetForm .form-group {
+    margin-left: 0;
+}
+
+
+.headerimage {
+    cursor: hand;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.grabbing {
+    cursor: grabbing !important;
+    cursor: -moz-grabbing !important;
+    cursor: -webkit-grabbing !important;
+}
+
+.fileUpload-delete-button {
+    background-image: url(../Images/close.png);
+    height: 23px;
+    width: 23px;
+    background-repeat: no-repeat;
+    font-family: ArialRoundedMTBold,Arial,Helvetica,sans-serif;
+    color: #FFF;
+    text-decoration: none;
+    padding-top: 0px;
+    text-align: center;
+    font-size: 12px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.sectectPhotocheck {
+    position: absolute;
+    width: 25px;
+    height: 26px;
+    padding: 3px 4px 5px 6px;
+    background: #8aba40;
+    top: 0px;
+    right: 15px;
+}
+
+.table td button, .table th button {
+    border-radius: 0;
+}
+
+.customDisabled {
+    background: none !important;
+    box-shadow: none !important;
+    cursor: not-allowed;
+    pointer-events: visible;
+}
+_::-moz-svg-foreign-content, :root .btn-sm span { font-size:13px;} /*For Safari checkbox*/
+
+#selectPetlink > div {
+color: #31708f;
+background: #d9edf7;
+border: solid 1px #bce8f1;
+display: block;
+padding: 7px 15px;
+text-decoration: none;
+}
+
+.customscroll {
+    height: 330px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 0 !important;
+    width: 100% !important;
+}
+
+#TblUsers td:last-child, #TblUsers th:last-child {
+    width: 190px !important;
+}
+
+
+@charset "utf-8";
+/* CSS Document */
+#buble {
+	width:233px;
+	height:141px;
+	position:absolute;
+	top:80px;
+	right:0.5%;
+	z-index:400;
+	background:url(../images/smo-buble.png) top left no-repeat;
+	font-size:13px;
+	padding:17px 52px 46px 26px;
+	}
+#bubleBottom {
+	border-top:solid 1px #0065ab;
+	margin-top:4px;
+	padding-top:2px;
+	}
+#bubleBottom a{color:#0065ab;}
+
+.minimizeBubleStyle {
+	width:40px !important;
+	height:40px!important;
+	border-radius:50%;
+	font-size:16px!important;
+	text-align:center;
+	background:#fdc312!important;
+	padding:8px 0!important;
+	box-shadow:0 0 20px 0 rgba(0,0,0,.4) inset;
+	transition:all 0.3s;
+	}
+#maximizeBuble {
+	display:none;
+	}
+
+#dvAlbumPhotoList .btn-group {
+
+    margin-right:5px;
+}
+
+ .myInput {
+    width:  290px;
+    border:none;   
+          }

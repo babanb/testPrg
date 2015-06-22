@@ -1,0 +1,32 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.VideoGallery.DeleteViewModel
+
+<div class="modal-dialog" style="width: 50%;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title" id="myModalLabel">@Resources.Gallery_Delete_ModelVideoTitle</h4>
+        </div>
+        @using (Ajax.BeginForm("DeleteVideo", "VideoGallery", new AjaxOptions
+        {
+            UpdateTargetId = "dvMiddleContainer",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogGallery"
+        }, new { @class = "form-horizontal defaultForm", @role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.PetId) 
+            @Html.HiddenFor(m => m.Id)            
+            <div class="modal-body">
+                <label for="Subject" class="col-sm-9 control-label">@Resources.Gallery_Delete_StatusConfirmationMessageVideo</label>
+                <br />
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.Gallery_Delete_SubmitButton</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Gallery_Delete_CloseButton</button>
+            </div>
+        }
+    </div>
+</div>

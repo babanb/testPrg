@@ -1,0 +1,337 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/**************sign up2 page css start here***************/
+
+#main_signupbx {
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+    height: auto;
+}
+
+#signUp_tab {
+    border-radius: 0px;
+    background-color: #7fcf04;
+    clear: both;
+    margin-bottom: 7px;
+}
+
+#signUpBottom {
+    border-top: solid 1px #E8E8E8;
+    padding-top: 15px;
+}
+
+#mainBox {
+    padding: 15px 15px 0 15px;
+}
+/* IE6 and below */
+* html #mainBox {
+    padding: 20px 15px 0 15px;
+}
+/* IE6 & above */
+#mainBox {
+    padding: 20px 15px 0 15px \9;
+}
+/* must go at the END of all rules */
+
+/* Safari only */
+_::-moz-svg-foreign-content, :root #mainBox {
+    padding: 18px 15px 0 15px;
+}
+
+#signUp_tab > div {
+    width: 33.33%;
+    display: block;
+    text-align: center;
+    color: #518502;
+    font-size: 24px;
+    float: left;
+    padding: 5px;
+    background: #7fcf04 url(../images/tab_bg.png) center right no-repeat;
+}
+
+    #signUp_tab > div.active {
+        color: #FFF;
+    }
+/***************************************************/
+
+.signUpControlbx, .loginTop {
+    /*margin:0 -15px 20px -15px;*/ padding: 5px;
+    height: 90px;
+}
+
+.signUpControlbx {
+    background: url(../images/healthPattern.png) top left repeat, url(../images/signUpLine.png) left 40px repeat-x;
+    background-color: #94cc06;
+}
+
+.loginTop {
+    background: #94cc06 url(../images/healthPattern.png) top left repeat;
+    text-align: center;
+    color: #FFF;
+    clear: both;
+}
+
+.signUpControlbx .titleTab {
+    color: #4d6c00;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+    .signUpControlbx .titleTab div {
+        margin: 14px auto 5px auto;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        line-height: 40px;
+        color: #FFF;
+        font-size: 18px;
+        background: #7bab03;
+    }
+
+.signUpControlbx .active div {
+    background: #4d6c00;
+}
+
+/******************************************************/
+
+
+
+.mendetory-star {
+    position: relative;
+}
+
+    .mendetory-star:after {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: #fc3109;
+        content: "*";
+    }
+
+#signUpRightText {
+    font-family: "open Sans";
+    line-height: 28px;
+    font-size: 24px;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-shadow: 0 0 1px #666;
+}
+
+.p1 {
+    font-size: 16px;
+    color: #feb810;
+    line-height: 20px;
+    text-shadow: 0 0 1px #666;
+    margin: 15px 0 20px 0;
+}
+
+#pricingPlans td, #pricingPlans th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+    #pricingPlans td:first-child, #pricingPlans th:first-child {
+        text-align: right;
+    }
+
+    #pricingPlans td:nth-child(2), #pricingPlans th:nth-child(2) {
+        background: #d9edf7;
+        border-color: #c4dde9;
+    }
+
+    #pricingPlans td:nth-child(3), #pricingPlans th:nth-child(3) {
+        background: #dff0d8;
+        border-color: #cedfc7;
+    }
+
+    #pricingPlans td:nth-child(4), #pricingPlans th:nth-child(4) {
+        background: #fcf8e3;
+        border-color: #eeead2;
+    }
+
+    #pricingPlans td i.fa-check-circle {
+        color: #7bb038;
+        font-size: 20px;
+    }
+
+        #pricingPlans td .btn i.fa-check-circle {
+        color: #FFF;
+        font-size: 14px;
+    }
+
+    #pricingPlans td i.fa-times {
+        color: #d96b36;
+        font-size: 20px;
+    }
+
+#pricingPlans tr:first-child td, #pricingPlans tr:nth-child(100) td {
+    background: #fec412;
+    border: none;
+}
+
+#pricingPlans th {
+    border: none;
+}
+
+.planList {
+}
+
+    .planList tr {
+        background: #b4dcfe;
+        border-bottom: solid 4px #FFF;
+    }
+
+        .planList tr td {
+            vertical-align: middle;
+            padding: 5px 15px;
+        }
+
+            .planList tr td:first-child {
+                text-align: center;
+                color: #0667b8;
+                font-size: 13px;
+                border-right: solid 1px #9fc8eb;
+            }
+
+                .planList tr td:first-child span {
+                    font-size: 24px;
+                }
+
+            .planList tr td:nth-child(2) {
+                font-size: 12px;
+            }
+
+            .planList tr td:last-child {
+                text-align: center;
+                background: #86c6fc;
+                font-size: 18px;
+                padding: 0;
+            }
+
+                .planList tr td:last-child label {
+                    padding: 15px;
+                    display: block;
+                    cursor: pointer;
+                }
+
+.finalPrice {
+    background: #fec710;
+    padding: 10px 15px;
+    font-size: 18px;
+    margin-top: 7px;
+}
+
+#pricingPlans h3 {
+    margin: 0;
+}
+
+.track3 {
+    width: 10px;
+    background: rgba(0, 0, 0, 0);
+    margin-right: 2px;
+    border-radius: 10px;
+    transition: background 250ms linear;
+}
+
+    .track3:hover,
+    .track3.dragging {
+        background: #d9d9d9; /* Browsers without rgba support */
+        background: rgba(0, 0, 0, 0.15);
+    }
+
+.handle3 {
+    width: 7px;
+    right: 0;
+    background: #999;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 7px;
+    -webkit-transition: width 250ms;
+    transition: width 250ms;
+}
+
+.track3:hover .handle3,
+.track3.dragging .handle3 {
+    width: 10px;
+}
+
+.customscroll {
+    overflow: auto;
+    padding-right: 0px !important;
+    width: 100% !important;
+    /*max-height:460px;*/
+    border: solid 1px #E8E8E8;
+}
+
+
+/********************* SignUp Step 2 styles starts here *******************/
+.signUpcontent {
+    margin: 0 -15px;
+}
+
+    .signUpcontent .form-control {
+        border-width: 2px;
+        border-radius: 0;
+        height: 40px;
+        box-shadow: none;
+    }
+
+    .signUpcontent .input-group-addon {
+        border-width: 2px;
+        border-radius: 0;
+    }
+
+    .signUpcontent .mendetory-star:after {
+        top: -2px;
+        right: -10px;
+    }
+
+    .signUpcontent .form-group {
+        margin-bottom: 12px;
+    }
+
+.hiwBtn {
+    text-transform: uppercase;
+    background: #9cd803;
+    color: #035193;
+    border: none;
+    padding: 10px 20px;
+}
+
+@media (min-width: 1024px) {
+    #signUpRightText {
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .p1 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+
+
+
+
+
+
+/**************sign up page css end here***************/
+
+/*Validation error -Nutan*/
+
+.input-validation-error {
+    border: 1px solid #a94442;
+    /*margin-top: 8px;*/
+}
+
+.field-validation-error {
+    color: #a94442;
+    font-size: 13px;
+}
+
+.field-validation-valid {
+    display: none;
+}

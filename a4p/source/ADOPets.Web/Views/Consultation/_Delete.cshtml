@@ -1,0 +1,62 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Consultation.DeleteViewModel
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">@Resources.Consultation_Delete_Message</h4>
+        </div>
+
+        @using (Ajax.BeginForm("Delete", "Consultation", new AjaxOptions
+        {
+            UpdateTargetId = "consultationList",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogConsultation"
+        }, new { @class = "form-horizontal defaultForm", @role = "form" }))
+        {               
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.PetId)
+            @Html.HiddenFor(m => m.Id)
+
+            <div class="modal-body">
+                <div class="columnfull" style="width: 80%;">
+                    <div class="detailrow">
+                        <div>@Resources.Consultation_Delete_ConsultationName</div>
+                        <div class="colonspace">:</div>
+                        <div>@Model.ConsultationName</div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="detailrow">
+                        <div>@Resources.Consultation_Delete_VisitDate</div>
+                        <div class="colonspace">:</div>
+                        <div>@Model.VisitDate.ToShortDateString()</div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="detailrow">
+                        <div>@Resources.Consultation_Delete_Reason</div>
+                        <div class="colonspace">:</div>
+                        <div>
+                            @Model.Reason
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="detailrow">
+                        <div>@Resources.Consultation_Delete_Comment</div>
+                        <div class="colonspace">:</div>
+                        <div>@Html.Raw("<pre>" + Model.Comment + "</pre>")</div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-warning">@Resources.Consultation_Delete_SaveChanges</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">@Resources.Consultation_Delete_Cancel</button>
+            </div>
+        }
+
+    </div>
+</div>

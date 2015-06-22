@@ -1,0 +1,85 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Profile.PlanRenewalDetailsViewModel
+
+
+<div class="modal-dialog">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="PlanRewalDetailsModalLabel">@Resources.Profile_PlanDetail_RenewalDetails</h4>
+        </div>
+        <div class="modal-body">
+            <div class="columnfull first">
+                <div class="detailrow">
+                    <div style="color: #428bca; width: 35%;">@Resources.Profile_PlanDetail_YourPlan</div>
+                    <div class="colonspace text-primary">:</div>
+                    <div class="text-primary">@Model.FinalplanName</div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="detailrow">
+                    <div style="width: 35%;">@Resources.Profile_PlanDetail_Promocode</div>
+                    <div class="colonspace">:</div>
+                    <div>@Model.Promocode</div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="detailrow">
+                    <div style="width: 35%;">@Resources.Profile_PlanDetail_PlanName</div>
+                    <div class="colonspace">:</div>
+                    <div>@Model.PlanName</div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="detailrow">
+                    <div style="width: 35%;">@Resources.Profile_PlanDetail_Description</div>
+                    <div class="colonspace">:</div>
+                    <div>@Model.Description</div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="detailrow">
+                    <div style="width: 35%;">@Resources.Profile_PlanDetail_AdditionalInfo</div>
+                    <div class="colonspace">:</div>
+                    <div>@Model.AdditionalInfo</div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="detailrow">
+                    <div style="width: 35%;">@Resources.Profile_PlanDetail_MaxPets</div>
+                    <div class="colonspace">:</div>
+                    <div>@Model.NumberOfPets</div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="detailrow">
+                    <div style="width: 35%;">@Resources.Profile_PlanDetail_StartDate</div>
+                    <div class="colonspace">:</div>
+                    <div>@Model.StartDate.ToShortDateString()</div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="detailrow">
+                    <div style="width: 35%;">@Resources.Profile_PlanDetail_ExpirationDate</div>
+                    <div class="colonspace">:</div>
+                    <div>@Model.EndDate.ToShortDateString()</div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="detailrow">
+                    <div style="width: 35%;">@Resources.Profile_PlanDetail_Duration</div>
+                    <div class="colonspace">:</div>
+                    <div>@string.Format(Resources.Profile_PlanDetail_Days, Model.Duration)</div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Profile_PlanDetail_Close</button>
+        </div>
+    </div>
+</div>
+

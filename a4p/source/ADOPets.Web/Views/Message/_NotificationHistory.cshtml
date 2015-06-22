@@ -1,0 +1,96 @@
+﻿@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Message.NotificationHistoryViewModel>
+
+@if (Model != null && Model.Count() > 0)
+{
+    <table id="tblnotificationHistory" width="100%" border="0" class="table table-hover notiList">
+
+        @foreach (var item in Model)
+        {    <thead>
+            <tr>
+                <td width="80%">
+                    <h4 class="text-success">@item.Month</h4>
+                </td>
+                <td width="20%">
+                    <h4>@item.Year</h4>
+                </td>
+            </tr>
+        </thead>     
+            <tbody>
+                @foreach (var lst in item.lstNotification)
+                { 
+                    <tr>
+                        @if (lst.TypeOfNotification == "message")
+                        {                   
+                            <td width="80%"><a href="@Url.Action("MessageDetail", "Message", new { id = lst.ConversationId })"><i class="fa fa-envelope-o"></i>@Resources.Message_MesssageNotification_MessageText @lst.FromUserName</a></td>
+                            <td width="20%">@string.Format("{0:t}", @lst.NotificationDate.ToShortTimeString()), @lst.NotificationDate.ToShortDateString()</td>                   
+                        }
+                        else if (lst.TypeOfNotification == "econsultation")
+                        {
+                            if (Roles.IsUserInRole(UserTypeEnum.OwnerAdmin.ToString()))
+                            {              
+                            <td width="80%"><a href="@Url.Action("ViewDetails", "Econsultation", new { EconsultID = lst.ConversationId, IsRead = true })"><i class="fa fa-calendar-o"></i>@lst.Subject</a></td>
+                            <td width="20%">@string.Format("{0:t}", @lst.NotificationDate.ToShortTimeString()), @lst.NotificationDate.ToShortDateString()</td>                 
+                            }
+                            else
+                            {
+                            <td width="80%"><a href="@Url.Action("ExpertViewDetails", "Econsultation", new { EconsultID = lst.ConversationId, IsRead = true })"><i class="fa fa-calendar-o"></i>@lst.Subject</a></td>
+                            <td width="20%">@string.Format("{0:t}", @lst.NotificationDate.ToShortTimeString()), @lst.NotificationDate.ToShortDateString()</td>                     
+                            }
+                        }
+                        else if (lst.TypeOfNotification == "smo")
+                        {
+                            if (Roles.IsUserInRole(UserTypeEnum.OwnerAdmin.ToString()))
+                            {
+                                if (lst.IsSMOPaymentDone)
+                                {                       
+                            <td width="80%"><a href="@Url.Action("SMODetails", "SMO", new { id = lst.ConversationId })"><i class="fa fa-comment"></i>@lst.Subject</a> </td>
+                            <td width="20%">@string.Format("{0:t}", @lst.NotificationDate.ToShortTimeString()), @lst.NotificationDate.ToShortDateString()</td>
+                                }
+                                else
+                                {
+                            <td width="80%"><a href="@Url.Action("EditSMO", "SMO", new { smoId = lst.ConversationId })"><i class="fa fa-comment"></i>@lst.Subject</a> </td>
+                            <td width="20%">@string.Format("{0:t}", @lst.NotificationDate.ToShortTimeString()), @lst.NotificationDate.ToShortDateString()</td>
+                                }
+
+                            }
+                            else
+                            {
+                            <td width="80%"><a href="@Url.Action("Edit", "SMO", new { id = lst.ConversationId })"><i class="fa fa-comment"></i>@lst.Subject</a> </td>
+                            <td width="20%">@string.Format("{0:t}", @lst.NotificationDate.ToShortTimeString()), @lst.NotificationDate.ToShortDateString()</td>
+                            }
+                        }
+                        else if (lst.TypeOfNotification == "shareinfo")
+                        {
+                            if (Roles.IsUserInRole(UserTypeEnum.OwnerAdmin.ToString()))
+                            {
+                            <td width="80%"><a href="@Url.Action("PetDetails", "Pet", new { id = lst.ConversationId, sharecategory = lst.ShareCategoryTypeId })"><i class="fa fa-share-square sharepet-icon"></i>@lst.Subject</a> </td>
+                            <td width="20%">@string.Format("{0:t}", @lst.NotificationDate.ToShortTimeString()), @lst.NotificationDate.ToShortDateString()</td>
+                            }
+                        }
+                        else
+                        {
+                            <td width="80%"><a href="@Url.Action("IndexStatus", "Calender", new { id = lst.ConversationId })"><i class="fa fa-calendar-o"></i>@lst.Subject</a> </td>
+                            <td width="20%">@string.Format("{0:t}", @lst.NotificationDate.ToShortTimeString()), @lst.NotificationDate.ToShortDateString()</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        }
+
+    </table>
+    
+    <a class="btn btn-default" id="seeMoreRecords" style="display: block;"><i class="glyphicon glyphicon-refresh"></i>@Resources.Message_Notification_SeeMore</a>
+    <a class="btn btn-default" id="seeLessRecords" style="display: block;"><span class="glyphicon glyphicon-refresh"></span>@Resources.Message_Notification_Less</a>
+    <div id="backTotop"><a href="#top-text" data-tooltip="tooltip" data-placement="top" title="@Resources.Message_Notification_BackToTop"><span class="fa fa-chevron-up"></span></a></div>
+    <script type="text/javascript" src="~/Scripts/customs/views/Message/NotificationHistory.js"></script>
+}
+else
+{
+    <div class="row">
+        <h4 style="text-align: center; margin-top: 20px;" class="text-primary">
+            @Resources.Smo_Index_NoRecordFound<br>
+        </h4>
+    </div>
+}

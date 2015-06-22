@@ -1,0 +1,170 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.PetContact.DeleteViewModel
+@using Model
+
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">@Resources.PetContact_Delete_Message</h4>
+        </div>
+        @using (Ajax.BeginForm("Delete", "PetContact", new AjaxOptions
+        {
+            UpdateTargetId = "petcontactList",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogPetContact"
+        }, new { @class = "form-horizontal defaultForm", @role = "form" }))
+        {
+           
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.PetId)
+            @Html.HiddenFor(m => m.Id)
+                          
+            <div class="modal-body">
+                <div class="customscroll" style="height: 425px;">
+                    <div class="columnfull" style="width: 80%;">
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_FullName</div>
+                            <div class="colonspace">:</div>
+                            <div>@Model.LastName @Model.FirstName</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_Relationship</div>
+                            <div class="colonspace">:</div>
+                            <div>@Model.Relationship</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_IsEmergencyContact</div>
+                            <div class="colonspace">:</div>
+                            <div>
+                                @if (Model.IsEmergencyContact)
+                                {@Resources.PetContact_Delete_IsEmergencyContactYes }
+                                else
+                                {@Resources.PetContact_Delete_IsEmergencyContactNo}
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_StartDate</div>
+                            <div class="colonspace">:</div>
+                            <div>
+                                @if (Model.StartDate.HasValue)
+                                {
+                                    @Model.StartDate.Value.ToShortDateString()
+                                }
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_EndDate</div>
+                            <div class="colonspace">:</div>
+                            <div>
+                                @if (Model.EndDate.HasValue)
+                                {
+                                    @Model.EndDate.Value.ToShortDateString()
+                                }
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_Address1</div>
+                            <div class="colonspace">:</div>
+                            <div>@Model.Address1</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_Address2</div>
+                            <div class="colonspace">:</div>
+                            <div>@Model.Address2</div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_Country</div>
+                            <div class="colonspace">:</div>
+                            <div>@Model.Country</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        @if (ADOPets.Web.Common.Helpers.DomainHelper.GetDomain() != DomainTypeEnum.French)
+                        { 
+                            <div class="detailrow">
+                                <div>@Resources.PetContact_Delete_State</div>
+                                <div class="colonspace">:</div>
+                                <div>@Model.State</div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_City
+                            </div>
+                            <div class="colonspace">:</div>
+                            <div>@Model.City</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_Zip</div>
+                            <div class="colonspace">:</div>
+                            <div>@Model.Zip</div>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_Home</div>
+                            <div class="colonspace">:</div>
+                            <div>@Model.Home</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        @if (ADOPets.Web.Common.Helpers.DomainHelper.GetDomain() != DomainTypeEnum.French)
+                        {
+                            <div class="detailrow">
+                                <div>@Resources.PetContact_Delete_Office</div>
+                                <div class="colonspace">:</div>
+                                <div>@Model.Office</div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_Cell</div>
+                            <div class="colonspace">:</div>
+                            <div>@Model.Cell</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_Fax</div>
+                            <div class="colonspace">:</div>
+                            <div>@Model.Fax</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_Email</div>
+                            <div class="colonspace">:</div>
+                            <div>@Model.Email</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="detailrow">
+                            <div>@Resources.PetContact_Delete_Comments</div>
+                            <div class="colonspace">:</div>
+                            <div>@Html.Raw("<pre>" + Model.Comments + "</pre>")</div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-warning">@Resources.PetContact_Delete_SaveChanges</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">@Resources.PetContact_Delete_Cancel</button>
+            </div>
+        }
+
+    </div>
+</div>

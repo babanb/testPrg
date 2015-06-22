@@ -1,0 +1,120 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Users.RenewPlanViewModel
+
+<div class="well well-sm">
+    <div class="columnfull first">
+        <h3 style="text-align: center">@Resources.Profile_PlanDetail_RenewalPlan </h3>
+        <hr />
+        @using (Html.BeginForm("RenewPlan", "Users", FormMethod.Post, new { @id = "RenewPlanForm", enctype = "multipart/form-data", @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.MaxPetCount)
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label  text-primary">@Resources.Profile_PlanDetail_YourPlan : </label>
+                        <div class="col-sm-8">
+                            <label class="control-label  text-primary" id="RenuewalPlan">@Model.FinalplanName</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label text-primary">@Resources.Profile_PlanDetail_YourCharge :  </label>
+                        <div class="col-sm-8">
+                            <label class="control-label  text-primary" id="RenewalPrice">$@Model.Price</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Promocode, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-2">
+                            @Html.DropDownListFor(model => model.Promocode, ViewBag.Promocode as IEnumerable<SelectListItem>, Resources.Users_EditUser_PromocodePlaceHolder, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PlanName, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-6">
+                            @Html.DropDownListFor(model => model.PlanName, ViewBag.Plans as IEnumerable<SelectListItem>, new { @class = "form-control", @style = "margin-bottom:0;" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AdditionalPetRenewal, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-2">
+                            @Html.DropDownListFor(model => model.AdditionalPetRenewal, new SelectList(Enumerable.Range(1, 10)), Resources.Account_SignUp_Addpets, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-8 control-label" for="AddPetsErr" id="AddPetsRenewalErrMsg" style="text-align: left; color: #a94442; font-weight: 400; padding-right: 30px; display: none;">@string.Format(Resources.Profile_PlanRenewal_AddPetsError, Model.MaxPetCount + Convert.ToInt32(Model.NumberOfPets))
+                            <a href="@Url.Action("GetTotalPets", "Profile", new { userid = Model.UserID, totalPets = Model.MaxPetCount + Convert.ToInt32(Model.NumberOfPets) })" id="RemovePets"  data-toggle="modal" data-target=".bs-example-modal-lg">@Resources.Profile_RenewPlan_RemovePet</a>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.Label("", Model.Description, new { id = "BasePlanDescription", @class = "control-label", style = "text-align: left;font-weight:400;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AdditionalInfo, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.LabelFor(model => model.AdditionalInfo, new { id = "AdditionalInfo", @class = "control-label", style = "text-align: left;font-weight:400;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StartDate, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.Label("tmpStartDate", Model.StartDate.ToShortDateString(), new { id = "lblStartDate", @class = "control-label", style = "text-align: left;font-weight:400;" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EndDate, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.Label("ExpirationDate", Model.EndDate.ToShortDateString(), new { id = "lblExpirationDate", @class = "control-label", style = "text-align: left;font-weight:400;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Duration, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.Label("Duration", string.Format(Resources.Profile_PlanEdit_Days, Model.Duration), new { id = "Duration", @class = "control-label", style = "text-align: left;font-weight:400;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RemainingDays, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-8">
+                            @Html.Label("Duration", string.Format(Resources.Profile_PlanEdit_Days, Model.RemainingDays), new { id = "TotalRemainigDays", @class = "control-label", style = "text-align: left;font-weight:400;" })
+                        </div>
+                    </div>
+                    @Html.HiddenFor(model => model.UserID)
+                    @Html.HiddenFor(model => model.UserSubscriptionId)
+                    @Html.HiddenFor(model => model.StartDate)
+                    @Html.HiddenFor(model => model.EndDate)
+                    @Html.HiddenFor(model => model.MaxPetCount)
+                    @Html.HiddenFor(model => model.DeletedPets)
+                    @Html.HiddenFor(model => model.DeletedUnUsedPets)
+                    <input type="hidden" value="@Model.Promocode" id="CurrentPromocode" />
+                    <input type="hidden" value="@Model.AdditionalPetRenewal" id="CurrentPlan_NumberofPets" />
+                    <input type="hidden" value="@Resources.Account_SignUp_Addpets" id="changeselectText" />
+
+                    <input type="hidden" id="dvDeletedItem" />
+                    <div class="form-group">
+                        <div class="col-sm-offset-5 col-sm-6">
+                            <a href="#" id="CancelRenewalPlan" data-dismiss="modal" class="btn btn-success">@Resources.Profile_PlanEdit_Cancel</a>
+                            <input type="submit" class="btn btn-success" value="@Resources.Users_AddUser_Submit"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div id="DeletepetsModel" class="modal fade" tabindex="-1" role="dialog"></div>
+<script src="~/Scripts/customs/views/Users/RenewPlan.js"></script>
+

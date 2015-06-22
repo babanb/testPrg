@@ -1,0 +1,32 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Immunization.IndexViewModel>
+@using ADOPets.Web.Common.Helpers
+
+<ol class="breadcrumb mrbreadcrumb">
+    <li>@Ajax.ActionLink(Resources.Immunization_Index_MedicalRecord, "MedicalRecords", "Pet", new { id = ViewBag.PetId },
+                new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecord" })</li>
+    <li class="active">@Resources.Immunization_Index_HealthHistory </li>
+    <li class="active">@Resources.Immunization_Index_Immunization</li>
+    @if (UserHelper.CanDeletePet(ViewBag.PetId))
+    {
+        if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+        {
+            if (SMOHelper.CanEditPet(ViewBag.PetId))
+            {
+        <a href="@Url.Action("GetDownloadMedicalRecord", "Pet", new { petid = ViewBag.PetId })"  class="btn btn-warning btn-sm pull-right" style="margin-left:10px;"><i class="fa fa-print"></i>@Resources.Pet_MedicalRecord_Print</a>    
+        <a href="@Url.Action("Add", "Immunization", new { petId = ViewBag.PetId })" id="addImmunization" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus-circle"></i>@Resources.Immunization_Index_Add</a>
+            }
+        }
+    }
+    <div class="clearfix"></div>
+</ol>
+
+@{ Html.RenderPartial("~/Views/Immunization/_List.cshtml"); }
+
+
+
+<div id="addModalImmunization" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="editModalImmunization" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="deleteModalImmunization" class="modal fade" tabindex="-1" role="dialog"></div>
+
+<script src="~/Scripts/customs/views/Immunization/Index.js"></script>

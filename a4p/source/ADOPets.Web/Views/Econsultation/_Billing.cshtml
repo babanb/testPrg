@@ -1,0 +1,120 @@
+﻿@model ADOPets.Web.ViewModels.Econsultation.AddBillingViewModel
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording;
+
+<div id="payment-option">
+    <img src="@Url.Content("~/Content/images/mastercard.png")">
+    <img src="@Url.Content("~/Content/images/visa.png")">
+    <img src="@Url.Content("~/Content/images/discover-network.png")">
+    <img src="@Url.Content("~/Content/images/jcb.png")">
+</div>
+<hr>
+@using (Ajax.BeginForm("Billing", "Econsultation",
+   new AjaxOptions
+    {
+        HttpMethod = "POST"
+    },
+    new
+    {
+        @id = "EconsultationBillingForm",
+        @class = "form-horizontal defaultForm bv-form",
+        @role = "form"
+    }))
+{
+    
+    <div class="form-group">
+        @Html.LabelRequiredFor(model => model.CreditCardType, new { @class = "col-md-6 control-label", @style = "font-weight:bold;" })
+        <div class="col-md-6">
+            @Html.EnumDropDownListFor(m => m.CreditCardType, Resources.Econsultation_Add_CreditCardTypePlaceHolder, new { @class = "form-control" })
+            @Html.ValidationMessageFor(modelItem => modelItem.CreditCardType)
+        </div>
+    </div>
+    @Html.Hidden("PetId",Session["PetId"])    
+    <div class="form-group">
+        @Html.LabelRequiredFor(model => model.CreditCardNumber, new { @class = "col-md-6 control-label", @style = "font-weight:bold;" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(modelItem => modelItem.CreditCardNumber, new { @class = "form-control", @placeholder = @Resources.Econsultation_Add_CardNumber, @data_bv_notempty = "true", @data_bv_field = @Resources.Econsultation_Add_CardNumber })
+            @Html.ValidationMessageFor(modelItem => modelItem.CreditCardNumber)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelRequiredFor(model => model.ExpirationDate, new { @class = "col-md-6 control-label", @style = "font-weight:bold;" })
+        <div class="col-md-6">
+            <div class="input-group date">
+                @Html.TextBoxFor(modelItem => modelItem.ExpirationDate, "{0:MM/yyyy}", new { @class = "form-control datepicker datepickerMonthYear", @placeholder = @Resources.Econsultation_Add_ExpirationDate })
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+
+            </div>
+            @Html.ValidationMessageFor(modelItem => modelItem.ExpirationDate)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelRequiredFor(model => model.CVV, new { @class = "col-md-6 control-label", @style = "font-weight:bold;" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(modelItem => modelItem.CVV, new { @class = "form-control", @data_bv_notempty = "true", @data_bv_field = @Resources.Econsultation_Add_CVV, placeholder = Resources.Econsultation_Add_CVVPlaceHolder })
+            @Html.ValidationMessageFor(modelItem => modelItem.CVV)
+        </div>
+    </div>
+      
+        
+    <div id="billing-add"> 
+        <hr>
+        <h3 class="text-center">@Resources.Econsultation_Add_BillingAddress</h3>
+        <hr>
+        <div class="form-group">
+            @Html.LabelRequiredFor(model => model.Address1, new { @class = "col-md-6 control-label", @style = "font-weight:bold;" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(modelItem => modelItem.Address1, new { @class = "form-control", @placeholder = @Resources.Econsultation_Add_Address1PlaceHolder, @data_bv_notempty = "true", @data_bv_field = @Resources.Econsultation_Add_Address1 })
+                @Html.ValidationMessageFor(modelItem => modelItem.Address1)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address2, new { @class = "col-md-6 control-label", @style = "font-weight:bold;" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(modelItem => modelItem.Address2, new { @class = "form-control", @placeholder = @Resources.Econsultation_Add_Address2PlaceHolder, @data_bv_field = @Resources.Econsultation_Add_Address2 })
+                @Html.ValidationMessageFor(modelItem => modelItem.Address2)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelRequiredFor(model => model.City, new { @class = "col-md-6 control-label", @style = "font-weight:bold;" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(modelItem => modelItem.City, new { @class = "form-control", @placeholder = @Resources.Econsultation_Add_CityPlaceHolder, @data_bv_notempty = "true", @data_bv_field = @Resources.Econsultation_Add_City })
+                @Html.ValidationMessageFor(modelItem => modelItem.City)
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectcountry" class="col-md-6 control-label"><strong>@Resources.Econsultation_Add_Country<span class="mendetory-star">*</span></strong></label>
+            <div class="col-md-6">
+                @Html.EnumDropDownListFor(m => m.BillingCountry, Resources.Econsultation_Add_BillingCountry, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BillingCountry)
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectstate" class="col-md-6 control-label"><strong>@Resources.Econsultation_Add_State<span class="mendetory-star">*</span></strong></label>
+            <div class="col-md-6">
+                @Html.EnumDropDownListFor(m => m.BillingState, @Resources.Econsultation_Add_StatePlaceHolder, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BillingState)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelRequiredFor(model => model.Zip, new { @class = "col-md-6 control-label", @style = "font-weight:bold;" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(modelItem => modelItem.Zip, new { @class = "form-control", @placeholder = @Resources.Econsultation_Add_ZipPlaceHolder, @data_bv_notempty = "true", @data_bv_field = @Resources.Econsultation_Add_Zip })
+                @Html.ValidationMessageFor(modelItem => modelItem.Zip)
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div class="form-group">
+        <div class="col-md-6">
+            <button id="back-billing-bt" type="button" class="btn btn-primary btn-lg pull-right"><i class="fa fa-arrow-left"></i>@Resources.Econsultation_Add_Back</button>
+        </div>
+        <div class="col-md-6">
+            <button id="next-billing-bt" type="button" class="btn btn-success btn-lg">@Resources.Econsultation_Add_NextStep <i class="fa fa-arrow-right"></i></button>
+        </div>
+    </div>
+}
+<script src="@Url.Content("~/Scripts/customs/views/Econsultation/Billing.js")"></script>

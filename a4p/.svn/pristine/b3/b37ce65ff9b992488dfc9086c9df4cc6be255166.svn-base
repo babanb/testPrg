@@ -1,0 +1,70 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.AlbumGallery.AddViewModel
+@using ADOPets.Web.Common.Extensions
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">@Resources.AlbumGallery_Add_ModelTitle</h4>
+        </div>
+        <input type="hidden" id="hdnPetId" value="@Model.PetId" />
+        <input type="hidden" id="hdnAlbumId" value="0" />
+
+        @using (Html.BeginForm("Add", "AlbumGallery", new { petId = Model.PetId }, FormMethod.Post, new { enctype = "multipart/form-data", @id = "addAlbumGalleryForm", @class = "form-horizontal defaultForm", @role = "form" }))
+        {         
+            @Html.AntiForgeryToken()
+            @Html.Hidden("hdnInvalidImagetype", @Resources.Gallery_Add_ImageValidation)
+            <div class="modal-body">
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.Title, new { @class = "col-sm-3 control-label" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = Resources.AlbumGallery_Add_TitlePlaceHolder })
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                    <div class="col-md-3">
+                        <a href="javascript:void(0)" style="text-decoration: none !important;" id="lnkChooseFromGallery">
+                            @Resources.AlbumGallery_Add_SelectPhoto</a>
+                        <br />
+                        <br />
+                        <a href="javascript:void(0)" style="text-decoration: none !important;" id="btnFileUpload">
+                            @Resources.AlbumGallery_Add_UploadPhoto</a>
+                    </div>
+                </div>
+                <div class="" id="dvGalleryPhoto">
+                </div>
+                <div id="dvGalleryUploadError" class="error">
+                </div>
+                <div class="" id="dvAlbumPhotoList">
+                    <table class="table" id="tblNewPhoto" width="80%">
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCloseModel">@Resources.AlbumGallery_Add_CloseButton</button>
+                <button type="button" id="btnSaveAlbum" class="btn btn-primary" disabled="disabled">@Resources.AlbumGallery_Add_SubmitButton</button>
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/external/ajaxupload.js")"></script>
+<script src="@Url.Content("~/Scripts/external/ui-custom.js")"></script>
+<script>
+    function GetAlbumGalleryTranslation() {
+        var result = {
+            "ISDefault": '@Resources.AlbumGallery_Index_ISDefault',
+            "UploadText": '@Resources.AlbumGallery_Index_UploadText',
+            "PhotoTitle": '@Resources.AlbumGallery_Index_PhotoTitle',
+            "TitleRequired": '@Resources.AlbumGallery_Index_TitleRequired',
+            "UploadPhotoRequired": '@Resources.AlbumGallery_Index_UploadPhotoRequired'
+        };
+        return result;
+    }
+</script>
+<script src="@Url.Content("~/Scripts/customs/views/AlbumGallery/List.js")"></script>
+<script src="@Url.Content("~/Scripts/customs/views/AlbumGallery/Add.js")"></script>
+
+
+

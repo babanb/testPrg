@@ -1,0 +1,1 @@
+ INSERT INTO ADOPets_Rev.dbo.PaymentType(id,Name) values(1,'MasterCard'),(2,'Visa'),(3,'Discover'),(4,'JCB Card')

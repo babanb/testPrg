@@ -1,0 +1,222 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Account.PetsGlobalViewModel
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html>
+<head>
+    <link href="../Content/css/jplayer.pink.flag.min.css" rel="stylesheet" type="text/css" />
+
+    <meta charset="utf-8">
+    <meta name="description" content="Activ4Pets eConsultation service allows you to attend online veterinarian consultations with your pet. Your pet‘s entir medical history can be accessed and updated from any device.  Our expert veterinarians provide unbiased online second medical opinions about your pet’ s diagnosis, condition and treatment">
+    <meta name="author" content="Activ4pets">
+    <link rel="shortcut icon" href="~/Content/images/favicon.gif">
+    <title>@Resources.PetsGlobalPage_Title</title>
+    <link href="~/Content/css/font.css" rel='stylesheet' type='text/css'>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans';
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            background: url(../Content/images/health.png) top left repeat;
+        }
+
+        a {
+            text-decoration: none;
+            font-family: 'Open Sans';
+            font-size: 14px;
+            font-weight: 400;
+            outline: none;
+            color: #333;
+        }
+
+        #main {
+            width: 990px;
+            margin: auto;
+        }
+
+        img {
+            border: none;
+            outline: none;
+        }
+
+        #a4pBanner {
+            width: 990px;
+            margin: 15px 0;
+        }
+
+            #a4pBanner img {
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                box-shadow: 0 0 5px 0 #565656;
+            }
+
+        #comments, #mediaContainer {
+            box-shadow: 0 0 5px 0 #565656;
+            background: #FFF;
+            padding: 10px;
+            width: 990px;
+            margin: 20px 0;
+        }
+
+            #mediaContainer img {
+                width: 970px;
+            }
+
+        #title {
+            width: 100%;
+            float: left;
+            color: #0a67a3;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        #smLikeShare {
+            width: 280px;
+            float: left;
+            margin-left: 20px;
+            text-align: right;
+        }
+
+        #footer {
+            width: 990px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="hidden" id="hdnVideoURL" value="@Model.VideoUrl" />
+
+    <div id="main">
+        <div id="a4pBanner">
+            <img src="~/Content/images/a4pBanner.jpg" alt="Welcome to Activ4Pets" width="990" height="200" usemap="#Map" />
+            <map name="Map">
+                <area shape="rect" coords="479,129,643,175" href="https://login.activ4pets.com/Account/SignUp" target="_blank" style="outline: none;">
+            </map>
+        </div>
+        <div id="mediaContainer">
+            @if (Model.GalleryType == 1)
+            {
+                <img src="@Url.Action("GetImageFile", "Account", new { galleryId = Model.GalleryId })" width="970" alt=""/> 
+            }
+            else
+            {                
+                <div id="jp_container_1" class="jp-video jp-video-360p" role="application" aria-label="media player">
+                    <div class="jp-type-single">
+                        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                        <div class="jp-gui">
+                            <div class="jp-video-play">
+                                <button class="jp-video-play-icon" role="button" tabindex="0">play</button>
+                            </div>
+                            <div class="jp-interface">
+                                <div class="jp-progress">
+                                    <div class="jp-seek-bar">
+                                        <div class="jp-play-bar"></div>
+                                    </div>
+                                </div>
+                                <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                                <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                                <div class="jp-details">
+                                    <div class="jp-title" aria-label="title">&nbsp;</div>
+                                </div>
+                                <div class="jp-controls-holder">
+                                    <div class="jp-volume-controls">
+                                        <button class="jp-mute" role="button" tabindex="0">mute</button>
+                                        <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                                        <div class="jp-volume-bar">
+                                            <div class="jp-volume-bar-value"></div>
+                                        </div>
+                                    </div>
+                                    <div class="jp-controls">
+                                        <button class="jp-play" role="button" tabindex="0">play</button>
+                                        <button class="jp-stop" role="button" tabindex="0">stop</button>
+                                    </div>
+                                    <div class="jp-toggles">
+                                        <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                                        <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-no-solution">
+                            <span>Update Required</span>
+                            To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                        </div>
+                    </div>
+                </div>
+                
+                <script src="@Url.Content("~/Scripts/external/jquery.min.js")"></script>
+                <script src="@Url.Content("~/Scripts/external/popcorn.ie8.js")"></script>
+                <script src="@Url.Content("~/Scripts/external/popcorn.js")"></script>
+                <script src="@Url.Content("~/Scripts/external/popcorn.player.js")"></script>
+                <script src="@Url.Content("~/Scripts/external/popcorn.jplayer.min.js")"></script>
+                <script src="@Url.Content("~/Scripts/external/popcorn.subtitle.js")"></script>
+     
+                
+@*
+                <iframe title="@Model.Title" width="970" height="500" src="https://www.youtube.com/embed/@HttpUtility.ParseQueryString(new Uri(Model.VideoUrl).Query).Get("v")" frameborder="0" allowfullscreen></iframe>*@
+            }
+        </div>
+        <div id="title">
+            <h2>@Model.Title</h2>
+
+        </div>
+
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                var videoData = $("#hdnVideoURL").val();
+                var Videoimg = $("#hdnImageURL").val();
+
+
+
+                var p = Popcorn.jplayer('#jquery_jplayer_1', {
+                    media: {
+
+                        m4v: videoData,
+                        poster: Videoimg
+                    },
+                    options: {
+                        swfPath: "../Content/css/jquery.jplayer.swf",
+                        supplied: "m4v",
+                        size: {
+                            width: "100%",
+                            height: "500",
+                            cssClass: "jp-video-400p"
+                        },
+                        useStateClassSkin: true,
+                        autoBlur: false,
+                        smoothPlayBar: true,
+                        keyEnabled: true
+                    }
+                })
+
+
+            });
+
+        </script>
+
+        <div id="footer">@Resources.Shared_Layout_Copyright, <a href="http://www.activ4pets.com/" target="_blank">@Resources.PetsGlobalPage_Home</a> | <a href="http://www.activ4pets.com/about-us/" target="_blank">@Resources.PetsGlobalPage_AboutUs</a> | <a href="http://www.activ4pets.com/contact/" target="_blank">@Resources.PetsGlobalPage_ContactUs</a></div>
+    </div>
+</body>
+</html>

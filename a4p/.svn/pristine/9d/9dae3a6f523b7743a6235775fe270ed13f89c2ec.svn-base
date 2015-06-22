@@ -1,0 +1,37 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Hemoglobin.IndexViewModel>
+@using ADOPets.Web.Common.Helpers
+<ol class="breadcrumb mrbreadcrumb">
+    <li>@Ajax.ActionLink(Resources.Hemoglobin_Index_MedicalRecord, "MedicalRecords", "Pet", new { id = ViewBag.PetId },
+                new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecord" }) </li>
+    <li>@Resources.Hemoglobin_Index_HealthMeasureTracker</li>
+    <li>@Resources.Hemoglobin_Index_Hemoglobin</li>
+    <li class="pull-right hideslash">
+        <div id="showHideHemoglobinButtons">
+            <a href="#" id="HemoglobinDataCurve" class="btn btn-primary btn-sm"><i class="fa fa-bar-chart-o"></i>@Resources.Hemoglobin_Index_Curve</a>
+            @if (UserHelper.CanDeletePet(ViewBag.PetId))
+            {
+                if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                {
+                    if (SMOHelper.CanEditPet(ViewBag.PetId))
+                    {
+                <a href="@Url.Action("GetDownloadHealthMeasure", "Pet", new { petid = ViewBag.PetId })"  class="btn btn-warning btn-sm pull-right" style="margin-left:10px;"><i class="fa fa-print"></i>@Resources.Pet_MedicalRecord_Print</a>    
+                <a href="@Url.Action("Add", "Hemoglobin", new { petId = ViewBag.PetId })" id="addHemoglobin" class="btn btn-sm btn-primary">
+                    <i class="fa fa-plus-circle"></i>
+                    <span>@Resources.Hemoglobin_Index_Add</span>
+                </a>
+                    }
+                }
+            }
+        </div>
+        <a href='#Hemoglobin' id="ShowHemoglobinTable" data-toggle="pill" style="display: none;" class="btn btn-sm btn-primary"><i class="fa fa-table"></i>@Resources.Hemoglobin_Index_DataButton</a>
+    </li>
+    <div class="clearfix"></div>
+</ol>
+@{ Html.RenderPartial("~/Views/Hemoglobin/_List.cshtml"); }
+
+
+<div id="addHemoglobinModal" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="editHemoglobinModal" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="deleteHemoglobinModal" class="modal fade" tabindex="-1" role="dialog"></div>
+<script src="~/Scripts/customs/views/Hemoglobin/Index.js"></script>

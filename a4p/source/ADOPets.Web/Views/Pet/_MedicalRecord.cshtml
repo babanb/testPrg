@@ -1,0 +1,101 @@
+﻿@using ADOPets.Web.Common.Enums
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording;
+
+@model int
+
+<div id="medicalRecordContent">
+    <div id="mrmainpage">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="list-group  mrmaintab">
+                    <div class=" mr-tab">
+                        <a href="@Url.Action("Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthHistory, mRSubType = (int)HealthHistoryTypeEnum.Condition })" class="list-group-item active main medicalRecordLink" id="HealthHistory" >
+                            <div class="mrmainicons">
+                                <i class="fa fa-history"></i>
+                            </div>@Resources.Pet_MedicalRecords_HealthHistory
+                        </a>
+
+                        @Ajax.ActionLink(Resources.Pet_MedicalRecords_Conditions, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthHistory, mRSubType = (int)HealthHistoryTypeEnum.Condition },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+
+                        @Ajax.ActionLink(Resources.Pet_MedicalRecords_Surgeries, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthHistory, mRSubType = (int)HealthHistoryTypeEnum.Surgery },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+
+                        @Ajax.ActionLink(Resources.Pet_MedicalRecords_Medications, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthHistory, mRSubType = (int)HealthHistoryTypeEnum.Medication },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+
+                        @Ajax.ActionLink(Resources.Pet_MedicalRecords_Allergies, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthHistory, mRSubType = (int)HealthHistoryTypeEnum.Allergy },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+
+                        @Ajax.ActionLink(Resources.Pet_MedicalRecords_Immunizations, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthHistory, mRSubType = (int)HealthHistoryTypeEnum.Immunization },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+
+                        @Ajax.ActionLink(Resources.Pet_MedicalRecords_FoodPlan, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthHistory, mRSubType = (int)HealthHistoryTypeEnum.FoodPlan },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+
+                        @Ajax.ActionLink(Resources.Pet_MedicalRecords_Hospitalization, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthHistory, mRSubType = (int)HealthHistoryTypeEnum.Hospitalization },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+
+                        @Ajax.ActionLink(Resources.Pet_MedicalRecords_Consultations, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthHistory, mRSubType = (int)HealthHistoryTypeEnum.Consultation },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="list-group mrmaintab mr-tab">
+                    <a href="@Url.Action("Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthMeasureTracker, mRSubType = (int)HealthMeasureGroupEnum.Vitals })" class="list-group-item active main medicalRecordLink" id="HealthMeasureTracker">
+                        <div class="mrmainicons"><i class="fa fa-bar-chart-o"></i></div>@Resources.Pet_MedicalRecords_HealthMeasureTracker
+                    </a>
+
+                    @Ajax.ActionLink(Resources.Pet_MedicalRecords_Vitals, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthMeasureTracker, mRSubType = (int)HealthMeasureGroupEnum.Vitals },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+                    @Ajax.ActionLink(Resources.Pet_MedicalRecords_CBG, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthMeasureTracker, mRSubType = (int)HealthMeasureGroupEnum.CBG },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+                    @Ajax.ActionLink(Resources.Pet_MedicalRecords_Hemoglobin, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthMeasureTracker, mRSubType = (int)HealthMeasureGroupEnum.Hemoglobin },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+                    @Ajax.ActionLink(Resources.Pet_MedicalRecords_Hemogram, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthMeasureTracker, mRSubType = (int)HealthMeasureGroupEnum.Hemogram },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+                    @Ajax.ActionLink(Resources.Pet_MedicalRecords_SerumElectrolyte, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.HealthMeasureTracker, mRSubType = (int)HealthMeasureGroupEnum.SerumElectrolytes },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="list-group mrmaintab">
+                    <a href="@Url.Action("Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.Document, mRSubType = (int)DocumentTypeEnum.Note })" class="list-group-item active main medicalRecordLink" id="Document">
+                        <div class="mrmainicons">
+                            <i class="fa fa-file-text"></i>
+                        </div>
+                        @Resources.Pet_MedicalRecords_Documents
+                    </a>
+
+                    @Ajax.ActionLink(Resources.Pet_MedicalRecords_Notes, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.Document, mRSubType = (int)DocumentTypeEnum.Note },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+                    @Ajax.ActionLink(Resources.Pet_MedicalRecords_ImagingServices, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.Document, mRSubType = (int)DocumentTypeEnum.ImagingServices },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+                    @Ajax.ActionLink(Resources.Pet_MedicalRecords_Laboratory, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.Document, mRSubType = (int)DocumentTypeEnum.Laboratory },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+                    @Ajax.ActionLink(Resources.Pet_MedicalRecords_Prescription, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.Document, mRSubType = (int)DocumentTypeEnum.Prescription },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+                    @Ajax.ActionLink(Resources.Pet_MedicalRecords_ADOServices, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.Document, mRSubType = (int)DocumentTypeEnum.ADOServices },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+                    @Ajax.ActionLink(Resources.Pet_MedicalRecords_Insurance, "Index", "MedicalRecord", new { id = Model, mRType = MedicalRecordTypeEnum.Document, mRSubType = (int)DocumentTypeEnum.Insurance },
+                            new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecordContent" }, new { @class = "medicalRecordLink list-group-item" })
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+@if (Roles.IsUserInRole(UserTypeEnum.OwnerAdmin.ToString()))
+{
+    @Scripts.Render("~/bundles/midJS")
+    <script src="@Url.Content("~/Scripts/customs/views/Pet/bootstrap-tour.mr.js")"></script>
+}
+<script src="@Url.Content("~/Scripts/customs/views/Pet/MedicalRecords.js")"></script>
+

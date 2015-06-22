@@ -1,0 +1,151 @@
+﻿@using ADOPets.Web.Common.Helpers
+@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Temperature.IndexViewModel>
+@using ADOPets.Web.Common.Extensions
+
+<div id="temperatureList" class="table-responsive">
+    @Html.RenderSuccessMessage("temperatureSuccessMessage", TempData["SuccessMessage"])
+    <div id="TemperatureTable">
+        <table id="Table_Temperature" class="table table-striped table-bordered">
+            <thead>
+                <tr class="text-primary">
+                    <th>@Resources.Temperature_Index_Date</th>
+                    <th>@Resources.Temperature_Index_Temperature</th>
+                    @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                    {
+                        if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                        {
+                            if (SMOHelper.CanEditPet(ViewBag.PetId))
+                            {
+                        <th>@Resources.Temperature_Index_Action</th>
+                            }
+                        }
+                    }
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@item.Temperature</td>
+                   @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                   {
+                       if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                       {
+                           if (SMOHelper.CanEditPet(ViewBag.PetId))
+                           {
+                        <td>
+                            <a href="@Url.Action("Edit", "Temperature", new { measureId = item.Id, unit = ViewBag.MeasureUnit })" class="editTemperature btn btn-success btn-sm" data-tooltip="tooltip" data-placement="top" 
+                          data-original-title="@Resources.Temperature_Index_Edit"><i class="fa fa-pencil"></i></a>
+                            <a href="@Url.Action("DeleteConfirm", "Temperature", new { measureId = item.Id, unit = ViewBag.MeasureUnit })" class="deleteTemperature btn btn-warning btn-sm" data-tooltip="tooltip" data-placement="top" 
+                           data-original-title="@Resources.Temperature_Index_Delete"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                           }
+                       }
+                   }
+                </tr>  
+            }
+        </table>
+    </div>
+    <div id="TemperatureCurve" style="display: none;">
+        <div id="Temperaturecontainer" style="min-width: 310px; width: 100%; height: 400px;"></div>
+    </div>
+
+    @{
+        var unit = ViewBag.MeasureUnit ?? DomainHelper.GetTemperaturetMeasureUnitDefault();
+        var header = string.Format("{0} ({1})", Resources.Temperature_Index_Title, EnumHelper.GetResourceValueForEnumValue(unit));
+        var unitText = EnumHelper.GetResourceValueForEnumValue(unit);
+        var YAxis = Model.OrderBy(i => i.Date).Select(w => w.TemperatureValue).ToArray();
+        var xAxis = Model.OrderBy(i => i.Date).Select(w => w.Date.ToShortDateString()).ToArray();
+    }
+
+    <script type="text/javascript">
+        function ShowTemperatureCurve() {
+            $('#TemperatureTable').hide();
+            $('#TemperatureCurve').show();
+            $('#showHideTemperatureButtons').hide();
+            $('#showHideTemperatureButtons-back').show();
+            createTemperatureChart();
+        }
+        function createTemperatureChart() {
+            var y;
+
+            var x = @Html.Raw(Json.Encode(xAxis))
+
+         y = @Html.Raw(Json.Encode(YAxis))
+
+            $('#Temperaturecontainer').highcharts({
+                title: {
+                    text: '@header',
+                    useHTML: true,
+                    x: -20 //center
+                },
+                xAxis: {
+                    title: {
+                        text: '@Resources.Temperature_Index_Date'
+                    },
+                    categories: x,
+                    labels: {
+                        rotation: -45
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: '@Resources.Temperature_Index_Title',
+                        useHTML: true
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 2,
+                        states: {
+                            hover: {
+                                lineWidth: 2
+                            }
+                        },
+                        threshold: null
+                    },
+                    series: {
+                        animation: {
+                            duration: 2500
+                        }
+                    }
+                },
+                tooltip: {
+                    valueSuffix: ' @unitText',
+                    shared: true,
+                    useHTML: true
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    type: 'area',
+                    name: '@Html.Raw(Resources.Temperature_Index_Temperature)',
+                    data: y
+                }]
+            });
+        }
+    </script>
+</div>
+
+<script src="~/Scripts/customs/views/Temperature/List.js"></script>

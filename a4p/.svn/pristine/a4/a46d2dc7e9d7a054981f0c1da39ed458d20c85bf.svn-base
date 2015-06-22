@@ -1,0 +1,55 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Resources = ADOPets.Web.Resources.Wording;
+@model ADOPets.Web.ViewModels.Econsultation.AddViewModel
+@{
+    ViewBag.Title = Resources.Econsultation_Add_Title;
+    int userId = ViewBag.UserId;
+}
+<div id="content">
+    <div id="pageTitle">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>@Resources.Econsultation_Add_Title</h1>
+            </div>
+            <div class="col-md-4"><a href="@Url.Action("Index", "Econsultation")" class="btn btn-success pull-right"><i class="fa fa-plus-circle"></i>@Resources.Econsultation_Add_BackEconsultation</a> </div>
+        </div>
+    </div>
+    <div id="mainContainer">
+        <div id="hiderightsidebar">
+            <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt="" />
+        </div>
+        <div id="showrightsidebar">
+            <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+        </div>
+        <div id="cover4econsult">
+            <div id="step1" class="consultSteptab radius3 active">
+                <a id="callstep1" href="#" class="zoomin">@Resources.Econsultation_Add_Step1<br>
+                    <span>@Resources.Econsultation_Add_SetupInformation</span><i class="fa fa-arrow-right"></i></a>
+            </div>
+            @if (TempData["HasEconsult_" + userId].ToString().ToLower() == "false")
+            {
+                <div id="step2" class="consultSteptab radius3" >
+                    <a id="callstep2" href="#" class="zoomin">@Resources.Econsultation_Add_Step2<br>
+                        <span>@Resources.Econsultation_Add_BillingInformation</span><i class="fa fa-arrow-right"></i></a>
+                </div>
+                <div id="step3" class="consultSteptab radius3" >
+                    <a id="callstep3" href="#" class="zoomin">@Resources.Econsultation_Add_Step3<br>
+                        <span>@Resources.Econsultation_Add_Confirmation</span></a>
+                </div>
+            }
+            <div class="clearfix"></div>
+        </div>
+        <h2 class="text-primary text-center">@Resources.Econsultation_Add_ServiceCharge</h2>
+        <hr>
+        <div id="Setup">
+            @Html.Partial("_Setup", Model.objSetup)
+        </div>
+        <div id="Billing">
+        </div>
+        <div id="Confirmation">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<script src="@Url.Content("~/Scripts/customs/views/Econsultation/Add.js")"></script>

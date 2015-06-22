@@ -1,0 +1,11 @@
+use ADOPets_Rev
+ALTER TABLE PaymentHistory
+DROP CONSTRAINT FK_Payment_PaymentType
+
+ALTER TABLE Subscription
+DROP CONSTRAINT FK_SubscriptionBase_PaymentType
+
+ALTER TABLE BillingInformation
+DROP CONSTRAINT FK_BillingInformation_PaymentType
+
+drop table PaymentType

@@ -1,0 +1,143 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Account.BasicInfoViewModel
+@using ADOPets.Web.Common.Helpers
+@using Model
+
+<div id="mainBox">
+    <div class="customscroll" style="border: none;">
+        <div class="signUpcontent">
+            <!--------------- plan list--------------->
+            <div class="planList col-lg-10 col-lg-offset-1" style="margin-bottom: 15px;">
+                <table width="100%" border="0">
+                    <tbody>
+                        <tr>
+                            <td style="width: 150px;"><span>
+                                @if (!string.IsNullOrEmpty(@Model.PlanType))
+                                {
+                                    @Model.PlanType
+                                }
+                                else
+                                {
+                                    @Resources.Account_SignUp_Plan
+                                }
+                            </span>
+                                <br>
+                                @Model.PlanName</td>
+                            <td>@Model.BasePlanDescription
+                            </td>
+                            <td style="width: 100px;">
+                                <label>
+                                    <i class="fa fa-check-circle"></i>
+                                    <br>
+                                    @Resources.Account_Signup_PlanSelected</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-------------- /plan list --------------->
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="row">
+                    @using (Html.BeginForm("UserInformation", "Account", FormMethod.Post, new { id = "frmUserInfo" }))
+                    {  
+                        @Html.HiddenFor(model => model.PlanId)
+                        @Html.HiddenFor(model => model.Promocode)
+                        <div class="form-group col-sm-6">
+                            @Html.LabelRequiredFor(model => model.FirstName, new { @class = "sr-only" })
+                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = Resources.Account_SignUp_FirstNamePlaceHolder })
+                            @Html.ValidationMessageFor(model => model.FirstName)
+                        </div>
+                        <div class="form-group col-sm-6">
+                            @Html.LabelRequiredFor(model => model.LastName, new { @class = "sr-only" })
+                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = Resources.Account_SignUp_LastNamePlaceHolder })
+                            @Html.ValidationMessageFor(model => model.LastName)
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-6">
+                            @Html.LabelRequiredFor(model => model.Email, new { @class = "sr-only" })
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = Resources.Account_SignUp_EmailPlaceHolder, @type = "email" })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                        <div class="form-group col-sm-6">
+                            @Html.LabelFor(model => model.BirthDate, new { @class = "sr-only" })
+                            <div class='input-group date'>
+                                @Html.TextBoxFor(model => model.BirthDate, new { @class = "form-control datepicker datepickerForUserBirthday", placeholder = Resources.Account_SignUp_DateofBirthPlaceHolder, @style = "z-index:0 !important;" })
+                                <span class="input-group-addon" style="cursor: default;">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.BirthDate)
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-6">
+                            @Html.LabelFor(model => model.Gender, new { @class = "sr-only" })
+                            @Html.EnumDropDownListFor(m => m.Gender, Resources.Account_SignUp_GenderPlaceHolder, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Gender)
+                        </div>
+                        <div class="form-group col-sm-6">
+                            @Html.LabelFor(model => model.TimeZone, new { @class = "sr-only" })
+                            @Html.EnumDropDownListFor(m => m.TimeZone, Resources.Account_SignUp_TimeZonePlaceHolder, new { @class = "form-control valid" })
+                            @Html.ValidationMessageFor(model => model.TimeZone)
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-6">
+                            @Html.LabelFor(model => model.PrimaryPhone, new { @class = "sr-only" })
+                            @Html.TextBoxFor(model => model.PrimaryPhone, new { @class = "form-control", placeholder = Resources.Account_SignUp_PrimaryPhonePlaceholder })
+                            @Html.ValidationMessageFor(model => model.PrimaryPhone)
+                        </div>
+                        <div class="form-group col-sm-6">
+                            @Html.LabelFor(model => model.Username, new { @class = "sr-only" })
+                            @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = Resources.Account_SignUp_UsernamePlaceHolder })
+                            @Html.ValidationMessageFor(model => model.Username)
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-6">
+                            @Html.LabelFor(model => model.Password, new { @class = "sr-only" })
+                            @Html.PasswordFor(model => model.Password, new { id = "Password", @class = "form-control", placeholder = Resources.Account_SignUp_PasswordPlaceHolder })
+                            @Html.ValidationMessageFor(model => model.Password)
+                            <div id="passStrength"></div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            @Html.LabelFor(model => model.ConfirmPassword, new { @class = "sr-only" })
+                            @Html.PasswordFor(model => model.ConfirmPassword, new { id = "confPassword", @class = "form-control", placeholder = Resources.Account_SignUp_ConfirmPasswordPlaceHolder })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                            <div id="confpassStrength"></div>
+                        </div>
+                        <div class="col-sm-11">
+                            <p style="padding: 0 0 10px 0; margin: 0; font-size: 13px; text-align: justify;" class="text-info">
+                                @Resources.Account_SignUp_PasswordPolicyHeading
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-6">
+                            <label for="" class="sr-only">@Resources.Account_SignUp_Howdidyouhearaboutus</label>
+                            @Html.EnumDropDownListFor(m => m.ReferralSource, Resources.Account_SignUp_ReferralSourcePlaceHolder, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-sm-6">
+                            @Html.LabelRequiredFor(model => model.Reference, new { @class = "sr-only" })
+                            @Html.TextBoxFor(model => model.Reference, new { @class = "form-control ", placeholder = Resources.Account_SignUp_ReferencePlaceHolder })
+                            @Html.ValidationMessageFor(model => model.Reference)
+                        </div>
+
+                    }
+                </div>
+                <!-------- /row--------->
+
+            </div>
+        </div>
+        <!---- / signup Content---------------->
+    </div>
+    <!----------------- /custom controll------->
+</div>
+<div id="signUpBottom">
+    <div class="form-group col-sm-5 col-sm-offset-1">
+        <a href="javascript:void(0)" id="btnBackStep1" class="btn btn-default" style="width: 100%;">@Resources.Account_SignUp_PreviousStep</a>
+    </div>
+    <div class="form-group col-sm-5">
+        <a href="javascript:void(0)" class="btn btn-primary" id="btn-next" style="width: 100%;">@Resources.Signup_NextStep</a>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<script src="@Url.Content("~/Scripts/customs/views/Account/UserInformation.js")"></script>

@@ -1,0 +1,56 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.CBG.DeleteViewModel
+
+<div class="modal-dialog">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">@Resources.CBG_Delete_Title</h4>
+        </div>
+
+        <div class="modal-body">
+            <div style="overflow-x: auto; height: auto; padding-right: 10px;">
+
+                <h4 class="modal-title">@Resources.CBG_Delete_Message</h4>
+                <br />
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.MeasureDate, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.MeasureDate.ToShortDateString()</td>
+                    </tr>
+
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.CBG, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.CBG</td>
+                    </tr>
+                </table> 
+
+            </div>
+        </div>
+
+        @using (Ajax.BeginForm("Delete", "CBG", new AjaxOptions
+        {
+            UpdateTargetId = "cbgList",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogCBG"
+        }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.PetId)
+            @Html.HiddenFor(m => m.Id)
+            
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.CBG_Delete_SaveChanges</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.CBG_Delete_Cancel</button>
+            </div>
+        }
+
+    </div>
+</div>

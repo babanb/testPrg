@@ -1,0 +1,208 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording;
+
+@model IEnumerable<ADOPets.Web.ViewModels.Econsultation.IndexViewModel>
+@{
+    ViewBag.Title = Resources.Econsultation_Index_Title;
+    DateTime CurrentUserTime = TimeZoneHelper.GetCurrentUserLocalTime();
+    int UserId = Convert.ToInt16(ViewBag.UserId);
+}
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-4">
+            <h1>@Resources.Econsultation_Index_Title</h1>
+        </div>
+        <div class="col-md-3">
+            <span class="usericon">
+                @Html.EnumDropDownList(typeof(EConsultationStatusEnum), "SelectECStatus", ViewBag.SelectECStatus as EConsultationStatusEnum?, Resources.Econsultation_Index_SearchByStatusPlaceHolder, new { @class = "form-control" })
+            </span>
+        </div>
+        <div class="col-md-3">
+            <span class="usericon">
+                @Html.TextBox("SelectPetNameFilter", string.Empty, new { placeholder = Resources.Pet_Index_AnimalNamePlaceHolder, @class = "form-control usericon" })
+            </span>
+        </div>
+        <div class="col-md-2"><a href="@Url.Action("Add", "Econsultation")" class="btn btn-success pull-right"><i class="fa fa-plus-circle"></i>@Resources.Econsultation_Index_NewEconsultation</a> </div>
+    </div>
+</div>
+<div id="mainContainer">
+    <div id="hiderightsidebar">
+        <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt="" />
+    </div>
+    <div id="showrightsidebar">
+        <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+    </div>
+
+    <div id="dvHdnTotalRecords" style="display: none;">
+    </div>
+    <div id="subCntnt1"></div>
+    @if (Model != null && Model.Count() > 0)
+    { 
+        <div id="listing-main" data-container="paging_container" data-page-size="10">
+            @foreach (var item in Model)
+            {
+                <div class="listing2" data-sub-container="sub_container">
+                    <div class="listing2Icon">
+                        <img src="@Url.Content("~/Content/images/econ-icon.png")" alt="Activ4pets e-Consultation" />
+                    </div>
+                    <div class="listing2content">
+                        <div class="row" data-item="item">
+                            <div class="col-md-5">
+                                <p>
+                                    <strong>@Resources.Econsultation_Index_PetType</strong> : <span id="spnPetType" data-item-type="pet_type">@Html.DisplayFor(modelItem => item.PetType)</span> &nbsp;&nbsp; 
+                                    <span id="spnRequestStatus" class="label label-primary myreqstatusspan" data-myitemid="@(item.Status)" data-item-type="request_status">@(item.Status)</span><br>
+                                    <strong>@Resources.Econsultation_Index_PetName</strong> : <span id="spnName" data-item-name="pet_name">@Html.DisplayFor(modelItem => item.Name)</span><br>
+                                </p>
+                            </div>
+                            <div class="col-md-5">
+                                <p>
+                                    <strong>@Resources.Econsultation_Index_Condition</strong> : <span>@Html.DisplayFor(modelItem => item.Condition)</span><br>
+                                    <strong>@Resources.Econsultation_Index_Datetime</strong> : <span>@item.date.ToShortDateString() & @item.time.ToShortTimeString()</span><br>
+                                </p>
+                            </div>
+                            <div class="col-md-2" id="econsultWithdrawConfirm">
+                                @if (!item.IsPaymentDone)
+                                {
+                                    <a href="@Url.Action("EditEconsultation", "Econsultation", new { ecId = item.Id })" class="btn btn-primary btn-sm" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Account_SignUp_Edit"><i class="fa fa-pencil"></i></a>
+                                    <a href="javascript:void(0)" id="lnkDeleteEC" onclick="callDeleteAction(@item.Id)" data-ec-id="@item.Id" class="btn btn-warning btn-sm" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.PetContact_Index_Delete"><i class="fa fa-trash-o"></i></a>
+                                }
+                                else
+                                {
+                                    if (!item.IsPetDeleted)
+                                    {
+                                    <a href="@Url.Action("ViewDetails", "Econsultation", new { EconsultID = Convert.ToInt16(item.Id) })" class="btn btn-primary btn-sm" data-tooltip="tooltip" data-placement="top" title="@Resources.Econsultation_View_Details"><i class="fa fa-eye"></i></a>
+                                        if (item.Status.ToString() == EConsultationStatusEnum.InProgress.ToString() && DateTime.Now.Date.Subtract(item.date.AddHours(item.time.Hour)).Minutes <= 30)
+                                        {
+                                    <a href="@Url.Action("JoinEConsultation", "Econsultation", new { ecId = item.Id, userId = UserId })" class="btn btn-danger btn-sm" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Econsultation_Index_Start">
+                                        <i class="fa fa-play fa-spin"></i></a> 
+                                        }
+                                        if ((item.Status.ToString() == EConsultationStatusEnum.Scheduled.ToString() || item.Status.ToString() == EConsultationStatusEnum.Open.ToString()) && (item.Duration >= 24))
+                                        {
+                                    <a href="javascript:void(0);" data-href="@Url.Action("DeleteEC", "Econsultation", new { id = item.Id })" data-toggle="confirmation" data-tooltip="@Resources.Econsultation_Index_Withdrawn" class="btn btn-warning btn-sm">
+                                        <i class="fa fa-remove (alias)"></i>
+                                    </a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                    <a href="#modelPetDeleted" class="btn btn-primary btn-sm" data-tooltip="tooltip" data-toggle="modal" data-placement="top" title="@Resources.Econsultation_View_Details"><i class="fa fa-eye"></i></a>                                 
+                                    }
+                                    if ((item.Status.ToString() == EConsultationStatusEnum.Closed.ToString()))
+                                    {
+                                    <a href="@Url.Action("GetReport", "Econsultation", new { EcId = item.Id })" target="_blank" class="btn btn-success btn-sm" data-tooltip="tooltip" data-placement="top" title="@Resources.Econsultation_ViewReport_Report">
+                                        <i class="fa fa-download"></i></a>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            }
+        </div>
+        <div id="pagingControls" data-paging-control="paging_control"></div>
+    }
+    else
+    {
+        <div class="row">
+            <h4 style="text-align: center; margin-top: 20px;" class="text-primary">
+                @Resources.Econsultation_Index_Econsultation_Index_NoRecordFound<br>
+            </h4>
+        </div>
+    }
+    <div class="clearfix"></div>
+</div>
+
+
+<div id="modelPetDeleted" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">@Resources.EC_View_PetNotFoundTitle</h4>
+            </div>
+            <form class="form-horizontal defaultForm" role="form">
+                <div class="modal-body">
+                    <label for="Subject" class="col-sm-12">@Resources.EC_View_PetNotFound</label>
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnOk">@Resources.Pet_Edit_StatusConfirmationOkLabel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="modelDeleteEC" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">@Resources.EC_Delete_Title</h4>
+            </div>
+            <form class="form-horizontal defaultForm" role="form">
+                <div class="modal-body">
+                    <label for="Subject" class="col-sm-12">@Resources.EC_Delete_DeleteConfirmationMessage</label>
+                    <input type="hidden" id="hdnECIdDelete" name="hdnECIdDelete" />
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnDeleteEC">@Resources.Pet_Edit_StatusConfirmationOkLabel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="@Url.Content("~/Scripts/customs/views/Econsultation/Index.js")"></script>
+<script src="@Url.Content("~/Scripts/external/bootstrap-confirmation.js")"></script>
+<script src="@Url.Content("~/Scripts/external/pagination.js")"></script>
+
+
+<script>
+    var resourceMessage = '@Html.Raw(Resources.Pet_Index_PagedListPagerPageItemSliceAndTotalFormat)';
+    var pager = new Pager();
+
+    $(document).ready(function () {
+        initPager(true);
+        deleteConfirmation();
+
+        $("#btnDeleteEC").click(function () {
+            var ecId = $("#hdnECIdDelete").val();
+            ShowLoading();
+            var data = '{ECId:' + JSON.stringify(ecId) + '}';
+            $.ajax({
+                url: "/Econsultation/DeleteECRequest",
+                data: data,
+                processData: false,
+                contentType: "application/json;",
+                type: 'POST',
+                success: function (success) {
+                    HideLoading();
+                    if (success) {
+                    } setTimeout(function () { window.location = "/Econsultation/Index"; }, 2000);
+                },
+                error: function (req, status, error) {
+                    HideLoading();
+                }
+            });
+        });
+
+    });
+
+    function callDeleteAction(ecID) {
+        $('#modelDeleteEC').modal('show');
+        $("#modelDeleteEC").find("#hdnECIdDelete").val(ecID);
+    }
+
+    function deleteConfirmation() {
+        $('[data-toggle="confirmation"]').confirmation({
+            title: '@Html.Raw(Resources.Econsultation_Withdraw_ConfirmationMsg)',
+            btnOkLabel: '@Html.Raw(Resources.Econsultation_Withdraw_ConfirmationOk)',
+            btnCancelLabel: '@Html.Raw(Resources.Econsultation_Withdraw_ConfirmationCancel)'
+        });
+    }
+</script>

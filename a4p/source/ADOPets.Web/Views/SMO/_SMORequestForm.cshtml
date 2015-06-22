@@ -1,0 +1,113 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording;
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@model ADOPets.Web.ViewModels.SMO.DetailsViewModel
+@{
+    ViewBag.Title = Resources.Smo_Edit_Title;
+    //int userId = ViewBag.UserId;
+}
+<div id="econsultConfirm">
+        <div class="columnfull">
+      
+      <div class="detailrow">
+      <div>@Resources.Smo_Edit_Title</div>
+      <div class="colonspace">:</div>
+      <div>@Model.SMOREquest.Title</div>
+      <div class="clearfix"></div>
+      </div> 
+      
+       <div class="detailrow">
+      <div>@Resources.Smo_Edit_PetName</div>
+      <div class="colonspace">:</div>
+      <div><a href="@Url.Action("Edit", "Pet", new { id = Model.SMOREquest.PetId })">@(Model.SMOREquest.Pet == null ? "" : @Model.SMOREquest.Pet.Name)</a></div>
+      <div class="clearfix"></div>
+      </div>      
+      
+      <div class="detailrow">
+      <div>@Resources.Smo_Edit_SecondOpinionRequestfrom</div>
+      <div class="colonspace">:</div>
+      <div>@Model.OwnerName<a href="#"><i class="fa fa-envelope"></i></a></div>
+      <div class="clearfix"></div>
+      </div>  
+      
+           <div class="detailrow">
+      <div>@Resources.Smo_Edit_Status</div>
+      <div class="colonspace">:</div>
+      <div>@Model.SMOREquest.SMORequestStatusId</div>
+      <div class="clearfix"></div>
+      </div>
+      
+      </div>
+      <h5 class="bg-info text-primary" style="padding:10px 15px; font-weight:600; text-align:center">@Resources.Smo_Edit_Condition</h5>
+       <div class="columnfull">
+       <div class="detailrow">
+      <div>@Resources.Smo_Edit_Diagnosis</div>
+      <div class="colonspace">:</div>
+      <div>@Model.SMOREquest.Diagnosis</div>
+      <div class="clearfix"></div>
+      </div>      
+      <div class="detailrow">
+      <div>@Resources.Smo_Edit_Comments</div>
+      <div class="colonspace">:</div>
+      <div>@Model.SMOREquest.Comments</div>
+      <div class="clearfix"></div>
+      </div>  
+           <div class="detailrow">
+      <div>@Resources.Smo_Edit_DateofOnset</div>
+      <div class="colonspace">:</div>
+      <div>@(Model.SMOREquest.DateOfOnSet == null ? "" : @Model.SMOREquest.DateOfOnSet.Value.ToString("MM/dd/yyyy"))</div>
+      <div class="clearfix"></div>
+      </div>
+      </div>
+      
+      <h5 class="bg-info text-primary" style="padding:10px 15px; font-weight:600; text-align:center">@Resources.Smo_Edit_Test</h5>
+      <div class="columnfull">
+      <div class="detailrow">
+      <div>@Resources.Smo_Edit_TestName<span class="caret"></span></div>
+      <div class="colonspace">:</div>
+      <div style="font-weight:700;">@Resources.Smo_Edit_TestDate<span class="caret"></span></div>
+      <div class="clearfix"></div>
+      </div>     
+       @foreach (var a in Model.Investigations)
+       {
+            <div class="detailrow">
+                <div style="font-weight: 400;">@a.TestDescription</div>
+                <div class="colonspace">:</div>
+                <div>@(a.TestDate == null ? "" : @a.TestDate.Value.ToString("MM/dd/yyyy"))</div>
+                <div class="clearfix"></div>
+            </div>
+       }
+      </div>
+      
+    
+    <h5 class="bg-info text-primary" style="padding:10px 15px; font-weight:600; text-align:center">@Resources.Smo_Edit_Symptoms</h5>
+   <div class="columnfull">
+   <div class="detailrow">
+      <div>@Resources.Smo_Edit_SymptomsMessage</div>
+      <div class="colonspace">:</div>
+      <div> @Resources.Smo_Edit_Symptom1PlaceHolder- @Model.SMOREquest.Symptoms1<br>
+                    @Resources.Smo_Edit_Symptom2PlaceHolder- @Model.SMOREquest.Symptoms2<br>
+                    @Resources.Smo_Edit_Symptom3PlaceHolder- @Model.SMOREquest.Symptoms3</div>
+      <div class="clearfix"></div>
+      </div>
+   </div>
+    <h5 class="bg-info text-primary" style="padding:10px 15px; font-weight:600; text-align:center;">@Resources.Smo_Edit_FirstOpinion</h5>
+      <div class="columnfull">
+      
+      <div class="detailrow">
+      <div>@Resources.Smo_Edit_DetailsOfFirstMO</div>
+      <div class="colonspace">:</div>
+      <div>@Model.SMOREquest.FirstOpinion</div></div>
+      <div class="clearfix"></div>
+      
+      <div class="detailrow">
+      <div>@Resources.Smo_Edit_StateYourQuestion </div>
+      <div class="colonspace">:</div>
+      <div>@Model.SMOREquest.Question</div>
+      <div class="clearfix"></div>
+      </div>
+    
+      </div>
+      
+      </div>

@@ -1,0 +1,201 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Profile.OwnerEditViewModel
+@using Model
+
+<div class="messageStyle">
+    @{ Html.RenderPartial("_Alerts"); }
+</div>
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">×</span></button>
+            <h4 class="modal-title" id="myLargeModalLabel">@Resources.Profile_OwnerEdit_EditProfileDetails</h4>
+        </div>
+        <div class="form-horizontal">
+            @using (Html.BeginForm("OwnerEdit", "Profile", FormMethod.Post, new { @id = "EditProfileForm", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.Hidden("hdnInvalidImagetype", @Resources.Gallery_Add_ImageValidation)
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.LabelRequiredFor(model => model.FirstName, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = Resources.Profile_OwnerEdit_FirstNamePlaceHolder })
+                                    @Html.ValidationMessageFor(model => model.FirstName)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MiddleName, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control", placeholder = Resources.Profile_OwnerEdit_MiddleNamePlaceHolder })
+                                    @Html.ValidationMessageFor(model => model.MiddleName)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelRequiredFor(model => model.LastName, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = Resources.Profile_OwnerEdit_LastNamePlaceHolder })
+                                    @Html.ValidationMessageFor(model => model.LastName)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.BirthDate, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(model => model.BirthDate, new
+                                    {
+                                        @class = "form-control datepicker datepickerForUserBirthday",
+                                        placeholder = Resources.Profile_OwnerEdit_DateofBirthPlaceHolder,
+                                        @Value = Model.BirthDate.HasValue ? Model.BirthDate.Value.ToString("d") : string.Empty
+                                    })
+                                    @Html.ValidationMessageFor(model => model.BirthDate)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Gender, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.EnumDropDownListFor(m => m.Gender, Resources.Profile_OwnerEdit_GenderPlaceHolder, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelRequiredFor(model => model.Email, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = Resources.Profile_OwnerEdit_EmailPlaceHolder })
+                                    @Html.ValidationMessageFor(model => model.Email)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelRequiredFor(model => model.TimeZone, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.EnumDropDownListFor(m => m.TimeZone, Resources.Profile_OwnerEdit_TimeZonePlaceHolder, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TimeZone)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-4 control-label">@Resources.Profile_OwnerEdit_UploadPic</label>
+                                <div class="col-sm-4">
+
+                                    <img src="@Url.Action("GetImage", "Profile", new { filename = Model.FirstName + '_' + Model.LastName })" id="imgProfilePic" class="img-thumbnail"  style="width: 140px; margin-bottom: 10px; height: 140px;"/>
+
+                                </div>
+                                <div class="col-sm-4" style="padding-top: 40px;">
+                                    <a href='#' id="aUploadPhoto" onclick="document.getElementById('imageFile').click(); return false;"><b>@Resources.Profile_OwnerEdit_UploadPic</b></a>
+                                    @if (Model.Image != null)
+                                    {
+                                        <a href="#modelDeleteConfirmation" data-toggle="modal" style="font-weight: bold" id="lnkDeleteProfPhoto"><b>@Resources.Profile_OwnerEdit_DeletePhoto</b></a>
+                                    }
+                                </div>
+                                <input type="file" name="imageFile" id="imageFile" style="opacity: 0; height: 0; width: 0;" accept="image/*" />
+                                @Html.HiddenFor(m => m.DeleteImg)
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Address1, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(model => model.Address1, new { @class = "form-control", placeholder = Resources.Profile_OwnerEdit_Address1PlaceHolder })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Address2, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(model => model.Address2, new { @class = "form-control", placeholder = Resources.Profile_OwnerEdit_Address2PlaceHolder })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.City, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(model => model.City, new { @class = "form-control", placeholder = Resources.Profile_OwnerEdit_CityPlaceHolder })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Country, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.EnumDropDownListFor(m => m.Country, Resources.Profile_OwnerEdit_CountryPlaceHolder, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            @if (ADOPets.Web.Common.Helpers.DomainHelper.GetDomain() != DomainTypeEnum.French)
+                            {
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.State, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.EnumDropDownListFor(m => m.State, Resources.Profile_OwnerEdit_StatePlaceHolder, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            }
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Zip, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(model => model.Zip, new { @class = "form-control", placeholder = Resources.Profile_OwnerEdit_ZipPlaceholder })
+                                    @Html.ValidationMessageFor(model => model.Zip)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PrimaryPhone, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(model => model.PrimaryPhone, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PrimaryPhone)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SecondaryPhone, new { @class = "col-sm-4 control-label" })
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(model => model.SecondaryPhone, new { @class = "form-control", })
+                                    @Html.ValidationMessageFor(model => model.SecondaryPhone)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-8">
+                                    @Html.CheckBoxFor(m => m.IsSearchable)
+                                    @Html.LabelFor(m => m.IsSearchable)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="Submit" class="btn btn-primary">@Resources.Profile_OwnerEdit_SaveChanges</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Profile_OwnerEdit_Cancel</button>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div>
+
+
+
+
+<div class="modal fade" id="modelDeleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 50%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">@Resources.Profile_OwnerEdit_StatusConfirmationTitle</h4>
+            </div>
+            <form class="form-horizontal defaultForm" role="form">
+                <div class="modal-body">
+                    <label for="Subject" class="col-sm-9 control-label">@Resources.Profile_OwnerEdit_StatusConfirmationMessage</label>
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="DeleteImage">@Resources.Profile_OwnerEdit_StatusConfirmationOkLabel</button>
+                    <button type="button" class="btn btn-default" onclick="$('#lnkDeleteProfPhoto').click();">@Resources.Profile_OwnerEdit_StatusConfirmationCancelLabel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="@Url.Content("~/Scripts/external/jquery.form.min.js")"></script>
+<script src="~/Scripts/customs/views/Profile/OwnerEdit.js"></script>

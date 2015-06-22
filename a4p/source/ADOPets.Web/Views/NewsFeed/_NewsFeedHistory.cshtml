@@ -1,0 +1,45 @@
+﻿@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.NewsFeed.NewsFeedHistoryModel>
+
+@if (Model != null)
+{
+    <table id="tblnotificationHistory" width="100%" border="0" class="table table-hover notiList">
+
+        @foreach (var item in Model)
+        {    <thead>
+            <tr>
+
+                <td width="80%">
+                    <h4 class="text-success">@item.Month</h4>
+                </td>
+                <td width="20%">
+                    <h4>@item.Year</h4>
+                </td>
+            </tr>
+        </thead>     
+            <tbody>
+                @foreach (var lst in item.lstNotification)
+                { 
+                    <tr>
+                        <td width="80%"><a href="@Url.Action("ShowGallery", "NewsFeed", new { galleryId = lst.Id, type = lst.TypeOfNotification, albumId = lst.AlbumId })" class="text-primary" title="@lst.NotificationDate.ToShortDateString()"><i class="fa fa-share-alt-square"></i>@lst.Message</a></td>
+                        <td width="20%">@string.Format("{0:t}", @lst.NotificationDate.ToShortTimeString()), @lst.NotificationDate.ToShortDateString()</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    
+    <a class="btn btn-default" id="seeMoreRecords" style="display: block;"><i class="glyphicon glyphicon-refresh"></i>@Resources.Message_Notification_SeeMore</a>
+    <a class="btn btn-default" id="seeLessRecords" style="display: block;"><span class="glyphicon glyphicon-refresh"></span>@Resources.Message_Notification_Less</a>
+    <div id="backTotop"><a href="#top-text" data-tooltip="tooltip" data-placement="top" title="@Resources.Message_Notification_BackToTop"><span class="fa fa-chevron-up"></span></a></div>
+    <script type="text/javascript" src="~/Scripts/customs/views/Message/NotificationHistory.js"></script>
+}
+else
+{
+    <div class="row">
+        <h4 style="text-align: center; margin-top: 20px;" class="text-primary">
+            @Resources.Smo_Index_NoRecordFound<br>
+        </h4>
+    </div>
+}

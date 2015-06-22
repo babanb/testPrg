@@ -1,0 +1,127 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+
+<#
+// Connection info
+ServerName = "(local)";
+DatabaseName = "qapetsredesigndb";
+ 
+// List of entities to create enums for
+entities.Add(new Entity {Name="Color", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="AuditModificationType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="PetType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="PetStatus", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="DocumentSubType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="HealthMeasureType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="HealthMeasureUnit", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="HealthMeasureGroup", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="DocumentType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="BreedType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="BloodGroupType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="Country", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="State", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="Gender", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="HairType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="Pathology", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="Surgery", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="MedicationStatus", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="UserType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="ContactType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="TimeZone", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="PaymentType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="DomainType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="MessageType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="CreditCardType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="UserStatus", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="NotificationType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="EConsultationStatus", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="EConsultationContactType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="SMORequestStatus", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="VetSpeciality", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="ShareCategoryType", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="SubscriptionExpirationAlert", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="Language", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="SMOOwnerRequestStatus", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="ReferralSource", TextColumn="Name", ValueColumn="Id"});
+entities.Add(new Entity {Name="PetGender", TextColumn="Name", ValueColumn="Id"});
+
+WriteLine("namespace Model");
+WriteLine("{");
+ 
+// Generate enums
+foreach(var entity in entities)
+{
+#>
+    public enum <#= ParseEntityField(entity.Name) + "Enum" #>
+    {
+    <#
+        CreateEnum(entity);
+    #>
+    }
+ 
+<#
+}
+WriteLine("}");
+#>
+
+
+<#+
+ 
+private string ServerName;
+private string DatabaseName;
+ 
+private struct Entity
+{
+    public string Name;
+    public string TextColumn;
+    public string ValueColumn;
+}
+ 
+private List<Entity> entities = new List<Entity>();
+ 
+private string CreateConnectionString()
+{
+    var sb = new SqlConnectionStringBuilder();
+    sb.DataSource = ServerName;
+    sb.InitialCatalog = DatabaseName;
+    sb.IntegratedSecurity = true;
+	//sb.UserID="sa";
+	//sb.Password="Sql2008";
+    return sb.ConnectionString;
+}
+ 
+ // Remove the dot, left bracket, right bracket, space and slash characters from the fieldname.
+ private string ParseEntityField(string name)
+{
+    var pattern = @"[\(\)&:+'\,\.\[\]\s/-]*";
+    var regex = new Regex(pattern, RegexOptions.None);
+    return regex.Replace(name, string.Empty);
+}
+ 
+private void CreateEnum(Entity e)
+{
+    using(var con = new SqlConnection(CreateConnectionString()))
+    {
+        var cmd = con.CreateCommand();
+        var sql = string.Format("SELECT {0}, {1} FROM {2} ORDER BY {1}", e.TextColumn, e.ValueColumn, e.Name);
+        cmd.CommandText = sql;
+        con.Open();
+ 
+        using(var rdr = cmd.ExecuteReader())
+        {
+            PushIndent("\t");
+			
+            while (rdr.Read())
+            {
+                var option = string.Format("{0} = {1},", ParseEntityField(rdr[e.TextColumn].ToString()), rdr[e.ValueColumn].ToString());
+                WriteLine(option);
+            }
+            PopIndent();
+        }
+    }
+}
+#>

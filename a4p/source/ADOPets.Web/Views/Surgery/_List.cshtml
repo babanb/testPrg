@@ -1,0 +1,69 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Surgery.IndexViewModel>
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+
+<div id="surgeryList" class="">
+
+    @Html.RenderSuccessMessage("surgerySuccessMessage", TempData["SuccessMessage"])
+
+    <table id="Table_surgery" class="table table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th width="30%">@Resources.Surgery_Index_Surgery</th>
+                <th width="20%">@Resources.Surgery_Index_Date</th>
+                <th width="20%">@Resources.Surgery_Index_Reason</th>
+                <th width="15%">@Resources.Surgery_Index_Veterinarian</th>
+                @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                {
+                    if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                    {
+                        if (SMOHelper.CanEditPet(ViewBag.PetId))
+                        {
+                    <th width="15%">@Resources.Surgery_Index_Action</th>
+                        }
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @if (item.Date.HasValue)
+                        {
+                            @item.Date.Value.ToShortDateString()
+                        }
+                    </td>
+                    <td>
+                        @item.Reason
+                    </td>
+                    <td>
+                        @item.PhysicianName
+                    </td>
+                    @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                    {
+                        if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                        {
+                            if (SMOHelper.CanEditPet(ViewBag.PetId))
+                            {
+                        <td>
+                            <a href="@Url.Action("Edit", "Surgery", new { surgeryId = item.Id })" class="btn btn-success btn-sm editSurgery" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Surgery_Index_Edit"><i class="fa fa-pencil"></i></a>
+
+                            <a href="@Url.Action("DeleteConfirm", "Surgery", new { surgeryId = item.Id, petId = ViewBag.PetId })" class="btn btn-warning btn-sm deleteSurgery" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Surgery_Index_Delete" aria-describedby="tooltip992278"><i class="fa fa-trash-o"></i></a>
+
+                        </td>
+                            }
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="~/Scripts/customs/views/Surgery/List.js"></script>

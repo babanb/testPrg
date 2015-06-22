@@ -1,0 +1,230 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Pet.CardViewModel
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+
+<style>
+    #profilecover #profileeditbtn {
+        width: 30px;
+        position: absolute;
+        top: 17px;
+        background: rgba(0,0,0,0.40);
+        text-align: center;
+        line-height: 30px;
+    }
+
+        #profilecover #profileeditbtn a {
+            height: 30px;
+            display: block;
+            color: #FFF;
+        }
+</style>
+
+<div class="messageStyle">
+    @{ Html.RenderPartial("_Alerts"); }
+</div>
+@{var classname = "";}
+@if (string.IsNullOrEmpty(Model.CoverImage)) { classname = "defaultprofilecover"; }
+else { classname = ""; }
+@Html.Hidden("hdnInvalidImagetype", @Resources.Gallery_Add_ImageValidation)
+
+<div id="profilecover" style="background-image: url(@Url.Action("Image", "Pet", new { fileName = Model.CoverImage, imageType = "cover", userInfoPath = @ViewBag.UserInfoPath, ownerId = @ViewBag.OwnerId }));background-size:cover;" class="@classname">
+
+    @Html.HiddenFor(model => model.ImagePath)
+
+    <div id="profilepic">
+        @if (string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <img src="@Url.Content("~/Content/Images/animal-dimg.jpg")" id="petProfileImage"  style="width: 140px; height: 140px;" alt="active4pets pet"/>
+        }
+        else
+        {
+            <img src="@Url.Action("Image", "Pet", new { fileName = Model.ImagePath, userInfoPath = @ViewBag.UserInfoPath, ownerId = @ViewBag.OwnerId })" id="petProfileImage" style="width: 140px; height: 140px;" alt="active4pets pet"/>
+        }
+    </div>
+    <div id="profilename">
+        <h3>@Html.DisplayFor(m => m.PetName)</h3>
+        <p>@Resources.Pet_Edit_AnimalType :<span> @Html.EnumDisplayFor(m => m.PetType)</span></p>
+    </div>
+
+    @if (UserHelper.CanDeletePet(Model.Id))
+    {
+        if (SMOHelper.CanEditPet(Model.Id))
+        {
+        <div id="profileeditbtn">
+            <a href="javascript:void(0);" data-toggle="modal" data-target="#editProfilePicCover" id="">
+                <i class="fa fa-pencil"></i></a>
+        </div>
+        }
+    }
+</div>
+
+<div class="modal fade" id="editProfilePicCover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    @using (Html.BeginForm("ImageUpload", "Pet", new { id = Model.Id }, FormMethod.Post, new { enctype = "multipart/form-data", @id = "PetImageForm", @class = "form-horizontal defaultForm", @role = "form" }))
+    {  
+        @Html.HiddenFor(model => model.Id)
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Resources.CloseButton</span></button>
+                    <h4 class="modal-title" id="myModalLabel">@Resources.Pet_Edit_EditPetImages</h4>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <div>
+                        <div id="dvProfilePic">
+                            @if (string.IsNullOrEmpty(Model.ImagePath))
+                            {
+                                <img id="imgPetProfile" src="@Url.Content("~/Content/Images/animal-dimg.jpg")"  class="img-thumbnail pull-left" style="width: 140px; height: 140px;" alt="active4pets pet"/>
+                            }
+                            else
+                            {
+                                <img id="imgPetProfile" src="@Url.Action("Image", "Pet", new { fileName = Model.ImagePath, userInfoPath = @ViewBag.UserInfoPath, ownerId = @ViewBag.OwnerId })" class="img-thumbnail pull-left" style="width: 140px; height: 140px;" alt="active4pets pet" />
+                            }
+                            <div class="pull-left" style="margin: 20px;">
+
+                                <a href='#' id="aUploadPhoto" onclick="document.getElementById('imageFile').click(); return false;" class="btn btn-sm btn-success" style="margin-bottom: 10px; width: 205px;">@Resources.Pet_Edit_UploadPhoto</a><br />
+                                <input type="file" name="imageFile" id="imageFile" accept="image/*" style="height: 0; width: 0; visibility: hidden;" onchange="setImage(this,'prof');" />
+
+                                @if (!string.IsNullOrEmpty(Model.ImagePath))
+                                {
+                                    <a href='#modelDeleteConfirmation' data-toggle="modal" id="lnkDeleteProfPic1" class="btn btn-sm btn-warning" style="width: 120px;">@Resources.Pet_Edit_DeletePhoto</a><br />
+                                    <input type="hidden" id="hdnDeleteProfPic" name="hdnDeleteProfPic" value="false" />
+                                }
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr />
+                        <div id="dvCoverPic">
+                            <input type="hidden" name="hdnTop" id="hdnTop" value="0" />
+                            <input type="hidden" name="hdnLeft" id="hdnLeft" value="0" />
+                            <div class="picturecontainer" style="overflow: hidden; position: relative; height: 200px; border: 1px solid #888;">
+                                @if (string.IsNullOrEmpty(Model.CoverImage))
+                                {     
+                                    <img id="imgPetCover" class="" src="@Url.Content("~/Content/Images/cover_Dbg.gif")" alt=""/>                        
+                                }
+                                else
+                                {                               
+                                    <img id="imgPetCover" class="" src="@Url.Action("Image", "Pet", new { fileName = Model.CoverImage, imageType = "cover", userInfoPath = @ViewBag.UserInfoPath, ownerId = @ViewBag.OwnerId })" />                            
+                                }
+                            </div>
+                            <a href='#modelCoverPhotoSizeWarning' data-toggle="modal" id="lnkSizeWarningAlert" style="height: 0px; width: 0px; visibility: hidden;"></a>
+                            <div id="temp_image" style="display: none;"></div>
+                            <input type="hidden" id="hdnPetCImg" />
+                            <input type="file" name="imageFileCover" id="imageFileCover" accept="image/*" style="height: 0; width: 0; opacity: 0;" onchange="setImage(this,'cover');return false;" />
+
+                            <div style="margin-top: 10px">
+                                <a href='#' id="lnkUploadPhoto" onclick="document.getElementById('imageFileCover').click(); return false;" class="btn btn-sm btn-success" style="width: 150px;">@Resources.Pet_Edit_UploadCoverPhoto</a>
+
+                                @if (!string.IsNullOrEmpty(Model.CoverImage))
+                                {
+                                    <a href='#modelCoverDeleteConfirmation' data-toggle="modal" id="lnkDeleteCoverPic1" class="btn btn-sm btn-warning" style="width: 150px;">@Resources.Pet_Edit_DeleteCoverPhoto</a><br />
+                                    <input type="hidden" id="hdnDeleteCoverPic" name="hdnDeleteCoverPic" value="false" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCancelImageUpload">@Resources.Pet_Edit_CancelButton</button>
+                    <button type="submit" class="btn btn-primary" id="btnUploadImage">@Resources.Pet_Edit_SaveButton</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+<div class="modal fade" id="modelDeleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 50%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">@Resources.Pet_Edit_StatusConfirmationTitle</h4>
+            </div>
+            <form class="form-horizontal defaultForm" role="form">
+                <div class="modal-body">
+                    <label for="Subject" class="col-sm-9 control-label">@Resources.Pet_Edit_StatusConfirmationMessage</label>
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="lnkDeleteProfPic">@Resources.Pet_Edit_StatusConfirmationOkLabel</button>
+                    <button type="button" class="btn btn-default" onclick="$('#lnkDeleteProfPic1').click();">@Resources.Pet_Edit_StatusConfirmationCancelLabel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modelCoverDeleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 50%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">@Resources.Pet_Edit_StatusConfirmationTitle</h4>
+            </div>
+            <form class="form-horizontal defaultForm" role="form">
+                <div class="modal-body">
+                    <label for="Subject" class="col-sm-9 control-label">@Resources.Pet_Edit_StatusCoverConfirmationMessage</label>
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="lnkDeleteCoverPic">@Resources.Pet_Edit_StatusConfirmationOkLabel</button>
+                    <button type="button" class="btn btn-default" onclick="$('#lnkDeleteCoverPic1').click();">@Resources.Pet_Edit_StatusConfirmationCancelLabel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modelCoverPhotoSizeWarning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 50%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">@Resources.Pet_Edit_SizeWarningTitle</h4>
+            </div>
+            <form class="form-horizontal defaultForm" role="form">
+                <div class="modal-body">
+                    <label for="Subject" class="col-sm-12">@Resources.Pet_Edit_SizeWarningMessage</label>
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="lnkOk">@Resources.Pet_Edit_StatusConfirmationOkLabel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="@Url.Content("~/Scripts/external/jquery-ui.min.js")"></script>
+<script src="@Url.Content("~/Scripts/external/jquery.form.min.js")"></script>
+<script src="@Url.Content("~/Scripts/customs/views/Pet/PetImageUpload.js")"></script>
+
+<script>
+
+    function BeforeSubtmit() {
+        var frmValid = $("#PetImageForm").valid();
+        return frmValid;
+    }
+
+    function SubmitPetImageSuccesful(result) {
+        $('#dvPetImage').html(result);
+        $("#btnCancelImageUpload").click();
+        $(".modal-backdrop").hide();
+
+        var imgSRC = $("[id='petProfileImage']").attr('src');
+        $("#imgTopPetImage").attr("src", imgSRC);
+        HideSuccessMsg();
+    }
+
+    $(document).ready(function () {
+        $("#hdnPetCImg").val($("#imgPetCover").attr('src'));
+        repositionCover();
+        $('#PetImageForm').ajaxForm({
+            success: SubmitPetImageSuccesful
+        });
+    });
+</script>

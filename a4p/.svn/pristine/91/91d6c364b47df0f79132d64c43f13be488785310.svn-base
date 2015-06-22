@@ -1,0 +1,87 @@
+﻿@charset "utf-8";
+/* CSS Document */
+#buble {
+	width:233px;
+	height:141px;
+	position:absolute;
+	top:80px;
+	right:0.5%;
+	z-index:400;
+	background:url(../images/smo-buble.png) top left no-repeat;
+	font-size:13px;
+	padding:17px 52px 46px 26px;
+	}
+#bubleBottom {
+	border-top:solid 1px #0065ab;
+	margin-top:4px;
+	padding-top:2px;
+	}
+#bubleBottom a{color:#0065ab;}
+
+.minimizeBubleStyle {
+	width:40px !important;
+	height:40px!important;
+	border-radius:50%;
+	font-size:16px!important;
+	text-align:center;
+	background:#fdc312!important;
+	padding:8px 0!important;
+	box-shadow:0 0 20px 0 rgba(0,0,0,.4) inset;
+	transition:all 0.3s;
+	}
+#maximizeBuble {
+	display:none;
+	}
+table.table-bordered th:last-child, table.table-bordered td:last-child {
+border-right-width: 0;
+}
+.table td:last-child, .table th:last-child {
+width: 125px !important;
+}
+.attachment2 {text-align:left;}
+.attachment2 .btn-group{margin-bottom:5px;}
+.attachment2 .col-md-11{padding-left:0;}
+.attachment2 a.btn-default{
+	max-width:200px; 
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	}
+#conclusion {
+	color: #31708f;
+background: #d9edf7;
+border: solid 1px #bce8f1;
+display: block;
+padding: 10px;
+margin:5px 0 20px 0;
+	}
+#customattch {
+	position:absolute;
+	height:34px;
+	width:37px;
+	opacity:0;
+	top:0;
+	left:0;
+	}
+#pageTitle .label{font-size:12px; margin:0 0 0 10px; }
+#top-text{
+	text-align:right; padding-right:20px;
+	}
+#top-text a{
+	color:#fec412;
+	}
+#content {margin-right:20px !important;}
+#userSearchBx div{margin:10px 0 0 0;}
+#userSearchBx div:first-child, #userSearchBx div:nth-child(2), #userSearchBx div:nth-child(3) {margin:0;}
+#extraFields, #promoPlan {display:none;}
+.selectCheck {padding:4px 10px;border-radius: 0;outline:none !important;}
+.selectCheck input{outline:none!important;}
+
+@media (min-width:767px) and (max-width:1278px) {
+	.table td:last-child, .table th:last-child {
+width: 150px !important;
+}
+	}
+
+
+_::-moz-svg-foreign-content, :root #userSearchBx select {line-height:28px;} /*for safari only*/

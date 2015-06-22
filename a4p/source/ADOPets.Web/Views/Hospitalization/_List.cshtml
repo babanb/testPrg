@@ -1,0 +1,74 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Hospitalization.IndexViewModel>
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+
+<div id="hospitalizationList" class="table-responsive">
+
+    @Html.RenderSuccessMessage("hospitalizationSuccessMessage", TempData["SuccessMessage"])
+    <table id="Table_hospitalization" class="table table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th width="30%">@Resources.Hospitalization_Index_HospitalName</th>
+                <th width="20%">@Resources.Hospitalization_Index_Reason</th>
+                <th width="20%">@Resources.Hospitalization_Index_AdmissionDate</th>
+                <th width="15%">@Resources.Hospitalization_Index_Urgent</th>
+                @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                {
+                    if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                    {
+                        if (SMOHelper.CanEditPet(ViewBag.PetId))
+                        {
+                    <th width="15%">@Resources.Hospitalization_Index_Action</th>
+                        }
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.HospitalName
+                    </td>
+                    <td>
+                        @item.Reason
+                    </td>
+                    <td>
+                        @if (item.AdmissionDate.HasValue)
+                        {
+                            @item.AdmissionDate.Value.ToShortDateString()
+                        }
+                    </td>
+                    <td>
+                        @if (item.UrgentCareVisit == true)
+                        {@Resources.Hospitalization_Index_Yes }
+                        else
+                        {@Resources.Hospitalization_Index_No}
+                    </td>
+                    <td>
+                        @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                        {
+                            if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                            {
+                                if (SMOHelper.CanEditPet(ViewBag.PetId))
+                                {
+                            <a href="@Url.Action("Edit", "Hospitalization", new { hospitalizationId = item.Id })" class="btn btn-success btn-sm editHospitalization" data-tooltip="tooltip" data-placement="top"
+                          data-original-title="@Resources.Hospitalization_Index_Edit"><i class="fa fa-pencil"></i></a>
+
+                            <a href="@Url.Action("DeleteConfirm", "Hospitalization", new { hospitalizationId = item.Id, petId = ViewBag.PetId })" class="btn btn-warning btn-sm deleteHospitalization" data-tooltip="tooltip" data-placement="top"
+                           data-original-title="@Resources.Hospitalization_Index_Delete" aria-describedby="tooltip992278">
+                                <i class="fa fa-trash-o"></i></a>
+                                }
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+<script src="~/Scripts/customs/views/Hospitalization/List.js"></script>

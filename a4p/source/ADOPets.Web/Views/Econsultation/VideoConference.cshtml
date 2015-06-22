@@ -1,0 +1,429 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording;
+@model ADOPets.Web.ViewModels.Econsultation.VideoConferenceModel
+
+<!DOCTYPE html>
+@{    
+    Layout = null;
+    ViewBag.Title = "Activ4Pets E-Consultation";
+    int CheckMsgCount = Model.ChatMsg.Count;
+    string VChatURL = System.Configuration.ConfigurationManager.AppSettings["VChatURL"] + "?userID=" + ViewBag.UserId + "&Econsultation_ID=" + Model.EcID + "&Room_ID=" + Model.RoomID + "&userRole=" + ViewBag.UserType + "&Lang=1";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta name="description" content="Activ4Pets eConsultation service allows you to attend online veterinarian consultations with your pet. Your pet‘s entir medical history can be accessed and updated from any device.  Our expert veterinarians provide unbiased online second medical opinions about your pet’ s diagnosis, condition and treatment">
+    <meta name="author" content="Activ4pets">
+    <link href="@Url.Content("~/images/favicon.gif")" rel="shortcut icon">
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/css/font-awesome.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/css/font.css")" rel="stylesheet">
+    <script src="@Url.Content("~/Scripts/customs/views/Econsultation/swfobject_modified.js")"></script>
+    <script src="@Url.Content("~/Scripts/customs/views/Econsultation/jquery-1.11.2.min.js")"></script>
+</head>
+<body>
+    @Html.HiddenFor(model => model.EcID)
+    @Html.HiddenFor(model => model.RoomID)
+    @Html.HiddenFor(model => model.UserName)
+    @Html.HiddenFor(model => model.PetId)
+    @Html.HiddenFor(model => model.VetId)   
+    @Html.HiddenFor(model => model.PetOnwerId)
+<div id="main">
+<input type="hidden" value="@VChatURL">
+<div id="flashComp">
+  <iframe src="@VChatURL" width="100%" height="100%" frameborder="0"></iframe>
+</div>  
+
+<div id="chatWindow">
+<div id="closeChat"><i class="fa fa-times"></i></div>
+<div id="chatTop">Chat - @Model.UserName , @DateTime.Now.ToString("dd MMM, yyyy")</div>
+<div id="msgBox">
+    <input type="hidden" name="MsgCount" id="MsgCount" value="@ViewBag.ChatMsgCount" />
+    @if (Model.ChatMsg != null)
+    {
+        foreach (var Msg in Model.ChatMsg)
+        {
+            if (Msg.MsgSender == Model.UserName)
+            {
+                <div class="myMSG">
+                <div class="msgTalk"><div class="arrow"></div>
+                    @if (Msg.MsgType.Value == 0)
+                    {
+                    @Msg.MsgContent
+                    }
+                    else
+                    {
+                        //Display Uploaded Files
+                        if (Model.Files != null)
+                        {
+                            foreach (var item in Model.Files)
+                            {
+
+                                if (Msg.MsgContent == item.DocName)
+                                {
+                                  <a href="@Url.Action("GetFile", "Econsultation", new { fileName = item.DocumentPath, PetID = Model.PetId, EcID = Model.EcID, ownerId = Model.PetOnwerId, VetId = Model.VetId })" id="@("viewDocumentalbum")"  
+                                  class="ellipsisText" target="_blank">@Html.CreateDivFromFileExtension(item.DocumentPath) @item.DocumentName</a>
+                               }
+                        
+                            }
+
+                        }                        
+                    }
+                </div>
+                <div style="clear:both;"></div>
+                </div>
+            }
+            else
+            {
+                <div class="hisMSG">
+                @if (ViewBag.UserId == Model.PetOnwerId)
+                {
+                <div class="hisProfilePic"><img src="@Url.Action("GetUserImage", "Econsultation", new { fromUserId = Model.VetId })" /></div>
+                }
+                else
+                {
+                <div class="hisProfilePic"><img src="@Url.Action("GetUserImage", "Econsultation", new { fromUserId = Model.PetOnwerId })" /></div>
+                }
+
+                <div class="msgTalk"><div class="arrow"></div>
+                    @if (Msg.MsgType.Value == 0)
+                    {
+                    @Msg.MsgContent
+                    }
+                    else
+                    {
+                        //Display Uploaded Files
+                        if (Model.Files != null)
+                        {
+                            foreach (var item in Model.Files)
+                            {
+                                if (Msg.MsgContent == item.DocName)
+                                {
+                                  <a href="@Url.Action("GetFile", "Econsultation", new { fileName = item.DocumentPath, PetID = Model.PetId, EcID = Model.EcID, ownerId = Model.PetOnwerId, VetId = Model.VetId })" id="@("viewDocumentalbum1")"  
+                                  class="ellipsisText" target="_blank">@Html.CreateDivFromFileExtension(item.DocumentPath) @item.DocumentName</a>
+                                }
+
+                            }
+
+                        }
+                    }
+                </div>
+                <div style="clear:both;"></div>
+                </div>
+
+            }
+        }
+    }
+
+    <div class="" id="dvAlbumPhotoList" style="display:none">
+    </div>
+    <div id="dvGalleryUploadError" class="error">
+    </div>
+</div>    
+<div id="chatBottom">
+<input type="file" id="uploadFile">
+<button type="button" id="attachment"><i class="fa fa-paperclip"></i></button>
+<textarea id="MsgContent" placeholder="Type your message here" autofocus ></textarea>
+<button type="button" id="sendMsg"><i class="fa fa-paper-plane-o"></i></button>
+<div style="clear:both;"></div>
+</div>
+</div>
+<div style="clear:both;">
+<div id="openChat"> <img src="~/Content/images/chatOpen.png"> </div>
+</div>
+</div>
+<script type="text/javascript">
+    swfobject.registerObject("FlashID");
+    var hdiv = $(window).height();
+    $("#flashComp").css('height', hdiv);
+    $("#chatWindow").css('height', hdiv);
+    var hmsgbox = hdiv - 115;
+    $("#msgBox").css('max-height', hmsgbox);
+
+    function getStodp() {
+        var iScrollHeighta = $("#msgBox").prop("scrollHeight");
+        var sTop = iScrollHeighta - hmsgbox + 10;
+        $("#msgBox").scrollTop(sTop);
+    }    
+
+    $(window).on('load resize', function () {
+      
+
+        function getStop() {
+            var iScrollHeight = $("#msgBox").prop("scrollHeight");
+            var sTop = iScrollHeight - hmsgbox + 200;
+            $("#msgBox").scrollTop(sTop);
+        }
+        $("#openChat").click(function (e) {
+            $("#flashComp").css('width', '76%');
+            $("#chatWindow").show();
+            $("#openChat").hide();
+           getStop();
+        });
+        $("#closeChat").click(function (e) {
+            $("#flashComp").css('width', '100%');
+            $("#chatWindow").hide();
+            $("#openChat").show();
+        });
+       
+
+    });
+
+    $("#sendMsg").click(function (e) {
+        callservice();
+    });
+
+    $(document).ready(function () {
+        $("#MsgContent").keypress(function (e) {
+            code = e.keyCode ? e.keyCode : e.which;
+                if (code.toString() == 13) {
+                    callservice();
+                }
+        });
+    });
+
+    function callservice() {        
+        var ecid = $("#EcID").val();
+        var senderName = $("#UserName").val();
+        var MsgContent = $("#MsgContent").val();        
+        var RoomID = $("#RoomID").val();        
+        if (MsgContent.length > 0) {
+            $('#MsgContent').val('');
+            var data = { 'EcId': ecid, 'MsgSender': senderName, 'MsgContent': MsgContent, 'MsgType': '0', 'RoomID': RoomID, 'remoteIP': '127.0.0.1' };
+            $.ajax({
+                url: "/Econsultation/AddNewMessage",
+                data: data,
+                type: 'GET',
+                success: function (response) {
+                    if (response.success) {
+                        $("#msgBox").load(location.href + " #msgBox>*", "");
+                    }
+                },
+                error: function (req, status, error) {
+                    // alert(error);
+                }
+            });
+            getStodp();
+        }
+    }
+    
+    function OnSuccessCall(response) {
+        alert(response.d);
+    }
+
+    function OnErrorCall(response) {
+        alert(response.status + " " + response.statusText);
+    }
+
+</script>
+<script>
+    function autoRefresh_div() {
+        var ecid = $("#EcID").val(); 
+        var nMsgCount = $("#MsgCount").val();
+        var data = { 'EcId': ecid, 'MsgCount': nMsgCount  };
+        $.ajax({
+            url: "/Econsultation/CheckNewMessage",
+            data: data,
+            type: 'GET',
+            success: function (response) {
+                if (response.success) {
+                    if(response.Mcount != nMsgCount)
+                    {
+                        $("#MsgCount").val(response.Mcount);                        
+                        $("#msgBox").load(location.href + " #msgBox>*", "");                                                
+                    }
+                   }
+                 },
+                    error: function (req, status, error) {
+                        // alert(error);
+                      }
+        });
+        getStodp();        
+    }
+
+    setInterval('autoRefresh_div()', 1000); // refresh div after 5 secs
+</script>
+<script>
+    
+    List = {
+
+        initPhotoGalleryUpload: function () {
+            var innerData = '';
+            uploadType = 'album';
+            var ecid = $("#EcID").val();
+            var petid = $("#PetId").val();
+            var senderName = $("#UserName").val();
+            var ownerid = $("#PetOnwerId").val();
+            var RoomID = $("#RoomID").val();
+            var vetId = $("#VetId").val();
+            var buttonFileUpload = $('#attachment');
+            var btnCaption = buttonFileUpload.text();
+            //debugger;
+            new AjaxUpload(buttonFileUpload, {
+                action: '/Handler/EcFileUploadHandler.ashx?uploadType =' + uploadType + '&PetId=' + petid + '&ecId=' + ecid,
+                name: 'myfile',
+                size: 1,
+                data: {
+                    'uploadType': 'album',
+                    'PetId': petid,
+                    'EcId': ecid
+                },
+                onSubmit: function (file, ext) {
+                    if (!(ext && /^(jpg|png|jpeg|gif|bmp|pdf|doc|docx|txt)$/i.test(ext))) {
+                        //     HideLoading();
+                        $("#dvGalleryUploadError").html('Error: invalid file extension');
+                        return false;
+                    }
+                    // change button text, when user selects file
+                    this.disable();
+                    try {
+                        $("input[name='rdbDefaultPhoto']:checked").each(function () {
+                            $(this).removeAttr("checked");
+                        });
+                    }
+                    catch (err) { }
+                    var imgfilename = file.split(".")[0];
+                    var extString = "word";
+                    if (ext == "doc" || ext == "docx") {
+                        extString = "word";
+                    }
+                    if (ext == "pdf") {
+                        extString = "pdf";
+                    }
+                    if (ext == "txt") {
+                        extString = "text";
+                    }
+                    if (ext == "jpg" || ext == "png" || ext == "jpeg" || ext == "gif" || ext == "bmp") {
+                        extString = "photo";
+                    }
+                    trId = "tr-0-" + imgfilename.replace(/ /g, '');
+                    var innerData = "<div class='btn-group' id='tr-0-" + imgfilename.replace(/ /g, '') + "' datachking='unprocessed'>";
+                    innerData += "<a href='temp/dummyDoc.docx' class='btn btn-default' target='_blank' style='float:left'><i class='fa  fa-file-" + extString + "-o'></i> " + imgfilename + "</a><button type='button' onclick='removeRow(\"" + imgfilename.replace(/ /g, '') + "\")' class='btn btn-default'><span class='fa fa-times'></span></button>";
+                    innerData += "<input type='hidden' id='hdnURL' value='response'/>";
+                    innerData += "</div>";
+                    $("#dvAlbumPhotoList").append(innerData);
+                },
+                onComplete: function (file, response) {
+                    var imgfilename = file;                   
+
+                    this.enable();
+                    if (response.toString().match("ERROR:")) {
+                        $("#dvGalleryUploadError").html(response);
+                        return false;
+                    }
+                    
+                        var data = { 'EcId': ecid, 'MsgSender': senderName, 'MsgContent': imgfilename, 'MsgType': '1', 'RoomID': RoomID, 'remoteIP': '127.0.0.1' };
+                        $.ajax({
+                            url: "/Econsultation/AddNewMessage",
+                            data: data,
+                            type: 'GET',
+                            success: function (response) {
+                                if (response.success) {                                    
+                                    var VideoConferenceModel = new Object();
+                                    VideoConferenceModel.Files = getFileData();
+                                    VideoConferenceModel.EcID = ecid;
+                                    VideoConferenceModel.VetId = vetId;
+                                    VideoConferenceModel.PetOnwerId = ownerid;
+                                    VideoConferenceModel.PetId = petid;
+                                    VideoConferenceModel.DocName = imgfilename;
+                                    var data = '{model:' + JSON.stringify(VideoConferenceModel) + '}';                                    
+                                    $.ajax({
+                                        url: "/Econsultation/SaveUploadFile",
+                                        data: data,
+                                        processData: false,
+                                        contentType: "application/json; charset=utf-8",
+                                        type: 'POST',
+                                        success: function (response) {
+                                            if (response.success) {
+                                                $("#msgBox").load(location.href + " #msgBox>*", "");
+                                            }
+                                        },
+                                        error: function (req, status, error) {
+                                            // alert(error);
+                                        }
+                                    });
+                                }
+                            },
+                            error: function (req, status, error) {
+                                // alert(error);
+                            }
+                        });                        
+                    
+                    imgURLName = "/Econsultation/GetImage?VetId=" + vetId + "&EcId=" + ecid + "&fileName=" + response;
+                    $("#dvGalleryUploadError").html("");
+                    var newData = $("#" + trId + "[datachking='unprocessed']").html();
+                    newData = newData.replace("response", response);
+                    newData = newData.replace("temp/dummyDoc.docx", imgURLName);
+                    $("#" + trId + "[datachking='unprocessed']").html(newData);
+                    $("#" + trId + "[datachking='unprocessed']").removeAttr('datachking');
+                    List.initPhotoGalleryUpload();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        var ecid = $("#EcID").val();
+        var petid = $("#PetId").val();
+        List.initPhotoGalleryUpload();        
+
+        $(document).off("click", "#attachment").on("click", "#attachment", function (e) {
+            List.initPhotoGalleryUpload();
+            initAutoFileUpload();
+        });
+    });
+
+
+    function initAutoFileUpload() {
+        var ecid = $("#EcID").val();
+        var senderName = $("#UserName").val();
+        var MsgContent = $("#uploadFile").val();
+        var RoomID = $("#RoomID").val();
+        $('#MsgContent').val('');
+        var data = { 'EcId': ecid, 'MsgSender': senderName, 'MsgContent': MsgContent, 'MsgType': '1', 'RoomID': RoomID, 'remoteIP': '127.0.0.1' };
+        $.ajax({
+            url: "/Econsultation/AddNewMessage",
+            data: data,
+            type: 'GET',
+            success: function (response) {
+                if (response.success) {                    
+                    $("#msgBox").load(location.href + " #msgBox>*", "");
+                }
+            },
+            error: function (req, status, error) {
+                // alert(error);
+            }
+        });
+    }
+
+    function getFileData() {
+        var fileList = new Array();
+        $('#dvAlbumPhotoList').find("div").each(function () {
+            var objfile = new Object();
+            var id = $(this).attr('id');
+            var dummyId = id.split("-");
+            var ecid = $("#EcId").val();
+            objfile.Id = (dummyId.length > 2) ? 0 : dummyId[dummyId.length - 1];
+            objfile.ECId = ecid;
+            objfile.DocumentName = $(this).find("#hdnURL").val();
+            if (objfile.DocumentName != '') {
+                fileList.push(objfile);
+            }
+        });
+        return fileList;
+    }
+
+    $("#sendMsg").click(function (e) {
+        getStodp();
+    });
+    
+</script>
+   
+</body>
+</html>
+<script type="text/javascript" src="~/Scripts/external/ajaxupload.js"></script>
+

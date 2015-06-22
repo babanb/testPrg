@@ -1,0 +1,53 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.PhotoGallery.AddViewModel
+@using ADOPets.Web.Common.Extensions
+
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Resources.CloseButton</span></button>
+            <h4 class="modal-title" id="myModalLabel">@Resources.Gallery_Add_ModelTitle</h4>
+        </div>
+        @using (Html.BeginForm("Add", "PhotoGallery", new { petId = Model.PetId }, FormMethod.Post, new { enctype = "multipart/form-data", @id = "addPhotoGalleryForm", @class = "form-horizontal defaultForm", @role = "form" }))
+        {   
+            @Html.AntiForgeryToken()
+            @Html.Hidden("hdnInvalidImagetype", @Resources.Gallery_Add_ImageValidation)
+            <div class="modal-body">
+                @Html.HiddenFor(model => model.PetId)
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.Title, new { @class = "col-sm-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = Resources.Gallery_Add_TitlePlaceHolder })
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.ImagePath, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-8">
+                        <div id="dvProfilePic">
+                            <img id="imgGalleryPhoto" src="@Url.Content("~/Content/Images/animal-dimg.jpg")"  class="img-thumbnail" style="width: 140px; height: 140px;" alt=""/>
+                            <div class="pull-left" style="margin: 20px;">
+                                <input type="file" name="imageFile" id="imageGalleryFile" accept="image/*" style="display: none;" onchange="setGalleryImage(this);" />
+                                <a href='#' id="aUploadPhoto" onclick="document.getElementById('imageGalleryFile').click(); return false;" class="btn btn-sm btn-success" style="margin-bottom: 10px; width: 120px;">@Resources.Gallery_Add_Image</a><br />
+                                @Html.TextBoxFor(model => model.ImagePath, new { @class = "form-control", placeholder = Resources.Gallery_Add_TitlePlaceHolder, @style = "width:0;visibility:hidden;height:0;" })
+
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ImagePath)
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCloseModel">@Resources.Gallery_Add_CloseButton</button>
+                <button type="submit" class="btn btn-primary">@Resources.Gallery_Add_SubmitButton</button>
+            </div>
+        }
+    </div>
+</div>
+
+
+<script src="@Url.Content("~/Scripts/external/jquery.form.min.js")"></script>
+<script src="@Url.Content("~/Scripts/customs/views/Gallery/Form.js")"></script>
+

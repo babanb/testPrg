@@ -1,0 +1,82 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+
+@model IEnumerable<ADOPets.Web.ViewModels.Calender.IndexViewModel>
+
+<script type="text/javascript">
+
+    var currentLangCode = $("meta[name='accept-language']").attr("content");
+    
+    var events = @Html.Raw(Json.Encode(Model.Select(x => new { id = x.Id, start = x.Date })))
+    year = new Date().getFullYear(); month = new Date().getMonth() + 1; day = new Date().getDate();
+    if (currentLangCode == 'en-IN') {
+         currentLangCode = 'en-gb';         
+     }
+             
+    var clickDate;
+
+    $(document).ready(function () {
+
+        $('.calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,basicWeek,basicDay'
+            },
+            lang: currentLangCode,
+            editable: true,
+            dayClick: function (date, jsEvent, view) {
+                clickDate = date.year() + '-' + (date.month() + 1) + '-' + date.date();
+                addReminder("Calendar", clickDate);
+            },
+
+            eventMouseover: function (calEvent, jsEvent) {
+
+                $.get('/Calender/PopupOver?Id=' + calEvent.id, function (data) {
+                    $('.tooltipevent').html(data);
+                });
+                var tooltip = '<div class="tooltipevent"> </div>';
+                $("body").append(tooltip);
+                $(this).mouseover(function (e) {
+                    $(this).css('z-index', 10000);
+                    $('.tooltipevent').fadeIn('500');
+                    $('.tooltipevent').fadeTo('10', 1.9);
+                }).mousemove(function (e) {
+                    $('.tooltipevent').css('top', e.pageY + 10);
+                    $('.tooltipevent').css('left', e.pageX - 300);
+                });
+
+            },
+
+            eventMouseout: function (calEvent, jsEvent) {
+                $(this).css('z-index', 8);
+                $('.tooltipevent').remove();
+            },
+            eventLimit: true, // allow "more" link when too many events
+            eventClick: function (calEvent, jsEvent, view) {
+                var defaultYear = view.calendar.getDate().year(); var defaultMonth = (view.calendar.getDate().month() + 1);
+                clickDate = defaultYear + '-' + defaultMonth + '-1'
+                editReminder(calEvent.id, 'Calendar');
+            },
+            events: events
+
+        });
+        //TODO $('.timepicker1').timepicker();
+        //console.log(clickDate);
+
+        //$("#EventDate").change(function () {
+        //    $(this).val(Globalize.format($(this).datetimepicker('getDate'), Globalize.culture().calendar.patterns.d + " " + Globalize.culture().calendar.patterns.t)); /*d t*/
+        //});
+    });
+
+</script>
+<div class="calendar" id='reminderList'>
+    <div class="messageStyle">
+        @{ Html.RenderPartial("_Alerts"); }
+    </div>
+</div>
+
+
+

@@ -1,0 +1,33 @@
+﻿@using ADOPets.Web.Common.Enums
+
+@using Resources = ADOPets.Web.Resources.Wording
+
+@model ADOPets.Web.ViewModels.MedicalRecord.IndexViewModel
+
+
+@Html.Hidden("SelectedMedicalRecord", Model.CurrentMedicalRecord)
+<div id="mrsubcatpage">
+    <div id="mrsubcatnavlevel1">
+        <ul class="nav nav-tabs"  id="medicalRecordTab">
+            <li><a href='#@MedicalRecordTypeEnum.HealthHistory' class="active">@Resources.MedicalRecord_Index_HealthHistory </a></li>
+            <li><a href='#@MedicalRecordTypeEnum.HealthMeasureTracker'>@Resources.MedicalRecord_Index_HealthMeasureTracker</a></li>
+            <li><a href='#@MedicalRecordTypeEnum.Document'>@Resources.MedicalRecord_Index_Document</a></li>
+        </ul>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="tab-content">
+        <div class="tab-pane active" id='@MedicalRecordTypeEnum.HealthHistory'>
+            @{ Html.RenderPartial("~/Views/HealthHistory/_Index.cshtml", Model.HealthHistory); }
+        </div>
+        <div class="tab-pane" id='@MedicalRecordTypeEnum.HealthMeasureTracker'>
+            @{ Html.RenderPartial("~/Views/HealthMeasureTracker/_Index.cshtml", Model.HealthMeasureTracker); }
+        </div>
+        <div class="tab-pane" id='@MedicalRecordTypeEnum.Document'>
+            @{ Html.RenderPartial("~/Views/Document/_Index.cshtml", Model.Document); }
+        </div>
+    </div>
+</div>
+
+
+<script src="@Url.Content("~/Scripts/customs/views/MedicalRecord/Index.js")"></script>

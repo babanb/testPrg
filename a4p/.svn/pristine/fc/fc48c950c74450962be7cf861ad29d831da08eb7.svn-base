@@ -1,0 +1,56 @@
+﻿@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+
+@{
+    ViewBag.Title = Resources.Message_Notification_Title;
+}
+
+<div id="pageTitle">
+    <div class="row">
+        @using (Ajax.BeginForm("SearchNotification", "Message", new AjaxOptions
+        {
+            UpdateTargetId = "dvHistoryList",
+            HttpMethod = "GET",
+        }, new { @id = "searchNotificationForm" }))
+        {
+            <div class="col-md-4">
+                <h1>@Resources.Message_Notification_Title</h1>
+            </div>
+            <div class="col-md-3">
+                <label class="sr-only" for="StartDate">@Resources.Message_Notification_StartDate</label>
+                <div class="input-group date">
+                    @Html.TextBox("StartDate",null, new { @class = "form-control datepicker", placeholder = Resources.Message_Notification_StartDate, @style = "z-index:100 !important;" })
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="sr-only" for="EndDate">@Resources.Message_Notification_EndDate</label>
+                <div class="input-group date">
+                    @Html.TextBox("EndDate", null, new { @class = "form-control datepicker", placeholder = Resources.Message_Notification_EndDate, @style = "z-index:100 !important;" })
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-success"><i class="fa fa-search" style="padding-right: 0;"></i></button>
+            </div>
+        }
+    </div>
+</div>
+<div id="mainContainer">
+    @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianLight.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()) && !Roles.IsUserInRole(UserTypeEnum.Admin.ToString()))
+    {  
+        <div id="hiderightsidebar">
+            <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+        </div>
+        <div id="showrightsidebar">
+            <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+        </div>
+    }
+    <div id="dvHistoryList">
+    </div>
+
+
+</div>
+<div class="clearfix"></div>
+
+<script src="~/Scripts/customs/views/Message/Notification.js"></script>

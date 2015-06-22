@@ -1,0 +1,222 @@
+﻿@model IEnumerable<ADOPets.Web.ViewModels.SMO.IndexViewModel>
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording;
+
+@{
+    ViewBag.Title = Resources.Smo_Index_PageTitle;
+   
+}
+
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-4">
+            <h1>@Resources.Smo_Index_SecondOpinions</h1>
+        </div>
+        <div class="col-md-3">
+            <span class="usericon">
+                @Html.EnumDropDownList(typeof(SMOOwnerRequestStatusEnum), "StatusFilter", ViewBag.SMORequestStatus as SMOOwnerRequestStatusEnum?, Resources.Smo_Index_SearchByStatusPlaceHolder, new { @class = "form-control" })
+            </span>
+        </div>
+        <div class="col-md-3">
+            <span class="usericon">
+                @Html.TextBox("SMOPetNameFilter", string.Empty, new { placeholder = Resources.Smo_Index_SearchByPetNamePlaceHolder, @class = "form-control usericon" })
+            </span>
+        </div>
+        <div class="col-md-2">
+            @if (SMOHelper.CanAddSMO(Session["CanAddSMOUserId"].ToString()))
+            {
+                <a href="@Url.Action("Add", "SMO")" class="btn btn-success pull-right" id="addSMO">
+                    <i class="fa fa-plus-circle"></i><span>@Resources.Smo_Index_NewButton</span>
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+<div id="mainContainer">
+    <div id="hiderightsidebar">
+        <img src="../Content/images/hide-img.png" width="22" height="34" alt="" />
+    </div>
+    <div id="showrightsidebar">
+        <img src="../Content/images/show-img.png" width="22" height="34" alt="" />
+    </div>
+    <div id="subCntnt1"></div>
+    @if (@Model.Count() > 0)
+    {
+        <div id="listing-main" data-container="paging_container" data-page-size="10">
+            @foreach (var item in Model)
+            {
+                <div class="listing2 animated fadeInLeft" data-sub-container="sub_container">
+                    <div class="listing2Icon">
+                        <img src="~/Content/images/smo-icon.jpg" alt="Activ4pets SMO" />
+                    </div>
+                    <div class="listing2content">
+                        <div class="row" data-item="item">
+                            <div class="col-md-5">
+                                <p>
+                                    <strong>@Resources.Smo_Index_Title</strong> : <span id="spnTitle" data-item-name="title">@Html.DisplayFor(modelItem => item.Title)</span><br>
+                                    <strong>@Resources.Smo_Index_PetType</strong> : <span id="spnPetType" data-item-type="pet_type">@Html.DisplayFor(modelItem => item.PetType)</span>&nbsp;&nbsp; 
+                            <span id="spnRequestStatus" class="label label-primary myreqstatusspan" data-myitemid="@(item.RequestStatus)" data-item-type="request_status" style="display:inline-block;">
+
+                                @if (item.RequestStatus == SMORequestStatusEnum.Assigned.ToString() || item.RequestStatus == SMORequestStatusEnum.Validated.ToString())
+                                {
+                                    @Html.Raw(@Resources.Smo_Index_InProgress);
+                                }
+                                else
+                                {
+                                    @Html.DisplayFor(modelItem => item.RequestStatus);
+                                }
+                            </span>
+                                </p>
+                            </div>
+                            <div class="col-md-5">
+                                <p>
+                                    <strong>@Resources.Smo_Index_RequestDate</strong> : <span id="spnRequestDate">@Html.DisplayFor(modelItem => item.RequestDate)</span><br>
+                                    <strong>@Resources.Smo_Index_PetName</strong> : <span id="spnName" data-item-name="pet_name">@Html.DisplayFor(modelItem => item.PetName)</span><br>
+                                </p>
+                            </div>
+                            <div class="col-md-2">
+                                @if (item.IsSMOPaymentDone)
+                                {
+                                    <a href="@Url.Action("SMODetails", "SMO", new { id = item.Id })" class="btn btn-primary btn-sm" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Smo_Index_View"><i class="fa fa-eye"></i></a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("EditSMO", "SMO", new { smoId = item.Id })" class="btn btn-primary btn-sm" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Smo_Index_View"><i class="fa fa-eye"></i></a>
+                                    <a href="javascript:void(0)" id="lnkDeleteSMO" data-smo-id="@item.Id" class="btn btn-warning btn-sm lnkDeleteSMO" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.PetContact_Index_Delete"><i class="fa fa-trash-o"></i></a>
+                                }
+                                @if (item.RequestStatus == @ADOPets.Web.Resources.Enums.SMOOwnerRequestStatusEnum_Complete.ToString())
+                                {
+                                    <a href="@Url.Action("ShowSMOVetReport", "SMO", new { id = item.Id, PetId = item.PetId })" data-href="@Url.Action("ShowSMOOwnerReport", "SMO", new { id = item.Id })" class="btn btn-success btn-sm" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Smo_Edit_Report">
+                                        <i class="fa fa-file-text-o"></i></a>
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            }
+        </div>        
+        <div id="pagingControls" data-paging-control="paging_control"></div>
+    }
+    else
+    {
+        <div class="row">
+            <h4 style="text-align: center; margin-top: 20px;" class="text-primary">
+                @Resources.Smo_Index_NoRecordFound<br>
+            </h4>
+        </div>       
+    }
+    <div class="clearfix"></div>
+    <div id="showModalReport" class="modal fade" tabindex="-1" role="dialog"></div>
+</div>
+
+
+<div id="modelDeleteSMO" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">@Resources.SMO_Delete_Title</h4>
+            </div>
+            <form class="form-horizontal defaultForm" role="form">
+                <div class="modal-body">
+                    <label for="Subject" class="col-sm-12">@Resources.SMO_Delete_DeleteConfirmationMessage</label>
+                    <input type="hidden" id="hdnSMOIdDelete" name="hdnSMOIdDelete" />
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnDeleteSMO">@Resources.Pet_Edit_StatusConfirmationOkLabel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script> function GetTranstaltionSMOStatus() {
+     var result = {
+         "Open": '@ADOPets.Web.Resources.Enums.SMOOwnerRequestStatusEnum_Open',
+         "InProgress": '@ADOPets.Web.Resources.Enums.SMOOwnerRequestStatusEnum_InProgress',
+         "Complete": '@ADOPets.Web.Resources.Enums.SMOOwnerRequestStatusEnum_Complete',
+         "PaymentPending": '@ADOPets.Web.Resources.Enums.SMOOwnerRequestStatusEnum_PaymentPending',
+         "Assigned": '@ADOPets.Web.Resources.Enums.SMORequestStatusEnum_Assigned',
+         "TestDateRequired": '@Resources.Smo_Add_TestDateRequired',
+         "TestNameRequired": '@Resources.Smo_Add_TestNameRequired'
+     };
+     return result;
+ }</script>
+<script src="@Url.Content("~/Scripts/customs/views/SMO/Index.js")"></script>
+<script src="@Url.Content("~/Scripts/external/bootstrap-confirmation.js")"></script>
+<script src="@Url.Content("~/Scripts/external/pagination.js")"></script>
+
+<script>
+    var resourceMessage = '@Html.Raw(Resources.Smo_Index_PagedListPagerPageItemSliceAndTotalFormat)';
+    var pager = new Pager();
+
+    $(document).ready(function () {
+        initPager(true);
+        deleteConfirmation();
+
+        $(".lnkDeleteSMO").click(function () {
+            var smoID = $(this).attr("data-smo-id");
+            $('#modelDeleteSMO').modal('show');
+            $("#modelDeleteSMO").find("#hdnSMOIdDelete").val(smoID);
+        });
+
+        $("#btnDeleteSMO").click(function () {
+            var smoId = $("#hdnSMOIdDelete").val();
+            ShowLoading();
+            var data = '{smoId:' + JSON.stringify(smoId) + '}';
+            $.ajax({
+                url: "/SMO/DeleteSMO",
+                data: data,
+                processData: false,
+                contentType: "application/json;",
+                type: 'POST',
+                success: function (success) {
+                    HideLoading();
+                    if (success) {
+                        ShowAjaxSuccessMessageLonger(success.successMessage);
+                        setTimeout(function () { window.location = "/SMO/Index"; }, 2000);
+                    }
+                },
+                error: function (req, status, error) {
+                    HideLoading();
+                }
+            });
+        });
+    });
+
+    function deleteConfirmation() {
+        $('[data-toggle="confirmation"]').confirmation({
+            title: '@Html.Raw(Resources.Smo_Index_StatusConfirmationTitle)',
+            btnOkLabel: '@Html.Raw(Resources.Smo_Index_StatusConfirmationOkLabel)',
+            btnCancelLabel: '@Html.Raw(Resources.Smo_Index_StatusConfirmationCancelLabel)'
+        });
+    }
+
+    function displayResult() {
+        $("[data-paging-control='paging_control']").show();
+        var itemCount = $('div.listing2').find("#spnPetType").length;
+        var chkcount = 0;
+        $.each($('div.listing2'), function (key, val) {
+
+            if ($(this).css('display') == 'none') {
+                chkcount = chkcount + 1;
+            }
+        });
+        if (chkcount == itemCount) {
+            showPageFilter();
+            $('div[data-container="paging_container"]').append("<div class='petlist'><div class='row'><div id='dvNoRecords'>" + '@Html.Raw(Resources.Smo_Index_FilterNoResult)' + "</div</div</div>");
+            $(".petlist").slideDown(500);
+        }
+        else {
+            $("#dvNoRecords").remove();
+            $("[data-paging-control='paging_control']").show('slow');
+            showPageFilter();
+        }
+    }
+</script>

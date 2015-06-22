@@ -1,0 +1,77 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@using ADOPets.Web.Common.Helpers
+@model IEnumerable<ADOPets.Web.ViewModels.Center.IndexViewModel>
+@using ADOPets.Web.Common.Extensions
+
+<div class="clearfix"></div>
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>@Resources.Center_Index_Title</h1>
+        </div>
+        <div class="col-md-6">
+            <a href="@Url.Action("AddCenter", "Center")" class="btn btn-success pull-right"><i class="fa fa-plus-circle"></i>@Resources.Center_Index_Add</a>
+                @Html.RenderSuccessMessage("CenterSuccessMessage", TempData["SuccessMessage"])
+
+        </div>
+    </div>
+</div>
+
+<div id="mainContainer">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">@Resources.Center_Index_SearchCenter</h3>
+        </div>
+        <div class="form-horizontal defaultForm bv-form">
+            <div class="panel-body">
+                <div class="row" id="centerSearchBx">
+                    <div class="col-md-4" id="Centername">
+                        @Html.DropDownList("Center", ViewBag.CenterList as IEnumerable<SelectListItem>, Resources.Center_Index_SearchbyCenterName, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-8" id="">
+                   &nbsp;
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="text-primary">@Resources.Center_Index_AllCenters</h4>
+    <table id="tblCenter" class="table table-bordered">
+        <thead>
+            <tr>
+                <th width="20%">@Resources.Center_Index_CenterID</th>
+                <th width="25%">@Resources.Center_Index_CenterName</th>
+                <th width="25%">@Resources.Center_Index_PromoCode</th>
+                <th width="10%">@Resources.Center_Index_IsDeleted </th>
+                <th>@Resources.Center_Index_Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count() > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <tr class="">
+                    <td>@Html.DisplayFor(modelItem => item.CenterID)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CenterName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PromoCode)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IsDeleted)</td>                    
+                    <td>
+                        @if (item.CenterID != 1)
+                        {
+                            <a href="@Url.Action("EditCenter", "Center", new { CenterID = item.CenterID })" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="@Resources.Center_Index_Edit"><i class="fa fa-pencil"></i></a>
+                            <a href="@Url.Action("DeleteCenter", "Center", new { CenterID = item.CenterID })" class="btn btn-warning btn-sm opendelete deleteCenterClass" data-toggle="tooltip" data-placement="top" title="" data-original-title="@Resources.Center_Index_Remove" id="lnkDeleteCenter"><i class="fa fa-close"></i></a>
+                        }
+                    </td>
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class="clearfix"></div>
+</div>
+<!--content end here-->
+
+<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog"></div>
+<script src="~/Scripts/customs/views/Center/Index.js"></script>

@@ -1,0 +1,676 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountActivationBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+   &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt;Need to ask a question? &lt;b&gt;Call 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;Activation of Your Account&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Dear {1} {2},
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    We received a request to create your Activ4Pets account. Your user account is ready to activate.
+    Please follow the instructions below. &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Login to Activ4Pets’ secure portal: &lt;a href="https://login.activ4pets.com"&gt;https://login.activ4pets.com&lt;/a&gt; &lt;/font&gt;
+	&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Enter your username and temporary password 
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt;UserName:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{3}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt;Temporary Password:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt; 
+            &lt;font face="Arial" size="2"&gt;{4}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;font face="Arial" size="2"&gt;
+    • After login, you will prompted to enter a new password and accept the Terms &amp; Conditions &lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    If you need any assistance, give us a call at 1-888-51-ACTIV (22848).  &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+
+&lt;img src="{5}" style="display: block;"&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Sincerely,&lt;br /&gt;
+    The Activ4Pets Team&lt;br /&gt;
+    &lt;br /&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{6}"&gt;Privacy Policy&lt;/a&gt; | &lt;a  href="{7}"&gt;Terms &amp; Conditions&lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Please do not reply to this auto-answer message.
+		&lt;br/&gt;
+		If you have a customer support issue, please contact support@activ4pets.com.
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="AccountActivationSubject" xml:space="preserve">
+    <value>Activation of Your Account</value>
+  </data>
+  <data name="FileFormatIncorrectMailBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt;Need to ask a question? &lt;b&gt;Call 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Dear Support,
+    &lt;br/&gt;
+    &lt;br/&gt;
+The file "{2}" was not in the correct format.
+ You can find it at this location "{3}"
+ &lt;br/&gt;
+ &lt;br/&gt;      
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;img src="{4}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Sincerely,&lt;br/&gt;
+    The Activ4Pets Team
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{5}"&gt;Privacy Policy&lt;/a&gt; | &lt;a  href="{6}"&gt;Terms &amp; Conditions&lt;/a&gt;&lt;/b&gt;  &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+        Please do not reply to this auto-answer message.
+        &lt;br/&gt;
+        If you have a customer support issue, please contact support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="FileFormatIncorrectMailSubject" xml:space="preserve">
+    <value>Incorrect file Format</value>
+  </data>
+  <data name="ImportSuccessMailBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt;Need to ask a question? &lt;b&gt;Call 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Dear Support,
+    &lt;br/&gt;
+    &lt;br/&gt;
+    File named {2} has been correctly imported. 
+   You can find it at this location "{3}".
+    &lt;br/&gt;
+    &lt;br/&gt;      
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;img src="{4}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Sincerely,&lt;br/&gt;
+    The Activ4Pets Team
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{5}"&gt;Privacy Policy&lt;/a&gt; | &lt;a  href="{6}"&gt;Terms &amp; Conditions&lt;/a&gt;&lt;/b&gt;  &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+        Please do not reply to this auto-answer message.
+        &lt;br/&gt;
+        If you have a customer support issue, please contact support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="ImportSuccessMailSubject" xml:space="preserve">
+    <value>HSBC Users imported successfully.</value>
+  </data>
+  <data name="InvalidFileExtensionBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt;Need to ask a question? &lt;b&gt;Call 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Dear Support,
+    &lt;br/&gt;
+    &lt;br/&gt;
+The file "{2}" has invalid format(Invalid Extension).
+&lt;br/&gt;
+ &lt;br/&gt;      
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;img src="{3}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Sincerely,&lt;br/&gt;
+    The Activ4Pets Team
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{4}"&gt;Privacy Policy&lt;/a&gt; | &lt;a  href="{5}"&gt;Terms &amp; Conditions&lt;/a&gt;&lt;/b&gt;  &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+        Please do not reply to this auto-answer message.
+        &lt;br/&gt;
+        If you have a customer support issue, please contact support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="InvalidFileExtensionSubject" xml:space="preserve">
+    <value>Invalid file extension.</value>
+  </data>
+  <data name="NoMailOrAttachmentMailBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt;Need to ask a question? &lt;b&gt;Call 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Dear Support,
+    &lt;br/&gt;
+    &lt;br/&gt;
+    No file found to import the users for hsbc.
+    &lt;br/&gt;
+    &lt;br/&gt;      
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;img src="{2}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Sincerely,&lt;br/&gt;
+    The Activ4Pets Team
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{3}"&gt;Privacy Policy&lt;/a&gt; | &lt;a  href="{4}"&gt;Terms &amp; Conditions&lt;/a&gt;&lt;/b&gt;  &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+        Please do not reply to this auto-answer message.
+        &lt;br/&gt;
+        If you have a customer support issue, please contact support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="NoMailOrAttachmentMailSubject" xml:space="preserve">
+    <value>No File Found</value>
+  </data>
+  <data name="SubscriptionExpirationAlertBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt;Need to ask a question? &lt;b&gt;Call 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;Your free trial offer expires in 10 Days!&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Dear {1} {2},    
+    &lt;br/&gt;
+	&lt;br/&gt;    	
+&lt;/font&gt;
+&lt;font face="Arial" size="2"&gt;
+	The Humane Society of Broward County offered you an Activ4Pets 40 Day &lt;b&gt;Free Trial Online Pet Health Record Membership&lt;/b&gt; as a parting gift for your new adoption, and it is about to expire.
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;b&gt;Did you know that Activ4Pets provides more than Pet Health Records?&lt;/b&gt;
+	&lt;br /&gt;
+	Our platform was designed to make it easier for all of us to get immediate help for our four legged family members when a health issue occurs.
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;a href="http://www.activ4pets.com/services/"&gt;Schedule an eConsultation&lt;/a&gt; with an Activ4Pets Vet if you need answers about your pet’s condition. Our virtual Vets are available 24 hours a day from anywhere in the world!
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="http://www.activ4pets.com/services/"&gt;Request a Second Medical Opinion&lt;/a&gt; from an Activ4Pets Top Specialist for those times when you’d like to know if you’re choosing the best treatment plan possible.
+		&lt;/li&gt;
+		&lt;li&gt;
+			Connect to our online community of pet lovers around the world to share photos, funny stories, and learn about the newest gadgets!
+		&lt;/li&gt;
+		&lt;li&gt;
+			Take advantage of Activ4Pets’ Veterinarian Records Assistance: Activ4Pets’ staff contacts your pet’s vet, collects, and uploads the medical information into your PHR platform.
+		&lt;/li&gt;
+		&lt;li&gt;
+			Use the Calendar to schedule play dates, vet appointments or special events with your pets.
+		&lt;/li&gt;
+		&lt;li&gt;
+			Search for the nearest pet friendly restaurant or pet sitter in your area.
+		&lt;/li&gt;
+	&lt;/ul&gt;	
+	&lt;a href="https://login.activ4pets.com"&gt;Upgrade your plan now&lt;/a&gt;, in the "My Account" section.
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    If you need assistance, please contact us at 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{3}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Sincerely,&lt;br/&gt;
+    The Activ4Pets Team
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{4}"&gt;Privacy Policy&lt;/a&gt; | &lt;a  href="{5}"&gt;Terms &amp; Conditions&lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+        Please do not reply to this auto-answer message.
+        &lt;br/&gt;
+        If you have a customer support issue, please contact support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="SubscriptionExpirationAlertSubject" xml:space="preserve">
+    <value>Your Gift from the Humane Society is About to Expire!</value>
+  </data>
+  <data name="SupportUserSubscriptionBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt;Need to ask a question? &lt;b&gt;Call 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Dear Support,
+    &lt;br/&gt;
+    &lt;br/&gt;
+    Below you can find the user information:
+    &lt;br/&gt;
+    &lt;br/&gt;      
+&lt;/font&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;First Name: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{2} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;Last Name: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{3} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;User Email: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;Promocode:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{5} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;Plan:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;Amount: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;${7} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;Referral:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{8} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;img src="{9}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Sincerely,&lt;br/&gt;
+    The Activ4Pets Team
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{10}"&gt;Privacy Policy&lt;/a&gt; | &lt;a  href="{11}"&gt;Terms &amp; Conditions&lt;/a&gt;&lt;/b&gt;  &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+        Please do not reply to this auto-answer message.
+        &lt;br/&gt;
+        If you have a customer support issue, please contact support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="SupportUserSubscriptionByA4PMailSubject" xml:space="preserve">
+    <value>New Registered User – Registered by Activ4Pets Team</value>
+  </data>
+  <data name="WelcomeBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt;Need to ask a question? &lt;b&gt;Call 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;Congratulations on the adoption of your pet!&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Dear {1} {2},
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Congratulations on the adoption of your new pet with Humane Society of Broward County and for choosing to take control of your pet’s healthcare like never before. We are pleased to welcome your best pal as a member of our Pet Health Records (PHR) platform – giving you unlimited access to your pet’s medical records anytime from anywhere. 
+	&lt;br /&gt;
+	&lt;br /&gt;
+	As a new adopter from the Humane Society of Broward County, Activ4Pets is offering you a $3 per year Online Pet Health Record Membership.	
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    &lt;b&gt;Let’s get started right away! &lt;/b&gt;
+&lt;/font&gt;
+&lt;font face="Arial" size="2"&gt;
+	&lt;ol&gt;
+		&lt;li&gt;Login to Activ4Pets’ secure portal: &lt;a href="https://login.activ4pets.com"&gt;https://login.activ4pets.com&lt;/a&gt; (username and password are sent in a seperate email).&lt;/li&gt;
+		&lt;li&gt;Complete your pet’s profile (you may want to update your pet’s name!)&lt;/li&gt;
+		&lt;li&gt;Your Account is now ACTIVATED!&lt;/li&gt;		
+	&lt;/ol&gt;
+&lt;/font&gt;
+&lt;font face="Arial" size="2"&gt;
+    &lt;b&gt;Take advantage of Activ4Pets’ Veterinarian Records Assistance!&lt;/b&gt;
+	Remember, your membership also includes Veterinarian Records Assistance: Activ4Pets staff contacts your pet’s vet, collects, and uploads the medical information into your PHR platform.
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;         
+    To initiate Medical Records Assistance:
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;div style= "margin-left:20px"&gt;
+	&lt;font face="Arial" size="2"&gt;		
+		Complete the attached “Veterinarian Records Form”, and return it to the indicated fax number in order to authorize our medical team to begin the collection and upload of your pet’s medical records from your selected veterinarian.
+	&lt;/font&gt;
+&lt;/div&gt;
+&lt;font face="Arial" size="2"&gt;     
+    &lt;br/&gt;
+    If you need assistance, please contact us at 1-888-51-ACTIV (22848).
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src="{3}" alt="Activ4Pets" style="display: block;"&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Sincerely,&lt;br /&gt;
+    The Activ4Pets Team
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{4}"&gt;Privacy Policy&lt;/a&gt; | &lt;a  href="{5}"&gt;Terms &amp; Conditions&lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+        Please do not reply to this auto-answer message.
+        &lt;br/&gt; 
+        If you have a customer support issue, please contact support@activ4pets.com.
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="WelcomeSubject" xml:space="preserve">
+    <value>Congratulations on the adoption of your pet!</value>
+  </data>
+</root>

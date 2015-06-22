@@ -1,0 +1,28 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@using Model
+
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>@Resources.ComingSoon_Index_ReportTitle</h1>
+        </div>
+    </div>
+</div>
+<div id="mainContainer">
+    @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()) && !Roles.IsUserInRole(UserTypeEnum.Admin.ToString()))
+    {
+        <div id="hiderightsidebar">
+            <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+        </div>
+        <div id="showrightsidebar">
+            <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+        </div>
+    }
+    <div class="row">
+        <h4 style="text-align: center; margin-top: 20px;" class="text-primary">
+            @Resources.ComingSoon_Index_Message<br>
+        </h4>
+    </div>
+    <div class="clearfix"></div>
+</div>
+

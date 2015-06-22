@@ -1,0 +1,206 @@
+﻿@model ADOPets.Web.ViewModels.SMO.AddViewModel
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording;
+@using (Ajax.BeginForm("Confirmation", "SMO", new AjaxOptions
+{
+
+}, new { @id = "SMOConfirmationForm", @class = "form-horizontal defaultForm", @role = "form" }))
+{
+    @Html.AntiForgeryToken() 
+    @Html.Hidden("IndexURL", Url.Action("Index", "SMO"))
+    @Html.Hidden("SetupURL", Url.Action("Setup", "SMO"))
+    @Html.Hidden("BillingURL", Url.Action("Billing", "SMO"))
+    @Html.Hidden("ConfirmationURL", Url.Action("Confirmation", "SMO"))
+    @Html.Hidden("InvestigationListURL", Url.Action("InvestigationList", "SMO"))
+    @Html.Hidden("PaymentURL", Url.Action("Payment", "SMO"))
+    <div id="econsultConfirm">
+        <h4>
+            <span class="pull-left">@Resources.Smo_Add_SetupInformation</span> <a href="#" id="editSetup" class="pull-right"><i class="fa fa-pencil"></i>@Resources.Smo_Add_Edit</a>
+            <div class="clearfix"></div>
+        </h4>
+        <div class="columnfull">
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_Title</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objSetup.Title</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_PetName</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objSetup.PetName</div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <h5 class="bg-info text-primary" style="padding: 10px 15px; font-weight: 600; text-align: center">@Resources.Smo_Add_Condition</h5>
+        <div class="columnfull">
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_Diagnosis</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objSetup.Diagnosis</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_Comments</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objSetup.Comments</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_DateofOnset</div>
+                <div class="colonspace">:</div>
+                <div>
+                    @if (@Model.objSetup.DateOfOnSet != null)
+                    {
+                        @Model.objSetup.DateOfOnSet.Value.ToShortDateString()
+                    }
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <h5 class="bg-info text-primary" style="padding: 10px 15px; font-weight: 600; text-align: center">@Resources.Smo_Add_Test</h5>
+        <div class="columnfull">
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_TestName<span class="caret"></span></div>
+                <div class="colonspace">:</div>
+                <div style="font-weight: 700;">@Resources.Smo_Add_TestDate<span class="caret"></span></div>
+                <div class="clearfix"></div>
+            </div>
+            @if (Model.objSetup.Investigations != null)
+            {
+                foreach (var a in Model.objSetup.Investigations)
+                {
+                <div class="detailrow">
+                    <div style="font-weight: 400;">@a.TestDescription</div>
+                    <div class="colonspace">:</div>
+                    <div>
+                        @if (a.TestDate != null)
+                        {
+                            @a.TestDate.Value.ToShortDateString()
+                        }
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                }
+            }
+        </div>
+        <h5 class="bg-info text-primary" style="padding: 10px 15px; font-weight: 600; text-align: center">@Resources.Smo_Add_Symptoms</h5>
+        <div class="columnfull">
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_SymptomsMessage</div>
+                <div class="colonspace">:</div>
+                <div>
+                    @Model.objSetup.Symptoms1<br>
+                    @Model.objSetup.Symptoms2<br>
+                    @Model.objSetup.Symptoms3
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <h5 class="bg-info text-primary" style="padding: 10px 15px; font-weight: 600; text-align: center;">@Resources.Smo_Add_FirstOpinion</h5>
+        <div class="columnfull">
+
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_FirstMedicalOpioin</div>
+                <div class="colonspace">:</div>
+                <div>
+                    @Html.TextAreaFor(modelItem => modelItem.objSetup.FirstOpinion, new { @class = "form-control", disabled = "disabled" })
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_Question</div>
+                <div class="colonspace">:</div>
+                <div>
+                    @Html.TextAreaFor(modelItem => modelItem.objSetup.Question, new { @class = "form-control", disabled = "disabled" })
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <h4>
+            <span class="pull-left">@Resources.Smo_Add_BillingInformation</span> <a href="#" id="editBilling" class="pull-right"><i class="fa fa-pencil"></i>@Resources.Smo_Add_Edit</a>
+            <div class="clearfix"></div>
+        </h4>
+        <div class="columnfull">
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_CreditCardType</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objBilling.CreditCardType</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_CreditCardNumber</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objBilling.CreditCardNumber</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_ExpirationDate</div>
+                <div class="colonspace">:</div>
+                <div>
+                    @if (Model.objBilling.ExpirationDate != null)
+                    {
+                        @Model.objBilling.ExpirationDate.Value.ToString("MM/yyyy")
+                    }
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_CCV</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objBilling.CCV</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_Address1</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objBilling.Address1</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_Address2</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objBilling.Address2</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_Country</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objBilling.Country</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_State</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objBilling.State</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_City</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objBilling.City</div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="detailrow">
+                <div>@Resources.Smo_Add_Zip</div>
+                <div class="colonspace">:</div>
+                <div>@Model.objBilling.Zip</div>
+                <div class="clearfix"></div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="col-md-6">
+                    <button id="cancel-bt" type="button" class="btn btn-warning btn-lg pull-right">@Resources.Smo_Add_CancelButton</button>
+                </div>
+                <div class="col-md-6">
+                    <button id="purchase-bt" type="button" class="btn btn-success btn-lg">@Resources.Smo_Add_PurchaseButton <i class="fa fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>    
+}
+<script src="@Url.Content("~/Scripts/external/jquery.form.min.js")"></script>
+<script src="@Url.Content("~/Scripts/customs/views/SMO/Confirmation.js")"></script>
+

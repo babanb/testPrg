@@ -1,0 +1,109 @@
+﻿@model ADOPets.Web.ViewModels.Account.PaymentResultViewModel
+@using Resources = ADOPets.Web.Resources.Wording
+@using Model
+<div id="main_loginbx" style="padding-top: 0;">
+    <div class="row">
+        <link href="~/Content/css/signup.css" rel="stylesheet">
+        <div>
+            <div id="signup">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8">
+                        <section style="background: #efefe9;">
+                            <div class="board">
+                                <h1>@Resources.Account_SignUp_Headingmain</h1>
+                                <h3>@Resources.Account_SignUp_subheading</h3>
+                                <div class="board-inner">
+                                    <ul class="nav nav-tabs" id="myTab">
+                                        <div class="liner"></div>
+                                        <li class="active"><a href="#BasicInfo" data-toggle="tab" title="@Resources.Account_SignUp_BasicInformation"><span class="round-tabs one"><i class="glyphicon glyphicon-user"></i></span></a>
+                                            <div style="font-size: 14px; margin-bottom: 15px;" class="hidden-xs hidden-sm">@Resources.Account_SignUp_BasicInformation</div>
+                                        </li>
+                                        <li><a href="#Billing" data-toggle="tab" title="@Resources.Account_SignUp_BillingInformation"><span class="round-tabs two"><i class="glyphicon glyphicon-credit-card"></i></span></a>
+                                            <div style="font-size: 14px; margin-bottom: 15px;" class="hidden-xs hidden-sm">@Resources.Account_SignUp_BillingInformation</div>
+                                        </li>
+                                        <li><a href="#Confirmation" data-toggle="tab" title="@Resources.Account_SignUp_Confirmation"><span class="round-tabs three"><i class="glyphicon glyphicon-check"></i></span></a>
+                                            <div style="font-size: 14px; margin-bottom: 15px;" class="hidden-xs hidden-sm">@Resources.Account_SignUp_Confirmation</div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="tab-content">
+
+                                    <div id="thankU">
+                                        @if (Model.Success)
+                                        {
+                                            <div class="signup-form">
+                                                <div class="table-responsive">
+
+                                                        <h2 style="margin-left: 30px; text-align:center;">@Resources.Account_SignUp_ThankYou</h2>
+                                                        <h5 class="text-warning" style="margin-left: 30px; line-height: 20px; margin-right: 20px;">@Resources.Account_SignUp_SuccessfullMsg
+                                                            <br>
+                                                            @Resources.Account_SignUp_EmailMsg</h5>
+                                                       
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+                                                            <tr>
+                                                                <td align="right"  width="32%" valign="top"><strong>@Html.LabelFor(m => m.SubscriptionPlan)  :</strong></td>
+                                                                <td valign="top">@Model.SubscriptionPlan</td>
+                                                            </tr>
+                                                            <tr class="active">
+                                                                <td align="right" valign="top"><strong>@Html.LabelFor(m => m.TransactionDate)  :</strong></td>
+                                                                <td valign="top">@Model.TransactionDate</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right" valign="top"><strong>@Html.LabelFor(m => m.OrderNumber)  :</strong></td>
+                                                                <td valign="top">@HttpContext.Current.Session["reference"]</td>
+                                                            </tr>
+                                                          
+                                                            <tr>
+                                                                <td align="right" valign="top"></td>
+                                                                <td valign="top">
+                                                                    <br>
+                                                                    <a href="@Url.Action("Login", "Account")" class="btn btn-success">@Resources.Account_SignUp_BackToLogin @if(ADOPets.Web.Common.Helpers.DomainHelper.GetDomain()!=DomainTypeEnum.French){<i class="fa fa-long-arrow-right"></i>}</a>
+                                                                    <br>
+                                                                    <br>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                </div>
+
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="row">
+                                                <center>
+                      
+                        <h4 class="text-warning">@Model.ErrorMsg</h4>
+                         <h4 class="text-warning">@Model.TransactionResult</h4>
+                        <a href="@Url.Action("SignUp", "Account")" class="btn btn-success"> @Resources.Account_SignUp_TryAgain <i class="fa fa-long-arrow-right"></i></a>
+                    </center>
+                                            </div>
+                                        }
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-4 col-md-4 ">
+                        <h4 style="color: #0075ba; margin-top: 30px;">@Resources.Account_SignUp_ReasonsToJoinADO</h4>
+                        <ul style="margin: 0; padding: 0 0 20px 14px; line-height: 25px;">
+                            <li>@Resources.Account_SignUp_Reason1</li>
+                            <li>@Resources.Account_SignUp_Reason2</li>
+                            <li>@Resources.Account_SignUp_Reason3</li>
+                            <li>@Resources.Account_SignUp_Reason4</li>
+                            <li>@Resources.Account_SignUp_Reason5</li>
+                            <li>@Resources.Account_SignUp_Reason6</li>
+                        </ul>
+                        <p>
+                            <span style="font-weight: 600;">@Resources.Account_SignUp_ReasonBottomLine<br>
+                                <br>
+                                <a href="@Url.Action("Login", "Account")" class="btn btn-success">@Resources.Account_SignUp_AlreadyMember</a> </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

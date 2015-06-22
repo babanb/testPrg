@@ -1,0 +1,332 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Account.BasicInfoViewModel
+@using ADOPets.Web.Common.Helpers
+@using Model
+
+@{    var rightPadding = "";
+      var labelPromocode = "";
+      var labelInvPromocode = "";
+
+      if (DomainHelper.GetDomain() == DomainTypeEnum.French)
+      {
+          rightPadding = "padding-top: 0px;";
+          labelPromocode = "text-align: left; color: #008c00; font-weight: 400; display: none;";
+          labelInvPromocode = "color: #a94442; padding-right: 30px; display: none;";
+      }
+      else
+      {
+          rightPadding = "padding-top: 0px;";
+          labelPromocode = "text-align: left; color: #008c00; font-weight: 400; display: none;";
+          labelInvPromocode = "color: #a94442; padding-right: 30px; display: none;";
+      }
+}
+<style>
+    .infoIcon {
+    background:url(../content/images/infoIcon.jpg) center right no-repeat;
+}
+
+</style>
+<div class="form-horizontal" role="form">
+    <div class="signup-form">
+        <div class="form-group" id="subscriptionDiv" style="@rightPadding">
+            <p style="margin-bottom: 15px; font-size: 13px; color: #63a00e;" class="col-md-8 col-md-offset-4">@Resources.Account_SignUp_PromocodeHeading</p>
+            @Html.LabelFor(model => model.Promocode, new { @class = "col-md-4 control-label", style = "font-weight:600;" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.Promocode, new { id = "IdPromo", @class = "form-control", placeholder = Resources.Account_SignUp_PromocodePlaceholder })
+            </div>
+            <div class="col-md-2" style="vertical-align: middle;">
+                <button id="PlansByPromoCode" class="btn btn-success">@Resources.Account_SignUp_BtnGo</button>
+                &nbsp;          
+            </div>
+            <label class="col-sm-offset-4 col-sm-8 control-label" for="InvalidPromoCode" id="PromocodeSuccessmsg" style="@labelPromocode">@Resources.Account_SignUp_ValidPromoCode</label>
+            <label class="col-md-7 control-label" for="InvalidPromoCode" id="PromocodeErrMsg" style="@labelInvPromocode">@Resources.Account_SignUp_InvalidPromoCode</label>
+        </div>
+        <div class="form-group" style="background: #edf8fd;">
+            <label for="select-plan" class="col-md-4 control-label" style="font-weight: 600;">@Resources.Account_SignUp_Plan</label>
+            <div class="col-md-8">
+                <div style="position: relative;">
+                    @if (DomainHelper.GetDomain() == DomainTypeEnum.US || DomainHelper.GetDomain() == DomainTypeEnum.India)
+                    {
+                        @Html.Hidden("hdnIsFreeAccount",true)
+                        @Html.DropDownList("BasePlanName", ViewBag.BasePlanName as IEnumerable<SelectListItem>, new { id = "BasePlanName", @class = "form-control basicplan", @style = "padding-right: 18px;" })
+                    }
+                    else
+                    {   
+                        @Html.Label("BasePlanName", Model.BasePlanName, new { id = "BasePlanName", @class = "text-primary control-label basicplan", @style = "padding-right: 18px; margin-bottom:0;" })
+                    }
+                    <div style="position: absolute; top: 3px; right: 0px; visibility: hidden;"><strong><span id="spnMRADetails" style="cursor: pointer; font-size: 20px; color: #85bb41;" class="fa fa-info-circle"></span></strong></div>
+                </div>
+                <small class="text-danger" id="lblMRADetail" style="display:block; margin-bottom:5px;cursor:pointer;"><i class="fa fa-info-circle"></i><u> @Resources.Signup_BasicInfo_MRA</u></small>
+                @Html.HiddenFor(model => model.BasePlanId)
+                @Html.HiddenFor(model => model.BasePlanPrice)
+                @Html.HiddenFor(model => model.PetCount)
+                <div class="row">
+                    <div class="col-md-8">
+                        @Html.Label("BasePlanDescription", Model.BasePlanDescription, new { id = "BasePlanDescription", @class = "control-label", style = "text-align: left;" })
+
+                        @*<label id="lblMRADetail"></label>*@
+                    </div>
+                    <div class="col-md-4" style="vertical-align: middle; position: relative; padding-left: 0;">
+                        <div class="form-group" style="margin: 0; padding: 0;">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i id="PetsAdd" class="fa fa-plus"></i></div>
+                                @Html.DropDownList("AdditionalPetDDL", new SelectList(Enumerable.Range(1, 10)), Resources.Account_SignUp_Addpets, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                <label for="select-plan" id="final_plan" data-icon="&#xf02c;" class="control-label" style="display: none;"></label>
+                <p style="padding: 10px 0 0 0; margin: 0; font-size: 13px; text-align: justify;" class="text-info">
+                    @Resources.Account_SignUp_PlanDetails
+                </p>
+            </div>
+        </div>
+        <br>
+        @using (Ajax.BeginForm("BasicInfo", "Account", new AjaxOptions
+        {
+            UpdateTargetId = "Billing",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace
+        }, new { @id = "homeForm" }))
+        {  
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default" id="basicinfoDiv">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-mandatory="{* @Resources.Pet_Add_FieldsMandatoryMessage}" data-parent="#accordion" href="#collapseOne" class="first-time">@Resources.Account_SignUp_BasicInformation </a></h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group">
+                                    @Html.HiddenFor(model => model.PlanId)
+                                    @Html.HiddenFor(model => model.PlanName)
+                                    @Html.HiddenFor(model => model.Price)
+                                    @Html.HiddenFor(model => model.Promocode)
+                                    @Html.HiddenFor(model => model.AdditionalPetCount)
+
+                                    @Html.LabelRequiredFor(model => model.FirstName, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = Resources.Account_SignUp_FirstNamePlaceHolder })
+                                        @Html.ValidationMessageFor(model => model.FirstName)
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @if (DomainHelper.GetDomain() != DomainTypeEnum.French)
+                                    {   
+                                        @Html.LabelFor(model => model.MiddleName, new { @class = "col-sm-4 control-label" })
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control", placeholder = Resources.Account_SignUp_MiddleNamePlaceHolder })
+                                        </div>
+                                        <br />
+                                        <br />
+                                    }
+                                    @Html.LabelRequiredFor(model => model.LastName, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = Resources.Account_SignUp_LastNamePlaceHolder })
+                                        @Html.ValidationMessageFor(model => model.LastName)
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @if (DomainHelper.GetDomain() != DomainTypeEnum.French)
+                                    {
+                                        @Html.LabelFor(model => model.BirthDate, new { @class = "col-sm-4 control-label" })
+                                        <div class="col-sm-8">
+                                            <div class="input-group date">
+                                                @Html.TextBoxFor(model => model.BirthDate, new { @class = "form-control datepicker datepickerForUserBirthday", placeholder = Resources.Account_SignUp_DateofBirthPlaceHolder, @style = "z-index:0 !important;" })
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                            </div>@Html.ValidationMessageFor(model => model.BirthDate)
+                                        </div>
+                                        <br />
+                                        <br />
+                              
+                                        @Html.LabelFor(model => model.Gender, new { @class = "col-sm-4 control-label" })
+                                        <div class="col-sm-8">
+                                            @Html.EnumDropDownListFor(m => m.Gender, Resources.Account_SignUp_GenderPlaceHolder, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Gender)
+                                        </div>
+                                        <br />
+                                        <br />  }
+                                    @Html.LabelRequiredFor(model => model.Email, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = Resources.Account_SignUp_EmailPlaceHolder })
+                                        @Html.ValidationMessageFor(model => model.Email)
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @Html.LabelRequiredFor(model => model.TimeZone, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.EnumDropDownListFor(m => m.TimeZone, Resources.Account_SignUp_TimeZonePlaceHolder, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.TimeZone)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default" style="display: none;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-mandatory="{* @Resources.Pet_Add_FieldsMandatoryMessage}" data-parent="#accordion" href="#collapseTwo" class="first-time notMandatory">@Resources.Account_SignUp_PermanentAddress </a></h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Address1, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.Address1, new { @class = "form-control", placeholder = Resources.Account_SignUp_Address1PlaceHolder })
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @Html.LabelFor(model => model.Address2, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.Address2, new { @class = "form-control", placeholder = Resources.Account_SignUp_Address2PlaceHolder })
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @Html.LabelFor(model => model.City, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.City, new { @class = "form-control", placeholder = Resources.Account_SignUp_CityPlaceHolder })
+                                        @Html.ValidationMessageFor(model => model.City)
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @Html.LabelFor(model => model.Country, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.EnumDropDownListFor(m => m.Country, Resources.Account_SignUp_CountryPlaceHolder, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Country)
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @Html.LabelFor(model => model.State, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.DropDownListFor(m => m.State, new List<SelectListItem>(), Resources.Account_SignUp_StatePlaceHolder, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.State)
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @Html.LabelFor(model => model.Zip, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.Zip, new { @class = "form-control", placeholder = Resources.Account_SignUp_ZipPlaceholder })
+                                        @Html.ValidationMessageFor(model => model.Zip)
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @Html.LabelFor(model => model.PrimaryPhone, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.PrimaryPhone, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PrimaryPhone)
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @Html.LabelFor(model => model.SecondaryPhone, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.SecondaryPhone, new { @class = "form-control", })
+                                        @Html.ValidationMessageFor(model => model.SecondaryPhone)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-mandatory="{* @Resources.Pet_Add_FieldsMandatoryMessage}" data-parent="#accordion" href="#collapseThree" class="first-time">@Resources.Account_SignUp_Security </a></h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group">
+                                    @Html.LabelRequiredFor(model => model.Username, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = Resources.Account_SignUp_UsernamePlaceHolder })
+                                        @Html.ValidationMessageFor(model => model.Username)
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @Html.LabelRequiredFor(model => model.Password, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.PasswordFor(model => model.Password, new { id = "Password", @class = "form-control", placeholder = Resources.Account_SignUp_PasswordPlaceHolder })
+                                        @Html.ValidationMessageFor(model => model.Password)
+                                        <div id="passStrength"></div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @Html.LabelRequiredFor(model => model.ConfirmPassword, new { @class = "col-sm-4 control-label" })
+                                    <div class="col-sm-8">
+                                        @Html.PasswordFor(model => model.ConfirmPassword, new { id = "confPassword", @class = "form-control", placeholder = Resources.Account_SignUp_ConfirmPasswordPlaceHolder })
+                                        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                                        <div id="confpassStrength"></div>
+                                        <p style="padding: 10px 0 0 0; margin: 0; font-size: 13px; text-align: justify;" class="text-info">
+                                            @Resources.Account_SignUp_PasswordPolicyHeading
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-mandatory="{* @Resources.Pet_Add_FieldsMandatoryMessage}" data-parent="#accordion" href="#collapse4" class="first-time">@Resources.Account_SignUp_ReferralSource </a></h4>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div id="collapse4" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="select-plan" class="col-sm-5 control-label">@Resources.Account_SignUp_Howdidyouhearaboutus </label>
+                                    <div class="col-sm-7">
+                                        @Html.EnumDropDownListFor(m => m.ReferralSource, Resources.Account_SignUp_ReferralSourcePlaceHolder, new { @class = "form-control" })
+                                    </div>
+                                    <br />
+                                    <br />
+                                    @*  <label for="select-plan" class="col-sm-5 control-label"></label>
+                                      <div class="col-sm-7">
+                                    <p style="padding: 0 0 0 0; color: #63a00e;" class="health-provider">@Resources.Account_SignUp_ReferenceName</p>
+                                    </div>*@
+                                    @Html.LabelRequiredFor(model => model.Reference, new { @class = "col-sm-5 control-label" })
+                                    <div class="col-sm-7">
+                                        @Html.TextBoxFor(model => model.Reference, new { @class = "form-control ", placeholder = Resources.Account_SignUp_ReferencePlaceHolder })
+                                        @Html.ValidationMessageFor(model => model.Reference)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                     
+            <p class="text-center">
+                <a href="@Url.Action("Login", "Account")" class="btn btn-primary btn-outline-rounded ">@Resources.Account_SignUp_Cancel <i class="fa fa-eraser"></i></a>
+                <button type="submit" class="btn btn-success btn-outline-rounded" id="next-bt">@Resources.Account_SignUp_Next <i class="fa fa-arrow-right"></i></button>
+
+            </p>  }
+    </div>
+</div>
+
+
+<div class="modal fade" id="dvMRADetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">@Resources.Account_Signup_MRATitle</h4>
+            </div>
+            <div class="modal-body">
+                @Resources.Account_Signup_MRATooltip
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="clearfix"></div>
+
+<script src="@Url.Content("~/Scripts/customs/views/Account/BasicInfo.js")"></script>

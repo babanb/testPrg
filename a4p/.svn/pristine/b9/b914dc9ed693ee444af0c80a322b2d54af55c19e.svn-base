@@ -1,0 +1,26 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.PhotoGallery.IndexViewModel>
+@using ADOPets.Web.Common.Helpers
+
+<div id="galleryCate">
+    <div class="btn-group">
+        <a href="javascript:void(0)" data-href="@Url.Action("Index", "VideoGallery", new { petId = ViewBag.PetId })"  data-toggle="tab" class="btn btn-large btn-default petGalleryMenu">@Resources.Gallery_Index_lVideos</a>
+        <a href="javascript:void(0)" data-href="@Url.Action("Index", "PhotoGallery", new { petId = ViewBag.PetId })"  data-toggle="tab" class="btn btn-large btn-default active petGalleryMenu">@Resources.Gallery_Index_lPhotos</a>
+        <a href="javascript:void(0)" data-href="@Url.Action("Index", "AlbumGallery", new { petId = ViewBag.PetId })"  data-toggle="tab" class="btn btn-large btn-default petGalleryMenu">@Resources.Gallery_Index_lAlbums</a>
+
+        @if (UserHelper.CanDeletePet(ViewBag.PetId))
+        {
+            if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId) || ShareInfoHelper.IsCommunityUser(ViewBag.PetId, ViewBag.UserId))
+            {
+            <a href="@Url.Action("Add", "PhotoGallery", new { petId = ViewBag.PetId })" id="addPhotoGallery" class="btn btn-large btn-success"><i class="fa fa-plus"></i>@Resources.Gallery_Index_lNew</a>
+            }
+        }
+    </div>
+</div>
+<hr>
+<div id="dvPhotoList">
+    @{Html.RenderPartial("_ListPhoto"); }
+</div>
+<div id="addModalPhotoGallery" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"></div>
+
+<script src="@Url.Content("~/Scripts/customs/views/Gallery/Index.js")"></script>

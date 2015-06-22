@@ -1,0 +1,3 @@
+USE ADOPets_Rev
+
+ALTER TABLE Gallery ALTER COLUMN Title nvarchar(100) NULL

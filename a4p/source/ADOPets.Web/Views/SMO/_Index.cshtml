@@ -1,0 +1,24 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.SMO.IndexViewModel>
+
+<div class="clearfix"></div>
+<div style="background: #FFF; padding: 1px 15px; margin: 0 15px;">
+    <h5 style="padding: 7px 0;" class="pull-left">
+        <span class="hidden-xs hidden-sm" style="font-size: 12px;">
+            @Ajax.ActionLink(Resources.Smo_Index_MedicalRecord, "MedicalRecords", "Pet", new { id = ViewBag.PetId },
+                new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "medicalRecord" }) / 
+            @Resources.Smo_Index_SecondOpinions
+        </span>
+    </h5>
+    <a href="@Url.Action("Add", "SMO", new { petId = ViewBag.PetId })" id="addSMO" class="btn btn-primary pull-right" style="margin: 7px 0;">
+        <i class="fa fa-plus-circle"></i><span>@Resources.Smo_Index_Add</span>
+    </a>
+    <div class="clearfix"></div>
+    @{ Html.RenderPartial("~/Views/SMO/_List.cshtml"); }
+</div>
+
+<div id="addModalSMO" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="editModalSMO" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="deleteModalSMO" class="modal fade" tabindex="-1" role="dialog"></div>
+
+<script src="~/Scripts/customs/views/SMO/Index.js"></script>

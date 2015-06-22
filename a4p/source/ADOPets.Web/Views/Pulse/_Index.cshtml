@@ -1,0 +1,34 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Pulse.IndexViewModel>
+@using ADOPets.Web.Common.Helpers
+
+<div class="vitalMain">
+    <div class="show-rightButtons">
+        <div id="showHidePulseButtons">
+            <a href="#" id="PulseDataCurve" class="btn btn-primary btn-sm"><i class="fa fa-bar-chart-o"></i>@Resources.Pulse_Index_Curve</a>
+           @if (UserHelper.CanDeletePet(ViewBag.PetId))
+           {
+               if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+               {
+                   if (SMOHelper.CanEditPet(ViewBag.PetId))
+                   {
+                <a href="@Url.Action("GetDownloadHealthMeasure", "Pet", new { petid = ViewBag.PetId })"  class="btn btn-warning btn-sm pull-right" style="margin-left:10px;"><i class="fa fa-print"></i>@Resources.Pet_MedicalRecord_Print</a>    
+                <a href="@Url.Action("Add", "Pulse", new { petId = ViewBag.PetId })" id="addPulse" class="btn btn-primary btn-sm">
+                    <i class="fa fa-plus-circle"></i><span>@Resources.Pulse_Index_Add</span>
+                </a>
+                   }
+               }
+           }
+        </div>
+        <a href='#Pulse' id="ShowPulseTable" data-toggle="pill" style="display: none;" class="btn btn-primary btn-sm"><i class="fa fa-table"></i>@Resources.Pulse_Index_DataButton</a>
+    </div>
+    <div class="clearfix"></div>
+    @{ Html.RenderPartial("~/Views/Pulse/_List.cshtml"); }
+
+
+    <div id="addPulseModal" class="modal fade" tabindex="-1" role="dialog"></div>
+    <div id="editPulseModal" class="modal fade" tabindex="-1" role="dialog"></div>
+    <div id="deletePulseModal" class="modal fade" tabindex="-1" role="dialog"></div>
+
+    <script src="~/Scripts/customs/views/Pulse/Index.js"></script>
+</div>

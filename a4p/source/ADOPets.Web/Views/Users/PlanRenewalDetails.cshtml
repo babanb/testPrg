@@ -1,0 +1,27 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Users.PlanRenewalDetailsViewModel
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">×</span></button>
+            <h4 class="modal-title" id="myLargeModalLabel">@Resources.Profile_PlanDetail_RenewalDetails</h4>
+        </div>
+        <div class="form-horizontal">
+            @using (Html.BeginForm("PlanRenewalDetails", "Users", FormMethod.Post, new { @id = "PlanRenewalDetailsForm", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

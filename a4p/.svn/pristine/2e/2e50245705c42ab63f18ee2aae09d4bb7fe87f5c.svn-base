@@ -1,0 +1,43 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Veterinarian.IndexViewModel>
+@using ADOPets.Web.Common.Helpers
+
+<div class="well" id="vetsearch">
+    <div class="row">
+        <div class="col-md-2">
+            <h4>@Resources.Veterinarian_Index_Search</h4>
+        </div>
+        <div class="col-md-3">
+
+            @Html.TextBox("FirstNameFilter", null, new { placeholder = Resources.Veterinarian_Index_FirstNamePlaceHolder, @class = "form-control" })
+        </div>
+        <div class="col-md-3">
+            @Html.TextBox("LastNameFilter", null, new { placeholder = Resources.Veterinarian_Index_LastNamePlaceHolder, @class = "form-control" })
+        </div>
+        <div class="col-md-1">
+            <button type="submit" class="btn btn-success"><i class="fa fa-search" style="padding-right: 0;"></i></button>
+        </div>
+         @if (UserHelper.CanDeletePet(ViewBag.PetId))
+         {
+             if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+             {
+                 if (SMOHelper.CanEditPet(ViewBag.PetId))
+                 {
+            <div class="col-md-3">
+                <a href="@Url.Action("Add", "Veterinarian", new { petId = ViewBag.PetId })" id="addVeterinarian" class="btn btn-primary pull-right">
+                    <i class="fa fa-plus-circle"></i><span>@Resources.Veterinarian_Index_Add</span>
+                </a>
+            </div>
+                 }
+             }
+         }
+    </div>
+</div>
+
+@{ Html.RenderPartial("~/Views/Veterinarian/_List.cshtml"); }
+
+<div id="addModalVeterinarian" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="editeModalVeterinarian" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="deleteModalVeterinarian" class="modal fade" tabindex="-1" role="dialog"></div>
+
+<script src="~/Scripts/customs/views/Veterinarian/Index.js"></script>

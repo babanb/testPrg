@@ -1,0 +1,79 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.AlbumGallery.IndexViewModel>
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+
+<div class="row" id="gallerylist">
+    <div class="messageStyle">
+        @{ Html.RenderPartial("_Alerts"); }
+    </div>
+    @Html.RenderSuccessMessage("albumGallerySuccessMessage", TempData["SuccessMessage"])
+
+    @if (Model != null && Model.Count() > 0)
+    {
+        foreach (var item in Model)
+        {    
+        <div class="col-md-3 albumtabMain">
+            <div class="albumtab">
+                <div class="shadow"></div>
+                <figure class="radius3">
+                    <img src="@Url.Action("GetImage", "PhotoGallery", new { fileName = item.ImageURL, imgType = "thumb", petId = item.PetId })" alt="" class="img-responsive" title="@item.Title , @item.CreationDate.ToShortDateString()"  style="width:170px;height:140px;"/>
+
+                    <figcaption>
+                        <a href="@Url.Action("ListAlbumPhoto", "AlbumGallery", new { albumId = item.Id })" class="lnkViewAlbumDetails text-primary"><i class="fa fa-eye"></i></a>
+                        @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                    {
+                        if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId) || ShareInfoHelper.IsCommunityUser(ViewBag.PetId, ViewBag.UserId))
+                        { 
+                            <a href="@Url.Action("Edit", "AlbumGallery", new { albumId = item.Id })" class="text-success editAlbumGallery"><i class="fa fa-pencil"></i></a>
+                            <a href='@Url.Action("Delete", "AlbumGallery", new { albumId = item.Id })' id="lnkDeleteAlbumGallery" class="text-warning deleteAlbumGallery"><i class="fa fa-trash-o"></i></a>
+                        }
+                        }
+                        <br>
+                        @item.CreationDate.ToShortDateString()
+                    </figcaption>
+
+                </figure>
+            </div>
+            <h5 class="text-center ellipsisText">(@item.PhotoCount) @item.Title</h5>
+        </div>
+        }
+    }
+    else
+    {
+        <div class="row">
+            <h4 style="text-align: center; margin-top: 20px;" class="text-primary">
+                @Resources.AlbumGallery_Index_NoRecords_Album<br>
+            </h4>
+        </div>
+    }
+</div>
+
+<div id="editModalAlbumGallery" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="deleteModalAlbumGallery" class="modal fade" tabindex="-1" role="dialog"></div>
+
+<script>
+    function GetAlbumGalleryTranslation() {
+        var result = {
+            "ISDefault": '@Resources.AlbumGallery_Index_ISDefault',
+            "UploadText": '@Resources.AlbumGallery_Index_UploadText',
+            "PhotoTitle": '@Resources.AlbumGallery_Index_PhotoTitle',
+            "TitleRequired": '@Resources.AlbumGallery_Index_TitleRequired',
+            "UploadPhotoRequired": '@Resources.AlbumGallery_Index_UploadPhotoRequired'
+        };
+        return result;
+    }
+</script>
+<script src="@Url.Content("~/Scripts/customs/views/AlbumGallery/List.js")"></script>
+<script src="@Url.Content("~/Scripts/external/ui-custom.js")"></script>
+<style>
+    .dvprocessing {
+        display: none;
+        position: absolute;
+        background: #fff;
+    }
+
+    #img-load {
+        position: absolute;
+    }
+</style>

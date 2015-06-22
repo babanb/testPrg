@@ -1,0 +1,63 @@
+﻿@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Document.DocumentViewModel
+
+<link href="~/Content/css/flaticon.css" rel="stylesheet">
+
+@Html.Hidden("currentDocumentType", Model.Current)
+
+<div id="mrsubcatnavlevel2">
+    <ul class="nav nav-tabs nav-pills documentActive">
+        <li class="active"><a href='#@DocumentTypeEnum.Note' data-toggle="pill">@Resources.Document_Index_Note
+            <div class="talk-up"></div>
+        </a></li>
+        <li><a href='#@DocumentTypeEnum.ImagingServices' data-toggle="pill">@Resources.Document_Index_ImagingServices</a></li>
+        <li id="idmr1"><a href='#@DocumentTypeEnum.Laboratory' data-toggle="pill">@Resources.Document_Index_Laboratory</a></li>
+        <li id="idmr2"><a href='#@DocumentTypeEnum.Prescription' data-toggle="pill">@Resources.Document_Index_Prescription</a></li>
+        <li id="idmr3"><a href='#@DocumentTypeEnum.ADOServices' data-toggle="pill">@Resources.Document_Index_ADOServices</a></li>
+        <li id="idmr4"><a href='#@DocumentTypeEnum.Insurance' data-toggle="pill">@Resources.Document_Index_Insurance</a></li>
+
+    </ul>
+</div>
+<div class="tab-content">
+    <div class="messageStyle">
+        @{ Html.RenderPartial("_Alerts"); }
+    </div>
+    <div class="tab-pane active" id='@DocumentTypeEnum.Note'>
+        @{ Html.RenderPartial("~/Views/Document/_List.cshtml", Model.Notes, new ViewDataDictionary { new KeyValuePair<string, object>("DocumentType", DocumentTypeEnum.Note), new KeyValuePair<string, object>("PetId", ViewBag.PetId), new KeyValuePair<string, object>("UserId", ViewBag.UserId) }); }
+    </div>
+    <div class="tab-pane" id='@DocumentTypeEnum.ImagingServices'>
+        @{ Html.RenderPartial("~/Views/Document/_List.cshtml", Model.ImagingServices, new ViewDataDictionary { new KeyValuePair<string, object>("DocumentType", DocumentTypeEnum.ImagingServices), new KeyValuePair<string, object>("PetId", ViewBag.PetId), new KeyValuePair<string, object>("UserId", ViewBag.UserId) }); }
+    </div>
+    <div class="tab-pane" id='@DocumentTypeEnum.Laboratory'>
+        @{ Html.RenderPartial("~/Views/Document/_List.cshtml", Model.Laboratories, new ViewDataDictionary { new KeyValuePair<string, object>("DocumentType", DocumentTypeEnum.Laboratory), new KeyValuePair<string, object>("PetId", ViewBag.PetId), new KeyValuePair<string, object>("UserId", ViewBag.UserId) }); }
+    </div>
+    <div class="tab-pane" id='@DocumentTypeEnum.Prescription'>
+        @{ Html.RenderPartial("~/Views/Document/_List.cshtml", Model.Prescriptions, new ViewDataDictionary { new KeyValuePair<string, object>("DocumentType", DocumentTypeEnum.Prescription), new KeyValuePair<string, object>("PetId", ViewBag.PetId), new KeyValuePair<string, object>("UserId", ViewBag.UserId) }); }
+    </div>
+    <div class="tab-pane" id='@DocumentTypeEnum.ADOServices'>
+        @{ Html.RenderPartial("~/Views/Document/_List.cshtml", Model.AdoServices, new ViewDataDictionary { new KeyValuePair<string, object>("DocumentType", DocumentTypeEnum.ADOServices), new KeyValuePair<string, object>("PetId", ViewBag.PetId), new KeyValuePair<string, object>("UserId", ViewBag.UserId) }); }
+    </div>
+    <div class="tab-pane" id='@DocumentTypeEnum.Insurance'>
+        @{ Html.RenderPartial("~/Views/Document/_List.cshtml", Model.Insurances, new ViewDataDictionary { new KeyValuePair<string, object>("DocumentType", DocumentTypeEnum.Insurance), new KeyValuePair<string, object>("PetId", ViewBag.PetId), new KeyValuePair<string, object>("UserId", ViewBag.UserId) }); }
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+        var current = '@Model.Current';
+        $('.nav-pills a[href=#' + current + ']').tab('show');
+        $('.documentActive a[data-toggle="pill"]').find('div').removeClass("talk-up");
+        $('.documentActive a[href=#' + current + ']').append("<div class='talk-up'></div>");
+    });
+
+
+    $(document).ready(function () {
+        $('.documentActive a[data-toggle="pill"]').click(function () {
+            $('.documentActive a[data-toggle="pill"]').find('div').removeClass("talk-up");
+            $(this).append("<div class='talk-up'></div>");
+        });
+    });
+
+</script>

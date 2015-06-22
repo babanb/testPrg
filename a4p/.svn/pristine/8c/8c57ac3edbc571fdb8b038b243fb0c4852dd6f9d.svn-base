@@ -1,0 +1,52 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.PhotoGallery.IndexViewModel>
+@using ADOPets.Web.Common.Extensions
+
+<div class="row" id="gallerylist">
+    <div class="messageStyle">
+        @{ Html.RenderPartial("_Alerts"); }
+    </div>
+    @Html.RenderSuccessMessage("photoGallerySuccessMessage", TempData["SuccessMessage"])
+    @if (Model != null && Model.Count() > 0)
+    {
+        var currentAlbumId = ViewBag.AlbumId;
+        foreach (var item in Model)
+        {    
+
+        <div class="col-md-3" style="padding-bottom: 25px;">
+            <figure class="radius3">
+                <img src="@Url.Action("GetImage", "PhotoGallery", new { fileName = item.ImageURL, imgType = "thumb", petId = item.PetId })" alt="" class="img-responsive"  style="width:170px;height:140px;" />
+                <figcaption>
+                     <a href="@Url.Action("AlbumDetails", "AlbumGallery", new {imageId=item.ImageId, petId = item.PetId,albumId=@currentAlbumId })" class="text-primary" title="@item.Title @item.CreationDate.ToShortDateString()"><i class="fa fa-eye"></i></a>
+                    @if (ADOPets.Web.Common.Helpers.ShareInfoHelper.IsSharedUser(item.PetId, ViewBag.UserId) || ADOPets.Web.Common.Helpers.ShareInfoHelper.IsCommunityUser(ViewBag.PetId, ViewBag.UserId))
+                    {
+@*                    <a href="@Url.Action("Edit", "PhotoGallery", new { ImageId = item.ImageId })" class="text-success editPhotoGallery"><i class="fa fa-pencil"></i></a>*@
+                        <a href='@Url.Action("DeletePhoto", "AlbumGallery", new { ImageId = item.ImageId, currentAlbumId = @currentAlbumId })' id="lnkDeleteGalleryPhoto" class="text-warning deletePhotoGallery"><i class="fa fa-trash-o"></i></a>
+                   }
+                    <br>
+                    @item.CreationDate.ToShortDateString()
+                </figcaption>
+            </figure>
+        </div>
+        }
+    }
+    else
+    {
+        <div class="row">
+            <h4 style="text-align: center; margin-top: 20px;" class="text-primary">
+                @Resources.Gallery_Index_NoRecords_Photo<br>
+            </h4>
+        </div>
+    }
+</div>
+<div id="deleteModalPhotoGallery" class="modal fade" tabindex="-1" role="dialog"></div>
+
+<script src="@Url.Content("~/Scripts/customs/views/Gallery/List.js")"></script>
+
+<script>
+    $(document).ready(function () {
+        List.initFancyForGallery('a.galleryPopup');
+    });
+</script>
+
+

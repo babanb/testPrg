@@ -1,0 +1,83 @@
+﻿@model ADOPets.Web.ViewModels.Account.PaymentResultViewModel
+@using Resources = ADOPets.Web.Resources.Wording
+@using Model
+
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>@Resources.Account_SignUp_ThankYou</h1>
+        </div>
+    </div>
+</div>
+<div id="mainContainer">
+    @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()) && !Roles.IsUserInRole(UserTypeEnum.Admin.ToString()))
+    {
+        <div id="hiderightsidebar">
+            <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+        </div>
+        <div id="showrightsidebar">
+            <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+        </div>
+    }
+    <div class="">
+        <div class="col-lg-12">
+            <div id="thankU">
+                @if (Model.Success)
+                {
+
+                    <div class="row">
+                        <div>
+                            <h2 style="margin-left: 30px;">@Resources.Account_SignUp_ThankYou</h2>
+                            <h5 class="text-warning" style="margin-left: 30px; line-height: 20px; margin-right: 20px;">@Resources.Account_SignUp_SuccessfullMsg
+                                <br>
+                                @Resources.Account_SignUp_EmailMsg</h5>
+                            <hr>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 30px; margin-right: 20px;">
+                                <tr>
+                                    <td align="left" valign="top"><strong>@Html.LabelFor(m => m.SubscriptionPlan)  :</strong></td>
+                                    <td align="center" valign="top" style="padding-left: 10px; padding-right: 10px;"></td>
+                                    <td valign="top">@Model.SubscriptionPlan</td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top"><strong>@Html.LabelFor(m => m.TransactionDate)  :</strong></td>
+                                    <td align="center" valign="top" style="padding-left: 10px; padding-right: 10px;"></td>
+                                    <td valign="top">@Model.TransactionDate</td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top"><strong>@Html.LabelFor(m => m.OrderNumber)  :</strong></td>
+                                    <td align="center" valign="top" style="padding-left: 10px; padding-right: 10px;"></td>
+                                    <td valign="top">@Model.OrderNumber</td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top"><strong>@Html.LabelFor(m => m.TransactionResult)  :</strong></td>
+                                    <td align="center" valign="top" style="padding-left: 10px; padding-right: 10px;"></td>
+                                    <td valign="top">@Model.TransactionResult</td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top"></td>
+                                    <td align="center" valign="top" style="padding-left: 10px; padding-right: 10px;"></td>
+                                    <td valign="top">
+                                        <br>
+                                        <a href="@Url.Action("Index", "Pet")" class="btn btn-success">@Resources.OwnerAdmin_Paymentsuccess_Redirect <i class="fa fa-long-arrow-right"></i></a>
+                                        <br>
+                                        <br>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <center>                      
+                        <h4 class="text-warning">@Model.ErrorMsg</h4>
+                         <h4 class="text-warning">@Model.TransactionResult</h4>
+                        <a href="@Url.Action("SignUp", "Account")" class="btn btn-success"> @Resources.Account_SignUp_TryAgain <i class="fa fa-long-arrow-right"></i></a>
+                    </center>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

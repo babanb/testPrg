@@ -1,0 +1,136 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording;
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@model ADOPets.Web.ViewModels.SMO.ExpertRelationViewModel
+@{
+    ViewBag.Title = Resources.Smo_Edit_Title;
+    int userId = ViewBag.UserId;
+    bool flagResponse = false;
+
+    if (Model.IsFinal)
+    {
+        flagResponse = true;
+    }
+}
+<link href="@Url.Content("~/Content/css/expertportal.css")" rel="stylesheet">
+
+
+<div class="clearfix"></div>
+<div id="content">
+    <div id="pageTitle">
+        <div class="row">
+            @Html.HiddenFor(model => model.Id)
+            @Html.Hidden("IndexURL", Url.Action("Index", "SMO"))
+            @Html.Hidden("EditVDURL", Url.Action("Edit_VD", "SMO"))
+            <div class="col-md-8">
+                <h1>@Resources.Smo_Edit_SMOID - @(Html.DisplayFor(a => a.SMOId))<span class="label label-primary">@Model.RequestStatus</span></h1>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("Index", "SMO")" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i>@Resources.Smo_Edit_BackButton</a>
+                <a href="@Url.Action("ExpertCommittee", "SMO", new { id = @Model.Id })" class="btn btn-success pull-right" style="margin-right:10px;"><i class="fa fa-envelope"></i>@Resources.Smo_Edit_Committee</a>
+            </div>
+        </div>
+    </div>
+    <div id="mainContainer">
+        @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()))
+        {
+            <div id="hiderightsidebar">
+                <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+            </div>
+            <div id="showrightsidebar">
+                <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt=""/>
+            </div>
+        }
+        <div id="cover4econsult" style="background:@Url.Content("~/images/smo-cover.jpg") center left repeat; padding:2% 20%;">
+            <div class="consultSteptab radius3" style="width: 40%;">
+                <a href="@Url.Action("Edit", "SMO", new { id = Model.Id })" class="zoomin">@Resources.Smo_Edit_lblStep1<br>
+                    <span>@Resources.Smo_Edit_SMODetails</span><i class="fa fa-arrow-right"></i></a>
+            </div>
+            <div class="consultSteptab radius3 active" style="width: 40%;">
+                @if (flagResponse)
+                {
+                    <a href="@Url.Action("ShowVetExpertResponse", "SMO", new { id = Model.Id })" class="zoomin">@Resources.Smo_Edit_lblStep2<br>
+                        <span>@Resources.Smo_Edit_ViewResponse
+                        </span><i class="fa fa-arrow-right"></i></a> 
+                }
+                else
+                {
+                    <a href="@Url.Action("VetExpertResponse", "SMO", new { id = Model.Id })" class="zoomin">@Resources.Smo_Edit_lblStep2<br>
+                        <span>@Resources.Smo_Edit_GiveResponse
+                        </span><i class="fa fa-arrow-right"></i></a> 
+                }
+
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+        <div>
+            <div id="conclusion">
+                <strong>@Resources.Smo_Edit_YourResponse :</strong>
+                @Html.TextAreaFor(modelItem => modelItem.ExpertResponse, new { @class = "form-control", disabled = "disabled", style = "margin-top:10px;" })
+            </div>
+
+            <div class="attachment2 row" style="margin-top: 10px;">
+
+                <div class="col-md-2"><strong>@Resources.Smo_Edit_Attachedfile :</strong></div>
+                <div class="col-md-10">
+                    @foreach (var item in Model.lstAttachment)
+                    {   <div class="btn-group">
+                        <a href="@Url.Action("GetFile", "SMO", new { fileName = item.DocumentPath })" id="@("viewDocument" + ViewBag.DocumentType)" class="btn btn-default">
+                            @Html.CreateDivFromFileExtension(item.DocumentPath) @item.DocumentName
+                        </a>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <div class="col-md-6">
+                <a href="@Url.Action("Edit", "SMO", new { id = Model.Id })" class="btn btn-primary btn-lg pull-right"><i class="fa fa-arrow-left"></i>@Resources.Smo_Edit_BackButton</a>
+            </div>
+            @if (Model.RequestStatus == SMORequestStatusEnum.Complete.ToString())
+            {
+                <div class="col-md-6">
+                    <a href="@Url.Action("ShowSMOVetReport", "SMO", new { id = Model.Id, PetId = Model.PetId })" target="_blank" class="btn btn-success btn-lg"><i class="fa fa-download"></i>@Resources.Smo_Edit_Report</a>
+                </div>
+            }
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<div id="ConfrimModel" class="modal fade" tabindex="-1" role="dialog"></div>
+<script>
+
+    $('#btnSubmitResponse').click(function (e) {
+        e.preventDefault();
+        var responsetext = $("#ExpertResponse").val();
+        var smoid = $("#Id").val();
+        if (responsetext != "") {
+            $.ajax({
+                url: $('#EditVDURL').val(),
+                data: { 'response': responsetext, 'smoid': smoid },
+                type: 'POST',
+                dataType: 'json',
+                success: function (success) {
+                    if (success) {
+                        var url = $('#IndexURL').val();
+                        window.location = url;
+                    }
+                },
+                error: function (req, status, error) {
+
+                }
+            });
+        }
+        else {
+            //alert("Please fill all mandatory fields");
+        }
+    });
+</script>
+
+

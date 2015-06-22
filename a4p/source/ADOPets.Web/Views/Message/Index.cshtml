@@ -1,0 +1,177 @@
+﻿@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Message.IndexViewModel>
+
+@{
+    ViewBag.Title = Resources.Message_Index_Title;
+}
+
+<div class="messageStyle">
+    @{ Html.RenderPartial("_Alerts"); }
+</div>
+
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>@Resources.Message_Index_Title</h1>
+        </div>
+    </div>
+</div>
+<div id="mainContainer">
+    @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianLight.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()) && !Roles.IsUserInRole(UserTypeEnum.Admin.ToString()))
+    {
+        <div id="hiderightsidebar">
+            <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+        </div>
+        <div id="showrightsidebar">
+            <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+        </div>
+    }
+    <div id="msgs">
+
+        @using (Html.BeginForm("DeleteMessage", "Message", FormMethod.Post))
+        {
+            <!-- Split button -->
+            <div class="btn-group">
+                <a href="javascript:void(0);" class="btn btn-default">
+                    <div class="checkbox" style="margin: -15px 0 0 0; padding-bottom: 15px;">
+                        <label>
+                            <input id="selectAllMsg" type="checkbox" />
+                        </label>
+                    </div>
+                </a>
+                <button type="button" id="ToggleDropDown" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span><span class="sr-only">@Resources.Message_Index_ToggleDropdown</span>
+                </button>
+                <ul id="msgUl" class="dropdown-menu" role="menu">
+                    <li><a href="#" data-read="">@Resources.Message_Index_All</a></li>
+                    <li><a href="#" data-read="1">@Resources.Message_Index_Read</a></li>
+                    <li><a href="#" data-read="0">@Resources.Message_Index_Unread</a></li>
+                </ul>
+            </div>
+            <a class="btn btn-primary" href="@Url.Action("Index", "Message")">
+                <span class="glyphicon glyphicon-refresh"></span>
+            </a>
+            <!-- Single button -->
+           
+            <div class="btn-group">
+                <button type="submit" class="btn btn-warning" title="@Resources.Message_Index_Delete">
+                    <i class="fa fa-trash-o"></i>@Resources.Message_Index_Delete
+                </button>
+            </div>            
+            <div class="btn-group pull-right">
+                <a href="@Url.Action("SearchRecipient", "Message")" class="btn btn-success"><i class="fa fa-envelope"></i>@Resources.Message_Index_Compose</a>
+            </div>
+            <div class="clearfix"></div>
+            
+            <hr />
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#inbox" id="msgRecived" data-toggle="tab"><i class="fa fa-inbox"></i>@Resources.Message_Index_Inbox</a></li>
+                <li><a href="#sent" id="msgSent" data-toggle="tab"><i class="fa fa-check-square"></i>@Resources.Message_Index_Sent</a></li>
+
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="inbox">
+                    <div class="list-group" style="margin-bottom: 0;" id="MsgList">
+                        @foreach (var mail in Model.Where(m => m.MessageType == MessageTypeEnum.Received))
+                        {
+                            <div class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="conversationsKey" value="@mail.ConversationKey"></label>
+                                        </div>
+                                        @if (mail.Unread)
+                                        {
+                                            <b><span class="name ellipsisText" style="display: inline-block; padding-right: 20px;">@mail.SenderTitle</span></b>
+                                        }
+                                        else
+                                        {
+                                            <span class="name ellipsisText" style="display: inline-block; padding-right: 20px;">@mail.SenderTitle</span>
+                                        }
+                                    </div>
+                                    <a href="@Url.Action("MessageDetail", "Message", new { id = mail.ConversationKey })" >
+                                        <div class="col-md-5">
+                                            @if (mail.Unread)
+                                            {
+                                                <b><span class="ellipsisText">@mail.SubjectSummary</span></b>
+                                            }
+                                            else
+                                            {
+                                                <span class="ellipsisText">@mail.SubjectSummary</span>
+                                            }
+                                            <span class="text-muted ellipsisText">- @mail.BodySummary</span>
+
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="badge ellipsisText">@mail.Date.ToShortDateString() @mail.Date.ToShortTimeString()</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="tab-pane fade in" id="sent">
+                    <div class="list-group" style="margin-bottom: 0;">
+                        @foreach (var mail in Model.Where(m => m.MessageType == MessageTypeEnum.Sent))
+                        {
+                            <div class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="conversationsKey" value="@mail.ConversationKey"></label>
+                                        </div>
+                                        <span class="name ellipsisText" style="display: inline-block; padding-right: 20px;">@mail.SenderTitle</span>
+                                    </div>
+                                    <a href="@Url.Action("MessageDetail", "Message", new { id = mail.ConversationKey })">
+                                        <div class="col-md-5">
+                                            <span class="ellipsisText">@mail.SubjectSummary</span>
+                                            <span class="text-muted ellipsisText">- @mail.BodySummary</span>
+
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="badge ellipsisText">@mail.Date.ToShortDateString() @mail.Date.ToShortTimeString()</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        // DrawTable('#MsgList');
+
+        //$("ul#msgUl li a").click(function () {
+        //    $('#MsgList').DataTable().column(0).search($(this).attr("data-Read")).draw();
+        //});
+
+        $("#selectAllMsg").click(function () {
+            $('.active input:checkbox').not(this).prop('checked', this.checked);
+        });
+
+        $('#msgSent').click(function () {
+            $("#ToggleDropDown").hide();
+        });
+
+        $('#msgRecived').click(function () {
+            $("#ToggleDropDown").show();
+        });
+
+    });
+</script>

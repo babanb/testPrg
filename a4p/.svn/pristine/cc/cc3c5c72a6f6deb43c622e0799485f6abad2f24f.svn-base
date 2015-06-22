@@ -1,0 +1,101 @@
+﻿$(document).ready(function () {
+
+    Initialize();
+
+    $('#UpgradeMyPlan').removeClass('tab-pane fade in active').addClass('tab-pane fade');
+    $('#MyPlanAddPets').removeClass('tab-pane fade in active').addClass('tab-pane fade');
+    $('#RenewaltMyPlan').removeClass('tab-pane fade in active').addClass('tab-pane fade');
+    $('#PlanBilling').removeClass('tab-pane fade').addClass('tab-pane fade in active');
+    if ($("meta[name='accept-domain']").attr("content") != "French") {
+        UpdateBillingStates();
+    }
+    retriveTempBillingValues();
+    $.validator.unobtrusive.parse("#PlanBillingForm");
+
+
+    $("#BillingCountry").change(function () {
+        if ($("meta[name='accept-domain']").attr("content") != "French") {
+            UpdateBillingStates();
+        }
+
+    });
+
+    $("#btnBack").click(function () {
+        saveTempBillingValues();
+        $('#PlanBilling').removeClass('tab-pane fade in active').addClass('tab-pane fade');
+        var isRenewal = $('#IsRenewal').val();
+        var IsUpgrade = $('#IsUpgrade').val();
+        if (isRenewal == "True") {
+            $('#RenewaltMyPlan').removeClass('tab-pane fade').addClass('tab-pane fade in active');
+        } else if (IsUpgrade == "True") {
+            $('#UpgradeMyPlan').removeClass('tab-pane fade').addClass('tab-pane fade in active');
+        } else {
+            $('#MyPlanAddPets').removeClass('tab-pane fade').addClass('tab-pane fade in active');
+        }
+
+    });
+
+    $("#next-bt").click(function () {
+        saveTempBillingValues();
+    });
+});
+
+
+function saveTempBillingValues() {
+    localStorage['cardType1'] = $('#CreditCardType').val();
+    localStorage['cardNumber1'] = $('#CreditCardNumber').val();
+    localStorage['expdate1'] = $('#ExpirationDate').val();
+    localStorage['cvv1'] = $('#CVV').val();
+    localStorage['address_1'] = $('#BillingAddress1').val();
+    localStorage['address_2'] = $('#BillingAddress2').val();
+    localStorage['city1'] = $('#BillingCity').val();
+    localStorage['country1'] = $('#BillingCountry').val();
+    localStorage['state1'] = $('#BillingState').val();
+    localStorage['zip1'] = $('#BillingZip').val();
+}
+
+function retriveTempBillingValues() {
+    $('#CreditCardType').val(localStorage['cardType1']);
+    $('#CreditCardNumber').val(localStorage['cardNumber1']);
+    $('#ExpirationDate').val(localStorage['expdate1']);
+    $('#CVV').val(localStorage['cvv1']);
+    $('#BillingAddress1').val(localStorage['address_1']);
+    $('#BillingAddress2').val(localStorage['address_2']);
+    $('#BillingCity').val(localStorage['city1']);
+    // $('#BillingCountry').val(localStorage['country1']);
+    if (localStorage['country1']) { $('#BillingCountry').val(localStorage['country1']); }
+    UpdateBillingStates();
+    $('#BillingState').val(localStorage['state1']);
+    $('#BillingZip').val(localStorage['zip1']);
+}
+
+function UpdateBillingStates() {
+    var Country = $('#BillingCountry').val();
+    var State = $('#BillingState').val();
+    var subItems = "<option value>" + $("#BillingState").children()[0].text + "</option>";
+    if (Country == "France") {
+        $("#BillingState").html(subItems);
+        $("#BillingState").prop("disabled", true);
+    }
+    else {
+        $("#BillingState").prop("disabled", false);
+
+        if ($("#BillingCountry option:selected").index() == 0) {
+            $("#BillingState").html(subItems);
+        } else {
+            $.getJSON(GetApplicationPath() + "Profile/GetStates", { country: Country },
+                function (data) {
+                    $.each(data, function (index, item) {
+
+                        if (item.Value == State || item.Text == localStorage['state']) {
+                            subItems += "<option value='" + item.Value + "' selected>" + item.Text + "</option>";
+                        } else {
+                            subItems += "<option value='" + item.Value + "'>" + item.Text + "</option>";
+                        }
+                    });
+
+                    $("#BillingState").html(subItems);
+                });
+        }
+    }
+}

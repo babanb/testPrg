@@ -1,0 +1,103 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording;
+@using ADOPets.Web.Common.Extensions
+@using System.Web.UI.WebControls;
+@using ADOPets.Web.Common.Helpers
+@using Model
+
+@model ADOPets.Web.ViewModels.Econsultation.DocumentUpload
+
+@Html.Hidden("PreviewURL", Url.Action("saveTempData", "Econsultation"))
+@Html.Hidden("SaveECURL", Url.Action("SaveSubmitReport", "Econsultation"))
+@Html.Hidden("IndexURL", Url.Action("Index", "Econsultation"))
+@Html.Hidden("SubmitECURL", Url.Action("SubmitReport", "Econsultation"))
+
+@using (Ajax.BeginForm("SubmitReport", "Econsultation", new AjaxOptions
+{
+    HttpMethod = "POST"
+}, new { @id = "SubmitEconsultation", @class = "form-horizontal defaultForm bv-form", @role = "form" }))
+{
+    
+ @Html.HiddenFor(model => model.EcId)
+ @Html.HiddenFor(model => model.PetId)
+ @Html.HiddenFor(model => model.VetId)   
+ @Html.HiddenFor(model => model.PetOnwerId)
+ @Html.HiddenFor(model => model.Id)
+
+<div class="panel panel-primary">
+  <div class="panel-body text-primary" style="font-weight:600;">
+        @Resources.Econsultation_SubmitReport_StartTime - @Model.ActionBeginDate.Value.ToLongTimeString() <span style="padding:0 20px;">
+        @Resources.Econsultation_SubmitReport_EndTime - @Model.ActionEndDate.Value.ToLongTimeString()</span> 
+        @Resources.Econsultation_SubmitReport_Duration - @Model.Durations (Minutes) 
+        <span style="padding:0 20px;">@Resources.Econsultation_SubmitReport_ECDate - @Model.ActionEndDate.Value.ToShortDateString()</span>
+  </div>
+</div> 
+
+     <label for="lblDiagnosis">@Resources.Econsultation_SubmitReport_Diagnosis:</label>
+     @Html.TextAreaFor(modelItem => Model.Diagnosis, new { @class = "form-control", @rows = "3", @placeholder = Resources.Econsultation_SubmitReport_DiagnosisPlaceHolder })
+     @Html.ValidationMessageFor(modelItem => modelItem.Diagnosis)
+     <br />
+    <label for="lblDiagnosis">@Resources.Econsultation_SubmitReport_Treatment:</label>
+     @Html.TextAreaFor(modelItem => Model.Treatment, new { @class = "form-control", @rows = "3", @placeholder = Resources.Econsultation_SubmitReport_TreatmentPlaceHolder })
+     @Html.ValidationMessageFor(modelItem => modelItem.Treatment)    
+ 
+    <div class="clearfix"></div>
+    <br />
+    <div class="row attachment2">
+                <div class="col-md-1">
+                    <a href="#" class="btn btn-success attachBtn" id="btnFileUpload"><span class="fa fa-paperclip"></span>
+                        <input type="file" id="customattch">
+                    </a>
+                </div>
+                <div class="col-md-11">
+                    @if (Model.lstAttachment != null)
+                    {
+                        foreach (var item in Model.lstAttachment)
+                        {                        
+                        <div class="btn-group" data-fileid="@item.Id">
+                            <a href="@Url.Action("GetFile", "Econsultation", new { fileName = item.DocumentPath, PetID = Model.PetId, EcID = Model.EcId, ownerId = Model.PetOnwerId, VetId = Model.VetId })" id="@("viewDocument" + ViewBag.DocumentType)"  
+            class="btn btn-default" target="_blank">@Html.CreateDivFromFileExtension(item.DocumentPath) @item.DocumentName</a>
+                            <button type="button" class="btn btn-default" onclick="removeFile('@item.Id','@item.ECId')" ><span class="fa fa-times"></span></button>
+                        </div>
+                        }
+
+                    }
+                    <div class="" id="dvAlbumPhotoList">
+                    </div>
+                    <div id="dvGalleryUploadError" class="error">
+                    </div>
+                </div>
+    </div>
+    
+        <hr>
+       <div class="form-group">
+       <div class="col-md-6">
+          <button type="button" id="btnSaveEC" class="btn btn-info btn-lg pull-right" style="margin-left:4px;">@Resources.Econsultation_SubmitReport_Save</button>
+          <a href="#" class="btn btn-primary btn-lg pull-right" onclick="toggle_visibility1();"><i class="fa fa-arrow-left"></i>@Resources.Econsultation_SubmitReport_Back</a>
+          </div>
+          <div class="col-md-6">
+            <a id="previewEC" href="@Url.Action("PreviewEC", "Econsultation", new { Ecid = Model.EcId })",  data-href="@Url.Action("PreviewEC", "Econsultation", new { Ecid = Model.EcId })" class="btn btn-warning btn-lg pull-right" style="margin-left:10px">
+                <i class="fa fa-eye"></i>@Resources.Econsultation_SubmitReport_ECPreView</a>
+            <input type="hidden" id="hdnPetInfoStatus" name="hdnPetInfoStatus" />
+            <button class="btn btn-success btn-lg" id="btnSubmitEC" type="submit">@Resources.Econsultation_SubmitReport_Submit</button>          
+            
+          </div>
+        </div>
+        <div class="clearfix"></div>          
+    
+    <div id="ConfrimModel" class="modal fade" tabindex="-1" role="dialog"></div>
+    <div id="addModalAlbumGallery" class="modal fade" tabindex="-1" role="dialog"></div>    
+}
+    
+<script type="text/javascript" src="~/Scripts/external/ajaxupload.js"></script>
+<script src="@Url.Content("~/Scripts/customs/views/Econsultation/SubmitReport.js")"></script>
+<style>
+    .dvprocessing {
+        display: none;
+        position: absolute;
+        background: #fff;
+    }
+
+    #img-load {
+        position: absolute;
+    }
+</style>

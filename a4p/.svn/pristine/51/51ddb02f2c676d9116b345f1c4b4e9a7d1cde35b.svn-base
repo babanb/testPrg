@@ -1,0 +1,1490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF7E3CC3-AD98-4211-B040-C438851D8588}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ADOPets.Web</RootNamespace>
+    <AssemblyName>ADOPets.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AuthorizeNet">
+      <HintPath>..\packages\AuthorizeNet.1.8.2\lib\AuthorizeNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ExpressiveAnnotations, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ExpressiveAnnotations.1.4.0\lib\ExpressiveAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="ExpressiveAnnotations.MvcUnobtrusiveValidatorProvider, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ExpressiveAnnotations.1.4.0\lib\ExpressiveAnnotations.MvcUnobtrusiveValidatorProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.4.1.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorPDF">
+      <HintPath>..\packages\RazorPDF.1.0.0\lib\net45\RazorPDF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.OData">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.4.0.30506\lib\net40\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="UnitsNet.net35">
+      <HintPath>..\packages\UnitsNet.3.0.0\lib\net35-client\UnitsNet.net35.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Common\Authentication\CustomIdentity.cs" />
+    <Compile Include="Common\Authentication\CustomMembershipProvider.cs" />
+    <Compile Include="Common\Authentication\CustomMembershipUser.cs" />
+    <Compile Include="Common\Authentication\CustomPrincipal.cs" />
+    <Compile Include="Common\Authentication\CustomRoleProvider.cs" />
+    <Compile Include="Common\Authentication\SecurityExtentions.cs" />
+    <Compile Include="Common\Authentication\UserRoleAuthorizeAttribute.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\Enums\HealthHistoryTypeEnum.cs" />
+    <Compile Include="Common\Enums\MedicalRecordTypeEnum.cs" />
+    <Compile Include="Common\Helpers\CBGConverterHelper.cs" />
+    <Compile Include="Common\Helpers\DomainHelper.cs" />
+    <Compile Include="Common\Helpers\ECPDFHelper.cs" />
+    <Compile Include="Common\Helpers\EnumHelper.cs" />
+    <Compile Include="Common\Helpers\HeightConverterHelper.cs" />
+    <Compile Include="Common\Helpers\HemoglobinConverterHelper.cs" />
+    <Compile Include="Common\Helpers\HemogramConverterHelper.cs" />
+    <Compile Include="Common\Helpers\HttpContextHelper.cs" />
+    <Compile Include="Common\Helpers\PaymentHelper.cs" />
+    <Compile Include="Common\Helpers\PDFHelper.cs" />
+    <Compile Include="Common\Helpers\PetMedicalHealthMeasurePdf.cs" />
+    <Compile Include="Common\Helpers\PetMedicalSummaryPdfHelper.cs" />
+    <Compile Include="Common\Helpers\PetSummaryPdfHelper.cs" />
+    <Compile Include="Common\Helpers\SerumElectrolyteConverterHelper.cs" />
+    <Compile Include="Common\Helpers\PulseConverterHelper.cs" />
+    <Compile Include="Common\Helpers\ShareInfoHelper.cs" />
+    <Compile Include="Common\Helpers\SMOHelper.cs" />
+    <Compile Include="Common\Helpers\SubscriptionConstraintHelper.cs" />
+    <Compile Include="Common\Helpers\TemperatureConverterHelper.cs" />
+    <Compile Include="Common\Helpers\TimeZoneHelper.cs" />
+    <Compile Include="Common\Helpers\UserHelper.cs" />
+    <Compile Include="Common\Helpers\WebConfigHelper.cs" />
+    <Compile Include="Common\Helpers\WeightConverterHelper.cs" />
+    <Compile Include="Common\ModelBinders\DoubleModelBinder.cs" />
+    <Compile Include="Common\ModelBinders\DecimalModelBinder.cs" />
+    <Compile Include="Common\Payment\Model\PaymentResult.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlbumGalleryController.cs" />
+    <Compile Include="Controllers\AllergyController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CalenderController.cs" />
+    <Compile Include="Controllers\CBGController.cs" />
+    <Compile Include="Controllers\ComingSoonController.cs" />
+    <Compile Include="Controllers\GalleryCommentController.cs" />
+    <Compile Include="Controllers\ConditionController.cs" />
+    <Compile Include="Controllers\ConsultationController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
+    <Compile Include="Controllers\EconsultationController.cs" />
+    <Compile Include="Controllers\FoodPlanController.cs" />
+    <Compile Include="Controllers\NewsFeedController.cs" />
+    <Compile Include="Controllers\OwnerPaymentController.cs" />
+    <Compile Include="Controllers\PhotoGalleryController.cs" />
+    <Compile Include="Controllers\HealthHistoryController.cs" />
+    <Compile Include="Controllers\HealthMeasureTrackerController.cs" />
+    <Compile Include="Controllers\HeightController.cs" />
+    <Compile Include="Controllers\HemoglobinController.cs" />
+    <Compile Include="Controllers\HemogramController.cs" />
+    <Compile Include="Controllers\HospitalizationController.cs" />
+    <Compile Include="Controllers\ImmunizationController.cs" />
+    <Compile Include="Controllers\InsuranceController.cs" />
+    <Compile Include="Controllers\LinkController.cs" />
+    <Compile Include="Controllers\MedicalRecordController.cs" />
+    <Compile Include="Controllers\MedicationController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\PetContactController.cs" />
+    <Compile Include="Controllers\PetController.cs" />
+    <Compile Include="Common\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Controllers\PlansAndPromoController.cs" />
+    <Compile Include="Controllers\PrivacyAndPolicyController.cs" />
+    <Compile Include="Controllers\PrivacyPolicyUSController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\PulseController.cs" />
+    <Compile Include="Controllers\SerumElectrolyteController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\SharePetInfoController.cs" />
+    <Compile Include="Controllers\SMOController.cs" />
+    <Compile Include="Controllers\SurgeryController.cs" />
+    <Compile Include="Controllers\TemperatureController.cs" />
+    <Compile Include="Controllers\TermAndConditionController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\VeterinarianController.cs" />
+    <Compile Include="Controllers\VideoGalleryController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\WeightController.cs" />
+    <Compile Include="Filters\ChangePasswordFilter.cs" />
+    <Compile Include="Filters\OwnerPaymentFilter.cs" />
+    <Compile Include="Filters\SessionExpireFilter.cs" />
+    <Compile Include="Filters\TermAndConditionFilter.cs" />
+    <Compile Include="Filters\UpgradeOrRenewPlanFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Helpers\CultureHelper.cs" />
+    <Compile Include="Handler\EcFileUploadHandler.ashx.cs">
+      <DependentUpon>EcFileUploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\SmoFileUploadHandler.ashx.cs">
+      <DependentUpon>SmoFileUploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\FileUploadHandler.ashx.cs">
+      <DependentUpon>FileUploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Enums.pt.Designer.cs">
+      <DependentUpon>Enums.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Subscription.en-IN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Subscription.en-IN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Subscription.pt.Designer.cs">
+      <DependentUpon>Subscription.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Subscription.fr.Designer.cs">
+      <DependentUpon>Subscription.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Wording.en-IN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wording.en-IN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Wording.pt.Designer.cs">
+      <DependentUpon>Wording.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Econsultation\Add.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Add.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Econsultation\Index1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Enums.fr.Designer.cs">
+      <DependentUpon>Enums.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Enums.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Enums.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Subscription.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Subscription.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Wording.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wording.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Wording.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wording.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Account\BasicInfoViewModel.cs" />
+    <Compile Include="ViewModels\Account\ConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\Account\Login.cs" />
+    <Compile Include="ViewModels\Account\BillingViewModel.cs" />
+    <Compile Include="ViewModels\Account\PaymentResultViewModel.cs" />
+    <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\PetsGlobalViewModel.cs" />
+    <Compile Include="ViewModels\AlbumGallery\AddViewModel.cs" />
+    <Compile Include="ViewModels\AlbumGallery\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\AlbumGallery\EditViewModel.cs" />
+    <Compile Include="ViewModels\AlbumGallery\IndexViewModel.cs" />
+    <Compile Include="ViewModels\AlbumGallery\PhotoListViewModel.cs" />
+    <Compile Include="ViewModels\Allergy\AddViewModel.cs" />
+    <Compile Include="ViewModels\Allergy\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Allergy\EditViewModel.cs" />
+    <Compile Include="ViewModels\Allergy\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Calender\AddViewModel.cs" />
+    <Compile Include="ViewModels\Calender\CalenderNotificationViewModel.cs" />
+    <Compile Include="ViewModels\Calender\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Calender\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\Calender\EditViewModel.cs" />
+    <Compile Include="ViewModels\Calender\IndexViewModel.cs" />
+    <Compile Include="ViewModels\CBG\AddViewModel.cs" />
+    <Compile Include="ViewModels\CBG\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\CBG\EditViewModel.cs" />
+    <Compile Include="ViewModels\CBG\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Condition\AddViewModel.cs" />
+    <Compile Include="ViewModels\Condition\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Condition\EditViewModel.cs" />
+    <Compile Include="ViewModels\Condition\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Consultation\AddViewModel.cs" />
+    <Compile Include="ViewModels\Consultation\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Consultation\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Contact\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Contact\SummaryViewModel.cs" />
+    <Compile Include="ViewModels\Econsultation\AddBillingViewModel.cs" />
+    <Compile Include="ViewModels\Econsultation\AddSetupViewModel.cs" />
+    <Compile Include="ViewModels\Econsultation\AddViewModel.cs" />
+    <Compile Include="ViewModels\Econsultation\ConfirmationViewModel1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Econsultation\DocumentUpload.cs" />
+    <Compile Include="ViewModels\Econsultation\EconsultDocumentViewModel.cs" />
+    <Compile Include="ViewModels\Econsultation\EditDetailsModel.cs" />
+    <Compile Include="ViewModels\Econsultation\ExpertVeterinarainViewModel.cs" />
+    <Compile Include="ViewModels\Econsultation\ExpertView.cs" />
+    <Compile Include="ViewModels\Econsultation\ExpertViewDetials.cs" />
+    <Compile Include="ViewModels\Econsultation\ExperViewReportModel.cs" />
+    <Compile Include="ViewModels\Econsultation\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Econsultation\JoinEConsultationModel.cs" />
+    <Compile Include="ViewModels\Econsultation\PaymentResultViewModel1.cs" />
+    <Compile Include="ViewModels\Econsultation\StartEConsultationModel.cs" />
+    <Compile Include="ViewModels\Econsultation\SubmitReportModel.cs" />
+    <Compile Include="ViewModels\Econsultation\VideoConferenceModel.cs" />
+    <Compile Include="ViewModels\Econsultation\ViewDetailsModel.cs" />
+    <Compile Include="ViewModels\Econsultation\WithdrawEC.cs" />
+    <Compile Include="ViewModels\FoodPlan\AddViewModel.cs" />
+    <Compile Include="ViewModels\Consultation\EditViewModel.cs" />
+    <Compile Include="ViewModels\FoodPlan\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\FoodPlan\EditViewModel.cs" />
+    <Compile Include="ViewModels\FoodPlan\IndexViewModel.cs" />
+    <Compile Include="ViewModels\GalleryComment\AddLikesModel.cs" />
+    <Compile Include="ViewModels\GalleryComment\CommentDeleteModel.cs" />
+    <Compile Include="ViewModels\GalleryComment\CommentsViewModel.cs" />
+    <Compile Include="ViewModels\GalleryComment\ReplyDeleteModel.cs" />
+    <Compile Include="ViewModels\Message\NotificationHistoryViewModel.cs" />
+    <Compile Include="ViewModels\NewsFeed\IndexViewModel.cs" />
+    <Compile Include="ViewModels\NewsFeed\NewsFeedHistoryModel.cs" />
+    <Compile Include="ViewModels\NewsFeed\NewsFeedNotificationsViewModel.cs" />
+    <Compile Include="ViewModels\Pet\LoadMedicalRecordModel.cs" />
+    <Compile Include="ViewModels\Pet\LoadReportModel.cs" />
+    <Compile Include="ViewModels\PhotoGallery\AddViewModel.cs" />
+    <Compile Include="ViewModels\PhotoGallery\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\PhotoGallery\EditViewModel.cs" />
+    <Compile Include="ViewModels\PhotoGallery\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Height\AddViewModel.cs" />
+    <Compile Include="ViewModels\Height\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Height\EditViewModel.cs" />
+    <Compile Include="ViewModels\Hemoglobin\AddViewModel.cs" />
+    <Compile Include="ViewModels\Hemoglobin\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Hemoglobin\EditViewModel.cs" />
+    <Compile Include="ViewModels\Hemoglobin\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Hemogram\AddViewModel.cs" />
+    <Compile Include="ViewModels\Hemogram\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Hemogram\EditViewModel.cs" />
+    <Compile Include="ViewModels\Hemogram\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Hospitalization\AddViewModel.cs" />
+    <Compile Include="ViewModels\Hospitalization\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Hospitalization\EditViewModel.cs" />
+    <Compile Include="ViewModels\Hospitalization\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Insurance\AddViewModel.cs" />
+    <Compile Include="ViewModels\Insurance\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Insurance\EditViewModel.cs" />
+    <Compile Include="ViewModels\Insurance\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Medication\AddViewModel.cs" />
+    <Compile Include="ViewModels\Medication\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Medication\EditViewModel.cs" />
+    <Compile Include="ViewModels\Medication\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Immunization\AddViewModel.cs" />
+    <Compile Include="ViewModels\Immunization\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Immunization\EditViewModel.cs" />
+    <Compile Include="ViewModels\Immunization\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Message\InviteViewModel.cs" />
+    <Compile Include="ViewModels\Message\MessageDetailViewModel.cs" />
+    <Compile Include="ViewModels\Message\MessageNotificationViewModel.cs" />
+    <Compile Include="ViewModels\Message\MessageReplyViewModel.cs" />
+    <Compile Include="ViewModels\Message\NewMessageViewModel.cs" />
+    <Compile Include="ViewModels\Message\SearchRecipientViewModel.cs" />
+    <Compile Include="ViewModels\Message\IndexViewModel.cs" />
+    <Compile Include="ViewModels\PlansAndPromo\AddPromocodeViewModel.cs" />
+    <Compile Include="ViewModels\PlansAndPromo\AddViewModel.cs" />
+    <Compile Include="ViewModels\PlansAndPromo\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\PlansAndPromo\EditPromocodeViewModel.cs" />
+    <Compile Include="ViewModels\PlansAndPromo\EditViewModel.cs" />
+    <Compile Include="ViewModels\PlansAndPromo\IndexViewModel.cs" />
+    <Compile Include="ViewModels\PlansAndPromo\PlanRenewUpgradeViewModel.cs" />
+    <Compile Include="ViewModels\Profile\EditPlanViewModel.cs" />
+    <Compile Include="ViewModels\Profile\PlanAddPetsViewModel.cs" />
+    <Compile Include="ViewModels\Profile\PlanRenewalDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Profile\PlanRenewalViewModel.cs" />
+    <Compile Include="ViewModels\Profile\PaymentResultViewModel.cs" />
+    <Compile Include="ViewModels\Profile\PlanBillingViewModel.cs" />
+    <Compile Include="ViewModels\Profile\PlanConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\PetContact\AddViewModel.cs" />
+    <Compile Include="ViewModels\PetContact\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\PetContact\EditViewModel.cs" />
+    <Compile Include="ViewModels\PetContact\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Pet\BreederEditViewModel.cs" />
+    <Compile Include="ViewModels\Profile\AddViewModel.cs" />
+    <Compile Include="ViewModels\Profile\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\Profile\ForceToChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\Profile\OwnerEditViewModel.cs" />
+    <Compile Include="ViewModels\Profile\OwnerDetailViewModel.cs" />
+    <Compile Include="ViewModels\Profile\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Profile\PlanDetailViewModel.cs" />
+    <Compile Include="ViewModels\Profile\PlanUpgradeViewModel.cs" />
+    <Compile Include="ViewModels\Profile\RemovePetsViewModel.cs" />
+    <Compile Include="ViewModels\Pulse\AddViewModel.cs" />
+    <Compile Include="ViewModels\Pulse\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Pulse\EditViewModel.cs" />
+    <Compile Include="ViewModels\SerumElectrolyte\AddViewModel.cs" />
+    <Compile Include="ViewModels\SerumElectrolyte\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\SerumElectrolyte\EditViewModel.cs" />
+    <Compile Include="ViewModels\SerumElectrolyte\IndexViewModel.cs" />
+    <Compile Include="ViewModels\SharePetInfo\AddCommunityContactsModel.cs" />
+    <Compile Include="ViewModels\SharePetInfo\AddContactViewModel.cs" />
+    <Compile Include="ViewModels\SharePetInfo\AddShareCategoryTypeContactModel.cs" />
+    <Compile Include="ViewModels\SharePetInfo\DeleteContactViewModel.cs" />
+    <Compile Include="ViewModels\SharePetInfo\IndexViewModel.cs" />
+    <Compile Include="ViewModels\SharePetInfo\MyContactViewModel.cs" />
+    <Compile Include="ViewModels\SharePetInfo\UniqueContactModel.cs" />
+    <Compile Include="ViewModels\SMO\AddExpertCommitteeModel.cs" />
+    <Compile Include="ViewModels\SMO\AddViewModel.cs" />
+    <Compile Include="ViewModels\SMO\AddSetupViewModel.cs" />
+    <Compile Include="ViewModels\SMO\AddBillingViewModel.cs" />
+    <Compile Include="ViewModels\SMO\ExpertRelationViewModel.cs" />
+    <Compile Include="ViewModels\SMO\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\SMO\IndexViewModel.cs" />
+    <Compile Include="ViewModels\SMO\InvestigationViewModel.cs" />
+    <Compile Include="ViewModels\SMO\SMODocumentViewModel.cs" />
+    <Compile Include="ViewModels\SMO\SMOExpertBiodata.cs" />
+    <Compile Include="ViewModels\Temperature\AddViewModel.cs" />
+    <Compile Include="ViewModels\Temperature\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Temperature\EditViewModel.cs" />
+    <Compile Include="ViewModels\Temperature\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Pulse\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Users\AddPetsViewModel.cs" />
+    <Compile Include="ViewModels\Users\AddUserViewModel.cs" />
+    <Compile Include="ViewModels\Users\EditAdminViewModel.cs" />
+    <Compile Include="ViewModels\Users\EditOwnerViewModel.cs" />
+    <Compile Include="ViewModels\Users\EditVetViewModel.cs" />
+    <Compile Include="ViewModels\Users\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Users\PlanRenewalDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Users\RenewPlanViewModel.cs" />
+    <Compile Include="ViewModels\Users\UpgradePlanViewModel.cs" />
+    <Compile Include="ViewModels\Users\ViewUserViewModel.cs" />
+    <Compile Include="ViewModels\Veterinarian\AddViewModel.cs" />
+    <Compile Include="ViewModels\Veterinarian\DleteViewModel.cs" />
+    <Compile Include="ViewModels\Veterinarian\EditViewModel.cs" />
+    <Compile Include="ViewModels\Veterinarian\IndexViewModel.cs" />
+    <Compile Include="ViewModels\VideoGallery\AddViewModel.cs" />
+    <Compile Include="ViewModels\VideoGallery\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\VideoGallery\EditViewModel.cs" />
+    <Compile Include="ViewModels\VideoGallery\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Weight\AddViewModel.cs" />
+    <Compile Include="ViewModels\Weight\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Weight\EditViewModel.cs" />
+    <Compile Include="ViewModels\Weight\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Document\AddViewModel.cs" />
+    <Compile Include="ViewModels\Document\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Document\DocumentViewModel.cs" />
+    <Compile Include="ViewModels\Document\EditViewModel.cs" />
+    <Compile Include="ViewModels\Document\IndexViewModel.cs" />
+    <Compile Include="ViewModels\HealthHistory\HealthHistoryViewModel.cs" />
+    <Compile Include="ViewModels\HealthMeasureTracker\HealthMeasureTrackerViewModel.cs" />
+    <Compile Include="ViewModels\Height\IndexViewModel.cs" />
+    <Compile Include="ViewModels\MedicalRecord\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Pet\CardViewModel.cs" />
+    <Compile Include="ViewModels\Pet\AddViewModel.cs" />
+    <Compile Include="ViewModels\Pet\EditViewModel.cs" />
+    <Compile Include="ViewModels\Pet\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Surgery\AddViewModel.cs" />
+    <Compile Include="ViewModels\Surgery\DeleteViewModel.cs" />
+    <Compile Include="ViewModels\Surgery\EditViewModel.cs" />
+    <Compile Include="ViewModels\Surgery\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Vitals\VitalsViewModel.cs" />
+    <Compile Include="Web References\FDPaymentservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\exiftool.exe" />
+    <Content Include="bin\ffmpeg.exe" />
+    <Content Include="Content\css\adminportal.css" />
+    <Content Include="Content\css\ADOPets.css" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap-timepicker.css" />
+    <Content Include="Content\css\bootstrap-tour.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrapValidator.css" />
+    <Content Include="Content\css\byrei-dyndiv_0.5.css" />
+    <Content Include="Content\css\croppic.css" />
+    <Content Include="Content\css\custom.css" />
+    <Content Include="Content\css\custom_k.css" />
+    <Content Include="Content\css\dataTables.bootstrap.css" />
+    <Content Include="Content\css\datepicker.css" />
+    <Content Include="Content\css\ekko-lightbox.min.css" />
+    <Content Include="Content\css\expertportal.css" />
+    <Content Include="Content\css\flaticon.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font.css" />
+    <Content Include="Content\css\fullcalendar.min.css" />
+    <Content Include="Content\css\jplayer.pink.flag.min.css" />
+    <Content Include="Content\css\jquery.dataTables.css" />
+    <Content Include="Content\css\jquery.fancybox-1.3.4.css" />
+    <Content Include="Content\css\jquery.jplayer.swf" />
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\morris.css" />
+    <Content Include="Content\css\msg-style.css" />
+    <Content Include="Content\css\signup.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\tabdrop.css" />
+    <Content Include="Content\css\vetportal.css" />
+    <Content Include="Content\fonts\fiDirection.svg" />
+    <Content Include="Content\fonts\flaticon.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\fontawesome-webfontb.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\a4pBanner.jpg" />
+    <Content Include="Content\images\A4PLogo.jpg" />
+    <Content Include="Content\images\aaha.jpg" />
+    <Content Include="Content\images\aahalogo.png" />
+    <Content Include="Content\images\activ4pets-logo-fr.jpg" />
+    <Content Include="Content\images\activ4pets-logo.jpg" />
+    <Content Include="Content\images\activ4pets-logo.png" />
+    <Content Include="Content\images\addreminderIcon.png" />
+    <Content Include="Content\images\ajax_loader_blue_128.gif" />
+    <Content Include="Content\images\allergyIcon.png" />
+    <Content Include="Content\images\animal-dimg.jpg" />
+    <Content Include="Content\images\animalbehaviorcollege.jpg" />
+    <Content Include="Content\images\animalhospitals.jpg" />
+    <Content Include="Content\images\apdt.jpg" />
+    <Content Include="Content\images\back_disabled.png" />
+    <Content Include="Content\images\back_enabled.png" />
+    <Content Include="Content\images\back_enabled_hover.png" />
+    <Content Include="Content\images\bg-flag-cn.gif" />
+    <Content Include="Content\images\bg-flag-es.gif" />
+    <Content Include="Content\images\bg-flag-fr.gif" />
+    <Content Include="Content\images\bg-flag-in.gif" />
+    <Content Include="Content\images\bg-flag-pt.gif" />
+    <Content Include="Content\images\bg-flag-pt_new.jpg" />
+    <Content Include="Content\images\bg-flag-us.gif" />
+    <Content Include="Content\images\blank.gif" />
+    <Content Include="Content\images\bodybg.jpg" />
+    <Content Include="Content\images\breedersnet.jpg" />
+    <Content Include="Content\images\bringfido.jpg" />
+    <Content Include="Content\images\calender-icon.png" />
+    <Content Include="Content\images\care.jpg" />
+    <Content Include="Content\images\catchannel.jpg" />
+    <Content Include="Content\images\chatOpen.png" />
+    <Content Include="Content\images\close.jpg" />
+    <Content Include="Content\images\close.png" />
+    <Content Include="Content\images\conditionIcon.png" />
+    <Content Include="Content\images\conditionIconB.png" />
+    <Content Include="Content\images\congruent_pentagon.png" />
+    <Content Include="Content\images\consultationIcon.png" />
+    <Content Include="Content\images\cover_Dbg.gif" />
+    <Content Include="Content\images\cropperIcons.png" />
+    <Content Include="Content\images\dark-bg.png" />
+    <Content Include="Content\images\discover-network.png" />
+    <Content Include="Content\images\dogfriendly.jpg" />
+    <Content Include="Content\images\doggeek.jpg" />
+    <Content Include="Content\images\dogpark.jpg" />
+    <Content Include="Content\images\dogprofilePic1.jpg" />
+    <Content Include="Content\images\down-arrow.png" />
+    <Content Include="Content\images\download.jpg" />
+    <Content Include="Content\images\downtalkArrow.png" />
+    <Content Include="Content\images\dummy-img10.jpg" />
+    <Content Include="Content\images\dummy-img11.jpg" />
+    <Content Include="Content\images\dummy-img12.jpg" />
+    <Content Include="Content\images\dummy-img13.jpg" />
+    <Content Include="Content\images\dummy-img2.jpg" />
+    <Content Include="Content\images\dummy-img3.jpg" />
+    <Content Include="Content\images\dummy-img4.jpg" />
+    <Content Include="Content\images\dummy-img5.jpg" />
+    <Content Include="Content\images\dummy-img6.jpg" />
+    <Content Include="Content\images\dummy-img7.jpg" />
+    <Content Include="Content\images\dummy-img8.jpg" />
+    <Content Include="Content\images\dummy-img9.jpg" />
+    <Content Include="Content\images\dummy-img10.jpg" />
+    <Content Include="Content\images\dummy-img11.jpg" />
+    <Content Include="Content\images\dummy-img12.jpg" />
+    <Content Include="Content\images\dummy-img13.jpg" />
+    <Content Include="Content\images\dummy-img2.jpg" />
+    <Content Include="Content\images\dummy-img3.jpg" />
+    <Content Include="Content\images\dummy-img4.jpg" />
+    <Content Include="Content\images\dummy-img5.jpg" />
+    <Content Include="Content\images\dummy-img6.jpg" />
+    <Content Include="Content\images\dummy-img7.jpg" />
+    <Content Include="Content\images\dummy-img8.jpg" />
+    <Content Include="Content\images\dummy-img9.jpg" />
+    <Content Include="Content\images\dummyImg.jpg" />
+    <Content Include="Content\images\dummyTxt.txt" />
+    <Content Include="Content\images\DummyVideo.png" />
+    <Content Include="Content\images\econ-icon.png" />
+    <Content Include="Content\images\econsultation-cover.jpg" />
+    <Content Include="Content\images\embarkly.jpg" />
+    <Content Include="Content\images\fancybox-x.png" />
+    <Content Include="Content\images\fancybox-y.png" />
+    <Content Include="Content\images\fancybox.png" />
+    <Content Include="Content\images\favicon.gif" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\fdp-img.jpg" />
+    <Content Include="Content\images\find-a-dog.jpg" />
+    <Content Include="Content\images\findagroomer.jpg" />
+    <Content Include="Content\images\findpetboarding.jpg" />
+    <Content Include="Content\images\foodIcon.png" />
+    <Content Include="Content\images\forward_disabled.png" />
+    <Content Include="Content\images\forward_enabled.png" />
+    <Content Include="Content\images\forward_enabled_hover.png" />
+    <Content Include="Content\images\gopetfriendly.jpg" />
+    <Content Include="Content\images\groomerreview.jpg" />
+    <Content Include="Content\images\health.png" />
+    <Content Include="Content\images\hide-img.png" />
+    <Content Include="Content\images\hospitalizationIcon.png" />
+    <Content Include="Content\images\images.jpg" />
+    <Content Include="Content\images\img1.jpg" />
+    <Content Include="Content\images\img2.jpg" />
+    <Content Include="Content\images\img3.jpg" />
+    <Content Include="Content\images\immunizationIcon.png" />
+    <Content Include="Content\images\insurance-icon.jpg" />
+    <Content Include="Content\images\jcb.png" />
+    <Content Include="Content\images\jplayer.pink.flag.jpg" />
+    <Content Include="Content\images\jplayer.pink.flag.seeking.gif" />
+    <Content Include="Content\images\jplayer.pink.flag.video.play.png" />
+    <Content Include="Content\images\karenpryoracademy.jpg" />
+    <Content Include="Content\images\loader.gif" />
+    <Content Include="Content\images\login-img-fr.jpg" />
+    <Content Include="Content\images\login-img-pt.jpg" />
+    <Content Include="Content\images\login-img.jpg" />
+    <Content Include="Content\images\login-sep.jpg" />
+    <Content Include="Content\images\logo-fr.jpg" />
+    <Content Include="Content\images\logo-us.jpg" />
+    <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\logo_vets.png" />
+    <Content Include="Content\images\maestro.png" />
+    <Content Include="Content\images\mastercard.png" />
+    <Content Include="Content\images\mdp-img.jpg" />
+    <Content Include="Content\images\menu-rightArrow.png" />
+    <Content Include="Content\images\minus-icon.png" />
+    <Content Include="Content\images\minus-icon2.png" />
+    <Content Include="Content\images\mrcover.jpg" />
+    <Content Include="Content\images\myveterinarian.jpg" />
+    <Content Include="Content\images\nylabone.JPG" />
+    <Content Include="Content\images\ownerProfilepic.jpg" />
+    <Content Include="Content\images\paw-pattern.png" />
+    <Content Include="Content\images\pawprint-icon.png" />
+    <Content Include="Content\images\petboardingfinder.jpg" />
+    <Content Include="Content\images\petcover.jpg" />
+    <Content Include="Content\images\PetfinderLogo.jpg" />
+    <Content Include="Content\images\petfriendlytravel.jpg" />
+    <Content Include="Content\images\petgroomingfinder.jpg" />
+    <Content Include="Content\images\petProfilepic.jpg" />
+    <Content Include="Content\images\petsit.jpg" />
+    <Content Include="Content\images\petsitters.jpg" />
+    <Content Include="Content\images\petsittersnetwork.jpg" />
+    <Content Include="Content\images\plus-icon.png" />
+    <Content Include="Content\images\plus-icon2.png" />
+    <Content Include="Content\images\processing.gif" />
+    <Content Include="Content\images\reportHeaderLogo.png" />
+    <Content Include="Content\images\reportLogo.png" />
+    <Content Include="Content\images\right-dark-bg.png" />
+    <Content Include="Content\images\rover.jpg" />
+    <Content Include="Content\images\scout.jpg" />
+    <Content Include="Content\images\share4petscommu.png" />
+    <Content Include="Content\images\share4petscontact.png" />
+    <Content Include="Content\images\show-img.png" />
+    <Content Include="Content\images\signature.png" />
+    <Content Include="Content\images\smo-buble.png" />
+    <Content Include="Content\images\smo-cover.jpg" />
+    <Content Include="Content\images\smo-icon.jpg" />
+    <Content Include="Content\images\sort_asc.png" />
+    <Content Include="Content\images\sort_asc_disabled.png" />
+    <Content Include="Content\images\sort_both.png" />
+    <Content Include="Content\images\sort_desc.png" />
+    <Content Include="Content\images\sort_desc_disabled.png" />
+    <Content Include="Content\images\surgeryIcon.png" />
+    <Content Include="Content\images\Untitled-1.jpg" />
+    <Content Include="Content\images\Untitled-1.png" />
+    <Content Include="Content\images\up-arrow.png" />
+    <Content Include="Content\images\uploadBg.jpg" />
+    <Content Include="Content\images\vca hospital.jpg" />
+    <Content Include="Content\images\vcahospital.jpg" />
+    <Content Include="Content\images\veterinarians.jpg" />
+    <Content Include="Content\images\vetProfilepic.jpg" />
+    <Content Include="Content\images\video1.jpg" />
+    <Content Include="Content\images\video2.jpg" />
+    <Content Include="Content\images\video3.jpg" />
+    <Content Include="Content\images\video4.jpg" />
+    <Content Include="Content\images\visa.png" />
+    <Content Include="Content\images\vml-radial-gradient.png" />
+    <Content Include="Content\images\webvet.jpg" />
+    <Content Include="Content\images\welcomeImg-fr.jpg" />
+    <Content Include="Content\images\welcomeImg.jpg" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\fonts\cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" />
+    <Content Include="Content\fonts\DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff" />
+    <Content Include="Content\fonts\flaticon.eot" />
+    <Content Include="Content\fonts\flaticon.ttf" />
+    <Content Include="Content\fonts\flaticon.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" />
+    <Content Include="Content\fonts\MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff" />
+    <Content Include="Scripts\customs\views\Account\BasicInfo.js" />
+    <Content Include="Scripts\customs\views\Account\Confirmation.js" />
+    <Content Include="Scripts\customs\views\Account\Billing.js" />
+    <Content Include="Scripts\customs\views\Account\Signup.js" />
+    <Content Include="Scripts\customs\views\AlbumGallery\Add.js" />
+    <Content Include="Scripts\customs\views\AlbumGallery\Edit.js" />
+    <Content Include="Scripts\customs\views\AlbumGallery\Index.js" />
+    <Content Include="Scripts\customs\views\AlbumGallery\List.js" />
+    <Content Include="Scripts\customs\views\AlbumGallery\ListGalleryPhoto.js" />
+    <Content Include="Scripts\customs\views\Allergy\Form.js" />
+    <Content Include="Scripts\customs\views\Allergy\Index.js" />
+    <Content Include="Scripts\customs\views\Allergy\List.js" />
+    <Content Include="Scripts\customs\views\Calender\Add.js" />
+    <Content Include="Scripts\customs\views\Calender\Index.js" />
+    <Content Include="Scripts\customs\views\Calender\List.js" />
+    <Content Include="Scripts\customs\views\CBG\Index.js" />
+    <Content Include="Scripts\customs\views\CBG\List.js" />
+    <Content Include="Scripts\customs\views\Condition\Form.js" />
+    <Content Include="Scripts\customs\views\Consultation\Index.js" />
+    <Content Include="Scripts\customs\views\Consultation\List.js" />
+    <Content Include="Scripts\customs\views\Contact\Index.js" />
+    <Content Include="Scripts\customs\views\Contact\NumberFormat.js" />
+    <Content Include="Scripts\customs\views\Econsultation\Add.js" />
+    <Content Include="Scripts\customs\views\Econsultation\BasicInfo.js" />
+    <Content Include="Scripts\customs\views\Econsultation\Billing.js" />
+    <Content Include="Scripts\customs\views\Econsultation\Confirmation.js" />
+    <Content Include="Scripts\customs\views\Econsultation\ExpertView.js" />
+    <Content Include="Scripts\customs\views\Econsultation\ExpertViewDetails.js" />
+    <Content Include="Scripts\customs\views\Econsultation\expressInstall.swf" />
+    <Content Include="Scripts\customs\views\Econsultation\Index.js" />
+    <Content Include="Scripts\customs\views\Econsultation\jquery-1.11.2.min.js" />
+    <Content Include="Scripts\customs\views\Econsultation\SaveReport.js" />
+    <Content Include="Scripts\customs\views\Econsultation\Setup.js" />
+    <Content Include="Scripts\customs\views\Econsultation\StartEC.js" />
+    <Content Include="Scripts\customs\views\Econsultation\SubmitReport.js" />
+    <Content Include="Scripts\customs\views\Econsultation\swfobject_modified.js" />
+    <Content Include="Scripts\customs\views\Econsultation\ViewDetails.js" />
+    <Content Include="Scripts\customs\views\Econsultation\_SelectVet.js" />
+    <Content Include="Scripts\customs\views\FoodPlan\Index.js" />
+    <Content Include="Scripts\customs\views\FoodPlan\List.js" />
+    <Content Include="Scripts\customs\views\GalleryComment\LoadComments.js" />
+    <Content Include="Scripts\customs\views\GalleryComment\GalleryComments.js" />
+    <Content Include="Scripts\customs\views\Gallery\Edit.js" />
+    <Content Include="Scripts\customs\views\Gallery\Form.js" />
+    <Content Include="Scripts\customs\views\Gallery\Index.js" />
+    <Content Include="Scripts\customs\views\Gallery\List.js" />
+    <Content Include="Scripts\customs\views\HealthMeasureTracker\Index.js" />
+    <Content Include="Scripts\customs\views\Document\Add.js" />
+    <Content Include="Scripts\customs\views\Document\DocumentForm.js" />
+    <Content Include="Scripts\customs\views\HealthHistory\Index.js" />
+    <Content Include="Scripts\customs\views\Height\List.js" />
+    <Content Include="Scripts\customs\views\Height\Index.js" />
+    <Content Include="Scripts\customs\views\Hemoglobin\Index.js" />
+    <Content Include="Scripts\customs\views\Hemoglobin\List.js" />
+    <Content Include="Scripts\customs\views\Hemogram\Index.js" />
+    <Content Include="Scripts\customs\views\Hemogram\List.js" />
+    <Content Include="Scripts\customs\views\Hospitalization\Form.js" />
+    <Content Include="Scripts\customs\views\Hospitalization\Index.js" />
+    <Content Include="Scripts\customs\views\Hospitalization\List.js" />
+    <Content Include="Scripts\customs\views\Immunization\Index.js" />
+    <Content Include="Scripts\customs\views\Immunization\List.js" />
+    <Content Include="Scripts\customs\views\Insurance\Form.js" />
+    <Content Include="Scripts\customs\views\Insurance\Index.js" />
+    <Content Include="Scripts\customs\views\Insurance\List.js" />
+    <Content Include="Scripts\customs\views\MedicalRecord\Index.js" />
+    <Content Include="Scripts\customs\views\Medication\Index.js" />
+    <Content Include="Scripts\customs\views\Medication\List.js" />
+    <Content Include="Scripts\customs\views\Message\ComposeSearch.js" />
+    <Content Include="Scripts\customs\views\Message\InviteToggle.js" />
+    <Content Include="Scripts\customs\views\Message\MessageDetail.js" />
+    <Content Include="Scripts\customs\views\Message\Notification.js" />
+    <Content Include="Scripts\customs\views\Message\NotificationHistory.js" />
+    <Content Include="Scripts\customs\views\Message\SearchRecipient.js" />
+    <Content Include="Scripts\customs\views\NewsFeed\Notification.js" />
+    <Content Include="Scripts\customs\views\OwnerPayment\Billing.js" />
+    <Content Include="Scripts\customs\views\OwnerPayment\Confirmation.js" />
+    <Content Include="Scripts\customs\views\PetContact\Form.js" />
+    <Content Include="Scripts\customs\views\PetContact\Index.js" />
+    <Content Include="Scripts\customs\views\PetContact\List.js" />
+    <Content Include="Scripts\customs\views\Pet\bootstrap-tour.mr.js" />
+    <Content Include="Scripts\customs\views\Pet\bootstrap-tour.petId.js" />
+    <Content Include="Scripts\customs\views\Pet\BreederEdit.js" />
+    <Content Include="Scripts\customs\views\Pet\CardAdd.js" />
+    <Content Include="Scripts\customs\views\Pet\CardDetail.js" />
+    <Content Include="Scripts\customs\views\Pet\CardEdit.js" />
+    <Content Include="Scripts\customs\views\Pet\Index_VD.js" />
+    <Content Include="Scripts\customs\views\Pet\MedicalRecords.js" />
+    <Content Include="Scripts\customs\views\Condition\List.js" />
+    <Content Include="Scripts\customs\views\Condition\Index.js" />
+    <Content Include="Scripts\customs\views\Pet\PetImageUpload.js" />
+    <Content Include="Scripts\customs\views\PlansAndPromo\AddPlan.js" />
+    <Content Include="Scripts\customs\views\PlansAndPromo\AddPromo.js" />
+    <Content Include="Scripts\customs\views\PlansAndPromo\Index.js" />
+    <Content Include="Scripts\customs\views\PlansAndPromo\RenewUpgrade.js" />
+    <Content Include="Scripts\customs\views\Profile\EditPlan.js" />
+    <Content Include="Scripts\customs\views\Profile\MyAccountProfile.js" />
+    <Content Include="Scripts\customs\views\Profile\PlanAddPets.js" />
+    <Content Include="Scripts\customs\views\Profile\PlanDetails.js" />
+    <Content Include="Scripts\customs\views\Profile\PlanUpgrade.js" />
+    <Content Include="Scripts\customs\views\Profile\PlanRenewal.js" />
+    <Content Include="Scripts\customs\views\Profile\PaymentResult.js" />
+    <Content Include="Scripts\customs\views\Profile\PlanBilling.js" />
+    <Content Include="Scripts\customs\views\Profile\PlanConfirmation.js" />
+    <Content Include="Scripts\customs\views\Profile\Index.js" />
+    <Content Include="Scripts\customs\views\Profile\OwnerDetail.js" />
+    <Content Include="Scripts\customs\views\Profile\OwnerEdit.js" />
+    <Content Include="Scripts\customs\views\Pulse\Index.js" />
+    <Content Include="Scripts\customs\views\Pulse\List.js" />
+    <Content Include="Scripts\customs\views\SerumElectrolyte\Index.js" />
+    <Content Include="Scripts\customs\views\SerumElectrolyte\List.js" />
+    <Content Include="Scripts\customs\views\Shared\bootstrap-tour.docs.js" />
+    <Content Include="Scripts\customs\views\SharePetInfo\_CommunityContacts.js" />
+    <Content Include="Scripts\customs\views\SharePetInfo\_AddContacts.js" />
+    <Content Include="Scripts\customs\views\SharePetInfo\_SelectedContacts.js" />
+    <Content Include="Scripts\customs\views\SharePetInfo\MyContacts.js" />
+    <Content Include="Scripts\customs\views\SharePetInfo\Index.js" />
+    <Content Include="Scripts\customs\views\SharePetInfo\_SelectContacts.js" />
+    <Content Include="Scripts\customs\views\SMO\Add.js" />
+    <Content Include="Scripts\customs\views\SMO\Billing.js" />
+    <Content Include="Scripts\customs\views\SMO\Confirmation.js" />
+    <Content Include="Scripts\customs\views\SMO\EditVD.js" />
+    <Content Include="Scripts\customs\views\SMO\ExpertCommittee.js" />
+    <Content Include="Scripts\customs\views\SMO\Index.js" />
+    <Content Include="Scripts\customs\views\SMO\Index_VD.js" />
+    <Content Include="Scripts\customs\views\SMO\Index_VE.js" />
+    <Content Include="Scripts\customs\views\SMO\List.js" />
+    <Content Include="Scripts\customs\views\SMO\PreviewSMO.js" />
+    <Content Include="Scripts\customs\views\SMO\Setup.js" />
+    <Content Include="Scripts\customs\views\SMO\SubmitReport.js" />
+    <Content Include="Scripts\customs\views\SMO\VetExpertEdit.js" />
+    <Content Include="Scripts\customs\views\SMO\VetExpertResponse.js" />
+    <Content Include="Scripts\customs\views\Surgery\Index.js" />
+    <Content Include="Scripts\customs\views\Surgery\List.js" />
+    <Content Include="Scripts\customs\views\Temperature\Index.js" />
+    <Content Include="Scripts\customs\views\Temperature\List.js" />
+    <Content Include="Scripts\customs\views\Users\Add.js" />
+    <Content Include="Scripts\customs\views\Users\AddPets.js" />
+    <Content Include="Scripts\customs\views\Users\EditAdmin.js" />
+    <Content Include="Scripts\customs\views\Users\EditOwner.js" />
+    <Content Include="Scripts\customs\views\Users\EditUser.js" />
+    <Content Include="Scripts\customs\views\Users\EditVet.js" />
+    <Content Include="Scripts\customs\views\Users\Index.js" />
+    <Content Include="Scripts\customs\views\Users\RenewPlan.js" />
+    <Content Include="Scripts\customs\views\Users\UpgradePlan.js" />
+    <Content Include="Scripts\customs\views\Users\ViewUser.js" />
+    <Content Include="Scripts\customs\views\Veterinarian\Form.js" />
+    <Content Include="Scripts\customs\views\Veterinarian\Index.js" />
+    <Content Include="Scripts\customs\views\Veterinarian\List.js" />
+    <Content Include="Scripts\customs\views\VideoGallery\Edit.js" />
+    <Content Include="Scripts\customs\views\VideoGallery\Form.js" />
+    <Content Include="Scripts\customs\views\VideoGallery\Index.js" />
+    <Content Include="Scripts\customs\views\VideoGallery\List.js" />
+    <Content Include="Scripts\customs\views\Weight\Index.js" />
+    <Content Include="Scripts\customs\views\Weight\List.js" />
+    <Content Include="Scripts\external\ajaxupload.js" />
+    <Content Include="Scripts\external\bootstrap-datepicker.js" />
+    <Content Include="Scripts\external\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\external\bootstrap-tabdrop.js" />
+    <Content Include="Scripts\external\bootstrap-timepicker.js" />
+    <Content Include="Scripts\external\bootstrap-tooltip.js" />
+    <Content Include="Scripts\external\bootstrap-tour.min.js" />
+    <Content Include="Scripts\external\bootstrap.youtubepopup.js" />
+    <Content Include="Scripts\external\bootstrap-confirmation.js" />
+    <Content Include="Scripts\external\bootstrap.js" />
+    <Content Include="Scripts\external\bootstrap.min.js" />
+    <Content Include="Scripts\external\byrei-dyndiv_1.0rc1.js" />
+    <Content Include="Scripts\external\croppic.min.js" />
+    <Content Include="Scripts\external\dataTables.bootstrap.js" />
+    <Content Include="Scripts\external\ekko-lightbox.min.js" />
+    <Content Include="Scripts\external\enscroll-0.6.1.min.js" />
+    <Content Include="Scripts\external\expressive.annotations.analysis.js" />
+    <Content Include="Scripts\external\expressive.annotations.validate.js" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\fonts\fontawesome-webfontb.eot" />
+    <Content Include="Content\fonts\fontawesome-webfontb.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfontb.woff" />
+    <Content Include="Content\fonts\FontAwesomeb.otf" />
+    <Content Include="Content\PDF\Activ4PetsReleaseForm.pdf" />
+    <Content Include="Content\css\bootstrap-theme.css.map" />
+    <Content Include="Handler\FileUploadHandler.ashx" />
+    <Content Include="Content\images\dummyDoc.docx" />
+    <Content Include="Handler\SmoFileUploadHandler.ashx" />
+    <Content Include="Handler\EcFileUploadHandler.ashx" />
+    <Content Include="Content\PDF\Summary_Template.pdf" />
+    <Content Include="Content\fonts\fiDirection.eot" />
+    <Content Include="Content\fonts\fiDirection.ttf" />
+    <Content Include="Content\fonts\fiDirection.woff" />
+    <Content Include="Content\PDF\Summary_Template_new.pdf" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Content\PDF\ActivAnimoReleaseForm.pdf" />
+    <None Include="Properties\PublishProfiles\A4P.pubxml" />
+    <None Include="Properties\PublishProfiles\ADOPets.pubxml" />
+    <None Include="Properties\PublishProfiles\AdoPetsTest.pubxml" />
+    <None Include="Properties\PublishProfiles\Dinde ADO Pet.pubxml" />
+    <None Include="Properties\PublishProfiles\DindePetPublish.pubxml" />
+    <None Include="Properties\PublishProfiles\PetsProfile.pubxml" />
+    <Content Include="Scripts\external\fullcalendar.js" />
+    <Content Include="Scripts\external\fullcalendar.min.js" />
+    <Content Include="Scripts\external\globalize.culture.fr.js" />
+    <Content Include="Scripts\external\globalize.culture.in.js" />
+    <Content Include="Scripts\external\globalize.culture.pt-BR.js" />
+    <Content Include="Scripts\external\globalize.culture.pt.js" />
+    <Content Include="Scripts\external\globalize.js" />
+    <Content Include="Scripts\external\highcharts.js" />
+    <Content Include="Scripts\external\jqBootstrapValidation.js" />
+    <Content Include="Scripts\customs\views\Shared\Layout.js" />
+    <Content Include="Scripts\customs\views\Pet\CardForm.js" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\external\jquery-ui.min.js" />
+    <Content Include="Scripts\external\jquery.cookie.min.js" />
+    <Content Include="Scripts\external\jquery.dataTables.js" />
+    <Content Include="Scripts\external\jquery.fancybox-1.3.4.js" />
+    <Content Include="Scripts\external\jquery.form.js" />
+    <Content Include="Scripts\external\jquery.form.min.js" />
+    <Content Include="Scripts\external\jquery.jplayer.min.js" />
+    <Content Include="Scripts\external\jquery.min.js" />
+    <Content Include="Scripts\external\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\external\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\external\jquery.validate.min.js" />
+    <Content Include="Scripts\external\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\external\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\external\lang-all.js" />
+    <Content Include="Scripts\external\modernizr-2.6.2.js" />
+    <Content Include="Scripts\external\moment.js" />
+    <Content Include="Scripts\external\pagination.js" />
+    <Content Include="Scripts\external\popcorn.ie8.js" />
+    <Content Include="Scripts\external\popcorn.jplayer.min.js" />
+    <Content Include="Scripts\external\popcorn.js" />
+    <Content Include="Scripts\external\popcorn.player.js" />
+    <Content Include="Scripts\external\popcorn.subtitle.js" />
+    <Content Include="Scripts\external\prefixfree.min.js" />
+    <Content Include="Scripts\external\ui-custom.js" />
+    <Content Include="Scripts\external\ui.progressbar.js" />
+    <Content Include="Scripts\external\validator.js" />
+    <Content Include="Scripts\external\viewportchecker.js" />
+    <Content Include="Views\Account\Basicinfo.cshtml" />
+    <Content Include="Views\Account\Billing.cshtml" />
+    <Content Include="Views\Account\Confirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\PetsGlobal.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Pet\Index.cshtml" />
+    <Content Include="Views\Pet\Add.cshtml" />
+    <Content Include="Views\Pet\_MedicalRecord.cshtml" />
+    <Content Include="Views\Pet\Edit.cshtml" />
+    <Content Include="Views\Pet\_CardDetail.cshtml" />
+    <Content Include="Views\HealthHistory\_Index.cshtml" />
+    <Content Include="Views\Condition\_Index.cshtml" />
+    <Content Include="Views\MedicalRecord\_Index.cshtml" />
+    <Content Include="Views\HealthMeasureTracker\_Index.cshtml" />
+    <Content Include="Views\Document\_Index.cshtml" />
+    <Content Include="Views\Surgery\_Index.cshtml" />
+    <Content Include="Views\Condition\_Edit.cshtml" />
+    <Content Include="Views\Condition\_Add.cshtml" />
+    <Content Include="Views\Condition\_List.cshtml" />
+    <Content Include="Views\Condition\_Delete.cshtml" />
+    <Content Include="Views\Document\_List.cshtml" />
+    <Content Include="Views\Document\_Add.cshtml" />
+    <Content Include="Views\Document\_Edit.cshtml" />
+    <Content Include="Views\Document\_Delete.cshtml" />
+    <Content Include="Views\Surgery\_Add.cshtml" />
+    <Content Include="Views\Surgery\_List.cshtml" />
+    <Content Include="Views\Surgery\_Edit.cshtml" />
+    <Content Include="Views\Surgery\_Delete.cshtml" />
+    <Content Include="Views\Medication\_Index.cshtml" />
+    <Content Include="Views\Medication\_Add.cshtml" />
+    <Content Include="Views\Medication\_Edit.cshtml" />
+    <Content Include="Views\Medication\_List.cshtml" />
+    <Content Include="Views\Medication\_Delete.cshtml" />
+    <Content Include="Views\Allergy\_Index.cshtml" />
+    <Content Include="Views\Allergy\_Add.cshtml" />
+    <Content Include="Views\Allergy\_List.cshtml" />
+    <Content Include="Views\Allergy\_Edit.cshtml" />
+    <Content Include="Views\Allergy\_Delete.cshtml" />
+    <Content Include="Views\Immunization\_Index.cshtml" />
+    <Content Include="Views\Immunization\_Add.cshtml" />
+    <Content Include="Views\Immunization\_List.cshtml" />
+    <Content Include="Views\Immunization\_Edit.cshtml" />
+    <Content Include="Views\Immunization\_Delete.cshtml" />
+    <Content Include="Views\Hospitalization\_Add.cshtml" />
+    <Content Include="Views\Hospitalization\_Delete.cshtml" />
+    <Content Include="Views\Hospitalization\_Edit.cshtml" />
+    <Content Include="Views\Hospitalization\_Index.cshtml" />
+    <Content Include="Views\Hospitalization\_List.cshtml" />
+    <Content Include="Views\FoodPlan\_Index.cshtml" />
+    <Content Include="Views\FoodPlan\_Add.cshtml" />
+    <Content Include="Views\FoodPlan\_List.cshtml" />
+    <Content Include="Views\FoodPlan\_Edit.cshtml" />
+    <Content Include="Views\FoodPlan\_Delete.cshtml" />
+    <Content Include="Views\Consultation\_Index.cshtml" />
+    <Content Include="Views\Consultation\_Add.cshtml" />
+    <Content Include="Views\Consultation\_List.cshtml" />
+    <Content Include="Views\Consultation\_Edit.cshtml" />
+    <Content Include="Views\Consultation\_Delete.cshtml" />
+    <Content Include="Views\Height\_Add.cshtml" />
+    <Content Include="Views\Height\_Index.cshtml" />
+    <Content Include="Views\Vitals\_Index.cshtml" />
+    <Content Include="Views\Height\_List.cshtml" />
+    <Content Include="Views\Height\_Edit.cshtml" />
+    <Content Include="Views\Height\_Delete.cshtml" />
+    <Content Include="Views\Temperature\_List.cshtml" />
+    <Content Include="Views\Temperature\_Add.cshtml" />
+    <Content Include="Views\Temperature\_Edit.cshtml" />
+    <Content Include="Views\Temperature\_Delete.cshtml" />
+    <Content Include="Views\Temperature\_Index.cshtml" />
+    <Content Include="Views\Weight\_Add.cshtml" />
+    <Content Include="Views\Weight\_Delete.cshtml" />
+    <Content Include="Views\Weight\_Edit.cshtml" />
+    <Content Include="Views\Weight\_Index.cshtml" />
+    <Content Include="Views\Weight\_List.cshtml" />
+    <Content Include="Views\Pulse\_List.cshtml" />
+    <Content Include="Views\Pulse\_Add.cshtml" />
+    <Content Include="Views\Pulse\_Edit.cshtml" />
+    <Content Include="Views\Pulse\_Delete.cshtml" />
+    <Content Include="Views\Pulse\_Index.cshtml" />
+    <Content Include="Views\CBG\_Add.cshtml" />
+    <Content Include="Views\CBG\_Delete.cshtml" />
+    <Content Include="Views\CBG\_Edit.cshtml" />
+    <Content Include="Views\CBG\_Index.cshtml" />
+    <Content Include="Views\CBG\_List.cshtml" />
+    <Content Include="Views\Hemoglobin\_List.cshtml" />
+    <Content Include="Views\Hemoglobin\_Add.cshtml" />
+    <Content Include="Views\Hemoglobin\_Edit.cshtml" />
+    <Content Include="Views\Hemoglobin\_Delete.cshtml" />
+    <Content Include="Views\Hemoglobin\_Index.cshtml" />
+    <Content Include="Views\SerumElectrolyte\_List.cshtml" />
+    <Content Include="Views\SerumElectrolyte\_Add.cshtml" />
+    <Content Include="Views\SerumElectrolyte\_Edit.cshtml" />
+    <Content Include="Views\SerumElectrolyte\_Delete.cshtml" />
+    <Content Include="Views\SerumElectrolyte\_Index.cshtml" />
+    <Content Include="Views\Hemogram\_List.cshtml" />
+    <Content Include="Views\Hemogram\_Add.cshtml" />
+    <Content Include="Views\Hemogram\_Edit.cshtml" />
+    <Content Include="Views\Hemogram\_Delete.cshtml" />
+    <Content Include="Views\Hemogram\_Index.cshtml" />
+    <Content Include="Views\Insurance\_Index.cshtml" />
+    <Content Include="Views\Insurance\_List.cshtml" />
+    <Content Include="Views\Insurance\_Add.cshtml" />
+    <Content Include="Views\Insurance\_Edit.cshtml" />
+    <Content Include="Views\Insurance\_Delete.cshtml" />
+    <Content Include="Views\Veterinarian\_Index.cshtml" />
+    <Content Include="Views\Veterinarian\_Add.cshtml" />
+    <Content Include="Views\Veterinarian\_Edit.cshtml" />
+    <Content Include="Views\Veterinarian\_Delete.cshtml" />
+    <Content Include="Views\Veterinarian\_List.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\Summary.cshtml" />
+    <Content Include="Views\Account\SignUp.cshtml" />
+    <Content Include="Views\Document\_Detail.cshtml" />
+    <Content Include="Views\Account\_PaymentResult.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Shared\TermAndCondition.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\SearchRecipient.cshtml" />
+    <Content Include="Views\Account\PasswordInformation.cshtml" />
+    <Content Include="Views\Calender\Index.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Profile\ChangePassword.cshtml" />
+    <Content Include="Views\Calender\_Edit.cshtml" />
+    <Content Include="Views\Calender\_List.cshtml" />
+    <Content Include="Views\Calender\Details.cshtml" />
+    <Content Include="Views\Calender\_Add.cshtml" />
+    <Content Include="Views\Calender\_Delete.cshtml" />
+    <Content Include="Views\Message\MessageDetail.cshtml" />
+    <Content Include="Views\Message\_MessageReply.cshtml" />
+    <Content Include="Views\Message\_NewMessage.cshtml" />
+    <Content Include="Views\Message\_MessageNotification.cshtml" />
+    <Content Include="Views\Profile\ForceToChangePassword.cshtml" />
+    <Content Include="Views\Shared\_Alerts.cshtml" />
+    <Content Include="Views\Profile\OwnerDetail.cshtml" />
+    <Content Include="Views\Profile\_OwnerEdit.cshtml" />
+    <Content Include="Views\Profile\_Add.cshtml" />
+    <Content Include="Views\Calender\_Calendar.cshtml" />
+    <Content Include="Views\Calender\_PopupOver.cshtml" />
+    <Content Include="Views\Pet\_BreederDetail.cshtml" />
+    <Content Include="Views\Pet\_BreederEdit.cshtml" />
+    <Content Include="Views\Pet\_PetEdit.cshtml" />
+    <Content Include="Views\Pet\_PetImage.cshtml" />
+    <Content Include="Views\Profile\PlanDetail.cshtml" />
+    <Content Include="Views\SMO\_Index.cshtml" />
+    <Content Include="Views\SMO\Index.cshtml" />
+    <Content Include="Views\SMO\Add.cshtml" />
+    <Content Include="Views\SMO\_Setup.cshtml" />
+    <Content Include="Views\SMO\_Billing.cshtml" />
+    <Content Include="Views\SMO\_Confirmation.cshtml" />
+    <Content Include="Views\SMO\_PetInvestigation.cshtml" />
+    <Content Include="Views\SMO\_SelectPet.cshtml" />
+    <Content Include="Views\SMO\SMODetails.cshtml" />
+    <Content Include="Views\SMO\_InvestigationList.cshtml" />
+    <Content Include="Views\SMO\_Payment.cshtml" />
+    <Content Include="Views\PetContact\_Add.cshtml" />
+    <Content Include="Views\PetContact\_Delete.cshtml" />
+    <Content Include="Views\PetContact\_Edit.cshtml" />
+    <Content Include="Views\PetContact\_List.cshtml" />
+    <Content Include="Views\PetContact\_Index.cshtml" />
+    <Content Include="Views\Message\_MessageCount.cshtml" />
+    <Content Include="Views\Link\VeterinariansLinks.cshtml" />
+    <Content Include="Views\Link\GroomersLink.cshtml" />
+    <Content Include="Views\Link\BreedersLink.cshtml" />
+    <Content Include="Views\Link\BoardersLink.cshtml" />
+    <Content Include="Views\Link\PetSittersLink.cshtml" />
+    <Content Include="Views\Link\TrainersLink.cshtml" />
+    <Content Include="Views\Link\OtherLink.cshtml" />
+    <Content Include="Views\PhotoGallery\_Index.cshtml" />
+    <Content Include="Views\Calender\_CalenderNotification.cshtml" />
+    <Content Include="Views\ComingSoon\ComingSoon_SMO.cshtml" />
+    <Content Include="Views\ComingSoon\ComingSoon_ECON.cshtml" />
+    <Content Include="Views\ComingSoon\ComingSoon_SHARE.cshtml" />
+    <Content Include="Views\Message\Invite.cshtml" />
+    <Content Include="Views\PhotoGallery\_Add.cshtml" />
+    <Content Include="Views\PhotoGallery\_ListPhoto.cshtml" />
+    <Content Include="Views\PhotoGallery\_Edit.cshtml" />
+    <Content Include="Views\PhotoGallery\_Delete.cshtml" />
+    <Content Include="Views\VideoGallery\_Index.cshtml" />
+    <Content Include="Views\VideoGallery\_ListVideo.cshtml" />
+    <Content Include="Views\VideoGallery\_AddVideo.cshtml" />
+    <Content Include="Views\VideoGallery\_EditVideo.cshtml" />
+    <Content Include="Views\VideoGallery\_DeleteVideo.cshtml" />
+    <Content Include="Views\Shared\PrivacyAndPolicy.cshtml" />
+    <Content Include="Views\Profile\PlanBilling.cshtml" />
+    <Content Include="Views\Profile\PlanConfirmation.cshtml" />
+    <Content Include="Views\Profile\_PaymentResult.cshtml" />
+    <Content Include="Views\SMO\_PetEditInvestigation.cshtml" />
+    <Content Include="Views\AlbumGallery\_Index.cshtml" />
+    <Content Include="Views\AlbumGallery\_ListAlbum.cshtml" />
+    <Content Include="Views\AlbumGallery\_Add.cshtml" />
+    <Content Include="Views\SMO\Index_VD.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\SMO\Edit_VD.cshtml" />
+    <Content Include="Views\SMO\_SMORequestForm.cshtml" />
+    <Content Include="Views\SMO\_ShowSMOOwnerReport.cshtml" />
+    <Content Include="Views\SMO\AssignedExperts.cshtml" />
+    <Content Include="Views\SMO\_VetExpertEdit.cshtml" />
+    <Content Include="Views\SMO\_ShowExpertResponse.cshtml" />
+    <Content Include="Views\SMO\_showExpertList.cshtml" />
+    <Content Include="Views\AlbumGallery\_ListPhotoGallery.cshtml" />
+    <Content Include="Views\SMO\_ShowSMOVetReport.cshtml" />
+    <Content Include="Views\AlbumGallery\_Delete.cshtml" />
+    <Content Include="Views\SMO\_PetDeleteInvestigation.cshtml" />
+    <Content Include="Views\SMO\_AddBioForExpert.cshtml" />
+    <Content Include="Views\SMO\SubmitReport.cshtml" />
+    <Content Include="Views\SMO\ExpertCommittee.cshtml" />
+    <Content Include="Views\SMO\PreviewSMO.cshtml" />
+    <Content Include="Views\SMO\_ShowBioForExpert.cshtml" />
+    <Content Include="Views\Profile\PlanRenewal.cshtml" />
+    <Content Include="Views\AlbumGallery\_Edit.cshtml" />
+    <Content Include="Views\SMO\Index_VE.cshtml" />
+    <Content Include="Views\Econsultation\Add.cshtml" />
+    <Content Include="Views\Econsultation\Index.cshtml" />
+    <Content Include="Views\Econsultation\_Billing.cshtml" />
+    <Content Include="Views\Econsultation\_Confirmation.cshtml" />
+    <Content Include="Views\Econsultation\_Payment.cshtml" />
+    <Content Include="Views\Econsultation\_SelectPet.cshtml" />
+    <Content Include="Views\Econsultation\_SelectVet.cshtml" />
+    <Content Include="Views\Econsultation\_Setup.cshtml" />
+    <Content Include="Views\AlbumGallery\_ListAlbumPhoto.cshtml" />
+    <Content Include="Views\AlbumGallery\_DeletePhoto.cshtml" />
+    <Content Include="Views\SMO\VetExpertResponse.cshtml" />
+    <Content Include="Views\SMO\ViewResponse.cshtml" />
+    <Content Include="Views\SharePetInfo\Index.cshtml" />
+    <Content Include="Views\SharePetInfo\MyContact.cshtml" />
+    <Content Include="Views\SharePetInfo\_AddContact.cshtml" />
+    <Content Include="Views\SharePetInfo\_DeleteContact.cshtml" />
+    <Content Include="Views\SMO\ViewReport.cshtml" />
+    <Content Include="Views\SMO\NewSMO.cshtml" />
+    <Content Include="Views\SMO\_SetupVD.cshtml" />
+    <Content Include="Views\SMO\_SelectOwner.cshtml" />
+    <Content Include="Views\Profile\PlanUpgrade.cshtml" />
+    <Content Include="Views\Profile\PlanAddPets.cshtml" />
+    <Content Include="Views\SMO\_ExpertDeleteConfirmation.cshtml" />
+    <Content Include="Views\SMO\_SendReportConfirmation.cshtml" />
+    <Content Include="Views\Econsultation\ViewDetails.cshtml" />
+    <Content Include="Views\Econsultation\ExpertView.cshtml" />
+    <Content Include="Views\Econsultation\_EditDetails.cshtml" />
+    <Content Include="Views\Profile\PlanRenewalDetails.cshtml" />
+    <Content Include="Views\Econsultation\ExpertViewDetails.cshtml" />
+    <Content Include="Views\Econsultation\_WithdrawConfirm.cshtml" />
+    <Content Include="Views\Pet\_Confirmbx.cshtml" />
+    <Content Include="Views\Pet\Index_VD.cshtml" />
+    <Content Include="Views\Econsultation\_DeleteEC.cshtml" />
+    <Content Include="Views\Message\_NotificationHistory.cshtml" />
+    <Content Include="Views\Profile\RemovePets.cshtml" />
+    <Content Include="Views\Shared\_Layout_VetPortal.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Profile\MyAccountProfile.cshtml" />
+    <Content Include="Views\Profile\OwnerProfile.cshtml" />
+    <Content Include="Views\Profile\_ChangePasswordPopup.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Message\NotificationHistoryIndex.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\ViewUser.cshtml" />
+    <Content Include="Views\Econsultation\JoinEConsultation.cshtml" />
+    <Content Include="Views\Econsultation\StartEConsultation.cshtml" />
+    <Content Include="Views\Econsultation\_ExpertResponseDetials.cshtml" />
+    <Content Include="Views\Econsultation\ExpertViewReport.cshtml" />
+    <Content Include="Views\Users\AddUser.cshtml" />
+    <Content Include="Views\SharePetInfo\_SelectContact.cshtml" />
+    <Content Include="Views\ComingSoon\ComingSoon_Report.cshtml" />
+    <Content Include="Views\ComingSoon\ComingSoon_ReferenceTables.cshtml" />
+    <Content Include="Views\Econsultation\_SubmitReport.cshtml" />
+    <Content Include="Views\Econsultation\SubmitReport.cshtml" />
+    <Content Include="Views\OwnerPayment\Billing.cshtml" />
+    <Content Include="Views\OwnerPayment\Confirmation.cshtml" />
+    <Content Include="Views\OwnerPayment\_PaymentResult.cshtml" />
+    <Content Include="Views\Users\EditOwner.cshtml" />
+    <Content Include="Views\Users\EditVet.cshtml" />
+    <Content Include="Views\Users\EditAdmin.cshtml" />
+    <Content Include="Views\Users\AddPets.cshtml" />
+    <Content Include="Views\Shared\PrivacyPolicyUS.cshtml" />
+    <Content Include="Views\SharePetInfo\_SelectedContacts.cshtml" />
+    <Content Include="Views\Users\RenewPlan.cshtml" />
+    <Content Include="Views\Users\UpgradePlan.cshtml" />
+    <Content Include="Views\Users\PlanRenewalDetails.cshtml" />
+    <Content Include="Views\NewsFeed\_NewsFeedNotification.cshtml" />
+    <Content Include="Views\SharePetInfo\_Index.cshtml" />
+    <Content Include="Views\OwnerPayment\PlanBilling.cshtml" />
+    <Content Include="Views\OwnerPayment\PlanConfirmation.cshtml" />
+    <Content Include="Views\OwnerPayment\PlanPaymentResult.cshtml" />
+    <Content Include="Views\Econsultation\VideoConference.cshtml" />
+    <Content Include="Views\OwnerPayment\ShowPlan.cshtml" />
+    <Content Include="Views\OwnerPayment\MultiplePlanBilling.cshtml" />
+    <Content Include="Views\OwnerPayment\MultiplePlanConfirmation.cshtml" />
+    <Content Include="Views\Profile\_EditPlan.cshtml" />
+    <Content Include="Views\Pet\_LoadReport.cshtml" />
+    <Content Include="Views\Account\CmcicAccountConfirmation.cshtml" />
+    <Content Include="Views\PhotoGallery\PhotoDetails.cshtml" />
+    <Content Include="Views\SharePetInfo\_CommunityContacts.cshtml" />
+    <Content Include="Views\AlbumGallery\AlbumDetails.cshtml" />
+    <Content Include="Views\VideoGallery\VideoDetails.cshtml" />
+    <Content Include="Views\NewsFeed\_NewsFeedHistory.cshtml" />
+    <Content Include="Views\NewsFeed\NewsFeedList.cshtml" />
+    <Content Include="Views\Profile\CmcicPlanConfirmation.cshtml" />
+    <Content Include="Views\OwnerPayment\CmcicAccountConfirmation.cshtml" />
+    <Content Include="Views\OwnerPayment\CmcicPlanConfirmation.cshtml" />
+    <Content Include="Views\GalleryComment\_CommentList.cshtml" />
+    <Content Include="Views\AlbumGallery\_Details.cshtml" />
+    <Content Include="Views\PhotoGallery\_Details.cshtml" />
+    <Content Include="Views\VideoGallery\_Details.cshtml" />
+    <Content Include="Views\GalleryComment\_DeleteComments.cshtml" />
+    <Content Include="Views\GalleryComment\_DeleteReply.cshtml" />
+    <Content Include="Views\Pet\PetDetails.cshtml" />
+    <Content Include="Views\Econsultation\_SelectVet1.cshtml" />
+    <Content Include="Views\PlansAndPromo\Index.cshtml" />
+    <Content Include="Views\PlansAndPromo\_AddPlan.cshtml" />
+    <Content Include="Views\PlansAndPromo\_EditPlan.cshtml" />
+    <Content Include="Views\PlansAndPromo\_DeletePlan.cshtml" />
+    <Content Include="Views\PlansAndPromo\_AddPromocode.cshtml" />
+    <Content Include="Views\PlansAndPromo\_RenewUpgradePlan.cshtml" />
+    <Content Include="Views\PlansAndPromo\_EditPromocode.cshtml" />
+    <None Include="Web References\FDPaymentservice\a1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\FDPaymentservice\fdggwsapi.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\FDPaymentservice\FDGGWSApiActionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\FDPaymentservice\FDGGWSApiOrderResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\FDPaymentservice\order.wsdl" />
+    <Content Include="Web References\FDPaymentservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\FDPaymentservice\v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmailSender\EmailSender.csproj">
+      <Project>{4b17b934-2cb4-4957-af72-3abb662d791b}</Project>
+      <Name>EmailSender</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{020a8930-c821-44f5-8f40-32117f57a092}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{cbc2c587-1876-4b47-ab2b-fd229867157f}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Enums.pt.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Enums.pt.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Subscription.en-IN.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Subscription.en-IN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Subscription.pt.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Subscription.pt.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Subscription.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Subscription.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Wording.en-IN.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Wording.en-IN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Wording.pt.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Wording.pt.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Econsultation\Add.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Add.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Econsultation\Index.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Enums.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Enums.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Enums.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Enums.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Subscription.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Subscription.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Wording.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Wording.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Wording.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Wording.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="C:\FDGGWSClient\WSDL\order.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\FDPaymentservice\</RelPath>
+      <UpdateFromURL>C:\FDGGWSClient\WSDL\order.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ADOPets_Web_FDPaymentservice_FDGGWSApiOrderService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\myimages\" />
+    <Folder Include="Content\Video\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

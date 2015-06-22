@@ -1,0 +1,62 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.FoodPlan.AddViewModel
+@using ADOPets.Web.Common.Extensions
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">@Resources.FoodPlan_Add_Title</h4>
+        </div>
+        @using (Ajax.BeginForm("Add", "FoodPlan", new AjaxOptions
+        {
+            UpdateTargetId = "foodplanList",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogfoodplan"
+        }, new { @id = "addFoodPlanForm", @class = "form-horizontal defaultForm", @role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="modal-body">
+
+                @Html.HiddenFor(model => model.PetId)
+
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.FoodName, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => model.FoodName, new { @class = "form-control", placeholder = Resources.FoodPlan_Add_FoodNamePlaceHolder })
+                        @Html.ValidationMessageFor(model => model.FoodName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecomendedFood, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.Label(Resources.FoodPlan_Add_Yes, new { style = "padding-left:0px;" })
+                        @Html.RadioButtonFor(model => model.RecomendedFood, true)
+                        @Html.Label(Resources.FoodPlan_Add_No, new { style = "padding-left:20px;" })
+                        @Html.RadioButtonFor(model => model.RecomendedFood, false)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ForbidenFood, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.Label(Resources.FoodPlan_Add_Yes, new { style = "padding-left:0px;" })
+                        @Html.RadioButtonFor(model => model.ForbidenFood, true)
+                        @Html.Label(Resources.FoodPlan_Add_No, new { style = "padding-left:20px;" })
+                        @Html.RadioButtonFor(model => model.ForbidenFood, false)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Comment, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextAreaFor(model => model.Comment, new { @class = "form-control", @rows = "3", placeholder = Resources.FoodPlan_Add_CommentPlaceHolder })
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.FoodPlan_Add_SaveChanges</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.FoodPlan_Add_Cancel</button>
+            </div>
+        }
+    </div>
+</div>

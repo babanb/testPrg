@@ -1,0 +1,96 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Profile.PlanDetailViewModel
+@using ADOPets.Web.Common.Authentication
+
+<div class="messageStyle">
+    @{ Html.RenderPartial("_Alerts"); }
+</div>
+<div id="currentPlanBx" style="text-align:center;">
+    <h4>@Resources.Profile_PlanDetail_YourPlan : <strong></strong> @Model.FinalplanName</h4>
+    <div class="clearfix"></div>
+</div>
+
+
+<div class="columnfull first">
+    <div class="detailrow">
+        <div>@Resources.Profile_PlanDetail_Promocode</div>
+        <div class="colonspace">:</div>
+        <div>@Model.Promocode</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="detailrow">
+        <div>@Resources.Profile_PlanDetail_Description</div>
+        <div class="colonspace">:</div>
+        <div>@Model.Description</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="detailrow">
+        <div>@Resources.Profile_PlanDetail_AdditionalInfo</div>
+        <div class="colonspace">:</div>
+        <div>---</div>
+        <div class="clearfix"></div>
+    </div>
+
+    @if (!Model.IsFreeUser)
+    { 
+        <div class="detailrow">
+            <div>@Resources.Profile_PlanDetail_MaxPets</div>
+            <div class="colonspace">:</div>
+            <div>@Model.NumberOfPets</div>
+            <div class="clearfix"></div>
+        </div>
+    }
+    else
+    {
+        <div class="detailrow">
+            <div>@Resources.Profile_PlanDetail_MaxPets</div>
+            <div class="colonspace">:</div>
+            <div>@Model.MaxPetcount</div>
+            <div class="clearfix"></div>
+        </div>
+    
+    }
+
+    @if (!Model.IsFreeUser)
+    {
+        <div class="detailrow">
+            <div>@Resources.Profile_PlanDetail_StartDate</div>
+            <div class="colonspace">:</div>
+            <div class="text-success"><strong>@Model.StartDate.ToShortDateString()</strong></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="detailrow">
+            <div>@Resources.Profile_PlanDetail_ExpirationDate</div>
+            <div class="colonspace">:</div>
+            <div class="text-danger"><strong>@Model.EndDate.ToShortDateString()</strong></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="detailrow">
+            <div>@Resources.Profile_PlanDetail_Duration</div>
+            <div class="colonspace">:</div>
+            <div>@string.Format(Resources.Profile_PlanDetail_Days, Model.Duration)</div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="detailrow">
+            <div>@Resources.Profile_PlanDetail_RemainingDays</div>
+            <div class="colonspace">:</div>
+            <div>@string.Format(Resources.Profile_PlanDetail_Days, Model.RemainingDays)</div>
+            <div class="clearfix"></div>
+        </div>
+    }
+    else
+    {
+        <div class="detailrow">
+            <div>@Resources.Profile_PlanDetail_StartDate</div>
+            <div class="colonspace">:</div>
+            <div class="text-success"><strong>@Model.StartDate.ToShortDateString()</strong></div>
+            <div class="clearfix"></div>
+        </div>
+    }
+
+</div>
+<input type="hidden" value="@Model.NumberOfPets" name="PlanDetails_numberofPets" id="PlanDetails_numberofPets"/>
+
+<div id="PlanRenewalDetails" class="modal fade" tabindex="-1" role="dialog"></div>
+
+<script src="~/Scripts/customs/views/Profile/PlanDetails.js"></script>

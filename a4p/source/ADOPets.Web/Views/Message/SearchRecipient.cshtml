@@ -1,0 +1,115 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Message.SearchRecipientViewModel>
+@using ADOPets.Web.Common.Extensions
+@using Model
+@{
+    ViewBag.Title = Resources.Message_SearchRecipient_Title;
+}
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>@Resources.Message_SearchRecipient_Title</h1>
+        </div>
+        <div class="col-md-4">
+            <a href="@Url.Action("Index", "Message")" class="btn btn-primary pull-right">
+                <i class="fa fa-angle-left"></i><span class="hidden-md">@Resources.Message_SearchRecipient_BackButton</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="mainContainer">
+    @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianLight.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()) && !Roles.IsUserInRole(UserTypeEnum.Admin.ToString()))
+    {
+        <div id="hiderightsidebar">
+            <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+        </div>
+        <div id="showrightsidebar">
+            <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+        </div>
+    }
+    <div class="well">
+        <div class="row">
+            <div class="col-md-3" style="padding-right: 0;">
+                <h4 class="text-primary" style="font-size: 16px;">@Resources.Message_SearchRecipient_SearchRecepient</h4>
+            </div>
+            <div class="col-md-3" style="padding-right: 0;">
+                @Html.TextBox("FirstNameFilter", null, new { placeholder = Resources.Message_SearchRecipient_FirstNamePlaceHolder, @class = "form-control" })
+            </div>
+            <div class="col-md-3" style="padding-right: 0;">
+                @Html.TextBox("LastNameFilter", null, new { placeholder = Resources.Message_SearchRecipient_LastNamePlaceHolder, @class = "form-control" })
+            </div>
+
+        </div>
+    </div>
+    <div id="recepient-search-result">
+        @Html.RenderSuccessMessage("recepientSuccessMessage", TempData["SuccessMessage"])
+
+        <hr>
+
+        <div class="table-responsive" id="displaylist" style="display: none;">
+            <table id="userList" class="table table-bordered">
+                <thead>
+                    <tr style="vertical-align: middle">
+                        <th width="5%">
+                            <div class="pull-left">
+                            </div>
+                            <div class="clearfix"></div>
+                        </th>
+                        <th width="20%">
+                            <div class="pull-left">@Resources.Message_SearchRecipient_FirstName</div>
+                            <div class="clearfix"></div>
+                        </th>
+                        <th width="20%">
+                            <div class="pull-left">@Resources.Message_SearchRecipient_LastName</div>
+                            <div class="clearfix"></div>
+                        </th>
+                        <th width="15%">
+                            <div class="pull-left">@Resources.Message_SearchRecipient_City</div>
+                            <div class="clearfix"></div>
+                        </th>
+                        <th width="20%">
+                            <div class="pull-left">@Resources.Message_SearchRecipient_Country</div>
+                            <div class="clearfix"></div>
+                        </th>
+                        <th width="20%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="vertical-align: middle">
+                                <img height="50px" width="50px"  src="@Url.Action("GetImage", "Message", new { fromUserId = item.Id })" class="img-responsive" />
+                            </td>
+                            <td style="vertical-align: middle">
+                                @item.FirstName
+                            </td>
+                            <td style="vertical-align: middle">
+                                @item.LastName
+                            </td>
+                            <td style="vertical-align: middle">
+                                @item.CityName
+                            </td>
+                            <td style="vertical-align: middle">
+                                @item.Country
+                            </td>
+                            <td style="vertical-align: middle">
+                                <a href="@Url.Action("NewMessage", "Message", new { toUserId = item.Id })" style="margin: 7px 0;" class="btn NewMsgModel">
+                                    <i class="fa fa fa-paper-plane-o"></i>@Resources.Message_SearchRecipient_NewMessage
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+</div>
+
+
+<div id="addModalNewMessage" class="modal fade" tabindex="-1" role="dialog"></div>
+
+<script src="~/Scripts/customs/views/Message/SearchRecipient.js"></script>
+<script src="~/Scripts/customs/views/Message/ComposeSearch.js"></script>

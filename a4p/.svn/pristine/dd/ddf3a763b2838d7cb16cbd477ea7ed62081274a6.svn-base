@@ -1,0 +1,58 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Immunization.EditViewModel
+@using ADOPets.Web.Common.Extensions
+
+<div class="modal-dialog">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">@Resources.Immunization_Edit_Title</h4>
+        </div>
+        @using (Ajax.BeginForm("Edit", "Immunization", new AjaxOptions
+                                                   {
+                                                       UpdateTargetId = "immunizationList",
+                                                       HttpMethod = "POST",
+                                                       InsertionMode = InsertionMode.Replace,
+                                                       OnSuccess = "CloseDialogimmunization"
+                                                   }, new { @id = "editImmunizationForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="modal-body">
+                <div style="overflow-x: auto; height: auto; padding-right: 10px;">
+
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.PetId)
+
+                    @Html.LabelRequiredFor(model => model.Immunization, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Immunization, new { @class = "form-control", placeholder = Resources.Immunization_Edit_ImmunizationPlaceHolder })
+                    @Html.ValidationMessageFor(model => model.Immunization)
+                    <br />
+
+                    @Html.LabelRequiredFor(model => model.InjectionDate, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.InjectionDate, new { @class = "form-control datepicker", placeholder = Resources.Immunization_Edit_InjectionDatePlaceHolder, @Value = Model.InjectionDate.ToString("d") })
+                    @Html.ValidationMessageFor(model => model.InjectionDate)
+                    <br />
+
+                    @Html.LabelFor(model => model.HospitalName, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.HospitalName, new { @class = "form-control", placeholder = Resources.Immunization_Edit_HospitalNamePlaceHolder })
+
+                    <br />
+
+                    @Html.LabelFor(model => model.SerialNumber, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.SerialNumber, new { @class = "form-control", placeholder = Resources.Immunization_Edit_SerialNumberPlaceHolder })
+
+                    <br />
+
+                    @Html.LabelFor(model => model.Comment, new { @class = "control-label" })
+                    @Html.TextAreaFor(model => model.Comment, new { @class = "form-control", @rows = "3", placeholder = Resources.Immunization_Edit_CommentPlaceHolder })
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.Immunization_Edit_SaveChanges</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Immunization_Edit_Cancel</button>
+            </div>
+        }
+    </div>
+</div>

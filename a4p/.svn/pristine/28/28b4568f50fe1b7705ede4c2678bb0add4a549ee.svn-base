@@ -1,0 +1,44 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.PetContact.IndexViewModel>
+@using ADOPets.Web.Common.Helpers
+
+<div class="well" id="vetsearch">
+    <div class="row">
+        <div class="col-md-2">
+            <h4>@Resources.PetContact_Index_Search</h4>
+        </div>
+        <div class="col-md-3">
+            <label class="sr-only" for="exampleInputEmail2">@Resources.PetContact_Index_FirstName</label>
+            @Html.TextBox("FirstNameFilter", null, new { placeholder = Resources.PetContact_Index_FirstNamePlaceHolder, @class = "form-control" })
+        </div>
+        <div class="col-md-3">
+            <label class="sr-only" for="exampleInputPassword2">@Resources.PetContact_Index_LastName</label>
+            @Html.TextBox("LastNameFilter", null, new { placeholder = Resources.PetContact_Index_LastNamePlaceHolder, @class = "form-control" })
+        </div>
+        <div class="col-md-1">
+            <button type="submit" class="btn btn-success"><i class="fa fa-search" style="padding-right: 0;"></i></button>
+        </div>
+        @if (UserHelper.CanDeletePet(ViewBag.PetId))
+        {
+            if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+            {
+                if (SMOHelper.CanEditPet(ViewBag.PetId))
+                {
+            <div class="col-md-3">
+                <a href="@Url.Action("Add", "PetContact", new { petId = ViewBag.PetId })" id="addPetContact" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i>@Resources.PetContact_Index_Add</a>
+            </div>
+                }
+            }
+        }
+    </div>
+</div>
+
+
+@{ Html.RenderPartial("~/Views/PetContact/_List.cshtml"); }
+
+
+<div id="addModalPetContact" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="editeModalPetContact" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="deleteModalPetContact" class="modal fade" tabindex="-1" role="dialog"></div>
+
+<script src="~/Scripts/customs/views/PetContact/Index.js"></script>

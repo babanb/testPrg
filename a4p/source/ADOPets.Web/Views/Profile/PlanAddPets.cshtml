@@ -1,0 +1,113 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording;
+@model ADOPets.Web.ViewModels.Profile.PlanAddPetsViewModel
+
+<div class="columnfull first">
+    <h3 style="text-align: center">@Resources.Profile_PlanAdd_AddAdditionalPets</h3>
+    <hr />
+    <div class="form-group">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-8">
+            @Html.ValidationSummary(true)
+        </div>
+    </div>
+
+    @using (Ajax.BeginForm("PlanAddPets", "Profile", new AjaxOptions
+    {
+        UpdateTargetId = "PlanBilling",
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace
+    }, new { @id = "PlanAddPetsForm", @class = "form-horizontal" }))
+    {
+           
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-12">
+                @Html.HiddenFor(model => model.PlanId)
+                @Html.HiddenFor(model => model.NumberOfPets)
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label  text-primary">@Resources.Profile_PlanDetail_YourPlan : </label>
+                    <div class="col-xs-8">
+                        <label class="control-label  text-primary" id="SelectedPlan">@Model.PlanName</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label text-primary">@Resources.Profile_PlanDetail_YourCharge :  </label>
+                    <div class="col-xs-8">
+                        <label class="control-label  text-primary" id="PriceToPay">@ADOPets.Web.Common.Helpers.DomainHelper.GetCurrency() 0</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Promocode, new { @class = "col-sm-4 control-label" })
+                    <div class="col-xs-4">
+                        <label class="control-label" style="text-align: left; font-weight: 400;">@Model.Promocode</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PlanName, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        <label class="control-label" style="text-align: left; font-weight: 400;">@Model.BasicPan</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        <label class="control-label" style="text-align: left; font-weight: 400;">@Model.Description</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AdditionalInfo, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        <label class="control-label" style="text-align: left; font-weight: 400;">@Model.AdditionalInfo</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AdditionalPets, new { @class = "col-sm-4 control-label" })
+                    <div class="col-xs-4">
+                        @Html.DropDownListFor(model => model.AdditionalPets, new SelectList(Enumerable.Range(1, 10)), Resources.Profile_PlanRenewal_AdditionalPetOptionalLabel, new { @class = "form-control", min = @Model.NumberOfPets })
+                        @Html.Hidden("AddPetsError", string.Format(Resources.Profile_PlanRenewal_AddPetsError, Model.NumberOfPets + Model.MaxPetCount))
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4"></div>
+                    <label class="col-sm-7 control-label" id="AddPetsErrMsg" style="text-align: left; font-weight: 400; color: #a94442; padding-right: 30px; display: none;">
+                        @string.Format(Resources.Profile_PlanRenewal_AddPetsError, Model.NumberOfPets)
+                    </label>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StartDate, new { @class = "col-sm-4 control-label" })
+                    <div class="col-xs-4">
+                        @Html.Label(Model.StartDate.ToShortDateString(), new { @class = "control-label", style = "text-align: left;font-weight:400;" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EndDate, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        @Html.Label(Model.EndDate.ToShortDateString(), new { @class = "control-label", style = "text-align: left;font-weight:400;" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Duration, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        @Html.Label(string.Format("{0} {1}", Model.Duration, Resources.Profile_PlanRenewal_DurationInDays), new { @class = "control-label", style = "text-align: left;font-weight:400;" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RemainingDays, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        @Html.Label(string.Format("{0} {1}", Model.RemainingDays, Resources.Profile_PlanRenewal_DurationInDays), new { @class = "control-label", style = "text-align: left;font-weight:400;" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-6">
+                        <a href="#" id="CancelPlanAddPets" class="btn btn-success">@Resources.Profile_PlanRenewal_CancelBtn</a>
+                        <input type="submit" class="btn btn-success" value="@Resources.Profile_PlanRenewal_NextBtn"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script src="/Scripts/customs/views/Profile/PlanAddPets.js"></script>

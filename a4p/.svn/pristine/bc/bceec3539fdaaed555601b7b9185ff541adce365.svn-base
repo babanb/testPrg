@@ -1,0 +1,20 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Calender.DetailsViewModel
+
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td>@Resources.Calendar_Details_Reason</td>
+      <td>@Model.Reason</td>
+    </tr>
+    <tr>
+      <td>@Resources.Calendar_Details_Physician</td>
+      <td>@Model.Physician</td>
+    </tr>
+    <tr>
+      <td>@Resources.Calendar_Details_Comment</td>
+      <td>@Model.Comment</td>
+    </tr> 
+  </tbody>
+</table>
+@*</div>*@

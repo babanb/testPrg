@@ -1,0 +1,47 @@
+﻿@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Height.IndexViewModel>
+@using ADOPets.Web.Common.Helpers
+
+<div id="HeightSection" class="vitalMain">
+    <div class="show-rightButtons">
+        <div id="showHideHeightButtons">
+            @Ajax.ActionLink(Resources.Height_Index_FtInches, "SwithMeasureUnit", "Height", new { petId = ViewBag.PetId, unit = HealthMeasureUnitEnum.Feet },
+            new AjaxOptions { UpdateTargetId = "HeightSection", InsertionMode = InsertionMode.Replace }, new { style = "margin-right: 10px;" })
+            @Ajax.ActionLink(Resources.Height_Index_Mcm, "SwithMeasureUnit", "Height", new { petId = ViewBag.PetId, unit = HealthMeasureUnitEnum.Meter },
+            new AjaxOptions { UpdateTargetId = "HeightSection", InsertionMode = InsertionMode.Replace }, new { style = "margin-right: 10px;" })
+
+            <a href="#" id="HeightDataCurve" class="btn btn-primary btn-sm" data-toggle="pill"><i class="fa fa-bar-chart-o"></i>@Resources.Height_Index_Curve</a>
+            @if (UserHelper.CanDeletePet(ViewBag.PetId))
+            {
+                if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                {
+                    if (SMOHelper.CanEditPet(ViewBag.PetId))
+                    {
+                <a href="@Url.Action("GetDownloadHealthMeasure", "Pet", new { petid = ViewBag.PetId })"  class="btn btn-warning btn-sm pull-right" style="margin-left:10px;"><i class="fa fa-print"></i>@Resources.Pet_MedicalRecord_Print</a>
+                
+                <a href="@Url.Action("Add", "Height", new { petId = ViewBag.PetId, unit = ViewBag.MeasureUnit })" id="addHeight" class="btn btn-primary btn-sm">
+                    <i class="fa fa-plus-circle"></i><span>@Resources.Height_Index_Add</span>
+                </a>
+                    }
+                }
+            }
+        </div>
+        <div id="showHideHeightButtons-back" style="display: none;">
+            @Ajax.ActionLink(Resources.Height_Index_FtInches, "SwithMeasureUnit", "Height", new { petId = ViewBag.PetId, unit = HealthMeasureUnitEnum.Feet },
+            new AjaxOptions { UpdateTargetId = "HeightSection", OnSuccess = "ShowHeightCurve()", InsertionMode = InsertionMode.Replace }, new { style = "margin-right: 10px;" })
+            @Ajax.ActionLink(Resources.Height_Index_Mcm, "SwithMeasureUnit", "Height", new { petId = ViewBag.PetId, unit = HealthMeasureUnitEnum.Meter },
+            new AjaxOptions { UpdateTargetId = "HeightSection", OnSuccess = "ShowHeightCurve()", InsertionMode = InsertionMode.Replace }, new { style = "margin-right: 10px;" })
+            <a href='#Height' id="ShowHeightTable" data-toggle="pill" class="btn btn-primary btn-sm"><i class="fa fa-table"></i>@Resources.Height_Index_DataButton</a>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    @{ Html.RenderPartial("~/Views/Height/_List.cshtml"); }
+
+
+    <div id="addHeightModal" class="modal fade" tabindex="-1" role="dialog"></div>
+    <div id="editHeightModal" class="modal fade" tabindex="-1" role="dialog"></div>
+    <div id="deleteHeightModal" class="modal fade" tabindex="-1" role="dialog"></div>
+
+    <script src="~/Scripts/customs/views/Height/Index.js"></script>
+</div>

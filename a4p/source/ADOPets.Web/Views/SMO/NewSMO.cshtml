@@ -1,0 +1,43 @@
+﻿@model ADOPets.Web.ViewModels.SMO.AddViewModel
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording;
+
+@{
+    ViewBag.Title = Resources.Smo_Add_Title;
+    int userId = ViewBag.UserId;
+}
+
+<div class="clearfix"></div>
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>@Resources.Smo_Add_NewSecondOpinion</h1>
+        </div>
+        <div class="col-md-4"><a href="@Url.Action("Index", "SMO")" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i>@Resources.Smo_Add_BackButton</a> </div>
+    </div>
+</div>
+<div id="mainContainer">
+    @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()))
+    {
+        <div id="hiderightsidebar">
+            <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+        </div>
+        <div id="showrightsidebar">
+            <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt=""/>
+        </div>
+    }
+
+    <div id="divStep">
+        @Html.Partial("_SetupVD", Model.objSetup)
+    </div>
+
+</div>
+<div class="clearfix"></div>
+
+
+<script src="@Url.Content("~/Scripts/external/jquery.form.min.js")"></script>
+<script src="@Url.Content("~/Scripts/customs/views/SMO/Add.js")"></script>
+
+

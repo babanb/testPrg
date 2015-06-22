@@ -1,0 +1,65 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording;
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+
+@model ADOPets.Web.ViewModels.Econsultation.ExperViewReportModel
+
+@Html.HiddenFor(model => model.EcId)
+@Html.HiddenFor(model => model.PetId)
+@Html.HiddenFor(model => model.VetId)   
+@Html.HiddenFor(model => model.PetOnwerId)
+@Html.HiddenFor(model => model.Id)
+
+<div class="panel panel-primary">
+  <div class="panel-body text-primary" style="font-weight:600;">
+      @Resources.Econsultation_SubmitReport_StartTime - @Model.ActionBeginDate.Value.ToLongTimeString() <span style="padding:0 20px;">
+      @Resources.Econsultation_SubmitReport_EndTime - @Model.ActionEndDate.Value.ToLongTimeString()</span> 
+      @Resources.Econsultation_SubmitReport_Duration - @Model.Durations (@Resources.Message_MesssageNotification_Minute) 
+      <span style="padding:0 20px;">@Resources.Econsultation_SubmitReport_ECDate - @Model.ActionEndDate.Value.ToShortDateString()</span>    
+  </div>
+</div>
+
+    <div class="form-group">
+    <label for="lblDiagnosis" class="text-primary">@Resources.Econsultation_SubmitReport_Diagnosis:</label>
+    @Html.TextAreaFor(modelItem => Model.Diagnoses, new { @class = "form-control", @readonly = "readonly",@rows = "3", @placeholder = Resources.Econsultation_SubmitReport_DiagnosisPlaceHolder })
+    </div>
+  
+  <div class="form-group">
+    <label for="lblTreatment" class="text-primary">@Resources.Econsultation_SubmitReport_Treatment:</label>
+    @Html.TextAreaFor(modelItem => Model.Treatment, new { @class = "form-control", @readonly = "readonly", @rows = "3", @placeholder = Resources.Econsultation_SubmitReport_TreatmentPlaceHolder })     
+  </div>
+  <hr>
+  <div class="attachment2">
+<strong>@Resources.Econsultation_ViewReport_AttachedFile</strong> 
+                    @if (Model.lstAttachment != null)
+                    {
+                        foreach (var item in Model.lstAttachment)
+                        {                        
+                        <div class="btn-group" data-fileid="@item.Id">
+                            <a href="@Url.Action("GetFile", "Econsultation", new { fileName = item.DocumentPath, PetID = Model.PetId, EcID = Model.EcId, ownerId = Model.PetOnwerId })" id="@("viewDocument" + ViewBag.DocumentType)"  
+                            class="btn btn-default" target="_blank">@Html.CreateDivFromFileExtension(item.DocumentPath) @item.DocumentName</a>                            
+                        </div>
+                        }
+                    }
+                    <a href="#" onclick="" class="btn btn-success attachBtn" id="btnFileUpload" style="display:none">
+                        <span class="fa fa-paperclip"></span>              
+                    </a>
+                    <input type="file" id="fileToUpload" name="fileUpload" multiple="multiple" style="display:none"/>
+                    <div class="" id="dvAlbumPhotoList">
+                    </div>
+                    <div id="dvGalleryUploadError" class="error">
+                    </div>                
+      </div>
+      <hr>
+      <div class="form-group">
+       <div class="col-md-6">
+          <a href="#" class="btn btn-primary btn-lg pull-right" onclick="toggle_visibility1();"><i class="fa fa-arrow-left"></i>@Resources.Econsultation_SubmitReport_Back</a>
+          </div>
+          <div class="col-md-6">
+           <a href="@Url.Action("GetReport", "Econsultation", new { EcId = Model.EcId })" target="_blank" class="btn btn-success btn-lg"><i class="fa fa-download"></i>@Resources.Econsultation_ViewReport_Report</a>
+          </div>
+        </div>
+
+<script type="text/javascript" src="~/Scripts/external/ajaxupload.js"></script>
+<script src="@Url.Content("~/Scripts/customs/views/Econsultation/SubmitReport.js")"></script>

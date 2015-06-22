@@ -1,0 +1,145 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Profile.PlanBillingViewModel
+@using Model
+@{
+    bool isRenewal = ViewBag.IsRenewal != null && ViewBag.IsRenewal == true;
+    bool IsUpgrade = ViewBag.IsUpgrade != null && ViewBag.IsUpgrade == true;
+
+    var plancharge = string.Format(Resources.Account_Signup_TotalSubscriptionCharge, Model.Price);
+}
+
+<div class="planList">
+    <table width="100%" border="0">
+        <tbody>
+            <tr>
+                <td style="width: 100px;">
+                    <span>
+                        @if (!string.IsNullOrEmpty(@Model.PlanType))
+                        {
+                            @Model.PlanType
+                        }
+                        else
+                        {
+                            @Resources.Account_SignUp_Plan
+                        }
+                    </span>
+                    <br>
+                    @Model.Plan</td>
+                <td>@Model.BasePlanDescription </td>
+                <td style="width: 100px;">
+                    <label>
+                        <i class="fa fa-check-circle"></i>
+                        <br>
+                        @Resources.Account_Signup_PlanSelected</label></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h4 class="text-center bg-danger" style="padding: 10px; line-height: 28px;">@Resources.Profile_PlanEdit_NewStartDate @Model.StartDate.ToShortDateString(), @Resources.Profile_PlanEdit_ExpirationDate : @Model.EndDate.ToShortDateString()<br>
+    <strong class="text-danger">@Resources.Profile_RenewPlan_TotalCharge @plancharge</strong></h4>
+
+<hr style="margin: 0;">
+
+<div id="payment-option" style="margin-top: 20px;">
+    <img src="~/Content/images/mastercard.png">
+    <img src="~/Content/images/jcb.png">
+    <img src="~/Content/images/visa.png">
+    <img src="~/Content/images/discover-Network.png">
+</div>
+<hr>
+@using (Html.BeginForm("RenewPlanBilling", "Profile", FormMethod.Post, new { id = "frmRenewPlanBilling", @class = "form-horizontal" }))
+{ 
+    @Html.HiddenFor(model => model.StartDate)
+    @Html.HiddenFor(model => model.EndDate)
+    @Html.HiddenFor(model => model.PlanId)
+    <div class="form-group">
+        @Html.LabelRequiredFor(model => model.CreditCardNumber, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-8">
+            @Html.TextBoxFor(model => model.CreditCardNumber, new { @class = "form-control", placeholder = Resources.Account_SignUp_CreditCardNumberPlaceHolder })
+            @Html.ValidationMessageFor(model => model.CreditCardNumber)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelRequiredFor(model => model.ExpirationDate, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-8">
+            @Html.TextBoxFor(model => model.ExpirationDate, new { @class = "form-control datepicker datepickerMonthYear", placeholder = Resources.Account_SignUp_ExpirationDatePlaceHolder })
+            @Html.ValidationMessageFor(model => model.ExpirationDate)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelRequiredFor(model => model.CVV, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-8">
+            @Html.TextBoxFor(model => model.CVV, new { @class = "form-control", placeholder = Resources.Account_SignUp_CVVPlaceHolder })
+            @Html.ValidationMessageFor(model => model.CVV)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelRequiredFor(model => model.BillingAddress1, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-8">
+            @Html.TextBoxFor(model => model.BillingAddress1, new { @class = "form-control", placeholder = Resources.Account_SignUp_Address1PlaceHolder })
+            @Html.ValidationMessageFor(model => model.BillingAddress1)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelRequiredFor(model => model.BillingCity, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-8">
+            @Html.TextBoxFor(model => model.BillingCity, new { @class = "form-control", placeholder = Resources.Account_SignUp_CityPlaceHolder })
+            @Html.ValidationMessageFor(model => model.BillingCity)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelRequiredFor(model => model.BillingCountry, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-8">
+            @Html.EnumDropDownListFor(m => m.BillingCountry, Resources.Account_SignUp_CountryPlaceHolder, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BillingCountry)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.BillingState, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-8">
+            @Html.EnumDropDownListFor(m => m.BillingState, Resources.Account_SignUp_StatePlaceHolder, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BillingState)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelRequiredFor(model => model.BillingZip, new { @class = "col-sm-4 control-label" })
+        <div class="col-sm-8">
+            @Html.TextBoxFor(model => model.BillingZip, new { @class = "form-control", placeholder = Resources.Account_SignUp_ZipPlaceholder })
+            @Html.ValidationMessageFor(model => model.BillingZip)
+        </div>
+    </div>
+    <hr>
+    <div class="form-group">
+        <div class="col-sm-4" style="text-align: right;"></div>
+        <div class="col-sm-8">
+            <button type="button" id="btn-next" class="btn btn-success">@Resources.Profile_RenewPlan_MakePayment</button>
+
+        </div>
+    </div>
+
+}
+
+<div class="modal fade" id="dvPaymentConfirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">@Resources.Account_Signup_PaymentConfirmation</h4>
+            </div>
+            <div class="modal-body">
+                @Resources.Account_Signup_PaymentConfirmationMessage
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Link_BoarderLink_Close</button>
+                <button type="button" class="btn btn-primary" id="btnConfirm">@Resources.Account_Signup_Agree</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="@Url.Content("~/Scripts/customs/views/Profile/RenewPlanBilling.js")"></script>
+

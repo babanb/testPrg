@@ -1,0 +1,68 @@
+﻿@model ADOPets.Web.ViewModels.Profile.AddViewModel
+@using ADOPets.Web.Common.Extensions
+@using Resources = ADOPets.Web.Resources.Wording
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">@Resources.Profile_Add_Header</h4>
+        </div>
+        <div class="form-horizontal">
+            @using (Html.BeginForm("Add", "Profile", FormMethod.Post, new { @id = "AddProfileForm", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div style="overflow-x: auto; height: auto; padding-right: 10px;">
+
+                        @Html.LabelFor(model => model.Subscription, new { @class = "control-label" })
+                        @Html.DropDownListFor(model => model.Subscription, ViewBag.Subscriptions as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                        
+                        <br />
+
+                        @Html.LabelRequiredFor(model => model.FirstName, new { @class = "control-label" })
+                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = Resources.Profile_Add_FirstNamePlaceHolder })
+                        @Html.ValidationMessageFor(model => model.FirstName)
+
+                        <br />
+
+                        @Html.LabelRequiredFor(model => model.LastName, new { @class = "control-label" })
+                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = Resources.Profile_Add_LastNamePlaceHolder })
+                        @Html.ValidationMessageFor(model => model.LastName)
+
+                        <br />
+
+
+                        @Html.LabelRequiredFor(model => model.Email, new { @class = "control-label" })
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = Resources.Profile_Add_EmailPlaceHolder })
+                        @Html.ValidationMessageFor(model => model.Email)
+
+                        <br />
+
+                        @Html.LabelRequiredFor(model => model.UserName, new { @class = "control-label" })
+                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = Resources.Profile_Add_UserNamePlaceHolder })
+                        @Html.ValidationMessageFor(model => model.UserName)
+
+                        <br />
+                        @Html.CheckBoxFor(m => m.MustPay)
+                        @Html.LabelFor(m => m.MustPay)
+
+                        <br />
+                        @Html.CheckBoxFor(m => m.MustChangePassword)
+                        @Html.LabelFor(m => m.MustChangePassword)
+
+                        <br />
+                        @Html.CheckBoxFor(m => m.MustAcceptTermsAndConditions)
+                        @Html.LabelFor(m => m.MustAcceptTermsAndConditions)
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="Submit" class="btn btn-primary">@Resources.Profile_Add_Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Profile_Add_Cancel</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

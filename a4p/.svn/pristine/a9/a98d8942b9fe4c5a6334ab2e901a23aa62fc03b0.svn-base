@@ -1,0 +1,293 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Pet.LoadReportModel
+
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <style>
+
+        petDetails {
+        }
+
+    </style>
+<title>ViewBag.Title</title>
+</head>
+
+<center>
+    <button name="download" id="download" onclick="@Url.Action("GetDownload", "Pet", new { petid =  Model.Id })">Download</button>
+    @*<a href="@Url.Action("GetDownload", "Pet", new { petid =  Model.Id })" id="maximizeBuble"><i class="fa fa-expand" style="padding-right: 0;">Download</i></a>*@
+    <button name="print" id="print" onclick="window.print();">Print</button>
+</center>
+<div style="width:1000px; margin:auto;">
+    <center><img src="/Content/images/A4PLogo.jpg" style="width:150px; margin:20px 0;"></center>
+    <div class="panel panel-default">  
+    <div class="panel-heading">
+      <span style="float:left;"><strong>@Resources.Pet_Add_PetName:</strong> @Model.PetName</span><span style="float:right;">     
+      <strong>@Resources.Pet_Add_PetType:</strong>@Model.PetType.ToString()</span><br/><span style="margin: 0 auto;"><center>      
+      <strong>@Resources.Pet_Add_PetDetail</strong></center></span></div>
+    <div class="panel-body">
+        
+    <table id="petDetails" class="table table-bordered">
+        <tr>
+            <td width="20%">
+                <div>@Resources.Pet_Card_Breed</div>
+            </td>
+            <td width="30%">
+                @Model.Breed
+            </td>
+            <td width="20%">
+                @Resources.Pet_Card_BirthDate 
+                </td>
+            <td width="30%">
+                @Model.BirthDate.ToShortDateString()
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_SecondaryBreed</div>
+            </td>
+            <td>
+                @Model.SecondaryBreed
+            </td>
+            <td>
+                @Resources.Pet_Card_PlaceOfBirth
+             </td>
+            <td>
+                @Model.PlaceOfBirth
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_Pedigree</div>
+            </td>
+            <td>
+                @Model.Pedigree
+            </td>
+            <td>
+                @Resources.Pet_Card_CountryOfBirth
+            </td>
+            <td>
+                @Html.EnumDisplayFor(m => m.CountryOfBirth)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_BloodGroupType</div>
+            </td>
+            <td>
+                @Html.EnumDisplayFor(m => m.BloodGroupType)
+            </td>
+            <td>
+                @Resources.Pet_Card_StateOfBirth
+            </td>
+            <td>
+                @Html.EnumDisplayFor(m => m.StateOfBirth)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_ChipNumber</div>
+            </td>
+            <td>
+                @Model.ChipNumber
+            </td>
+            <td>
+                @Resources.Pet_Card_Zip
+            </td>
+            <td>
+                @Model.Zip
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_TattooNumber</div>
+            </td>
+            <td>
+                @Model.TattooNumber
+            </td>
+            <td>
+                @Resources.Pet_Card_HairType
+            </td>
+            <td>
+                @if (!string.IsNullOrEmpty(Model.HairTypeOther))
+                {@Model.HairTypeOther }
+                else
+                {@Html.EnumDisplayFor(m => m.HairType)}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_Gender</div>
+            </td>
+            <td>
+                @Html.EnumDisplayFor(m => m.Gender)
+            </td>
+            <td>
+                @Resources.Pet_Card_Color
+             </td>
+            <td>
+                @if (!string.IsNullOrEmpty(Model.ColorOther))
+                {@Model.ColorOther }
+                else
+                {@Html.EnumDisplayFor(m => m.Color)}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_AdoptionDate</div>
+            </td>
+            <td>
+                @if (Model.AdoptionDate != null)
+                {
+                @Model.AdoptionDate.Value.ToShortDateString()
+                }
+            </td>
+            <td>
+                @Resources.Pet_Card_IsSterile
+             </td>
+            <td>
+                @if (Model.IsSterile == true)
+                {<text>@Resources.Pet_Card_IsSterileYes</text> }
+                else if (Model.IsSterile == false)
+                {<text>@Resources.Pet_Card_IsSterileNo</text>}
+                else
+                {<text>@Resources.Pet_Card_IsSterileUnknown</text>}
+            </td>
+        </tr>
+
+    </table>
+
+  </div>
+</div>
+
+  <div class="panel panel-default">
+  <div class="panel-heading"><center><strong>Adoption Details</strong></center></div>
+  <div class="panel-body">
+        <table id="farmerDetails" class="table table-bordered">
+        <tr>
+            <td width="20%">
+                <div>@Resources.Pet_Card_FarmerName </div>
+            </td>
+            <td width="30%">
+                <div>@Model.FarmerName</div>
+            </td>
+            <td width="20%">
+                <div>@Resources.Pet_Card_FarmerHomePhone </div>
+            </td>
+            <td width="30%">
+                <div>@Model.FarmerHomePhone</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_FarmerAddress1</div>
+            </td>
+            <td>
+                @Model.FarmerAddress1
+            </td>
+            <td>
+                <div>@Resources.Pet_Card_FarmerOfficePhone</div>
+            </td>
+            <td>
+                @Model.FarmerOfficePhone
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_FarmerAddress2</div>
+            </td>
+            <td>
+                @Model.FarmerAddress2
+            </td>
+            <td>
+                <div>@Resources.Pet_Card_FarmerCellPhone</div>
+            </td>
+            <td>
+                @Model.FarmerCellPhone
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_FarmerCountry</div>
+            </td>
+            <td>
+                <div>@Html.EnumDisplayFor(m=>m.FarmerCountry)</div>
+            </td>
+            <td>
+                <div>@Resources.Pet_Card_FarmerFax</div>
+            </td>
+            <td>
+                @Model.FarmerFax
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_FarmerState </div>
+            </td>
+            <td>
+                <div>@Html.EnumDisplayFor(m => m.FarmerState)</div>
+            </td>
+            <td>
+                <div>@Resources.Pet_Card_FarmerCity </div>
+             </td>
+            <td
+                <div>@Model.FarmerCity</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div>@Resources.Pet_Card_FarmerZip </div>
+            </td>
+            <td>
+                <div>@Model.FarmerZip</div>
+            </td>
+        </tr>
+        
+       </table>
+  </div>
+  </div>
+   
+  <div class="panel panel-default">
+  <div class="panel-heading"><center><strong>Insurance</strong></center></div>
+  <div class="panel-body">
+        <table id="InsuranceDetails" class="table table-bordered">
+        <thead>
+            <th>
+                @Resources.Insurance_Edit_Name
+            </th>
+            <th>
+                @Resources.Insurance_Edit_AccountNumber
+            </th>
+            <th>
+                @Resources.Insurance_Delete_EndDate
+            </th>                        
+        </thead>
+        @if(Model.Insurances.Count > 0)
+        {
+          foreach (var item in Model.Insurances)
+          {
+            <tr>
+                <td width="20%">
+                   <div>@item.Name</div>
+                </td>
+                <td width="30%">
+                    <div>@item.AccountNumber</div>
+                </td>
+                <td width="20%">
+                    <div>
+                        @if (item.EndDate.HasValue)
+                        {@item.EndDate.Value.ToShortDateString()}
+                    </div>
+                </td>                
+            </tr>
+            }
+        }
+       </table>
+  </div>
+  </div>
+          
+</div>
+

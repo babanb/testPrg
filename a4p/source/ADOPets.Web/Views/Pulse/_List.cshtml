@@ -1,0 +1,148 @@
+﻿@using ADOPets.Web.Common.Helpers
+@using Resources = ADOPets.Web.Resources.Wording
+@using Model;
+@model IEnumerable<ADOPets.Web.ViewModels.Pulse.IndexViewModel>
+@using ADOPets.Web.Common.Extensions
+
+<div id="pulseList" class="table-responsive">
+
+    @Html.RenderSuccessMessage("pulseSuccessMessage", TempData["SuccessMessage"])
+    <div id="PulseTable">
+        <table id="Table_Pulse" class="table table-striped table-bordered">
+            <thead>
+                <tr class="text-primary">
+                    <th>@Resources.Pulse_Index_Date</th>
+                    <th>@Resources.Pulse_Index_Pulse</th>
+                    @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                    {
+                        if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                        {
+                            if (SMOHelper.CanEditPet(ViewBag.PetId))
+                            {
+                        <th>@Resources.Pulse_Index_Action</th>
+                            }
+                        }
+                    }
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@item.Pulse</td>
+                    @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                    {
+                        if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                        {
+                            if (SMOHelper.CanEditPet(ViewBag.PetId))
+                            {
+                        <td>
+                            <a href="@Url.Action("Edit", "Pulse", new { measureId = item.Id })" class="editPulse btn btn-success btn-sm" data-tooltip="tooltip" data-placement="top" 
+                       data-original-title="@Resources.Pulse_Index_Edit"><i class="fa fa-pencil"></i></a>
+                            <a href="@Url.Action("DeleteConfirm", "Pulse", new { measureId = item.Id })" class="deletePulse btn btn-warning btn-sm" data-tooltip="tooltip" data-placement="top" 
+                       data-original-title="@Resources.Pulse_Index_Delete"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                            }
+                        }
+                    }
+                </tr>  
+            }
+
+        </table>
+
+    </div>
+    <div id="PulseCurve" style="display: none;">
+        <div id="Pulsecontainer" style="min-width: 310px; width: 100%; height: 400px;"></div>
+    </div>
+
+    @{
+        var header = string.Format("{0} ({1})", Resources.Pulse_Index_Title, EnumHelper.GetResourceValueForEnumValue(HealthMeasureUnitEnum.BeatsPerMinute));
+        var YAxis = Model.OrderBy(i => i.Date).Select(w => w.PulseValue).ToArray();
+        var xAxis = Model.OrderBy(i => i.Date).Select(w => w.Date.ToShortDateString()).ToArray();
+    }
+
+    <script type="text/javascript">
+        function createPulseChart() {
+            var y;
+
+            var x = @Html.Raw(Json.Encode(xAxis))
+
+         y = @Html.Raw(Json.Encode(YAxis))
+
+            $('#Pulsecontainer').highcharts({
+                title: {
+                    text: '@header',
+                    useHTML: true,
+                    x: -20 //center
+                },
+                xAxis: {
+                    title: {
+                        text: '@Resources.Pulse_Index_Date'
+                    },
+                    categories: x,
+                    labels: {
+                        rotation: -45
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: '@Resources.Pulse_Index_Title',
+                        useHTML: true
+
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 2,
+                        states: {
+                            hover: {
+                                lineWidth: 2
+                            }
+                        },
+                        threshold: null
+                    },
+                    series: {
+                        animation: {
+                            duration: 2500
+                        }
+                    }
+                },
+                tooltip: {
+                    valueSuffix: ' @EnumHelper.GetResourceValueForEnumValue(HealthMeasureUnitEnum.BeatsPerMinute)'
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    type: 'area',
+                    name: '@Html.Raw(Resources.Pulse_Index_Pulse)',
+                    data: y
+                }]
+            });
+        }
+    </script>
+</div>
+
+
+
+<script src="~/Scripts/customs/views/Pulse/List.js"></script>

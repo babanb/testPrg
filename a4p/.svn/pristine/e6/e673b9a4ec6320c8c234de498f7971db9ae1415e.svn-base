@@ -1,0 +1,141 @@
+﻿$(document).ready(function () {
+    window.parent.$("body").animate({ scrollTop: 0 }, 0);
+    Initialize();
+    $("#signupStep2").removeAttr("disabled");
+
+    //alert("Billing js");
+
+    //var billingAttr = $("#signupStep2").find("a").attr("href");
+    //console.log(billingAttr);
+    //if (typeof billingAttr !== typeof undefined && billingAttr !== false) {
+    //    $("#signupStep2").find("a").attr("href", "#Billing");
+    //}
+
+
+    $("#signupStep1,#signupStep2,#signupStep3").removeClass("active");
+    $("#signupStep2").addClass("active");
+    $('#BasicInfo').removeClass('tab-pane fade in active').addClass('tab-pane fade');
+    $('#Billing').removeClass('tab-pane fade').addClass('tab-pane fade in active');
+    //$('#billingInfoLi').addClass('active');
+    //$('#basicInfoLi').removeClass('active');
+    //$('#confirmationLi').removeClass('active');
+
+    /* 
+    commented to hide the permenant address section as per marie's suggession 
+
+    if (localStorage['CheckBack'] == 'Yes') {
+        $("#IsBillingAddressSame").prop("checked", true);
+        $('#plaintext-add').show('fast');
+        $('#billing-add').hide('fast');
+        
+    } else {
+        $("#IsBillingAddressSame").prop("checked", false);
+        $('#billing-add').show('fast');
+        $('#plaintext-add').hide('fast');
+    }
+    
+    $('#IsBillingAddressSame').change(function () {
+        if (this.checked) {
+            localStorage['CheckBack'] = 'Yes'
+            $('#plaintext-add').show('fast');
+            $('#billing-add').hide('fast');
+        }
+        else {
+            localStorage['CheckBack'] = 'No'
+            $('#plaintext-add').hide('fast');
+            $('#billing-add').show('fast');
+
+        }
+    });
+
+    localStorage['CheckBack'] = 'No'
+*/
+
+    retriveTempBillingValues();
+    if ($("meta[name='accept-domain']").attr("content") != "French") {
+        UpdateBillingStates();
+    }
+    $.validator.unobtrusive.parse("#PaymentForm");
+
+
+    $("#BillingCountry").change(function () {
+        if ($("meta[name='accept-domain']").attr("content") != "French") {
+            UpdateBillingStates();
+        }
+
+    });
+
+    $("#btnback").click(function () {
+        saveTempBillingValues();
+        //$('#billingInfoLi').removeClass('active');
+        //$('#basicInfoLi').addClass('active');
+        $("#signupStep1,#signupStep2,#signupStep3").removeClass("active");
+        $("#signupStep1").addClass("active");
+    });
+
+    $("#next-bt").click(function () {
+        saveTempBillingValues();
+    });
+
+
+});
+
+
+function saveTempBillingValues() {
+    localStorage['cardType'] = $('#CreditCardType').val();
+    localStorage['cardNumber'] = $('#CreditCardNumber').val();
+    localStorage['expdate'] = $('#ExpirationDate').val();
+    localStorage['cvv'] = $('#CVV').val();
+    localStorage['address1'] = $('#BillingAddress1').val();
+    localStorage['address2'] = $('#BillingAddress2').val();
+    localStorage['city'] = $('#BillingCity').val();
+    localStorage['country'] = $('#BillingCountry').val();
+    localStorage['state'] = $('#BillingState').val();
+    localStorage['zip'] = $('#BillingZip').val();
+}
+
+function retriveTempBillingValues() {
+    $('#CreditCardType').val(localStorage['cardType']);
+    $('#CreditCardNumber').val(localStorage['cardNumber']);
+    $('#ExpirationDate').val(localStorage['expdate']);
+    $('#CVV').val(localStorage['cvv']);
+    $('#BillingAddress1').val(localStorage['address1']);
+    $('#BillingAddress2').val(localStorage['address2']);
+    $('#BillingCity').val(localStorage['city']);
+    if (localStorage['country']) { $('#BillingCountry').val(localStorage['country']); }
+    $('#BillingState').val(localStorage['state']);
+    $('#BillingZip').val(localStorage['zip']);
+}
+
+function UpdateBillingStates() {
+
+    var Country = $('#BillingCountry').val();
+    var State = $('#BillingState').val();
+
+    var subItems = "<option value>" + $("#State").children()[0].text + "</option>";
+    if (Country == "France") {
+        $("#BillingState").html(subItems);
+        $("#BillingState").prop("disabled", true);
+    }
+    else {
+        $("#BillingState").prop("disabled", false);
+
+        if ($("#BillingCountry option:selected").index() == 0) {
+            $("#BillingState").html(subItems);
+        } else {
+            $.getJSON(GetApplicationPath() + "Account/GetStates", { country: Country },
+                function (data) {
+                    $.each(data, function (index, item) {
+
+                        if (item.Value == State || item.Text == localStorage['state']) {
+                            subItems += "<option value='" + item.Value + "' selected>" + item.Text + "</option>";
+                        } else {
+                            subItems += "<option value='" + item.Value + "'>" + item.Text + "</option>";
+                        }
+                    });
+
+                    $("#BillingState").html(subItems);
+                });
+        }
+    }
+}

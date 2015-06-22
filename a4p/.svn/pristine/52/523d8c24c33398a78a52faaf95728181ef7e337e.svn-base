@@ -1,0 +1,26 @@
+﻿$(document).ready(function () {
+
+    $("#homeForm .panel-heading a").click(function () {
+        $("#homeForm .panel-heading a").removeClass("first-time");
+    });
+    $("#next-bt").click(function () {
+      $(".panel-collapse").addClass('hideShowCollapsPanel');
+      $(".panel-collapse").addClass('in');
+        $("#homeForm .panel-heading a").removeClass("first-time");
+        
+    });
+
+    $(".panel-heading").click(function () {
+        $(this).next('.panel-collapse').removeClass('hideShowCollapsPanel'); 
+
+    });
+
+
+
+ 
+});
+
+$(function () {
+    $('a[title]').tooltip();
+});
+

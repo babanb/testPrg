@@ -1,0 +1,108 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording;
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@model ADOPets.Web.ViewModels.SMO.DetailsViewModel
+@{
+    ViewBag.Title = Resources.Smo_Edit_Title;
+    int userId = ViewBag.UserId;
+}
+
+<div class="clearfix"></div>
+<div id="content">
+    <div id="pageTitle">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>@Resources.Smo_Edit_SMOID - @(Html.DisplayFor(a => a.SMOId))<span class="label label-primary">@Model.SMOREquest.SMORequestStatusId</span></h1>
+            </div>
+            <div class="col-md-4"><a href="@Url.Action("Index", "SMO")" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i>@Resources.Smo_Edit_BackButton</a> </div>
+        </div>
+    </div>
+    <div id="mainContainer">
+        @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()))
+{
+        <div id="hiderightsidebar">
+            <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+        </div>
+        <div id="showrightsidebar">
+            <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt=""/>
+        </div>
+        }
+        <div id="cover4econsult" style="background:@Url.Content("~/images/smo-cover.jpg") center left repeat; ">
+            <div class="consultSteptab radius3">
+                <a href="@Url.Action("Edit", "SMO", new { id = Model.SMOREquest.ID })" class="zoomin">@Resources.Smo_Edit_lblStep1<br>
+                    <span>@Resources.Smo_Edit_SMODetails</span><i class="fa fa-arrow-right"></i></a>
+            </div>
+            <div class="consultSteptab radius3">
+                <a href="@Url.Action("AssignedExperts", "SMO", new { id = Model.SMOREquest.ID })" class="zoomin">@Resources.Smo_Edit_lblStep2<br>
+                    <span>
+                        @if (@Model.SMOREquest.SMORequestStatusId != SMORequestStatusEnum.Complete)
+                        { 
+                            @Resources.Smo_Edit_Experts
+                        }
+                        else
+                        {
+                            @Resources.Smo_Edit_ExpertsDetails
+                        }
+                    </span><i class="fa fa-arrow-right"></i></a>
+            </div>
+            <div class="consultSteptab radius3 active">
+                @if (@Model.SMOREquest.SMORequestStatusId != SMORequestStatusEnum.Complete)
+                { 
+                    <a href="@Url.Action("SubmitReport", "SMO", new { id = @Model.SMOREquest.ID })" class="zoomin">@Resources.Smo_Edit_lblStep3<br>
+                        <span>@Resources.Smo_Edit_SubmitReport</span></a> 
+                }
+                else
+                {
+                    <a href="@Url.Action("ViewReport", "SMO", new { id = @Model.SMOREquest.ID })" class="zoomin">@Resources.Smo_Edit_lblStep3<br>
+                        <span>@Resources.Smo_Edit_ViewReport</span></a>
+                }
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="text-primary">@Resources.Smo_Edit_lblReasonforRequest:</label>
+            @Html.TextAreaFor(modelItem => modelItem.SMOREquest.RequestReason, new { @class = "form-control", disabled = "disabled" })
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="text-primary">@Resources.Smo_Edit_lblMedicalHistory:</label>
+            @Html.TextAreaFor(modelItem => modelItem.SMOREquest.MedicalHistoryComment, new { @class = "form-control", disabled = "disabled" })
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="text-primary">@Resources.Smo_Edit_Conclusion</label>
+            @Html.TextAreaFor(modelItem => modelItem.SMOREquest.VetComment.Value, new { @class = "form-control", disabled = "disabled" })
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="text-primary">@Resources.Smo_Edit_lblAdditionalInformation:</label>
+            @Html.TextAreaFor(modelItem => modelItem.SMOREquest.AdditionalInformation, new { @class = "form-control", disabled = "disabled" })
+        </div>
+        <hr>
+        <div class="attachment2 row">
+            <div class="col-md-2"><strong>@Resources.Smo_Edit_Attachedfile :</strong></div>
+            <div class="col-md-10">
+                @foreach (var item in Model.lstAttachment)
+                {
+                    <div class="btn-group">
+                        <a href="@Url.Action("GetFile", "SMO", new { fileName = item.DocumentPath, ownerId = item.UserId })" id="@("viewDocument" + ViewBag.DocumentType)" class="btn btn-default">
+                            @Html.CreateDivFromFileExtension(item.DocumentPath) @item.DocumentName
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <div class="col-md-6">
+                <a href="@Url.Action("AssignedExperts", "SMO", new { id = Model.SMOREquest.ID })" class="btn btn-primary btn-lg pull-right"><i class="fa fa-arrow-left"></i>@Resources.Smo_Edit_BackButton</a>
+            </div>
+            <div class="col-md-6">
+                <a href="@Url.Action("ShowSMOVetReport", "SMO", new { id = Model.SMOREquest.ID, PetId = Model.SMOREquest.PetId })" class="btn btn-success btn-lg" ><i class="fa fa-download"></i>@Resources.Smo_Edit_Report</a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="clearfix"></div>

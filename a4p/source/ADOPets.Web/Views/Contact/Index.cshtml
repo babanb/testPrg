@@ -1,0 +1,116 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+
+@model IEnumerable<ADOPets.Web.ViewModels.Contact.IndexViewModel>
+
+@{
+    ViewBag.Title = Resources.Contact_Index_Title;
+}
+<div class="messageStyle">
+    @if (TempData["ECSuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                &times;
+            </button>
+            @TempData["ECSuccessMessage"]
+        </div>  
+    }
+</div>
+
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>@Resources.Contact_Index_Title</h1>
+        </div>
+    </div>
+</div>
+
+<div id="mainContainer">
+    @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianLight.ToString()))
+    {
+        <div id="hiderightsidebar">
+            <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+        </div>
+        <div id="showrightsidebar">
+            <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+        </div>
+    }
+    <table id="contactList" class="table table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th width="10%">
+                    @Resources.Contact_Index_AnimalType
+                </th>
+                <th width="15%">
+                    @Resources.Contact_Index_AnimalName
+                </th>
+                <th width="15%">
+                    @Resources.Contact_Index_Relationship
+                </th>
+                <th width="20%">
+                    @Resources.Contact_Index_ContactName
+                </th>
+                <th width="10%">
+                    @Resources.Contact_Index_PhoneNumber
+                </th>
+                <th width="30%">
+                    @Resources.Contact_Index_Action
+                </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            if (item.Relationship != ContactTypeEnum.Owner)
+            {
+            <tr>
+                <td>
+                    @Html.EnumDisplayFor(modelItem => item.PetTypeId)
+                </td>
+                <td style="word-break: break-all;">
+                    @item.PetName
+                </td>
+                <td>
+                    @if (item.Relationship == ContactTypeEnum.Owner)
+                    { <text>@Resources.Contact_Index_PreviousOwner @Html.EnumDisplayFor(modelItem => item.Relationship) </text>}
+                    else
+                    {     @Html.EnumDisplayFor(modelItem => item.Relationship)}
+                </td>
+                <td style="word-break: break-all;">
+                    @if (item.Relationship == ContactTypeEnum.Owner)
+                    {@item.FirstName}
+                    else
+                    {<text>@item.FirstName @item.LastName </text>}
+                </td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.PhoneHome))
+                    { <text>@item.PhoneHome</text> }
+                    else if (!string.IsNullOrEmpty(item.PhoneOffice))
+                    { <text>@item.PhoneOffice</text> }
+                    else if (!string.IsNullOrEmpty(item.PhoneCell))
+                    { <text>@item.PhoneCell</text> }
+                </td>
+                <td>
+                    @if (item.Relationship != ContactTypeEnum.Veterinarian && item.Relationship != ContactTypeEnum.Owner)
+                    {
+                        <a href="@Url.Action("Summary", "Contact", new { contactId = item.PetContactId, contactType = (int)ContactTypeEnum.Owner, @item.PetName, @item.PetTypeId })" class="btn btn-sm btn-primary" id="petcontactSummary" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Contact_Index_View"><i class="fa fa-eye"></i></a>
+                        <a href="@Url.Action("Edit", "PetContact", new { petcontactId = item.PetContactId })" class="btn btn-success btn-sm editPetContact" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Contact_Index_Edit"><i class="fa fa-pencil"></i></a>
+                    }
+                    else if (item.Relationship == ContactTypeEnum.Veterinarian)
+                    {                                
+                        <a href="@Url.Action("Summary", "Contact", new { contactId = item.VeterinarianId, contactType = (int)ContactTypeEnum.Veterinarian, @item.PetName, @item.PetTypeId })" class="btn btn-sm btn-primary" id="veterinarianSummary" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Contact_Index_View"><i class="fa fa-eye"></i></a>
+                        <a href="@Url.Action("Edit", "Veterinarian", new { veterinarianId = item.VeterinarianId })" class="btn btn-success btn-sm editVeterinarian" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Contact_Index_Edit"><i class="fa fa-pencil"></i></a>
+                    }
+                </td>
+            </tr>
+            }
+        }
+    </table>
+    <div class="clearfix"></div>
+</div>
+
+<div id="editeModalPetContact" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="editeModalVeterinarian" class="modal fade" tabindex="-1" role="dialog"></div>
+<script src="~/Scripts/customs/views/Contact/Index.js"></script>

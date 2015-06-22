@@ -1,0 +1,4124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountActivationBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+   &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta?&lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Recebemosumpedido para criar a sua conta Activ4Pets. Sua conta de usuárioestápronta para serativada.
+Porfavor, siga as instruçõesabaixo:    &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Clique na página de login do Activ4Pets  &lt;a href="https://login.activ4pets.com"&gt;https://login.activ4pets.com&lt;/a&gt; &lt;/font&gt;
+	&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Digiteseu nome de usuário e umasenhatemporária
+&lt;/font&gt;
+	&lt;br /&gt;
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; Nome de usuário:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{4}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; SenhaTemporária:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt; 
+            &lt;font face="Arial" size="2"&gt;{5}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Após o login, serásolicitado que vocêcomplete o pagamento da inscrição, digiteuma nova senha e aceite os Termos e Condições .&lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Se precisar de ajuda, porfavorcontate-nos em 1-888-51-ACTIV (22848).
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+
+&lt;img src="{6}" style="display: block;"&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Atenciosamente,,&lt;br /&gt;
+    Time da Activ4Pets
+&lt;br /&gt;
+    &lt;br /&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições
+&lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Porfavor, nãoresponda a estamensagem de respostaautomática.
+
+		&lt;br/&gt;
+		Se você tem umproblema de suporteao cliente, entre emcontatocom support@activ4pets.com
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="AccountActivationSubject" xml:space="preserve">
+    <value>A ativação de sua conta</value>
+  </data>
+  <data name="AdminLoginUpdatesBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Recebemos um pedido para repor as informações de login. Se você fez esse pedido, por favor, siga as instruções abaixo.&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;  
+&lt;font face="Arial" size="2"&gt;
+    • &lt;a href="https://login.activ4pets.com"&gt; Clique aqui para a página de login
+&lt;/a&gt; &lt;/font&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Use o nome de usuário e senha abaixo
+&lt;/font&gt;
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; Nome de usuário:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{4}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; Password:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{5}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Após o login, você será solicitado a digitar uma nova senha
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, por favor contacte-nos em 1-888-51-ACTIV (22848).
+    &lt;br /&gt;
+    &lt;br /&gt;
+
+&lt;img src="{6}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt; 
+Atenciosamente,
+&lt;br /&gt;
+Time da Activ4Pets
+&lt;br /&gt;
+    &lt;br /&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="AdminLoginUpdatesSubject" xml:space="preserve">
+    <value>Seu Pedido de Informações para o Login</value>
+  </data>
+  <data name="AdminUpdatePlanPendingPaymentBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},    
+    &lt;br/&gt;
+	&lt;br/&gt;
+  Com base no seu pedido, o {4} tem {5} em seu nome.
+&lt;/font&gt;
+    &lt;br/&gt;
+	&lt;br/&gt;
+	Você pode completar o pagamento para o seu pedido &lt;a href="https://login.activ4pets.com"&gt; de login&lt;/a&gt;.
+	&lt;br/&gt;
+	&lt;br/&gt;
+	
+	&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Plano:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Promocode:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+	    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Animais adicionais:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{8} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+	    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Preço:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{9} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data de início:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{10} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data de Vencimento:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{11} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+		&lt;td&gt;&lt;br/&gt;&lt;/td&gt;
+	&lt;/tr&gt;   
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{12}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{13}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{14}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+        Por favor, não responda a esta mensagem de resposta automática.
+        &lt;br/&gt;
+Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="AdminUpdatePlanPendingPaymentSubject" xml:space="preserve">
+    <value>Seu {0} pagamento está pendente</value>
+  </data>
+  <data name="MemberEconsultSubscriptionSubject" xml:space="preserve">
+    <value>Obrigado por seu Pedido</value>
+  </data>
+  <data name="MyPlanConfirmationBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt; Obrigado por seu Pedido
+&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {1} {2},    
+    &lt;br/&gt;
+	&lt;br/&gt;
+   Você atualizou com êxito seu plano Activ4Pets.
+
+&lt;/font&gt;
+    &lt;br/&gt;
+	&lt;br/&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Pedido de Informação:
+&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+&lt;br/&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data / Hora: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{3} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Número da Transação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        &lt;/td&gt;
+        &lt;tr /&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Plano:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Promocode:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+	    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Animais adicionais:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+	    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Preço:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{8} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data de início:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{9} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data de Vencimento:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{10} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+		&lt;td&gt;&lt;br/&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Informações De Pagamento:
+ &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{1}&amp;nbsp;{2} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{11}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{12} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{13} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{14} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{15}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Atenciosamente,
+&lt;br/&gt;
+    Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{16}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{17}"&gt; Termos e Condições
+&lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+        Por favor, não responda a esta mensagem de resposta automática.
+        &lt;br/&gt;
+Se você tem um problema de suporte ao cliente, entre em contato com support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="MyPlanConfirmationSubject" xml:space="preserve">
+    <value>Obrigado por seu Pedido</value>
+  </data>
+  <data name="NewSMORequestBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta?&lt;b&gt; Ligue para 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Caro {2} {3},    
+&lt;/font&gt;
+    &lt;br/&gt;
+	&lt;br/&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Pedido de Informação:
+&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;br/&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data / Hora:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Número da Transação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        &lt;/td&gt;
+        &lt;tr /&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Produto:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;Segunda Opinião &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Preço:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;${6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; SMO ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+		&lt;td&gt;&lt;br/&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Informações De Pagamento:
+&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;br/&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{2}&amp;nbsp;{3} &lt;/font&gt;
+        &lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{8}&lt;/font&gt;
+        &lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{9} &lt;/font&gt;
+        &lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{10} &lt;/font&gt;
+        &lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{11} &lt;/font&gt;
+        &lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, por favor contacte-nos em 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{12}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,&lt;br/&gt;
+Time Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{13}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{14}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+Por favor, não responda a esta mensagem de resposta automática.
+        &lt;br/&gt;
+Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="NewSMORequestSubject" xml:space="preserve">
+    <value>Obrigado por seu Pedido</value>
+  </data>
+  <data name="SendInviteMailToSupportForFriendBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;hr style="background-color:#444;border-width:0;color:#444;height:2px;"&gt;
+&lt;br/&gt;
+&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;br/&gt;
+&lt;br/&gt; &lt;font face ="Arial" size="2" &gt;
+Caro Suporte,&lt;br/&gt;
+&lt;br/&gt;&lt;/font&gt;
+&lt;font face ="Arial" size="2" &gt;
+
+Um convite para participardo Activ4Pets foi enviado:
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; para:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt; 
+
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt; Nome:&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{2} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;	
+
+
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt; Apelido:&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{3} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+
+
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt; Email:&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;br/&gt;
+&lt;table&gt;
+   &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; A partir de:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt; 
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt; Nome:&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt; Sobrenome:&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;ID:&lt;/b&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+
+
+&lt;/table&gt;
+
+&lt;br/&gt;
+&lt;br/&gt;
+	
+&lt;img src={8} alt="Activ4Pets" style=”display: block;” /&gt;&lt;br/&gt;&lt;font face = "Arial" size="2" &gt;
+&lt;br/&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets&lt;br/&gt;
+&lt;br/&gt;&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SendInviteMailToSupportForFriendSubject" xml:space="preserve">
+    <value>Convite Enviado aos Amigos</value>
+  </data>
+  <data name="SendInviteMailToSupportForVeteBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+&lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta?  &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color:#444;border-width:0;color:#444;height:2px;"&gt;
+&lt;br/&gt;
+&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;br/&gt;
+&lt;br/&gt; &lt;font face ="Arial" size="2" &gt;
+Caro Suporte, 
+&lt;br/&gt;
+&lt;br/&gt;&lt;/font&gt;
+&lt;font face ="Arial" size="2" &gt;
+
+Um convite para participar do Activ4Pets foi enviado:
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; para:
+&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt; 
+
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt; Nome:&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{2} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;	
+
+
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt; Apelido:&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{3} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+
+
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt; Email:&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;br/&gt;
+&lt;table&gt;
+   &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; A partir de:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt; 
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt; Nome:&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt; Sobrenome:&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;ID:&lt;/b&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+
+
+&lt;/table&gt;
+
+&lt;br/&gt;
+&lt;br/&gt;	
+&lt;img src={8} alt="Activ4Pets" style=”display: block;” /&gt;&lt;br/&gt;&lt;font face = "Arial" size="2" &gt;
+&lt;br/&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+&lt;br/&gt;
+&lt;br/&gt;&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{9}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{10}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+        Por favor, não responda a esta mensagem de resposta automática.
+
+        &lt;br/&gt; 
+Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="SendInviteMailToSupportForVetSubject" xml:space="preserve">
+    <value>Convite enviadoao Veterinário</value>
+  </data>
+  <data name="SendMemberEconsultSubscriptionBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},  
+&lt;/font&gt;  
+    &lt;br/&gt;
+    &lt;br/&gt;
+ &lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Pedido de Informação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;br/&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data / Hora:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Número da Transação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        &lt;/td&gt;
+        &lt;tr /&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Produto:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;E-Consultation&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Preço:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;${6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;EC ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;EC{7} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+  &lt;td&gt;&lt;br/&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Informações De Pagamento:
+&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{2}&amp;nbsp;{3} &lt;/font&gt;
+        &lt;/td&gt;
+  &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{8}&lt;/font&gt;
+        &lt;/td&gt;
+  &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{9} &lt;/font&gt;
+        &lt;/td&gt;
+  &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{10} &lt;/font&gt;
+        &lt;/td&gt;
+  &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{11} &lt;/font&gt;
+        &lt;/td&gt;
+  &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br /&gt; 
+&lt;br /&gt;
+
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, por favor contacte-nos em 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{12}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com/"&gt;http://www.activ4pets.com/&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{13}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{14}"&gt; Termos e Condições
+&lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+Por favor, não responda a esta mensagem de resposta automática.
+        &lt;br/&gt;
+Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="SendToSupportLoginRecoveryFailedBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Caro Suporte,
+    &lt;br /&gt;
+    &lt;br /&gt;
+   O membro requerido solicitou redefinir  nome de usuário e / ou senha. Este é o email que ele / elaentrou:
+
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;  
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face = "Arial" size="2" &gt;&lt;b&gt; Email:&lt;/b&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face = "Arial" size="2" &gt;{2}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;font size="2"&gt; AVISO PROBLEMA – Dados não encontrados.&lt;/font&gt;
+&lt;br /&gt;
+&lt;br/&gt;
+&lt;img src="{3}"alt="Activ4Pets" style="display: block;" /&gt;&lt;br /&gt;
+&lt;font face = "Arial" size="2" &gt; 
+Atenciosamente,&lt;br /&gt;
+    Time da Activ4Pets
+ &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt; 
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SendToSupportLoginRecoveryFailedSubject" xml:space="preserve">
+    <value>Falha no Pedido de Recuperação de de login</value>
+  </data>
+  <data name="SendToSupportLoginRecoverySuccessBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Caro Suporte,&lt;/font&gt;
+    &lt;br /&gt;
+	&lt;br /&gt;&lt;font face="Arial" size="2"&gt;
+O membro requerido solicitou redefinir nome de usuário e / ou senha. Este é o e-mail que ele / ela entrou:
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;  
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face = "Arial" size="2" &gt;&lt;b&gt; Email:&lt;/b&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face = "Arial" size="2" &gt;{2}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face = "Arial" size="2" &gt;&lt;b&gt;ID:&lt;/b&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face = "Arial" size="2" &gt;{3}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;font size="2"&gt; O Membro recebeu uma mensagem de sucesso.
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br/&gt;
+&lt;img src="{4}"alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face = "Arial" size="2" &gt; 
+    Sincerely,&lt;br /&gt;
+    The Activ4Pets Team &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SendToSupportLoginRecoverySuccessSubject" xml:space="preserve">
+    <value>Activ4Pets: Sucesso na Solicitação de recuperação de Login</value>
+  </data>
+  <data name="SendToSupportPlanChangedBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Caro Suporte,    &lt;br/&gt;
+    &lt;br/&gt;
+Abaixo, você pode encontrar as informações de transação:
+    &lt;br/&gt;
+    &lt;br/&gt;      
+&lt;/font&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{2} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Número da Transação: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{3} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; User ID: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Nome:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{5} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Apelido:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+	    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Produto: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt; mudança de plano &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+		    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Plano: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{7}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+		    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Promocode: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{8}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+		    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Animais adicionais: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{9}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Preço: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{10} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data de início:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{11} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+	    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data de Vencimento:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{12} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+	    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Resultados:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{13} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;img src="{14}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,&lt;br /&gt;
+    Time da Activ4Pets
+ &lt;br /&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SendToSupportPlanChangedSubject" xml:space="preserve">
+    <value>Novo Produto Adicionado - mudança de plano</value>
+  </data>
+  <data name="SharePetInformationBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2},    
+    &lt;br/&gt;
+	&lt;br/&gt;
+    {3} (ID: {4}) compartilhou algumas informações de seu animal com você.
+	 &lt;br/&gt;
+	 Por favor,  &lt;a href="https://login.activ4pets.com"&gt; faça login em sua conta
+&lt;/a&gt;
+    	 &lt;br/&gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+	&lt;br/&gt;
+    &lt;/font&gt;
+&lt;br /&gt;
+
+&lt;img src="{5}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{6}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{7}"&gt; Termos e Condições
+&lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+Por favor, não responda a esta mensagem de resposta automática.
+        &lt;br/&gt;
+Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="SharePetInformationSubject" xml:space="preserve">
+    <value>Seu contato compartilhou informações sobre o Pet</value>
+  </data>
+  <data name="StatusChangedToActiveBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt; Sua conta foi reativada
+&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Recebemos um pedido para ativar sua conta Activ4Pets. Se você fez esse pedido, por favor, siga as instruções abaixo.
+   &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;  
+&lt;font face="Arial" size="2"&gt;
+    • &lt;a href="https://login.activ4pets.com"&gt; Clique aqui para a página de login &lt;/a&gt; &lt;/font&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+   •	Use o nome de usuário e senha abaixo &lt;/font&gt;
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; Nome de usuário:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{4}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; Senha:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{5}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Após o login, você será solicitado a digitar uma nova senha
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+    Se precisar de ajuda, por favor contacte-nos em 1-888-51-ACTIV (22848).
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+
+&lt;img src="{6}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt; 
+    Atenciosamente,
+&lt;br /&gt;
+Time da Activ4Pets
+&lt;br /&gt;
+    &lt;br /&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="StatusChangedToActiveSubject" xml:space="preserve">
+    <value>Reativação de sua conta</value>
+  </data>
+  <data name="SubscriptionBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt; Obrigado por seu Pedido
+&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {1} {2},    
+    &lt;br/&gt;
+	&lt;br/&gt;
+  Você atualizou com êxito seu plano Activ4Pets.
+
+&lt;/font&gt;
+    &lt;br/&gt;
+	&lt;br/&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Pedido de Informação:
+&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+&lt;br/&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data / Hora:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Número da Transação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+        &lt;/td&gt;
+        &lt;tr /&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Plano:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Promocode:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data de início:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{3} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data de Vencimento:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{10} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+		&lt;td&gt;&lt;br/&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Informações De Pagamento:
+&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{1}&amp;nbsp;{2} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{8}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{9} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{11} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{12} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{13}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{14}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{15}"&gt; Termos e Condições
+&lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+        Por favor, não responda a esta mensagem de resposta automática.
+        &lt;br/&gt;
+Se você tem um problema de suporte ao cliente, entre em contato com support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="SubscriptionSubject" xml:space="preserve">
+    <value>Obrigado por seu Pedido</value>
+  </data>
+  <data name="SupportAccountActivationBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta?&lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Caro Suporte,
+    &lt;br/&gt;
+    &lt;br/&gt;
+Uma conta de proprietário foi criadapeloassistenteadmin / diretorveterinário / veterinário.
+    &lt;br/&gt;
+    &lt;br/&gt;      
+&lt;/font&gt;
+&lt;table&gt;
+ &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Status: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt; Pagamento Pendente
+&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+	 &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data de criação da conta: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{2} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+	 &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; User ID: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{3} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Nome: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Apelido: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{5} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Plano: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Promocode:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{7} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Animais adicionais:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{8} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data de início: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{9}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data de Vencimento:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{10} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;img src="{11}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{12}"&gt; 
+Política de Privacidade &lt;/a&gt; | &lt;a  href="{13}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;  &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+Porfavor, nãoresponda a estamensagem de respostaautomática.
+        &lt;br/&gt;
+Se você tem umproblema de suporteao cliente, entre emcontato support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="SupportAccountActivationSubject" xml:space="preserve">
+    <value>Criação de Conta do Proprietário - pagamento pendente</value>
+  </data>
+  <data name="WelcomeBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Obrigado por se juntar &lt;a href="http://www.activ4pets.com"&gt; Activ4Pets &lt;/a &gt; e parabéns por ter escolhido assumir o controle da saúde do seu animal de estimação como nunca foi possível antes. Temos o prazer de saudar o seu melhor amigo como um membro do nosso sistema de Registrosde saúde do animal de estimação (PHR) - o que lhe dá acesso ilimitado aos registros médicos de seu animal de estimação em qualquer lugar, a qualquer hora.
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Vamos começar agora mesmo!&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+	&lt;ol&gt;
+		&lt;li&gt; Faça o login através do nosso portal seguro - &lt;a href="https://login.activ4pets.com"&gt;https://login.activ4pets.com&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt; Complete o perfil de seu animal de estimação
+&lt;/li&gt;
+		&lt;li&gt; Complete o anexo " Formulário de RegistrosVeterinário ", e envie-o para o número de fax indicado, a fim de autorizar a nossa equipe médica a começar a coleta e fazer o upload dos registros médicos de seu animal com o seu veterinário selecionado.
+&lt;/li&gt;		
+	&lt;/ol&gt;
+&lt;/font&gt;
+&lt;font face="Arial" size="2"&gt;     
+    &lt;br/&gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src="{4}" alt="Activ4Pets" style="display: block;"&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br /&gt;
+Time da Activ4Pets
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{5}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{6}"&gt; Termos e Condições
+&lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+Por favor, não responda a esta mensagem de resposta automática.
+        &lt;br/&gt; 
+        Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="WelcomeSubject" xml:space="preserve">
+    <value> Bem-vindo ao Activ4Pets !</value>
+  </data>
+  <data name="AdminAddOwnerWelcomeBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+   Sua conta de usuário está pronta para ser ativada. Porfavor, siga as instruçõesabaixo:    &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Clique na página de login do Activ4Pets  - &lt;a href="https://login.activ4pets.com"&gt;https://login.activ4pets.com&lt;/a&gt; &lt;/font&gt;
+	&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Digiteseu nome de usuário e umasenhatemporária &lt;/font&gt;
+	&lt;br /&gt;
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; Nome de usuário:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{4}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; SenhaTemporária:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt; 
+            &lt;font face="Arial" size="2"&gt;{5}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Após o login, será solicitado que você complete o pagamento da inscrição, digite uma nova senha e aceite os Termos e Condições.&lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Se precisar de ajuda, porfavorcontate-nos em 1-888-51-ACTIV (22848).
+ &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+
+&lt;img src="{6}" style="display: block;"&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Atenciosamente,,&lt;br /&gt;
+    Time da Activ4Pets    &lt;br /&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="AdminAddUserSubject" xml:space="preserve">
+    <value>A ativação de sua conta</value>
+  </data>
+  <data name="AdminAddUserWelcomeBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+   Sua conta de usuário está pronta para ser ativada. Porfavor, siga as instruçõesabaixo:    &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    •  Clique na página de login do Activ4Pets  - &lt;a href="https://login.activ4pets.com"&gt;https://login.activ4pets.com&lt;/a&gt; &lt;/font&gt;
+	&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Digiteseu nome de usuário e umasenhatemporária &lt;/font&gt;
+	&lt;br /&gt;
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; Nome de usuário:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{4}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; Senha Temporária:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt; 
+            &lt;font face="Arial" size="2"&gt;{5}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;font face="Arial" size="2"&gt;
+    Após o login, será solicitado que você complete o pagamento da inscrição, digite uma nova senha e aceite os Termos e Condições .&lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, porfavorcontate-nos em 1-888-51-ACTIV (22848).    &lt;br /&gt;
+    &lt;br /&gt;
+
+&lt;img src="{6}" style="display: block;"&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Atenciosamente,,&lt;br /&gt;
+    Time da Activ4Pets    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="EconsultationAssinedVetBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+
+    Caro {2} {3},    
+    &lt;br/&gt;
+    &lt;br/&gt;
+Como parte da rede de veterinários Activ4Pets, você tem foi atribuído a este caso de e-consulta para um dos nossos membros. Veja abaixo informações sobre o caso.
+     &lt;br/&gt;
+     &lt;br/&gt;
+ 
+&lt;/font&gt; 
+ &lt;table&gt;
+     &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt;CE ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;EC{4} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Nome de estimação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Pet Tipo: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Estado:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+       &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Data / Hora: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{8} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Nome:  &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{9} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+      &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Apelido:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{10} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+      &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Email:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{11} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+      &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Membro ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{12} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+ &lt;/table&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+Por favor, &lt;a href="http://login.activ4pets.com"&gt; leia &lt;/a&gt; este pedido imediatamente.
+&lt;/font&gt;  
+&lt;br /&gt; 
+&lt;br /&gt;
+
+&lt;img src="{13}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com/"&gt;http://www.activ4pets.com/&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="EconsultationAssinedVetSubject" xml:space="preserve">
+    <value>Você foi designado a um Processo de E-consulta</value>
+  </data>
+  <data name="EconsultationReportReady" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+
+    Caro {2} {3},  
+&lt;br/&gt;
+&lt;br/&gt;	
+     Informamos que o resumo da E-consulta para seu animal de estimação está disponível.
+
+
+&lt;/font&gt;
+ &lt;br/&gt;
+&lt;br/&gt;
+&lt;table&gt;
+       
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; CE ID: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Status: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        &lt;/td&gt;
+        &lt;tr /&gt;
+    
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Você pode rever o relatório fazendo &lt;a href="http://login.activ4pets.com"&gt; o login.
+&lt;/a&gt;.
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;/font&gt;
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{6}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://login.activ4pets.com"&gt;login.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="EconsultationReportReadySubject" xml:space="preserve">
+    <value>O Relatório de E-Consulta está pronto</value>
+  </data>
+  <data name="EconsultationScheduleConfirm" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+
+    Caro {2} {3},    
+    &lt;br/&gt;
+    &lt;br/&gt;
+	O seu pedido e-consulta foi agendada pelo perito.
+     &lt;br/&gt;
+	Por favor, leia as informações abaixo:
+     &lt;br/&gt;
+     &lt;br/&gt;
+&lt;/font&gt;	
+	&lt;table&gt;
+	    &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; CE ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	    &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Nome de estimação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	   &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Pet Tipo:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	   &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Estado:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	&lt;/table&gt;
+	
+&lt;br /&gt;	
+&lt;br /&gt;
+	&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Especialista:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{8}&amp;nbsp;{9} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	    &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; data:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{10} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	    &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Time:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{11} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	&lt;/table&gt;
+ 
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+Por favor &lt;a href="http://login.activ4pets.com"&gt; reveja &lt;/a&gt; isto imediatamente.
+ 
+&lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+
+&lt;img src="{11}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com/"&gt;http://www.activ4pets.com/&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="EconsultationScheduleConfirmationSubject" xml:space="preserve">
+    <value>Confirmação de cronograma de e-consulta</value>
+  </data>
+  <data name="EconsultationUserProposedTime" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},    
+    &lt;br/&gt;
+    &lt;br/&gt;
+	Foi solicitada uma nova data e hora para a e-consulta.
+     &lt;br/&gt;
+	Por favor, leia as informações abaixo:
+     &lt;br/&gt;
+     &lt;br/&gt;
+&lt;/font&gt;	
+	&lt;table&gt;
+	    &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Pedido de:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	    &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt;EC ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	    &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Nome de estimação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	   &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Pet Tipo:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	   &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Estado:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{8} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	&lt;/table&gt;
+	
+&lt;br /&gt;	
+&lt;br /&gt;
+	&lt;table&gt;
+	    &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; data:
+&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{9} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	    &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Time:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{10} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	&lt;/table&gt;
+ 
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+    Por favor &lt;a href="login.activ4pets.com"&gt; reveja &lt;/a&gt; esta proposta imediatamente. 
+&lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+
+&lt;img src="{11}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com/"&gt;http://www.activ4pets.com/&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="EconsultationUserProposedTimeSubject" xml:space="preserve">
+    <value>Proposta para nova data e hora da e-consulta</value>
+  </data>
+  <data name="ForgotPasswordBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+   &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta?&lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Recebemos um pedido para redefinir a senha associada com as informações fornecidas. Se você fez esse pedido, por favor, siga as instruções abaixo.
+
+ &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;  
+&lt;font face="Arial" size="2"&gt;
+    • &lt;a href="https://login.activ4pets.com"&gt; Clique para a página de login do Activ4Pets
+&lt;/a&gt; &lt;/font&gt;
+    &lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Use o seu nome de usuário e senha atual &lt;/font&gt;
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; Nome de usuário:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{4}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:+5px;"&gt;&lt;b&gt; Senha:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{5}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;font face="Arial" size="2"&gt;
+    • Após o login, será solicitado uma nova senha
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+    Se precisar de ajuda, porfavorcontate-nos em 1-888-51-ACTIV (22848).
+&lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+
+&lt;img src="{6}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt; 
+    Atenciosamente,,&lt;br /&gt;
+    Time da Activ4Pets
+ &lt;br /&gt;
+    &lt;br /&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições
+&lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Porfavor, nãoresponda a estamensagem de respostaautomática.
+
+		&lt;br/&gt;
+		Se você tem umproblema de suporteao cliente, entre emcontatocom support@activ4pets.com
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="ForgotPasswordSubject" xml:space="preserve">
+    <value>Sua Solicitação de Informações para o Login</value>
+  </data>
+  <data name="SendSupportUserEconsultSubscriptionBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+
+Caro Suporte,
+    &lt;br/&gt;
+    &lt;br/&gt;
+ Abaixo, você pode encontrar as informações da transação:
+
+     &lt;br/&gt;
+     &lt;br/&gt;
+&lt;/font&gt; 
+ &lt;table&gt;
+     &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Data:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{2} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Número da Transação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{3} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; User ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+    &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Nome:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+    &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Apelido:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+ &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Produto:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+ &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Valor:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;${8} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; CE ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;EC{9} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Resultados:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{10} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+ &lt;/table&gt;
+ 
+&lt;br /&gt; 
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{11}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+    Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com/"&gt;http://www.activ4pets.com/&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SendToSupportEconsultationWithdrawBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+
+Caro Suporte,    
+    &lt;br/&gt;
+    &lt;br/&gt;
+Um membro retirou um pedido de e-consulta.
+     &lt;br/&gt;
+     &lt;br/&gt;
+&lt;/font&gt; 
+ &lt;table&gt;
+     &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; CE ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{2} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Nome de estimação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{3} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Pet Tipo:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+    &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Estado:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+    &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Programação Data / Hora:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+ &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Retirar Data / Hora:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+ &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Nome:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{8} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Apelido:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{9} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Email:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{10} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;
+  &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Membro ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+             &lt;font face="Arial" size="2"&gt;&amp;nbsp;{11} &lt;/font&gt;
+         &lt;/td&gt;
+     &lt;/tr&gt;
+ &lt;/table&gt;
+ 
+&lt;br /&gt; 
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    If you need assistance, please contact us at 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{11}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com/"&gt;http://www.activ4pets.com/&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SendToSupportEconsultationWithdrawSubject" xml:space="preserve">
+    <value>Retirada da EC</value>
+  </data>
+  <data name="SendToSupportNewSMORequestBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Caro Suporte,
+    &lt;br/&gt;
+    &lt;br/&gt;
+    Abaixo, você pode encontrar as informações de transação: 
+    &lt;br/&gt;
+    &lt;br/&gt;      
+&lt;/font&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{2} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Número da Transação: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{3} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; User ID: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Nome:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Apelido:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+	    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Produto: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp; Segunda Opinião &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Valor: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;${9} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;SMO ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{10} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+	    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Resultados:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp; Aprovado &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;img src="{11}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SendToSupportNewSMORequestSubject" xml:space="preserve">
+    <value>Novo Produto Adicionado - Pagamento Online</value>
+  </data>
+  <data name="SendToVDNewSMORequestBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Caro Director Veterinario,
+    &lt;br/&gt;
+	&lt;br/&gt;
+     Um pedido de segunda opinião médica foi feita.
+	 &lt;br/&gt;
+	Por favor, revise as informações do membro a seguir:
+&lt;/font&gt;
+    &lt;br/&gt;
+	&lt;br/&gt;
+&lt;table&gt;     
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;SMO ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{2} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Nome de estimação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{3} &lt;/font&gt;
+        &lt;/td&gt;
+        &lt;tr /&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Pet Tipo:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Título:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data / Hora:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Nome:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+  
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;b&gt; Apelido:&lt;/b&gt; &lt;/font&gt;
+        &lt;/td&gt;     
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{8}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	 &lt;td&gt;
+       &lt;font face="Arial" size="2"&gt;&lt;b&gt; Email:&lt;/b&gt; &lt;/font&gt;
+        &lt;/td&gt;  
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{9} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	 &lt;td&gt;
+       &lt;font face="Arial" size="2"&gt;&lt;b&gt; Membro ID:&lt;/b&gt; &lt;/font&gt;
+        &lt;/td&gt;  
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{10} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Por favor, &lt;a href="http://www.activ4pets.com"&gt; leia &lt;/a&gt; este pedido imediatamente.
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{11}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SendToVDNewSMORequestSubject" xml:space="preserve">
+    <value>Pedido de segunda opinião médica</value>
+  </data>
+  <data name="SMOAssignedVetBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},    
+    &lt;br/&gt;
+	&lt;br/&gt;
+    Como parte da rede de veterinários Activ4Pets, você tem sido atribuído a este Caso de Segunda Opinião por um dos nossos membros. Veja abaixo informações sobre o caso.
+
+&lt;/font&gt;
+    &lt;br/&gt;
+	&lt;br/&gt;
+&lt;table&gt;     
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;SMO ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;SM{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Nome de estimação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        &lt;/td&gt;
+        &lt;tr /&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Pet Tipo:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Título:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Data / Hora:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{8} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Nome:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{9} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+  
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;b&gt; Apelido:&lt;/b&gt; &lt;/font&gt;
+        &lt;/td&gt;     
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{10}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	 &lt;td&gt;
+       &lt;font face="Arial" size="2"&gt;&lt;b&gt; Email:&lt;/b&gt; &lt;/font&gt;
+        &lt;/td&gt;  
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{11} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	 &lt;td&gt;
+       &lt;font face="Arial" size="2"&gt;&lt;b&gt; Membro ID:&lt;/b&gt; &lt;/font&gt;
+        &lt;/td&gt;  
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{12} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Por favor, &lt;a href="http://login.activ4pets.com"&gt; leia &lt;/a&gt; este pedido imediatamente.    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{13}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SMOAssignedVetSubject" xml:space="preserve">
+    <value>Você foi designado a um caso de Segunda Opinião Médica</value>
+  </data>
+  <data name="SMOInProcessBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},    
+    &lt;br/&gt;
+	&lt;br/&gt;
+	Nossos Diretor Veterinárioe o Veterinário Especialista estão atualmente revendo o seu pedido. Você será contatado assim que o relatório SMO estiver completo.
+	&lt;br/&gt;
+	&lt;br/&gt;
+	Você pode verificar o status do seu efetuando o &lt;a href="http://www.activ4pets.com"&gt; login.&lt;/a&gt;.
+	&lt;br/&gt;
+	&lt;br/&gt;
+	&lt;b&gt; SMO ID: &lt;/b&gt; &amp;nbsp;SM{4}
+&lt;/font&gt;	
+&lt;br /&gt;	
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{5}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SMOInProcessSubject" xml:space="preserve">
+    <value>Seu Pedidode Segundo Opiniãoesta em processo</value>
+  </data>
+  <data name="SMOReportReadyBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},    
+    &lt;br/&gt;
+	&lt;br/&gt;
+	Informamos que a segunda opinião médica para o seu animal de estimação está disponívelagora.
+&lt;/font&gt;	
+	&lt;br/&gt;
+	&lt;br/&gt;
+
+
+&lt;table&gt;
+	    &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt;SMO ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+	    &lt;tr&gt;
+		&lt;td&gt;
+		&lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px"&gt;&lt;b&gt; Status:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+            	&lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        	&lt;/td&gt;
+	    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br /&gt;	
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Você pode rever o relatório fazendo o &lt;a href="http://www.activ4pets.com"&gt; login. &lt;/a&gt;    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+
+
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{6}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SMOReportReadySubject" xml:space="preserve">
+    <value>O Relatóriode Segunda Opinião está pronto</value>
+  </data>
+  <data name="SMOResponseFromExpertBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; 
+Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2},    
+    &lt;br/&gt;
+	&lt;br/&gt;
+A resposta para a segunda opinião médica foi feita.
+	 &lt;br/&gt;
+	Por favor, leia as informações abaixo:
+
+&lt;/font&gt;
+    &lt;br/&gt;
+	&lt;br/&gt;
+&lt;table&gt;  
+	&lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Resposta de:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{3} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;   
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;SMO ID:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Nome de estimação:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{5} &lt;/font&gt;
+        &lt;/td&gt;
+        &lt;tr /&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Pet Tipo:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Título:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&amp;nbsp;{7} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Por favor &lt;a href="http://www.activ4pets.com"&gt; reveja &lt;/a&gt; esta resposta imediatamente.
+ 
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{8}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+	&lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt;&lt;/font&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;font face="Arial" size="2"&gt;
+		Por favor, não responda a esta mensagem de resposta automática.
+		&lt;br/&gt;
+		Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+
+		&lt;br/&gt;
+	&lt;/font&gt;
+&lt;center&gt;</value>
+  </data>
+  <data name="SMOResponseFromExpertSubject" xml:space="preserve">
+    <value>Você recebeu uma resposta SMO de um especialista</value>
+  </data>
+  <data name="SupportUserEconsultSubscriptionSubject" xml:space="preserve">
+    <value>Novo Produto Adicionado - Pagamento Online</value>
+  </data>
+  <data name="NewMessageNotificationBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta ?
+&lt;b&gt;Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt; 
+&lt;font face="Arial" size="2" &gt;
+    Caro {2} {3},
+    &lt;br/&gt;
+    &lt;br/&gt; &lt;/font&gt;
+&lt;font face="Arial" size="2" &gt;
+Você acaba de receber uma nova mensagem de &lt;b&gt;{4} {5}&lt;/b&gt; (ID:{6}). &lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;font face="Arial" size="2" &gt;
+Por favor, 
+&lt;a href=" https://login.activ4pets.com"&gt; faça login na sua conta.&lt;/a&gt; &lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;font face="Arial" size="2" &gt;
+Se precisar de ajuda, por favor contacte-nos em 1-888-51-ACTIV (22848).
+&lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+
+&lt;img src={7} alt="Activ4Pets" style="display: block;" /&gt;&lt;br/&gt;
+&lt;font face = "Arial" size="2" &gt;
+Atenciosamente,
+&lt;br/&gt;
+Time da Activ4Pets
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;center&gt;
+&lt;font face ="Arial" size="2" color ="#15c" &gt;&lt;b&gt;&lt;a  href="{8}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{9}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+  &lt;br/&gt;
+&lt;br/&gt;
+    &lt;font face ="Arial" size="2" &gt;
+        Por favor, não responda a esta mensagem de resposta automática.
+
+        &lt;br/&gt;
+Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="NewMessageNotificationSubject" xml:space="preserve">
+    <value>Você acaba de receber uma nova mensagem</value>
+  </data>
+  <data name="NewSMODetailsToOwnerBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt; 
+&lt;font face="Arial" size="2" &gt;
+    Caro {2} {3},
+    &lt;br/&gt;
+    &lt;br/&gt; &lt;/font&gt;
+&lt;font face="Arial" size="2" &gt;
+    Você solicitou uma segunda opinião médica para o seu animal de estimação {5}.
+
+	&lt;br/&gt;
+	O título é:
+ &lt;b&gt;{4}&lt;/b&gt;. &lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;font face="Arial" size="2" &gt;
+Por favor,  &lt;a href=" https://login.activ4pets.com"&gt; Inscreva-se para avaliar este pedido
+ &lt;/a&gt; &lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+
+&lt;img src={6} alt="Activ4Pets" style="display: block;" /&gt;&lt;br/&gt;
+&lt;font face = "Arial" size="2" &gt;
+Atenciosamente,
+&lt;br/&gt;
+O Time da Activ4Pets
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;center&gt;
+&lt;font face ="Arial" size="2" color ="#15c" &gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições
+&lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+  &lt;br/&gt;
+&lt;br/&gt;
+    &lt;font face ="Arial" size="2" &gt;
+Por favor, não responda a esta mensagem de resposta automática.
+        &lt;br/&gt;
+Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="NewSMODetailsToOwnerSubject" xml:space="preserve">
+    <value>Activ4pets - Nova segunda opinião médica, Detalhes da solicitação</value>
+  </data>
+  <data name="NewSMONotificationToVetDirectorBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt; 
+&lt;font face="Arial" size="2" &gt;
+    Caro {2} {3},
+    &lt;br/&gt;
+    &lt;br/&gt; &lt;/font&gt;
+&lt;font face="Arial" size="2" &gt;
+    Um pedido de segunda opinião médica foi feito.
+	&lt;br/&gt;
+	O título é:
+ &lt;b&gt;{4}&lt;/b&gt; &lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;font face="Arial" size="2" &gt;
+Por favor,  &lt;a href=" https://login.activ4pets.com"&gt; Inscreva-se para avaliar este pedido .&lt;/a&gt; &lt;/font&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+
+
+&lt;img src={5} alt="Activ4Pets" style="display: block;" /&gt;&lt;br/&gt;
+&lt;font face = "Arial" size="2" &gt;
+    Atenciosamente,
+&lt;br/&gt;
+O Time da Activ4Pets
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;center&gt;
+&lt;font face ="Arial" size="2" color ="#15c" &gt;&lt;b&gt;&lt;a  href="{6}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{7}"&gt; Termos e Condições
+&lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+  &lt;br/&gt;
+&lt;br/&gt;
+    &lt;font face ="Arial" size="2" &gt;
+Por favor, não responda a esta mensagem de resposta automática.
+        &lt;br/&gt;
+Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="NewSMONotificationToVetDirectorSubject" xml:space="preserve">
+    <value>Activ4pets - Novo Pedido de Segunda Opinião Médica</value>
+  </data>
+  <data name="SendInviteMailFriendBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+ &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta?&lt;b&gt; Ligue para 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color:#444;border-width:0;color:#444;height:2px;"&gt;
+&lt;br/&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt; Você foi convidado para se juntar ao Activ4Pets Hoje!
+&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br/&gt;
+&lt;br/&gt; 
+&lt;font face="Arial" size="2"&gt;
+Caro {1} {2},
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+Por favor, aceite este convite para se juntar ao &lt;a href="http://www.activ4pets.com"&gt;Activ4Pets&lt;/a&gt;, uma plataforma interativa de serviços de saúde on-line para os seus animais de estimação!&lt;/font&gt;
+&lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+Com a adesão ao Activ4Pets, você tem acesso ilimitado ao Registro Medico (PHR), do seu animal de estimação a qualquer hora, em qualquer lugar. Você terá acesso instantâneo aos medicamentos do seu animal de estimação, imagens, exames laboratoriais, procedimentos e muito mais. Você pode optar por compartilhar o PHR do seu animal de estimação com qualquer pessoa - um amigo, membro da família, ou o seu veterinário.
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+O melhor de tudo isso e que a nossa equipe pode fazer:
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+&lt;ol&gt;
+&lt;li&gt; Contatos com seu médico veterinário em seu nome
+&lt;/li&gt;
+&lt;li&gt; A Coleta de todos os registros médicos de seu animal de estimação com o veterinário
+&lt;/li&gt;
+&lt;li&gt; Uploads dos registros médicos de seu animal de estimação em sua conta on-line (Pet Health Record)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;font face="Arial" size="2" &gt;
+&lt;a href=" https://login.activ4pets.com/Account/SignUp"&gt; Inscreva-se hoje!
+&lt;/a&gt;
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+
+&lt;font face ="Arial" size="2" &gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+&lt;br/&gt;
+&lt;br/&gt; &lt;/font&gt;		
+&lt;img src={3} alt="Activ4Pets" style=”display: block;” /&gt;&lt;br/&gt;&lt;font face = "Arial" size="2" &gt;
+&lt;br/&gt;
+Atenciosamente,
+&lt;br/&gt;
+O Time da Activ4Pets
+&lt;br/&gt;
+&lt;br/&gt;&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{4}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{5}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+Por favor, não responda a esta mensagem de resposta automática.	
+        &lt;br/&gt; 
+        Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="SendInviteMailFriendSubject" xml:space="preserve">
+    <value>convida você para participar do Activ4Pets</value>
+  </data>
+  <data name="SendInviteMailVeterinarianBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+ &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color:#444;border-width:0;color:#444;height:2px;"&gt;
+&lt;br/&gt;
+&lt;div style="margin-left: -2px;"&gt;
+    &lt;font size="6"&gt;&lt;b&gt; Você foi convidado para se juntar a rede Activ4Pets !
+&lt;/b&gt;&lt;/font&gt;
+&lt;/div&gt;
+&lt;br/&gt;
+&lt;br/&gt; 
+&lt;font face="Arial" size="2"&gt;
+Caro {1} {2},
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+Por favor, aceite este convite para se tornar um membro Veterinário da 
+ &lt;a href="http://www.activ4pets.com"&gt;Activ4Pets&lt;/a&gt;. Uma vez aceito e autorizado em nosso sistema, você será capaz de:
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;font face="Arial" size="2"&gt;
+&lt;ul type="disc"&gt;
+&lt;li&gt;  &lt;b&gt; Expandir a sua prática e clientela através de consultas on-line
+&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;&lt;b&gt; Aumentar a receita através da oferta de e-consultas
+&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;View Ver os registros médicos de seu cliente em uma plataforma Online a qualquer momento.
+&lt;/b&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;font face="Arial" size="2" &gt;
+Para se juntar a rede de Veterinários da Activ4Pets e se tornar um membro:
+
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;font face="Arial" size="2" &gt;
+&lt;ol&gt;
+	&lt;li&gt;&lt;a href="http://www.activ4pets.com/contact/"&gt; Clique aqui 
+&lt;/a&gt; para começar
+&lt;/li&gt;
+	&lt;li&gt;Provide Informe o contato e as informações da sua especialidade
+&lt;/li&gt;
+	&lt;li&gt; Você será contatado em breve pelo nossoDiretor Veterinário &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/font&gt;
+&lt;br/&gt;
+&lt;font face ="Arial" size="2" &gt;&lt;b&gt; Por que Activ4Pets?
+&lt;/b&gt;&lt;/font&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+  &lt;font face ="Arial" size="2" &gt;
+Activ4Pets fornece um conjunto completo de soluções de telemedicina para animais de estimação. Nossa plataforma de serviços de saúde integrados inclui Registros médicos de saúde dos Pets(Pet Health Records), e-consultas e ferramentas educacionais on-line para manter os animais de estimação felizes e saudáveis durante o anotodo. Nós melhoramos a comunicação entre os veterinários e donos de animais, dando-lhes acesso ao histórico médico de seus PETS através de seu Celular ou Computador.
+  &lt;/font&gt;
+&lt;br/&gt; &lt;/font&gt;
+&lt;br/&gt; &lt;font face ="Arial" size="2" &gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+&lt;br/&gt;
+&lt;br/&gt; &lt;/font&gt;		
+&lt;img src={3} alt="Activ4Pets" style=”display: block;” /&gt;&lt;br/&gt;&lt;font face = "Arial" size="2" &gt;
+&lt;br/&gt;
+Atenciosamente,
+&lt;br/&gt;
+O Time da Activ4Pets
+&lt;br/&gt;
+&lt;br/&gt;&lt;/font&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{4}"&gt; 
+Política de Privacidade &lt;/a&gt; | &lt;a  href="{5}"&gt; Termos e Condições &lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+Por favor, não responda a esta mensagem de resposta automática.        &lt;br/&gt; 
+Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="SendInviteMailVeterinarianSubject" xml:space="preserve">
+    <value>convidou você para participar da Rede Activ4Pets</value>
+  </data>
+  <data name="SMORequestPaymentPendingBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+     &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt; Precisa fazer uma pergunta? &lt;b&gt; Ligue para 1-888-51-ACTIV (22848)
+
+&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;Your {1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Caro {2} {3},    
+    &lt;br/&gt;
+	&lt;br/&gt;
+	Com base em seu pedido, o {4} apresentou uma segunda opinião médica para o seu animal de estimação, em seu nome. 
+	&lt;br/&gt;
+	&lt;br/&gt;
+	Você pode completar o pagamento para o seu pedido, 
+&lt;a href="http://www.activ4pets.com"&gt; Fazendo Loggin em 
+&lt;/a&gt;.
+	&lt;br/&gt;
+	&lt;br/&gt;
+	&lt;b&gt;SMO ID: &lt;/b&gt; {5}
+&lt;/font&gt;	
+&lt;br /&gt;	
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Se precisar de ajuda, por favor contate-nos em 1-888-51-ACTIV (22848).
+    &lt;br/&gt;
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;img src="{6}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+O Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{7}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{8}"&gt; Termos e Condições
+&lt;/a&gt;&lt;/b&gt; &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+Por favor, não responda a esta mensagem de resposta automática.
+        &lt;br/&gt;
+Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="SMORequestPaymentPendingSubject" xml:space="preserve">
+    <value>O  pagamento da Segunda Opinião está pendente</value>
+  </data>
+  <data name="SupportUserSubscriptionBody" xml:space="preserve">
+    <value>&lt;table width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td align="left"&gt;
+            &lt;img src="{0}" alt="Activ4Pets" style="display: block;" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td align="right"&gt;&lt;font face="Arial" size="2"&gt;Need to ask a question? &lt;b&gt;Call 1-888-51-ACTIV (22848)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr style="background-color: #444; border-width: 0; color: #444; height: 2px;"&gt;
+&lt;br /&gt;
+&lt;div style="margin-left: -2px;"&gt;&lt;font size="6"&gt;&lt;b&gt;{1}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+    Dear Support,
+    &lt;br/&gt;
+    &lt;br/&gt;
+Abaixo, você pode encontrar as informações da transação:    &lt;br/&gt;
+    &lt;br/&gt;      
+&lt;/font&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Nome: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{2} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Apelido: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{3} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Email: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{4} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Promocode:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{5} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Plano: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{6} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt; Valor: &lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;${7}&lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;&lt;div style="margin-left:-2px;"&gt;&lt;b&gt;Referral:&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;font face="Arial" size="2"&gt;{8} &lt;/font&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;img src="{9}" alt="Activ4Pets" style="display: block;" /&gt;
+&lt;br /&gt;
+&lt;font face="Arial" size="2"&gt;
+Atenciosamente,
+&lt;br/&gt;
+O Time da Activ4Pets
+    &lt;br/&gt;
+&lt;/font&gt;
+&lt;br /&gt;
+&lt;a href="http://www.activ4pets.com"&gt;http://www.activ4pets.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;center&gt;
+    &lt;font face="Arial" size="2" color="#15c"&gt;&lt;b&gt;&lt;a  href="{10}"&gt; Política de Privacidade &lt;/a&gt; | &lt;a  href="{11}"&gt; Termos e Condições
+&lt;/a&gt;&lt;/b&gt;  &lt;/font&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;font face="Arial" size="2"&gt;
+Por favor, não responda a esta mensagem de resposta automática.
+        &lt;br/&gt;
+Se você tem um problema de suporte ao cliente, entre em contato support@activ4pets.com.	
+        &lt;br/&gt;
+    &lt;/font&gt;
+&lt;/center&gt;</value>
+  </data>
+  <data name="SupportUserSubscriptionByA4PMailSubject" xml:space="preserve">
+    <value>Novo Utilizador Registado - Registrado pela Equipe da Activ4Pets</value>
+  </data>
+  <data name="WelcomePdfName" xml:space="preserve">
+    <value>Formulario de Registros veterinários</value>
+  </data>
+</root>

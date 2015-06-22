@@ -1,0 +1,26 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+
+@model ADOPets.Web.ViewModels.SMO.DetailsViewModel
+@using Resources = ADOPets.Web.Resources.Wording
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Resources.Smo_Edit_Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">@Resources.Smo_Edit_SMOReport</h4>
+      </div>
+         @if( Model.SMOREquest.VetComment!=null)
+        {
+      <div class="modal-body">
+        @(Model.SMOREquest.VetComment)
+    </div>
+         }
+      <div class="modal-footer attachment">
+        <link href="@Url.Content("~/Content/css/flaticon.css")" rel="stylesheet">
+        <a href="@Url.Content("~/Content/images/dummyDoc.docx")"class="btn btn-primary"><span class="flaticon-docx1"></span></a>
+        <a href="@Url.Content("~/Content/images/dummyTxt.txt")" class="btn btn-primary" target="_blank"><span class="flaticon-txt"></span></a>
+        <a href="@Url.Content("~/Content/images/dummyImg.jpg")" class="btn btn-primary" target="_blank"><img src="@Url.Content("~/Content/images/dummyImg.jpg")" alt="img"/></a>
+      </div>
+    </div>
+  </div>

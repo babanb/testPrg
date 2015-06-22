@@ -1,0 +1,65 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Condition.IndexViewModel>
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+
+<div id="conditionList" class="">
+
+    @Html.RenderSuccessMessage("ConditionSuccessMessage", TempData["SuccessMessage"])
+
+    <table id="Table_condition" class="table table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th width="45%">@Resources.Pet_MedicalRecords_Conditions</th>
+                <th width="20%">@Resources.Condition_Index_VisitDate</th>
+                <th width="20%">@Resources.Condition_Index_EndDate</th>
+                @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                {
+                    if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                    {
+                        if (SMOHelper.CanEditPet(ViewBag.PetId))
+                        {
+                    <th width="15%">@Resources.Condition_Index_Action</th>
+                        }
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.VisitDate.ToShortDateString()
+                    </td>
+                    <td>
+                        @if (item.EndDate.HasValue)
+                        {
+                            @item.EndDate.Value.ToShortDateString()
+                        }
+                    </td>
+                    @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                    {
+                        if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                        {
+                            if (SMOHelper.CanEditPet(ViewBag.PetId))
+                            {
+                        <td>
+                            <a href="@Url.Action("Edit", "Condition", new { conditionId = item.Id })" class="btn btn-success btn-sm editCondition" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Condition_Index_Edit"><i class="fa fa-pencil"></i></a>
+
+                            <a href="@Url.Action("DeleteConfirm", "Condition", new { conditionId = item.Id, petId = ViewBag.PetId })" class="btn btn-warning btn-sm deleteCondition" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Condition_Index_Delete" aria-describedby="tooltip992278"><i class="fa fa-trash-o"></i></a>
+
+                        </td>
+                            }
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="@Url.Content("~/Scripts/customs/views/Condition/List.js")"></script>

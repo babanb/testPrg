@@ -1,0 +1,68 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Surgery.EditViewModel
+@using ADOPets.Web.Common.Extensions
+
+<div class="modal-dialog">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">@Resources.Surgery_Edit_Title</h4>
+        </div>
+        @using (Ajax.BeginForm("Edit", "Surgery", new AjaxOptions
+                                                   {
+                                                       UpdateTargetId = "surgeryList",
+                                                       HttpMethod = "POST",
+                                                       InsertionMode = InsertionMode.Replace,
+                                                       OnSuccess = "CloseDialogSurgery"
+                                                   }, new { @id = "editSurgeryForm", @class = "form-horizontal defaultForm", @role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="modal-body">
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.PetId)
+
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.Surgery, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => model.Surgery, new { @class = "form-control", placeholder = Resources.Surgery_Edit_SurgeryPlaceholder })
+                        @Html.ValidationMessageFor(model => model.Surgery)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.DateofSurgery, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                         <div class="input-group date">
+                        @Html.TextBoxFor(model => model.DateofSurgery, new { @class = "form-control datepicker", placeholder = Resources.Surgery_Edit_DateofSurgeryPlaceholder, @Value = Model.DateofSurgery.HasValue ? Model.DateofSurgery.Value.ToString("d") : string.Empty })
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DateofSurgery)
+                </div>
+                    </div>
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.Reason, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => model.Reason, new { @class = "form-control", placeholder = Resources.Surgery_Edit_ReasonPlaceholder })
+                        @Html.ValidationMessageFor(model => model.Reason)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Physician, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(model => model.Physician, new { @class = "form-control", placeholder = Resources.Surgery_Edit_PhysicianPlaceHolder })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Comments, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-8">
+                        @Html.TextAreaFor(model => model.Comments, new { @class = "form-control", @rows = "3", placeholder = Resources.Surgery_Edit_CommentsPlaceholder })
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.Surgery_Edit_SaveChanges</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Surgery_Edit_Cancel</button>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.GalleryComment.ReplyDeleteModel
+
+<div class="modal-dialog">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">@Resources.Comment_Reply_Delete_Title</h4>
+        </div>
+        <div class="modal-body">
+            <div style="overflow-x: auto; height: auto; padding-right: 10px;">
+                <h4 class="modal-title">@Resources.Comment_Reply_Delete_Message</h4>
+                <br />
+            </div>
+        </div>
+   
+        @using (Ajax.BeginForm("DeleteReply", "GalleryComment", new AjaxOptions
+        {
+            UpdateTargetId = "divComments",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogComments"
+        }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.ReplyId)
+            @Html.HiddenFor(m => m.GalleryType)
+            @Html.HiddenFor(m => m.GalleryId)
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.Temperature_Delete_SaveChanges</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Temperature_Delete_Cancel</button>
+            </div>
+        }
+
+    </div>
+</div>

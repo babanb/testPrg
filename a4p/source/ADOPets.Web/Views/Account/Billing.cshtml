@@ -1,0 +1,181 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Account.BillingViewModel
+@using ADOPets.Web.Common.Extensions
+@using Model
+
+<div class="form-horizontal">
+    <h4 style="padding: 0 20px 10px 20px; color: #63a00e;"><span style="font-weight: 600;">@Resources.Account_SignUp_SelectedPlan -</span> @Model.Plan</h4>
+
+    @using (Ajax.BeginForm("Billing", "Account", new AjaxOptions
+                                                   {
+                                                       UpdateTargetId = "Confirmation",
+                                                       HttpMethod = "POST",
+                                                       InsertionMode = InsertionMode.Replace
+                                                   }, new { @id = "PaymentForm" }))
+    {         
+        <div class="signup-form">
+            <div class="panel-group" id="accordion2">
+                @if (ADOPets.Web.Common.Helpers.DomainHelper.GetDomain() == DomainTypeEnum.US)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-mandatory="{* @Resources.Pet_Add_FieldsMandatoryMessage}" data-parent="#accordion" href="javascript:void(0)" class="first">@Resources.Account_SignUp_CreditCardInformation </a>
+                            </h4>
+
+                            @*<a data-parent="#accordion" href="javascript:void(0)" class="first">@Resources.Account_SignUp_CreditCardInformation </a></h4>*@
+                        </div>
+                        <div id="collapseOne1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div id="payment-option">
+                                            <img src="~/Content/images/mastercard.png">
+                                            <img src="~/Content/images/visa.png">
+                                            <img src="~/Content/images/discover-network.png">
+                                            <img src="~/Content/images/jcb.png">
+                                        </div>
+                                        <br>
+                                        <div class="sep-line"></div>
+                                        <br>
+                                        @Html.LabelRequiredFor(model => model.CreditCardType, new { @class = "col-sm-4 control-label" })
+                                        <div class="col-sm-8">
+                                            @Html.EnumDropDownListFor(m => m.CreditCardType, Resources.Account_SignUp_CreditCardTypePlaceHolder, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.CreditCardType)
+                                        </div>
+                                        <br>
+                                        <br>
+                                        @Html.LabelRequiredFor(model => model.CreditCardNumber, new { @class = "col-sm-4 control-label" })
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.CreditCardNumber, new { @class = "form-control", placeholder = Resources.Account_SignUp_CreditCardNumberPlaceHolder })
+                                            @Html.ValidationMessageFor(model => model.CreditCardNumber)
+                                        </div>
+
+                                        <br>
+                                        <br>
+                                        <div class="clearfix"></div>
+                                        @Html.LabelRequiredFor(model => model.ExpirationDate, new { @class = "col-sm-4 control-label" })
+                                        <div class="col-sm-8">
+                                            <div class="input-group date">
+                                                @Html.TextBoxFor(model => model.ExpirationDate, new { @class = "form-control datepicker datepickerMonthYear", placeholder = Resources.Account_SignUp_ExpirationDatePlaceHolder })
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.ExpirationDate)
+                                        </div>
+                                        <br>
+                                        <br>
+                                        @Html.LabelRequiredFor(model => model.CVV, new { @class = "col-sm-4 control-label" })
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(model => model.CVV, new { @class = "form-control", placeholder = Resources.Account_SignUp_CVVPlaceHolder })
+                                            @Html.ValidationMessageFor(model => model.CVV)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-mandatory="{* @Resources.Pet_Add_FieldsMandatoryMessage}" data-parent="#accordion" href="javascript:void(0)" class="first">@Resources.Account_SignUp_BillingAddress </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo2" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                @if (string.IsNullOrEmpty(Model.UserAddress1))
+                                {
+                                    <script> $('#billing-add').show('fast');</script>
+                                }
+                                else if (string.IsNullOrEmpty(Model.UserCity))
+                                {
+                                    <script> $('#billing-add').show('fast');</script>
+                                }
+                                else if (Model.UserZip == 0 || Model.UserZip == null)
+                                {
+                                    <script> $('#billing-add').show('fast');</script>
+                                }
+                                else if (Model.UserCountry == null)
+                                {
+                                    <script> $('#billing-add').show('fast');</script>
+                                }
+                                else
+                                {
+                                    <div class="checkbox" style="margin-left: 20px;">
+                                        @Html.LabelFor(model => model.IsBillingAddressSame, new { style = "font-weight:600;" })
+                                        @Html.CheckBoxFor(model => model.IsBillingAddressSame, new { id = "IsBillingAddressSame", @checked = "checked" })
+
+                                        <div id="plaintext-add" style="margin-top: 5px;">
+                                            @Model.UserAddress1,
+                                            @if (!string.IsNullOrEmpty(Model.UserAddress2))
+                                            {
+                                                @Model.UserAddress2
+                                            }
+                                            <br />
+                                            @Model.UserCity - @Model.UserZip, @Model.UserState, @Model.UserCountry
+                                        </div>
+                                    </div>
+                                }
+
+                                <div id="billing-add">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            @Html.LabelRequiredFor(model => model.BillingAddress1, new { @class = "col-sm-4 control-label" })
+                                            <div class="col-sm-8">
+                                                @Html.TextBoxFor(model => model.BillingAddress1, new { @class = "form-control", placeholder = Resources.Account_SignUp_Address1PlaceHolder })
+                                                @Html.ValidationMessageFor(model => model.BillingAddress1)
+                                            </div>
+                                            <br>
+                                            <br>
+                                            @Html.LabelFor(model => model.BillingAddress2, new { @class = "col-sm-4 control-label" })
+                                            <div class="col-sm-8">
+                                                @Html.TextBoxFor(model => model.BillingAddress2, new { @class = "form-control", placeholder = Resources.Account_SignUp_Address2PlaceHolder })
+                                            </div>
+                                            <br>
+                                            <br>
+                                            @Html.LabelRequiredFor(model => model.BillingCity, new { @class = "col-sm-4 control-label" })
+                                            <div class="col-sm-8">
+                                                @Html.TextBoxFor(model => model.BillingCity, new { @class = "form-control", placeholder = Resources.Account_SignUp_CityPlaceHolder })
+                                                @Html.ValidationMessageFor(model => model.BillingCity)
+                                            </div>
+                                            <br>
+                                            <br>
+                                            @Html.LabelRequiredFor(model => model.BillingCountry, new { @class = "col-sm-4 control-label" })
+                                            <div class="col-sm-8">
+                                                @Html.EnumDropDownListFor(m => m.BillingCountry, Resources.Account_SignUp_CountryPlaceHolder, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.BillingCountry)
+                                            </div>
+                                            <br>
+                                            <br>
+                                            @if (ADOPets.Web.Common.Helpers.DomainHelper.GetDomain() != DomainTypeEnum.French)
+                                            {  @Html.LabelFor(model => model.BillingState, new { @class = "col-sm-4 control-label" })
+                                                <div class="col-sm-8">
+                                                    @Html.DropDownListFor(m => m.BillingState, new List<SelectListItem>(), Resources.Account_SignUp_StatePlaceHolder, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.BillingState)
+                                                </div>
+                                                <br>
+                                                <br>}
+                                            @Html.LabelRequiredFor(model => model.BillingZip, new { @class = "col-sm-4 control-label" })
+                                            <div class="col-sm-8">
+                                                @Html.TextBoxFor(model => model.BillingZip, new { @class = "form-control", placeholder = Resources.Account_SignUp_ZipPlaceholder })
+                                                @Html.ValidationMessageFor(model => model.BillingZip)
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center">
+            <a href="#BasicInfo" id="btnback" data-toggle="tab" class="btn btn-primary btn-outline-rounded "><i class="fa fa-arrow-left"></i>@Resources.Account_SignUp_Back</a>
+            <button type="submit" class="btn btn-success btn-outline-rounded" id="next-bt">@Resources.Account_SignUp_Next <i class="fa fa-arrow-right"></i></button>
+        </p>        
+    }
+</div>
+
+<script src="@Url.Content("~/Scripts/customs/views/Account/Billing.js")"></script>

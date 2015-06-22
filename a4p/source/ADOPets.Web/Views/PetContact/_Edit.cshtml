@@ -1,0 +1,214 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@using Model
+@model ADOPets.Web.ViewModels.PetContact.EditViewModel
+@using ADOPets.Web.Common.Extensions
+<div class="modal-dialog modal-lg">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">@Resources.PetContact_Edit_Title</h4>
+        </div>
+        @using (Ajax.BeginForm("Edit", "PetContact", new AjaxOptions
+                                                   {
+                                                       UpdateTargetId = "petcontactList",
+                                                       HttpMethod = "POST",
+                                                       InsertionMode = InsertionMode.Replace,
+                                                       OnSuccess = "CloseDialogPetContact"
+                                                   }, new { @id = "editPetContactForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="modal-body">
+
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.PetId)
+
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.FirstName, new { @class = "col-sm-3 control-label" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = Resources.PetContact_Edit_FirstNamePlaceHolder })
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </div>
+                    @Html.LabelRequiredFor(model => model.LastName, new { @class = "col-sm-3 control-label" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = Resources.PetContact_Edit_LastNamePlaceHolder })
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.Relationship, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-3">
+                        @Html.EnumDropDownListFor(model => model.Relationship, new List<ContactTypeEnum> { ContactTypeEnum.Owner, ContactTypeEnum.Veterinarian }, Resources.PetContact_Edit_RelationshipPlaceHolder, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Relationship)
+                    </div>
+                    @Html.LabelFor(model => model.IsEmergencyContact, new { @class = "col-sm-3 control-label" })
+                    <div class="col-md-3">
+                        <div class="radio" style="margin-top: 2px;">
+                            <label>
+                                @Html.RadioButtonFor(model => model.IsEmergencyContact, true)
+                                @Resources.PetContact_Edit_IsEmergencyContactYes
+                            </label>
+                            <label>
+                                @Html.RadioButtonFor(model => model.IsEmergencyContact, false)
+                                @Resources.PetContact_Edit_IsEmergencyContactNo
+                            </label>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StartDate, new { @class = "col-sm-3 control-label" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.StartDate, new { @class = "form-control datepicker datepickerCustomValidation", placeholder = Resources.PetContact_Edit_StartDatePlaceHolder, @Value = Model.StartDate.HasValue ? Model.StartDate.Value.ToString("d") : string.Empty })
+                        @Html.ValidationMessageFor(model => model.StartDate)
+                    </div>
+                    @Html.LabelFor(model => model.EndDate, new { @class = "col-sm-3 control-label" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.EndDate, new { @class = "form-control datepicker datepickerCustomValidation", placeholder = Resources.PetContact_Edit_EndDatePlaceHolder, @Value = Model.EndDate.HasValue ? Model.EndDate.Value.ToString("d") : string.Empty })
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Address1, new { @class = "col-sm-3 control-label" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.Address1, new { @class = "form-control", placeholder = Resources.PetContact_Edit_Address1PlaceHolder })
+                    </div>
+                    @Html.LabelFor(model => model.Address2, new { @class = "col-sm-3 control-label" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.Address2, new { @class = "form-control", @rows = "3", placeholder = Resources.PetContact_Edit_Address2PlaceHolder })
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                @*hide some fields for fr domain *@
+                @if (ADOPets.Web.Common.Helpers.DomainHelper.GetDomain() == DomainTypeEnum.French)
+                {  
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Country, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.EnumDropDownListFor(model => model.Country, Resources.PetContact_Edit_CountryPlaceHolder, new { @class = "form-control" })
+                        </div>                        
+                        @Html.LabelFor(model => model.City, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.City, new { @class = "form-control", placeholder = Resources.PetContact_Edit_CityPlaceHolder })
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">                        
+                        @Html.LabelFor(model => model.Zip, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Zip, new { @class = "form-control", placeholder = Resources.PetContact_Edit_ZipPlaceHolder })
+                            @Html.ValidationMessageFor(model => model.Zip)
+                        </div>
+                        @Html.LabelFor(model => model.Home, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Home, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Home)
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>                    
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Cell, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Cell, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Cell)
+                        </div>
+                        @Html.LabelFor(model => model.Fax, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Fax, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Fax)
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = Resources.PetContact_Edit_EmailPlaceHolder })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                        @Html.LabelFor(model => model.Comments, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextAreaFor(model => model.Comments, new { @class = "form-control", placeholder = Resources.PetContact_Edit_CommentsPlaceHolder })
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Country, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.EnumDropDownListFor(model => model.Country, Resources.PetContact_Edit_CountryPlaceHolder, new { @class = "form-control" })
+                        </div>
+                        @Html.LabelFor(model => model.State, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.EnumDropDownListFor(model => model.State, Resources.PetContact_Edit_StatePlaceHolder, new { @class = "form-control" })
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.City, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.City, new { @class = "form-control", placeholder = Resources.PetContact_Edit_CityPlaceHolder })
+                        </div>
+                        @Html.LabelFor(model => model.Zip, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Zip, new { @class = "form-control", placeholder = Resources.PetContact_Edit_ZipPlaceHolder })
+                            @Html.ValidationMessageFor(model => model.Zip)
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Home, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Home, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Home)
+                        </div>
+                        @Html.LabelFor(model => model.Office, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Office, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Office)
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Cell, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Cell, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Cell)
+                        </div>
+                        @Html.LabelFor(model => model.Fax, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Fax, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Fax)
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = Resources.PetContact_Edit_EmailPlaceHolder })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                        @Html.LabelFor(model => model.Comments, new { @class = "col-sm-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextAreaFor(model => model.Comments, new { @class = "form-control", placeholder = Resources.PetContact_Edit_CommentsPlaceHolder })
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                }
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.PetContact_Edit_SaveChanges</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.PetContact_Edit_Cancel</button>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="@Url.Content("~/Scripts/customs/views/PetContact/Form.js")"></script>

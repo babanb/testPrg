@@ -1,0 +1,159 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Profile.PlanBillingViewModel>
+@using ADOPets.Web.Common.Extensions
+@using Model
+
+<div class="messageStyle">
+    @{ Html.RenderPartial("_Alerts"); }
+</div>
+<div id="Confirmation">
+    <div id="pageTitle">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>@Resources.Users_AddUser_PlanInformation</h1>
+            </div>
+        </div>
+    </div>
+    <div id="mainContainer">
+        @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()) && !Roles.IsUserInRole(UserTypeEnum.Admin.ToString()))
+        {
+            <div id="hiderightsidebar">
+                <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+            </div>
+            <div id="showrightsidebar">
+                <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+            </div>
+        }
+        <div id="dvBillingInfo" style="padding: 15px; background: #FFF;">
+
+            <table class="table" id="showPlan_table" style="margin: 0;">
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">
+                            <input type="checkbox" id="chkAllShare" checked="checked">
+                        </th>
+                        <th style="width: 50%;">
+                            @Resources.Users_ShowPlan_HeaderMessage
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="chkPlanData" class="checkbox" checked="checked" value="@item.PlanId" />
+                                <input type="hidden" id="hdn_chkPlanData" name="hdn_@item.PlanType" value="@item.PlanType" />
+                            </td>
+                            <td>
+                                <h4 style="padding: 0; color: #63a00e;"><span style="font-weight: 600;">@Resources.Profile_PlanDetail_YourPlan -</span> @item.Plan</h4>
+                                <h4 style="padding: 0; font-size: 14px; text-align: justify;" class="text-warning"><span style="font-weight: 600;"></span>@item.PlanType</h4>
+                                <h4 style="padding: 0;" class="text-primary"><span>@Resources.Profile_PlanDetail_YourCharge -</span> @ADOPets.Web.Common.Helpers.DomainHelper.GetCurrency()@item.Price.ToString(System.Globalization.CultureInfo.CurrentCulture)</h4>
+                                <input type="hidden" name="hdnPrice" id="hdnPrice" value="@item.Price" />
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <h3 class="bg-success" style="margin-top: 0; margin-bottom: 25px; padding: 8px 15px;">@Resources.Users_OwnerPayment_TotalCharge : @ADOPets.Web.Common.Helpers.DomainHelper.GetCurrency()<span id="spnTotalPrice"></span></h3>
+            <button type="button" id="btnProceedToPayment" class="btn btn-success btn-lg disabled">@Resources.OwnerBilling_ShowPlan_ProceedToPayment</button>
+            @*<button type="button" id="btnReset" class="btn btn-default btn-lg">@Resources.Users_AddUser_Cancel</button>*@
+            <a href="@Url.Action("CancelPlan", "OwnerPayment")" id="btnReset" class="btn btn-default btn-lg">@Resources.Users_AddUser_Cancel</a>
+
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+
+    var totalCount = $("#showPlan_table > tbody > tr").find('input[type=checkbox]').length;
+
+    $(function () {
+        calculatePrice();
+    });
+
+    $("#chkAllShare").click(function () {
+        var isChecked = $("#chkAllShare").is(":checked");
+        $("#showPlan_table > tbody").each(function () {
+            $(this).find("input[type=checkbox]").prop("checked", isChecked);
+        });
+        calculatePrice();
+    });
+
+    $("#showPlan_table > tbody > tr").find("input[type=checkbox]").click(function (e) {
+        var count = $("#showPlan_table > tbody > tr").find('input[type=checkbox]:checked').length;
+        count = count == undefined ? 0 : count;
+        if (count < totalCount) {
+            $("#chkAllShare").prop("checked", false);
+        }
+        else {
+            $("#chkAllShare").prop("checked", true);
+        }
+        calculatePrice();
+    });
+
+    $("#btnProceedToPayment").click(function () {
+        var lstPlanId = new Array();
+        $('input[name="chkPlanData"]:checked').each(function () {
+            var planBillingViewModel = new Object();
+            planBillingViewModel.Plantype = $(this).parent().children("input[type='hidden']").val();
+            lstPlanId.push(planBillingViewModel);
+        });
+
+        if (lstPlanId.length > 0) {
+            var url = "/OwnerPayment/ShowMultiplePlanDetails";
+            var data = '{lstPlanId:' + JSON.stringify(lstPlanId) + '}';
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                processData: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    //  alert(data.success);
+                    if (data.success) {
+                        window.location = "/OwnerPayment/MultiplePlanBilling";
+                    } else {
+                        window.location = "/OwnerPayment/Billing";
+                    }
+                },
+                error: function (data) {
+                    //   alert(data.success + "error");
+                }
+            });
+        }
+        else {
+
+        }
+    });
+
+    function calculatePrice() {
+        var spnTotalPrice = 0;
+        var count = 0;
+        $("#showPlan_table > tbody > tr").each(function () {
+            var isChecked = $(this).find("input[type=checkbox]").is(":checked");
+            if (isChecked) {
+                count = count + 1;
+                var amt = parseInt($(this).find("#hdnPrice").val());
+                spnTotalPrice = spnTotalPrice + amt;
+            }
+        });
+
+        $("#spnTotalPrice").text(spnTotalPrice);
+
+        if (count > 0) {
+            $("#btnProceedToPayment").removeClass("disabled");
+        } else {
+            $("#btnProceedToPayment").addClass("disabled");
+        }
+    }
+
+    //$("#btnReset").click(function () {
+
+    //});
+
+</script>

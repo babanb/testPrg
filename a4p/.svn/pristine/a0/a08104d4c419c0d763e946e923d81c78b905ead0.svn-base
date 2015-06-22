@@ -1,0 +1,65 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Immunization.IndexViewModel>
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+
+<div id="immunizationList" class="table-responsive">
+
+    @Html.RenderSuccessMessage("immunizationSuccessMessage", TempData["SuccessMessage"])
+    <table id="Table_immunization" class="table table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th width="45%">@Resources.Immunization_Index_Immunization</th>
+                <th width="20%">@Resources.Immunization_Index_InjectionDate</th>
+                <th width="20%">@Resources.Immunization_Index_SerialNumber</th>
+                @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                {
+                    if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                    {
+                        if (SMOHelper.CanEditPet(ViewBag.PetId))
+                        {
+                    <th width="15%">@Resources.Immunization_Index_Action</th>
+                        }
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Immunization
+                    </td>
+                    <td>
+                        @item.InjectionDate.ToShortDateString()
+                    </td>
+                    <td>
+                        @item.SerialNumber
+                    </td>
+                    @if (UserHelper.CanDeletePet(ViewBag.PetId))
+                    {
+                        if (ShareInfoHelper.IsSharedUser(ViewBag.PetId, ViewBag.UserId))
+                        {
+                            if (SMOHelper.CanEditPet(ViewBag.PetId))
+                            {
+                        <td>
+                            <a href="@Url.Action("Edit", "Immunization", new { immunizationId = item.Id })" class="btn btn-success btn-sm editImmunization" data-tooltip="tooltip" data-placement="top"
+                         data-original-title="@Resources.Immunization_Index_Edit"><i class="fa fa-pencil"></i></a>
+
+                            <a href="@Url.Action("DeleteConfirm", "Immunization", new { immunizationId = item.Id, petId = ViewBag.PetId })" class="btn btn-warning btn-sm deleteImmunization" data-tooltip="tooltip" data-placement="top"
+                                   data-original-title="@Resources.Immunization_Index_Delete" aria-describedby="tooltip992278">
+                                <i class="fa fa-trash-o"></i></a>
+
+                        </td>
+                            }
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+<script src="~/Scripts/customs/views/Immunization/List.js"></script>

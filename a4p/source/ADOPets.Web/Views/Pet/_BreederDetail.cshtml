@@ -1,0 +1,95 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Pet.BreederEditViewModel
+@using Model
+<div class="messageStyle">
+    @{ Html.RenderPartial("_Alerts"); }
+</div>
+<div class="clearfix"></div>
+<div class="column first">
+
+    <div class="detailrow">
+        <div>@Resources.Pet_Card_FarmerName </div>
+        <div class="colonspace">:</div>
+        <div>@Model.FarmerName</div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="detailrow">
+        <div>@Resources.Pet_Card_FarmerAddress1 </div>
+        <div class="colonspace">:</div>
+        <div>@Model.FarmerAddress1</div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="detailrow">
+        <div>@Resources.Pet_Card_FarmerAddress2 </div>
+        <div class="colonspace">:</div>
+        <div>@Model.FarmerAddress2</div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="detailrow">
+        <div>@Resources.Pet_Card_FarmerCountry </div>
+        <div class="colonspace">:</div>
+        <div>@Html.EnumDisplayFor(m => m.FarmerCountry)</div>
+        <div class="clearfix"></div>
+    </div>
+    @if (ADOPets.Web.Common.Helpers.DomainHelper.GetDomain() != DomainTypeEnum.French)
+    {
+        <div class="detailrow">
+            <div>@Resources.Pet_Card_FarmerState </div>
+            <div class="colonspace">:</div>
+            <div>@Html.EnumDisplayFor(m => m.FarmerState)</div>
+            <div class="clearfix"></div>
+        </div>
+    }
+    <div class="detailrow">
+        <div>@Resources.Pet_Card_FarmerCity </div>
+        <div class="colonspace">:</div>
+        <div>@Model.FarmerCity</div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="detailrow">
+        <div>@Resources.Pet_Card_FarmerZip </div>
+        <div class="colonspace">:</div>
+        <div>@Model.FarmerZip</div>
+        <div class="clearfix"></div>
+    </div>
+
+</div>
+
+<div class="column">
+
+    <div class="detailrow">
+        <div>@Resources.Pet_Card_FarmerHomePhone</div>
+        <div class="colonspace">:</div>
+        <div>@Model.FarmerHomePhone</div>
+        <div class="clearfix"></div>
+    </div>
+    @if (ADOPets.Web.Common.Helpers.DomainHelper.GetDomain() != DomainTypeEnum.French)
+    {
+        <div class="detailrow">
+            <div>@Resources.Pet_Card_FarmerOfficePhone</div>
+            <div class="colonspace">:</div>
+            <div>@Model.FarmerOfficePhone</div>
+            <div class="clearfix"></div>
+        </div>
+    }
+    <div class="detailrow">
+        <div>@Resources.Pet_Card_FarmerCellPhone</div>
+        <div class="colonspace">:</div>
+        <div>@Model.FarmerCellPhone</div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="detailrow">
+        <div>@Resources.Pet_Card_FarmerFax</div>
+        <div class="colonspace">:</div>
+        <div>@Model.FarmerFax</div>
+        <div class="clearfix"></div>
+    </div>
+
+</div>
+@*<script src="~/Scripts/customs/views/Pet/CardDetail.js"></script>*@

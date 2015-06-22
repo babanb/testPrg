@@ -1,0 +1,293 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model List<ADOPets.Web.ViewModels.Profile.SelectPlanViewModel>
+
+
+
+@Html.Hidden("hdnPlanId")
+<div class="table-responsive">
+    <table width="100%" border="0" class="table" id="pricingPlans">
+        <thead>
+            <tr>
+                <th width="40%"><h3>Features</h3></td>
+                @foreach (var item in Model)
+                {
+                    <th class="text-info" width="30%">
+                        <h3>
+                            @if (!string.IsNullOrEmpty(@item.lstPlanData.PlanType))
+                            {@item.lstPlanData.PlanType}
+                            else
+                            {@Resources.Account_SignUp_Plan}
+                        </h3>
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Resources.Account_SignUp_Price</td>
+                @foreach (var item in Model)
+                {
+                    <td>
+                        <h4>
+                            @if (@item.lstPlanData.Price != null && @item.lstPlanData.Price != "")
+                            {
+                                @Resources.Account_SignUp_MoneySymbol @item.lstPlanData.Price @item.lstPlanData.PaymentType
+                            }
+                            else
+                            {
+                                @item.lstPlanData.PaymentType
+                            }
+                        </h4>
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_Signup_PetCount</td>
+                @foreach (var item in Model)
+                {
+                    var petNumber = string.Format(Resources.Account_Signup_PetCountPerPlan, @item.lstPlanData.PetCount);
+                    <td><strong>@petNumber</strong></td>
+                }
+            </tr>
+            <tr>
+                <td><strong>@Resources.Account_Signup_Features</strong> <i class="fa fa-long-arrow-down"></i></td>
+                @foreach (var item in Model)
+                {
+                    <td><a href="javascript:void(0)" class="btn btn-default lnkChoosePlan" id="lnkChoosePlan" data-planId="@item.lstPlanData.SubscriptionId"><i class="fa fa-circle-o"></i>@Resources.Account_Signup_Choose</a></td>
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsPetIDInformation</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsPetIDInformation)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsEmergencyContact</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsEmergencyContact)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsVetInformation</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsVetInformation)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsMessage</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsMessage)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsCalendar</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsCalendar)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsReminder</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsReminder)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsPhotoGallery</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsPhotoGallery)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsPetShare</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsPetShare)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsHealthHistory<br>
+                    @Resources.Account_SignUp_IsHealthHistoryDescription</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsHealthHistory)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsHealthMeasureTracker<br>
+                    @Resources.Account_SignUp_IsHMTDescription</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsHealthMeasureTracker)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsMedicalDocument<br>
+                    @Resources.Account_SignUp_IsMDDescription </td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsMedicalDocument)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsMRA</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsMRA)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsSMO</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsSMO)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <td>@Resources.Account_SignUp_IsEC</td>
+                @foreach (var item in Model)
+                {
+                    if (item.lstPlanData.IsEC)
+                    {
+                    <td><i class="fa fa-check-circle"></i></td>
+                    }
+                    else
+                    {
+                    <td><i class="fa fa-times"></i></td>
+                    }
+                }
+            </tr>
+            <tr id="trBasicPlan">
+                <td></td>
+                @if (Model != null && Model.Count() > 0)
+                {
+                    if (Model.FirstOrDefault().lstPlanData.ISBase)
+                    {
+                        if (Model.FirstOrDefault().lstPlanData.PlanType == "Premium")
+                        {
+                    <td><span class="text-success">@Resources.Account_Signup_Premium</span></td>
+                    <td><span class="text-warning">@Resources.Account_Signup_Premium</span></td>
+                        }
+                        else
+                        {
+                    <td><span class="text-warning">@Resources.Account_Signup_Premium</span></td>
+                        }
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {   <td><span class="text-success">@Resources.Account_Signup_Premium</span></td>}
+                    }
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(".lnkChoosePlan").click(function () {
+        $("#pricingPlans").find(".lnkChoosePlan").removeClass("btn-success").addClass("btn-default").find("i").removeClass("fa-check-circle").addClass("fa-circle-o");
+        var planId = $(this).attr("data-planId");
+        $(this).addClass("btn-success").find("i").addClass("fa-check-circle").removeClass("fa-circle-o");
+        $("#hdnPlanId").val(planId);
+        $("#EnableTrue").hide();
+    });
+</script>

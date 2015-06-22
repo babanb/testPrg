@@ -1,0 +1,214 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Econsultation.StartEConsultationModel
+@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+
+@{
+    int EStatusId = Convert.ToInt16(TempData["EconsultStatusId"]);
+    ViewBag.Title = "StartEConsultation";
+}
+
+@Html.HiddenFor(model => model.Id, new { @name = "EConsultID", @Id = "EConsultID" })
+   
+<div class="clearfix"></div>
+  <div id="content">
+    <div id="pageTitle">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>EC ID - @Model.Id<span class="label label-info">@Model.Status</span></h1>
+        </div>
+        <div class="col-md-4"> <a href="@Url.Action("Index", "Econsultation")" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i>@Resources.Econsultation_Add_Back</a> </div>
+      </div>
+    </div>
+    <div id="mainContainer" >
+      <div id="hiderightsidebar">
+        <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt="" />
+      </div>
+     <div id="showrightsidebar">
+        <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+     </div>
+
+      <div id="cover4econsult" style="background:url(@Url.Content("~/Content/images/smo-cover.jpg")) center left repeat; padding:2% 20%;">
+        <div id="Step1" onclick="toggle_visibility1();" class="consultSteptab radius3" style="width:40%;"> 
+          <a href="#" class="zoomin hidden-ani visible-ani animated zoomIn">@Resources.Econsultation_Add_Step1<br>
+          <span>@Resources.Econsultation_View_ECDetails</span><i class="fa fa-arrow-right"></i></a> 
+        </div>
+       <div id="Step2" onclick="toggle_visibility2();" class="consultSteptab radius3 active" style="width: 40%;">
+                <a href="#" class="zoomin hidden-ani visible-ani animated zoomIn">@Resources.Econsultation_Add_Step2<br>
+                    @if (TempData["UserType"] == "1" && EStatusId == 6)
+                    {
+                        <span>@Resources.Econsultation_View_ViewReport</span> 
+                    }
+                    else
+                    {              
+                        <span>@Resources.Econsultation_View_ViewSubmit</span> 
+                    }
+                </a>
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+              
+      <div id="econsultConfirm" style="display:none">
+      <h4> 
+      <span class="pull-left">@Resources.Econsultation_View_ViewTitle</span>
+      </h4>
+      <div class="clearfix"></div>  
+
+
+          <div id="EconsultDetails">
+
+<div class="columnfull">
+      
+      <div class="detailrow">
+       <div>@Resources.Econsultation_Add_PetName</div>
+      <div class="colonspace">:</div>
+      <div>@Model.Name</div>
+      <div class="clearfix"></div>
+      </div>
+      
+      <div class="detailrow">
+      <div>@Resources.Econsultation_View_ECID</div>
+      <div class="colonspace">:</div>
+      <div>EC-@Model.Id</div>
+      <div class="clearfix"></div>
+      </div>
+      
+       <div class="detailrow">
+      <div>@Resources.Econsultation_Add_CountryOfEconsultation</div>
+      <div class="colonspace">:</div>
+      <div>United State</div>
+      <div class="clearfix"></div>
+      </div>
+      
+       <div class="detailrow">
+      <div>@Resources.Econsultation_Add_TimeZoneOfEconsultation</div>
+      <div class="colonspace">:</div>
+      <div>@Model.TimeZone.ToString()</div>
+      <div class="clearfix"></div>
+      </div>
+      
+       <div class="detailrow">
+      <div>@Resources.Econsultation_Add_DayOfEconsultation</div>
+      <div class="colonspace">:</div>
+      <div>@Model.date.ToShortDateString()</div>
+      <div class="clearfix"></div>
+      </div>
+      
+       <div class="detailrow">
+      <div>@Resources.Econsultation_Add_TimeOfEconsultation</div>
+      <div class="colonspace">:</div>
+      <div>@Model.time.ToShortTimeString()
+      </div>
+      <div class="clearfix"></div>
+      </div>
+      
+      <div class="detailrow">
+      <div>@Resources.Econsultation_Add_Status</div>
+      <div class="colonspace">:</div>
+       <div>@Model.Status
+     
+      </div>
+      <div class="clearfix"></div>
+      </div>
+
+      <div class="detailrow">
+      <div>@Resources.Econsultation_Add_ContactType</div>
+      <div class="colonspace">:</div>
+      <div>@Model.ContactType - @Model.ContactValue</div>
+      <div class="clearfix"></div>
+      </div>
+      
+      <div class="detailrow">
+      <div>@Resources.Econsultation_Add_PetCondition</div>
+      <div class="colonspace">:</div>
+      <div>@Model.Condition</div>
+      <div class="clearfix"></div>
+      </div>
+      
+      <div class="detailrow">
+      <div>@Resources.Econsultation_Add_SymptomsOfPet</div>
+      <div class="colonspace">:</div>
+      <div>1- @Model.Symtom1<br>2- @Model.Symtom2<br>3- @Model.Symtom3</div>
+      <div class="clearfix"></div>
+  
+          <div class="clearfix"></div>
+      </div>
+      
+      </div>
+      
+        </div>
+      
+      </div>
+
+        <div id="ExpertResponseSubmit" style="display:block">
+            @if (TempData["UserType"] == "1" && (Model.Status.ToString() == EConsultationStatusEnum.Complete.ToString() || Model.Status.ToString() == EConsultationStatusEnum.InProgress.ToString()))
+            {              
+            }           
+        </div>     
+
+        <div id="ExpertResponseView" style="display:none">
+
+        </div>     
+      
+    <div id="editModalEconsultation" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" role="dialog" aria-hidden="true"></div>
+
+    </div>
+    <div class="clearfix"></div>
+  
+    </div>   
+
+<script src="@Url.Content("~/Scripts/customs/views/Econsultation/StartEC.js")"></script>
+
+<script>
+
+    var intervalID, childWindow;
+
+    function func1() {
+        //var url = "http://115.115.92.218/activ/index.html?userID=" + @Model.VetId +"&Econsultation_ID=" + @Model.Id +"&Room_ID=" + @Model.RoomId +"&userRole=0&Lang=1";
+        var url = "/Econsultation/VideoConference?EcId=" + @Model.Id +"&UserType=0";
+        var name = "Start Econsultation";
+    }
+
+    function open_on_entrance(url, name) {
+        popupWin = window.open(url, "_blank")
+    }
+
+    function addLoadEvent(func) {
+        var oldonload = window.onload;
+        //var url = "http://115.115.92.218/activ/index.html?userID=" + @Model.VetId +"&Econsultation_ID=" + @Model.Id +"&Room_ID=" + @Model.RoomId +"&userRole=0&Lang=1";
+        var url = "/Econsultation/VideoConference?EcId=" + @Model.Id +"&UserType=0";
+        var name = "Start Econsultation";
+        if (typeof window.onload != 'function') {
+            window.onload = open_on_entrance(url, "_blank");
+            self.close();
+        } else {
+            window.onload = function () {
+                if (oldonload) {
+                    oldonload();
+                }
+                func();
+            }
+        }        
+    }
+
+    addLoadEvent(func1);       
+
+    function checkWindow() {
+        if (popupWin && popupWin.closed) {
+            window.clearInterval(intervalID);
+            LoadSummary();    
+        }
+    }
+    var intervalID = window.setInterval(checkWindow, 500);
+
+    function LoadSummary() {
+        var ECID = $("#EConsultID").val();
+        var url = "/Econsultation/SubmitReport?EconsultID=" + ECID;
+        $.get(url, null, function (data) {
+            $("#ExpertResponseSubmit").html(data);
+        });
+    }
+    
+</script>

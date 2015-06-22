@@ -1,0 +1,79 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@using Model
+@model IEnumerable<ADOPets.Web.ViewModels.Calender.DetailsViewModel>
+
+@{
+    ViewBag.Title = Resources.Calendar_Details_Title;
+}
+
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>@Resources.Calendar_Details_Title</h1>
+        </div>
+
+        <div class="col-md-6">
+            <button class="btn btn-success pull-right" onclick='addReminder("List")'><i class="fa fa-plus-circle"></i>@Resources.Calendar_Details_AddReminder</button>
+            <a href="@Url.Action("Index", "Calender")" class="btn btn-primary pull-right" style="margin-right:10px;"><i class="fa fa-angle-left"></i>@Resources.Calendar_Details_ViewCalendarButton</a>
+        </div>
+    </div>
+</div>
+
+<div id="mainContainer">
+    @if (!Roles.IsUserInRole(UserTypeEnum.VeterinarianAdo.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianLight.ToString()) && !Roles.IsUserInRole(UserTypeEnum.VeterinarianExpert.ToString()) && !Roles.IsUserInRole(UserTypeEnum.Admin.ToString()))
+    {
+        <div id="hiderightsidebar">
+            <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt=""/>
+        </div>
+        <div id="showrightsidebar">
+            <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+        </div>
+    }
+    <div class="well">
+        <div class="row">
+            @using (Ajax.BeginForm("SearchReminder", "Calender", new AjaxOptions
+        {
+            UpdateTargetId = "reminderList",
+            HttpMethod = "GET",
+        }, new { @id = "searchReminderForm" }))
+            {
+
+                <div class="col-md-4">
+                    <div class="input-group date">
+                        @Html.TextBox("StartDate", null, new { @class = "form-control datepicker", placeholder = Resources.Calendar_Details_StartDatePlaceHolder, @style = "z-index:100 !important;" })
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group date">
+                        @Html.TextBox("EndDate", null, new { @class = "form-control datepicker", placeholder = Resources.Calendar_Details_EndDatePlaceHolder, @style = "z-index:100 !important;" })
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+        
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-success"><i class="fa fa-search" style="padding-right: 0;"></i></button>
+                </div>
+         
+            }
+
+            <div class="col-md-3">
+                <select id="show_Reminders" name="show_Reminders" class="form-control valid" aria-invalid="false">
+                    <option value="@Resources.Calendar_Details_ViewUpcoming">@Resources.Calendar_Details_ViewUpcoming</option>
+                    <option value="" selected="selected">@Resources.Calendar_Details_ShowAll</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    @{ Html.RenderPartial("~/Views/Calender/_List.cshtml"); }
+
+    <div class="clearfix"></div>
+</div>
+
+
+<div id="addModalReminder" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="editModalReminder" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="deleteModalReminder" class="modal fade" tabindex="-1" role="dialog"></div>
+
+<script src="~/Scripts/customs/views/Calender/Index.js"></script>

@@ -1,0 +1,8 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Insurance.IndexViewModel>
+
+@{ Html.RenderPartial("~/Views/Insurance/_List.cshtml"); }
+
+
+
+<script src="~/Scripts/customs/views/Insurance/Index.js"></script>

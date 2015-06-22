@@ -1,0 +1,1986 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BloodGroupTypeEnum_DEA11" xml:space="preserve">
+    <value>DEA 1.1</value>
+  </data>
+  <data name="BloodGroupTypeEnum_DEA12" xml:space="preserve">
+    <value>DEA 1.2</value>
+  </data>
+  <data name="BloodGroupTypeEnum_DEA3" xml:space="preserve">
+    <value>DEA 3</value>
+  </data>
+  <data name="BloodGroupTypeEnum_DEA4" xml:space="preserve">
+    <value>DEA 4</value>
+  </data>
+  <data name="BloodGroupTypeEnum_DEA5" xml:space="preserve">
+    <value>DEA 5</value>
+  </data>
+  <data name="BloodGroupTypeEnum_DEA6" xml:space="preserve">
+    <value>DEA 6</value>
+  </data>
+  <data name="BloodGroupTypeEnum_DEA7" xml:space="preserve">
+    <value>DEA 7</value>
+  </data>
+  <data name="BloodGroupTypeEnum_DEA8" xml:space="preserve">
+    <value>DEA 8</value>
+  </data>
+  <data name="BloodGroupTypeEnum_DEA9" xml:space="preserve">
+    <value>DEA 9</value>
+  </data>
+  <data name="DocumentSubTypeEnum_ConsultationNote" xml:space="preserve">
+    <value>Recommendations</value>
+  </data>
+  <data name="DocumentSubTypeEnum_CTScan" xml:space="preserve">
+    <value>Scanner</value>
+  </data>
+  <data name="DocumentSubTypeEnum_DopplerStudies" xml:space="preserve">
+    <value>Doppler Studies</value>
+  </data>
+  <data name="DocumentSubTypeEnum_MRIEndoscopy" xml:space="preserve">
+    <value>IRM Endoscopie</value>
+  </data>
+  <data name="DocumentSubTypeEnum_ProgressNote" xml:space="preserve">
+    <value>Observations vétérinaires</value>
+  </data>
+  <data name="DocumentTypeEnum_ADOServices" xml:space="preserve">
+    <value>Les services ADO</value>
+  </data>
+  <data name="DocumentTypeEnum_ImagingServices" xml:space="preserve">
+    <value>Services d'imagerie</value>
+  </data>
+  <data name="GenderEnum_Female" xml:space="preserve">
+    <value>Femme</value>
+  </data>
+  <data name="GenderEnum_Male" xml:space="preserve">
+    <value>Homme</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_BeatsPerMinute" xml:space="preserve">
+    <value>Battements par minute</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_Celsius" xml:space="preserve">
+    <value>°C</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_Centimeter" xml:space="preserve">
+    <value>cm</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_Fahrenheit" xml:space="preserve">
+    <value>°F</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_Feet" xml:space="preserve">
+    <value>ft</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_Gram" xml:space="preserve">
+    <value>g</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_GramLiter" xml:space="preserve">
+    <value>g/L</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_Inches" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_Kilogram" xml:space="preserve">
+    <value>Kg</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_Meter" xml:space="preserve">
+    <value>m</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_Ounce" xml:space="preserve">
+    <value>oz</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_Percent" xml:space="preserve">
+    <value>%</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_Pounds" xml:space="preserve">
+    <value>lb</value>
+  </data>
+  <data name="MedicationStatusEnum_Activ" xml:space="preserve">
+    <value>Actif</value>
+  </data>
+  <data name="MedicationStatusEnum_Discontinued" xml:space="preserve">
+    <value>Inactif</value>
+  </data>
+  <data name="MedicationStatusEnum_Unknown" xml:space="preserve">
+    <value>Inconnu</value>
+  </data>
+  <data name="PetStatusEnum_Active" xml:space="preserve">
+    <value>Actif</value>
+  </data>
+  <data name="PetStatusEnum_Inactive" xml:space="preserve">
+    <value>Inactif</value>
+  </data>
+  <data name="PetTypeEnum_Cat" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="PetTypeEnum_Dog" xml:space="preserve">
+    <value>Chien</value>
+  </data>
+  <data name="PetTypeEnum_Duck" xml:space="preserve">
+    <value>Canard</value>
+  </data>
+  <data name="PetTypeEnum_Frog" xml:space="preserve">
+    <value>Grenouille</value>
+  </data>
+  <data name="PetTypeEnum_GuineaPig" xml:space="preserve">
+    <value>Cochon d'inde</value>
+  </data>
+  <data name="PetTypeEnum_Hamster" xml:space="preserve">
+    <value>Hamster</value>
+  </data>
+  <data name="PetTypeEnum_Horse" xml:space="preserve">
+    <value>Cheval</value>
+  </data>
+  <data name="PetTypeEnum_Other" xml:space="preserve">
+    <value>Autre</value>
+  </data>
+  <data name="PetTypeEnum_Parrot" xml:space="preserve">
+    <value>Perroquet</value>
+  </data>
+  <data name="PetTypeEnum_Rabbit" xml:space="preserve">
+    <value>Lapin</value>
+  </data>
+  <data name="PetTypeEnum_Turtle" xml:space="preserve">
+    <value>Tortue</value>
+  </data>
+  <data name="StateEnum_Alabama" xml:space="preserve">
+    <value>Alabama</value>
+  </data>
+  <data name="StateEnum_Alaska" xml:space="preserve">
+    <value>Alaska</value>
+  </data>
+  <data name="StateEnum_Arizona" xml:space="preserve">
+    <value>Arizona</value>
+  </data>
+  <data name="StateEnum_Arkansas" xml:space="preserve">
+    <value>Arkansas</value>
+  </data>
+  <data name="StateEnum_Bordeaux" xml:space="preserve">
+    <value>Bordeaux</value>
+  </data>
+  <data name="StateEnum_California" xml:space="preserve">
+    <value>California</value>
+  </data>
+  <data name="StateEnum_Colorado" xml:space="preserve">
+    <value>Colorado</value>
+  </data>
+  <data name="StateEnum_Connecticut" xml:space="preserve">
+    <value>Connecticut</value>
+  </data>
+  <data name="StateEnum_Delaware" xml:space="preserve">
+    <value>Delaware</value>
+  </data>
+  <data name="StateEnum_Florida" xml:space="preserve">
+    <value>Florida</value>
+  </data>
+  <data name="StateEnum_Georgia" xml:space="preserve">
+    <value>Georgia</value>
+  </data>
+  <data name="StateEnum_Gujrat" xml:space="preserve">
+    <value>Gujrat</value>
+  </data>
+  <data name="StateEnum_Hawaii" xml:space="preserve">
+    <value>Hawaii</value>
+  </data>
+  <data name="StateEnum_Idaho" xml:space="preserve">
+    <value>Idaho</value>
+  </data>
+  <data name="StateEnum_Illinois" xml:space="preserve">
+    <value>Illinois</value>
+  </data>
+  <data name="StateEnum_Indiana" xml:space="preserve">
+    <value>Indiana</value>
+  </data>
+  <data name="StateEnum_Iowa" xml:space="preserve">
+    <value>Iowa</value>
+  </data>
+  <data name="StateEnum_Kansas" xml:space="preserve">
+    <value>Kansas</value>
+  </data>
+  <data name="StateEnum_Kentucky" xml:space="preserve">
+    <value>Kentucky</value>
+  </data>
+  <data name="StateEnum_Louisiana" xml:space="preserve">
+    <value>Louisiana</value>
+  </data>
+  <data name="StateEnum_MadhyaPradesh" xml:space="preserve">
+    <value>Madhya Pradesh</value>
+  </data>
+  <data name="StateEnum_Maharashtra" xml:space="preserve">
+    <value>Maharashtra</value>
+  </data>
+  <data name="StateEnum_Maine" xml:space="preserve">
+    <value>Maine</value>
+  </data>
+  <data name="StateEnum_Maryland" xml:space="preserve">
+    <value>Maryland</value>
+  </data>
+  <data name="StateEnum_Massachusetts" xml:space="preserve">
+    <value>Massachusetts</value>
+  </data>
+  <data name="StateEnum_Michigan" xml:space="preserve">
+    <value>Michigan</value>
+  </data>
+  <data name="StateEnum_Minnesota" xml:space="preserve">
+    <value>Minnesota</value>
+  </data>
+  <data name="StateEnum_Mississippi" xml:space="preserve">
+    <value>Mississippi</value>
+  </data>
+  <data name="StateEnum_Missouri" xml:space="preserve">
+    <value>Missouri</value>
+  </data>
+  <data name="StateEnum_Montana" xml:space="preserve">
+    <value>Montana</value>
+  </data>
+  <data name="StateEnum_Nebraska" xml:space="preserve">
+    <value>Nebraska</value>
+  </data>
+  <data name="StateEnum_Nevada" xml:space="preserve">
+    <value>Nevada</value>
+  </data>
+  <data name="StateEnum_NewHampshire" xml:space="preserve">
+    <value>New Hampshire</value>
+  </data>
+  <data name="StateEnum_NewJersey" xml:space="preserve">
+    <value>New Jersey</value>
+  </data>
+  <data name="StateEnum_NewMexico" xml:space="preserve">
+    <value>New Mexico</value>
+  </data>
+  <data name="StateEnum_NewYork" xml:space="preserve">
+    <value>New York</value>
+  </data>
+  <data name="StateEnum_NorthCarolina" xml:space="preserve">
+    <value>Caroline du Nord</value>
+  </data>
+  <data name="StateEnum_NorthDakota" xml:space="preserve">
+    <value>Dakota du Nord</value>
+  </data>
+  <data name="StateEnum_Ohio" xml:space="preserve">
+    <value>Ohio</value>
+  </data>
+  <data name="StateEnum_Oklahoma" xml:space="preserve">
+    <value>Oklahoma</value>
+  </data>
+  <data name="StateEnum_Oregon" xml:space="preserve">
+    <value>Oregon</value>
+  </data>
+  <data name="StateEnum_Paris" xml:space="preserve">
+    <value>Paris</value>
+  </data>
+  <data name="StateEnum_Pennsylvania" xml:space="preserve">
+    <value>Pennsylvania</value>
+  </data>
+  <data name="StateEnum_RhodeIsland" xml:space="preserve">
+    <value>Rhode Island</value>
+  </data>
+  <data name="StateEnum_SouthCarolina" xml:space="preserve">
+    <value>South Carolina</value>
+  </data>
+  <data name="StateEnum_Texas" xml:space="preserve">
+    <value>Texas</value>
+  </data>
+  <data name="StateEnum_Toulouse" xml:space="preserve">
+    <value>Toulouse</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0100AmsterdamBerlinBernRomeStockholmVienna" xml:space="preserve">
+    <value>(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0100Azores" xml:space="preserve">
+    <value>(UTC-01:00) Açores</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0100BelgradeBratislavaBudapestLjubljanaPrague" xml:space="preserve">
+    <value>(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0100BrusselsCopenhagenMadridParis" xml:space="preserve">
+    <value>(UTC+01:00) Brussels, Copenhagen, Madrid, Paris</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0100CapeVerdeIs" xml:space="preserve">
+    <value>(UTC-01:00) Cape Verde Is.</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0100SarajevoSkopjeWarsawZagreb" xml:space="preserve">
+    <value>(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0100WestCentralAfrica" xml:space="preserve">
+    <value>(UTC+01:00) Afrique centrale de l'ouest</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0100Windhoek" xml:space="preserve">
+    <value>(UTC+01:00) Windhoek</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200Amman" xml:space="preserve">
+    <value>(UTC+02:00) Amman</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200AthensBucharest" xml:space="preserve">
+    <value>(UTC+02:00) Athènes, Bucarest</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200Beirut" xml:space="preserve">
+    <value>(UTC+02:00) Beyrout</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200Cairo" xml:space="preserve">
+    <value>(UTC+02:00) Caire</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200CoordinatedUniversalTime02" xml:space="preserve">
+    <value>(UTC-02:00) Temps universel coordonné-03</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200Damascus" xml:space="preserve">
+    <value>(UTC+02:00) Damas</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200EEurope" xml:space="preserve">
+    <value>(UTC+02:00) E. Europe</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200HararePretoria" xml:space="preserve">
+    <value>(UTC+02:00) Harare, Pretoria</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200HelsinkiKyivRigaSofiaTallinnVilnius" xml:space="preserve">
+    <value>(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200Istanbul" xml:space="preserve">
+    <value>(UTC+02:00) Istanbul</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200Jerusalem" xml:space="preserve">
+    <value>(UTC+02:00) Jérusalem</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200MidAtlanticOld" xml:space="preserve">
+    <value>(UTC-02:00) Mid-Atlantic - Vieux</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0200Tripoli" xml:space="preserve">
+    <value>(UTC+02:00) Tripoli</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0300Baghdad" xml:space="preserve">
+    <value>(UTC+03:00) Baghdad</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0300Brasilia" xml:space="preserve">
+    <value>(UTC-03:00) Brasilia</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0300BuenosAires" xml:space="preserve">
+    <value>(UTC-03:00) Buenos Aires</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0300CayenneFortaleza" xml:space="preserve">
+    <value>(UTC-03:00) Cayenne, Fortaleza</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0300Greenland" xml:space="preserve">
+    <value>(UTC-03:00) Greenland</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0300KaliningradMinsk" xml:space="preserve">
+    <value>(UTC+03:00) Kaliningrad, Minsk</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0300KuwaitRiyadh" xml:space="preserve">
+    <value>(UTC+03:00) Koweït, Riyadh</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0300Montevideo" xml:space="preserve">
+    <value>(UTC-03:00) Montevideo</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0300Nairobi" xml:space="preserve">
+    <value>(UTC+03:00) Nairobi</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0300Salvador" xml:space="preserve">
+    <value>(UTC-03:00) Salvador</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0330Newfoundland" xml:space="preserve">
+    <value>(UTC-03:30) (UTC-03: 30) Terre-Neuve</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0330Tehran" xml:space="preserve">
+    <value>(UTC+03:30) Téhéran</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0400AbuDhabiMuscat" xml:space="preserve">
+    <value>(UTC+04:00) Abu Dhabi, Muscat</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0400Asuncion" xml:space="preserve">
+    <value>(UTC-04:00) Asuncion</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0400AtlanticTimeCanada" xml:space="preserve">
+    <value>(UTC-04:00) Heure de l'Atlantique (Canada)</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0400Baku" xml:space="preserve">
+    <value>(UTC+04:00) Baku</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0400Cuiaba" xml:space="preserve">
+    <value>(UTC-04:00) Cuiba</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0400GeorgetownLaPazManausSanJuan" xml:space="preserve">
+    <value>(UTC-04:00) Georgetown, La Paz, Manaus, San Juan</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0400MoscowStPetersburgVolgograd" xml:space="preserve">
+    <value>(UTC+04:00) Moscou, Saint-Pétersbourg, Volgograd</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0400PortLouis" xml:space="preserve">
+    <value>(UTC+04:00) Port Louis</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0400Santiago" xml:space="preserve">
+    <value>(UTC-04:00) Santiago</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0400Tbilisi" xml:space="preserve">
+    <value>(UTC+04:00) Tbilisi</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0400Yerevan" xml:space="preserve">
+    <value>(UTC+04:00) Erevan</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0430Caracas" xml:space="preserve">
+    <value>(UTC-04:30) Caracas</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0430Kabul" xml:space="preserve">
+    <value>(UTC+04:30) Kaboul</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0500AshgabatTashkent" xml:space="preserve">
+    <value>(UTC+05:00) Ashgabat, Tachkent</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0500BogotaLimaQuitoRioBranco" xml:space="preserve">
+    <value>(UTC-05:00) Bogota, Lima, Quito, Rio Branco</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0500EasternTimeUSCanada" xml:space="preserve">
+    <value>(UTC-05:00) Heure de l'Est (USA et Canada)</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0500IndianaEast" xml:space="preserve">
+    <value>(UTC-05: 00) Indiana (Est)</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0500IslamabadKarachi" xml:space="preserve">
+    <value>(UTC+05:00) Islamabad, Karachi</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0530ChennaiKolkataMumbaiNewDelhi" xml:space="preserve">
+    <value>(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0530SriJayawardenepura" xml:space="preserve">
+    <value>(UTC+05:30) Sri Jayawardenepura</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0545Kathmandu" xml:space="preserve">
+    <value>(UTC+05:45) Katmandou</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0600Astana" xml:space="preserve">
+    <value>(UTC+06:00) Astana</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0600CentralAmerica" xml:space="preserve">
+    <value>(UTC-06:00) Amérique centrale</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0600CentralTimeUSCanada" xml:space="preserve">
+    <value>(UTC-06:00) Central (USA &amp; Canada)</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0600Dhaka" xml:space="preserve">
+    <value>(UTC+06:00) Dhaka</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0600Ekaterinburg" xml:space="preserve">
+    <value>(GMT + 06: 00) Ekaterinbourg</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0600GuadalajaraMexicoCityMonterrey" xml:space="preserve">
+    <value>(UTC-06:00) Guadalajara, Mexico City, Monterrey</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0600Saskatchewan" xml:space="preserve">
+    <value>(UTC-06:00) Saskatchewan</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0630YangonRangoon" xml:space="preserve">
+    <value>(UTC+06:30) Yangon (Rangoon)</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0700Arizona" xml:space="preserve">
+    <value>(UTC-07:00) Arizona</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0700BangkokHanoiJakarta" xml:space="preserve">
+    <value>(UTC+07:00) Bangkok, Hanoi, Jakarta</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0700ChihuahuaLaPazMazatlan" xml:space="preserve">
+    <value>(UTC-07:00) Chihuahua, La Paz, Mazatlan</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0700MountainTimeUSCanada" xml:space="preserve">
+    <value>(UTC-07:00) Heure normale des Montagnes Rocheuses (US &amp; Canada)</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0700Novosibirsk" xml:space="preserve">
+    <value>(UTC+07:00) Novossibirsk</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0800BajaCalifornia" xml:space="preserve">
+    <value>(UTC-08:00) Basse Californie</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0800BeijingChongqingHongKongUrumqi" xml:space="preserve">
+    <value>(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0800Krasnoyarsk" xml:space="preserve">
+    <value>(UTC+08:00) Krasnoïarsk</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0800KualaLumpurSingapore" xml:space="preserve">
+    <value>(UTC+08:00) Kuala Lumpur, Singapore</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0800PacificTimeUSCanada" xml:space="preserve">
+    <value>(UTC-08:00) Heure normale du Pacifique (USA &amp; Canada)</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0800Perth" xml:space="preserve">
+    <value>(UTC+08:00) Perth</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0800Taipei" xml:space="preserve">
+    <value>(UTC+08:00) Taipei</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0800Ulaanbaatar" xml:space="preserve">
+    <value>(UTC+08:00) Ulaanbaatar</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0900Alaska" xml:space="preserve">
+    <value>(UTC-09:00) Alaska</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0900Irkutsk" xml:space="preserve">
+    <value>(UTC+09:00) Irkoutsk</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0900OsakaSapporoTokyo" xml:space="preserve">
+    <value>(UTC+09:00) Osaka, Sapporo, Tokyo</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0900Seoul" xml:space="preserve">
+    <value>(UTC+09:00) Séoul</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0930Adelaide" xml:space="preserve">
+    <value>(UTC+09:30) Adélaïde</value>
+  </data>
+  <data name="TimeZoneEnum_UTC0930Darwin" xml:space="preserve">
+    <value>(UTC+09:30) Darwin</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1000Brisbane" xml:space="preserve">
+    <value>(UTC+10:00) Brisbane</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1000CanberraMelbourneSydney" xml:space="preserve">
+    <value>(UTC+10:00) Canberra, Melbourne, Sydney</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1000GuamPortMoresby" xml:space="preserve">
+    <value>(UTC+10:00) Guam, Port Moresby</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1000Hawaii" xml:space="preserve">
+    <value>(UTC-10:00) Hawaii</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1000Hobart" xml:space="preserve">
+    <value>(UTC+10:00) Hobart</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1000Yakutsk" xml:space="preserve">
+    <value>(UTC+10:00) Yakutsk</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1100CoordinatedUniversalTime11" xml:space="preserve">
+    <value>(UTC-11:00) Heure universelle -12</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1100SolomonIsNewCaledonia" xml:space="preserve">
+    <value>(UTC+11:00) île Salomon, Nouvelle Caledonie</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1100Vladivostok" xml:space="preserve">
+    <value>(UTC+11:00) Vladivostok</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1200AucklandWellington" xml:space="preserve">
+    <value>(UTC+12:00) Auckland, Wellington</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1200CoordinatedUniversalTime12" xml:space="preserve">
+    <value>(UTC+12:00) Heure universelle +13</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1200Fiji" xml:space="preserve">
+    <value>(UTC+12:00) Fiji</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1200InternationalDateLineWest" xml:space="preserve">
+    <value>(UTC-12:00) côté Ouest de la ligne de changement de date</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1200Magadan" xml:space="preserve">
+    <value>(UTC+12:00) Magadan</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1200PetropavlovskKamchatskyOld" xml:space="preserve">
+    <value>(UTC+12:00) Petropavlovsk-Kamchatsky</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1300Nukualofa" xml:space="preserve">
+    <value>(UTC+13:00) Nuku'alofa</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1300Samoa" xml:space="preserve">
+    <value>(UTC+13:00) Samoa</value>
+  </data>
+  <data name="TimeZoneEnum_UTC1400KiritimatiIsland" xml:space="preserve">
+    <value>(UTC+14:00)île Kiritimati</value>
+  </data>
+  <data name="TimeZoneEnum_UTCCasablanca" xml:space="preserve">
+    <value>(UTC) Casablanca</value>
+  </data>
+  <data name="TimeZoneEnum_UTCCoordinatedUniversalTime" xml:space="preserve">
+    <value>(UTC) Heure universelle</value>
+  </data>
+  <data name="TimeZoneEnum_UTCDublinEdinburghLisbonLondon" xml:space="preserve">
+    <value>(UTC) Dublin, Edinbourgh, Lisbonne, Londres</value>
+  </data>
+  <data name="TimeZoneEnum_UTCMonroviaReykjavik" xml:space="preserve">
+    <value>(UTC) Monrovia, Reykjavik</value>
+  </data>
+  <data name="UserTypeEnum_Admin" xml:space="preserve">
+    <value>Administrateur</value>
+  </data>
+  <data name="UserTypeEnum_OwnerAdmin" xml:space="preserve">
+    <value>Propriétaire</value>
+  </data>
+  <data name="UserTypeEnum_VeterinarianAdo" xml:space="preserve">
+    <value>Directeur Vétérinaire</value>
+  </data>
+  <data name="UserTypeEnum_VeterinarianExpert" xml:space="preserve">
+    <value>Vétérinaire</value>
+  </data>
+  <data name="UserTypeEnum_VeterinarianLight" xml:space="preserve">
+    <value>Assistant vétérinaire</value>
+  </data>
+  <data name="VetSpecialityEnum_Alternativemedicine" xml:space="preserve">
+    <value>Médecine alternative</value>
+  </data>
+  <data name="VetSpecialityEnum_Anaesthesiology" xml:space="preserve">
+    <value>Anesthésie</value>
+  </data>
+  <data name="VetSpecialityEnum_Animalbehavior" xml:space="preserve">
+    <value>Comportement animal</value>
+  </data>
+  <data name="VetSpecialityEnum_Animalwelfare" xml:space="preserve">
+    <value>Bien-être animal</value>
+  </data>
+  <data name="VetSpecialityEnum_Birds" xml:space="preserve">
+    <value>Oiseaux</value>
+  </data>
+  <data name="VetSpecialityEnum_Bovine" xml:space="preserve">
+    <value>Bovin</value>
+  </data>
+  <data name="VetSpecialityEnum_Canine" xml:space="preserve">
+    <value>Canin</value>
+  </data>
+  <data name="VetSpecialityEnum_Cardiology" xml:space="preserve">
+    <value>Cardiologie</value>
+  </data>
+  <data name="VetSpecialityEnum_Chiropractic" xml:space="preserve">
+    <value>Chiropratique</value>
+  </data>
+  <data name="VetSpecialityEnum_Clinicalpathology" xml:space="preserve">
+    <value>Pathologie clinique</value>
+  </data>
+  <data name="VetSpecialityEnum_Clinicalpharmacology" xml:space="preserve">
+    <value>Pharmacologie clinique</value>
+  </data>
+  <data name="VetSpecialityEnum_Dentistry" xml:space="preserve">
+    <value>Dentisterie</value>
+  </data>
+  <data name="VetSpecialityEnum_Dermatology" xml:space="preserve">
+    <value>Dermatologie</value>
+  </data>
+  <data name="VetSpecialityEnum_Diagnosticimaging" xml:space="preserve">
+    <value>L'imagerie diagnostique</value>
+  </data>
+  <data name="VetSpecialityEnum_Emergencyandcriticalcare" xml:space="preserve">
+    <value>Urgences et soins intensifs</value>
+  </data>
+  <data name="VetSpecialityEnum_Equine" xml:space="preserve">
+    <value>Chevalin</value>
+  </data>
+  <data name="VetSpecialityEnum_Feline" xml:space="preserve">
+    <value>Félin</value>
+  </data>
+  <data name="VetSpecialityEnum_Internalmedicine" xml:space="preserve">
+    <value>Médecine interne</value>
+  </data>
+  <data name="VetSpecialityEnum_Laboratoryanimalmedicine" xml:space="preserve">
+    <value>Médecine des animaux de laboratoire</value>
+  </data>
+  <data name="VetSpecialityEnum_Microbiology" xml:space="preserve">
+    <value>Microbiologie</value>
+  </data>
+  <data name="VetSpecialityEnum_Neurology" xml:space="preserve">
+    <value>Neurologie</value>
+  </data>
+  <data name="VetSpecialityEnum_Nutrition" xml:space="preserve">
+    <value>Nutrition</value>
+  </data>
+  <data name="VetSpecialityEnum_Oncology" xml:space="preserve">
+    <value>Oncologie</value>
+  </data>
+  <data name="VetSpecialityEnum_Ophthalmology" xml:space="preserve">
+    <value>Ophtalmologie</value>
+  </data>
+  <data name="VetSpecialityEnum_Parasitology" xml:space="preserve">
+    <value>Parasitologie</value>
+  </data>
+  <data name="VetSpecialityEnum_Pathology" xml:space="preserve">
+    <value>Pathologie</value>
+  </data>
+  <data name="VetSpecialityEnum_Poultry" xml:space="preserve">
+    <value>Volaille</value>
+  </data>
+  <data name="VetSpecialityEnum_Preventivemedicine" xml:space="preserve">
+    <value>Médecine préventive</value>
+  </data>
+  <data name="VetSpecialityEnum_Radiology" xml:space="preserve">
+    <value>Radiologie</value>
+  </data>
+  <data name="VetSpecialityEnum_Reptileandamphibian" xml:space="preserve">
+    <value>Reptiles et amphibiens</value>
+  </data>
+  <data name="VetSpecialityEnum_Sheltermedicine" xml:space="preserve">
+    <value>Médecine Shelter</value>
+  </data>
+  <data name="VetSpecialityEnum_Sportsmedicine" xml:space="preserve">
+    <value>Médecine du sport</value>
+  </data>
+  <data name="VetSpecialityEnum_Stateveterinarymedicine" xml:space="preserve">
+    <value>La médecine vétérinaire de l'Etat</value>
+  </data>
+  <data name="VetSpecialityEnum_Surgery" xml:space="preserve">
+    <value>Chirurgie</value>
+  </data>
+  <data name="VetSpecialityEnum_Theriogenology" xml:space="preserve">
+    <value>Thériogénologie</value>
+  </data>
+  <data name="VetSpecialityEnum_Toxicology" xml:space="preserve">
+    <value>Toxicologie</value>
+  </data>
+  <data name="VetSpecialityEnum_Zoologicalmedicine" xml:space="preserve">
+    <value>Médecine zoologique</value>
+  </data>
+  <data name="StateEnum_AmericanSamoa" xml:space="preserve">
+    <value>American Samoa</value>
+  </data>
+  <data name="StateEnum_DistrictofColumbia" xml:space="preserve">
+    <value>District of Columbia</value>
+  </data>
+  <data name="StateEnum_Guam" xml:space="preserve">
+    <value>Guam</value>
+  </data>
+  <data name="StateEnum_NorthernMarianaIslands" xml:space="preserve">
+    <value>Northern Mariana Islands</value>
+  </data>
+  <data name="StateEnum_PuertoRico" xml:space="preserve">
+    <value>Puerto Rico</value>
+  </data>
+  <data name="StateEnum_SouthDakota" xml:space="preserve">
+    <value>South Dakota</value>
+  </data>
+  <data name="StateEnum_Tennessee" xml:space="preserve">
+    <value>Tennessee</value>
+  </data>
+  <data name="StateEnum_UnitedStatesMinorOutlyingIslands" xml:space="preserve">
+    <value>United States Minor Outlying Islands</value>
+  </data>
+  <data name="StateEnum_Utah" xml:space="preserve">
+    <value>Utah</value>
+  </data>
+  <data name="StateEnum_Vermont" xml:space="preserve">
+    <value>Vermont</value>
+  </data>
+  <data name="StateEnum_Virginia" xml:space="preserve">
+    <value>Virginia</value>
+  </data>
+  <data name="StateEnum_VirginIslandsUS" xml:space="preserve">
+    <value>Virgin Islands US</value>
+  </data>
+  <data name="StateEnum_Washington" xml:space="preserve">
+    <value>Washington</value>
+  </data>
+  <data name="StateEnum_WestVirginia" xml:space="preserve">
+    <value>West Virginia</value>
+  </data>
+  <data name="StateEnum_Wisconsin" xml:space="preserve">
+    <value>Wisconsin</value>
+  </data>
+  <data name="StateEnum_Wyoming" xml:space="preserve">
+    <value>Wyoming</value>
+  </data>
+  <data name="SMOOwnerRequestStatusEnum_PaymentPending" xml:space="preserve">
+    <value>Paiement en attente</value>
+  </data>
+  <data name="SMORequestStatusEnum_PaymentPending" xml:space="preserve">
+    <value>Paiement en attente</value>
+  </data>
+  <data name="BreedTypeEnum_Bulldog" xml:space="preserve">
+    <value>Bulldog</value>
+  </data>
+  <data name="BreedTypeEnum_BullTerrier" xml:space="preserve">
+    <value>Bull Terrier</value>
+  </data>
+  <data name="BreedTypeEnum_PitBull" xml:space="preserve">
+    <value>PitBull</value>
+  </data>
+  <data name="ColorEnum_Black" xml:space="preserve">
+    <value>Noir</value>
+  </data>
+  <data name="ColorEnum_Blue" xml:space="preserve">
+    <value>Bleu</value>
+  </data>
+  <data name="ColorEnum_Brown" xml:space="preserve">
+    <value>Marron</value>
+  </data>
+  <data name="ColorEnum_Cream" xml:space="preserve">
+    <value>Sablé</value>
+  </data>
+  <data name="ColorEnum_Gold" xml:space="preserve">
+    <value>Doré</value>
+  </data>
+  <data name="ColorEnum_Grey" xml:space="preserve">
+    <value>Gris</value>
+  </data>
+  <data name="ColorEnum_Other" xml:space="preserve">
+    <value>Autre</value>
+  </data>
+  <data name="ColorEnum_Red" xml:space="preserve">
+    <value>Rouge</value>
+  </data>
+  <data name="ColorEnum_Yellow" xml:space="preserve">
+    <value>Jaune</value>
+  </data>
+  <data name="ContactTypeEnum_Boarder" xml:space="preserve">
+    <value>Pensionnaire</value>
+  </data>
+  <data name="ContactTypeEnum_Breeder" xml:space="preserve">
+    <value>Eleveur</value>
+  </data>
+  <data name="ContactTypeEnum_CoOwner" xml:space="preserve">
+    <value>Co-copropriétaire</value>
+  </data>
+  <data name="ContactTypeEnum_Friend" xml:space="preserve">
+    <value>Ami</value>
+  </data>
+  <data name="ContactTypeEnum_Groomer" xml:space="preserve">
+    <value>Toiletteur</value>
+  </data>
+  <data name="ContactTypeEnum_Other" xml:space="preserve">
+    <value>Autre</value>
+  </data>
+  <data name="ContactTypeEnum_Owner" xml:space="preserve">
+    <value>Propriétaire</value>
+  </data>
+  <data name="ContactTypeEnum_PreviousOwner" xml:space="preserve">
+    <value>Précédent propriétaire</value>
+  </data>
+  <data name="ContactTypeEnum_Sitter" xml:space="preserve">
+    <value>Baby-sitter</value>
+  </data>
+  <data name="ContactTypeEnum_Trainer" xml:space="preserve">
+    <value>Entraîneur</value>
+  </data>
+  <data name="ContactTypeEnum_Veterinarian" xml:space="preserve">
+    <value>Vétérinaire</value>
+  </data>
+  <data name="CreditCardTypeEnum_Discover" xml:space="preserve">
+    <value>Découvrez</value>
+  </data>
+  <data name="CreditCardTypeEnum_JCBCard" xml:space="preserve">
+    <value>JCB Card</value>
+  </data>
+  <data name="CreditCardTypeEnum_MasterCard" xml:space="preserve">
+    <value>Master Card</value>
+  </data>
+  <data name="CreditCardTypeEnum_Visa" xml:space="preserve">
+    <value>Visa</value>
+  </data>
+  <data name="DocumentSubTypeEnum_Biochemistry" xml:space="preserve">
+    <value>Biochimie</value>
+  </data>
+  <data name="DocumentSubTypeEnum_Biopsy" xml:space="preserve">
+    <value>Biopsie</value>
+  </data>
+  <data name="DocumentSubTypeEnum_Hematology" xml:space="preserve">
+    <value>Hématologie</value>
+  </data>
+  <data name="DocumentSubTypeEnum_Insurance" xml:space="preserve">
+    <value>Assurance</value>
+  </data>
+  <data name="DocumentSubTypeEnum_Panels" xml:space="preserve">
+    <value>Tableaux</value>
+  </data>
+  <data name="DocumentSubTypeEnum_Prescription" xml:space="preserve">
+    <value>Prescription</value>
+  </data>
+  <data name="DocumentSubTypeEnum_SMO" xml:space="preserve">
+    <value>Télé-Expertise Vétérinaire</value>
+  </data>
+  <data name="DocumentSubTypeEnum_Ultrasound" xml:space="preserve">
+    <value>Ultrason</value>
+  </data>
+  <data name="DocumentSubTypeEnum_XRay" xml:space="preserve">
+    <value>Radiographie</value>
+  </data>
+  <data name="DocumentTypeEnum_Insurance" xml:space="preserve">
+    <value>Assurance</value>
+  </data>
+  <data name="DocumentTypeEnum_Laboratory" xml:space="preserve">
+    <value>Laboratoire</value>
+  </data>
+  <data name="DocumentTypeEnum_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="EConsultationContactTypeEnum_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EConsultationContactTypeEnum_Phone" xml:space="preserve">
+    <value>Téléphone</value>
+  </data>
+  <data name="EConsultationStatusEnum_Closed" xml:space="preserve">
+    <value>Fermé</value>
+  </data>
+  <data name="EConsultationStatusEnum_Complete" xml:space="preserve">
+    <value>Complet</value>
+  </data>
+  <data name="EConsultationStatusEnum_InProgress" xml:space="preserve">
+    <value>En progrès</value>
+  </data>
+  <data name="EConsultationStatusEnum_Open" xml:space="preserve">
+    <value>Ouvert</value>
+  </data>
+  <data name="EConsultationStatusEnum_Scheduled" xml:space="preserve">
+    <value>Prévu</value>
+  </data>
+  <data name="EConsultationStatusEnum_Withdraw" xml:space="preserve">
+    <value>Retirer</value>
+  </data>
+  <data name="HairTypeEnum_Long" xml:space="preserve">
+    <value>Long</value>
+  </data>
+  <data name="HairTypeEnum_Other" xml:space="preserve">
+    <value>Autre</value>
+  </data>
+  <data name="HairTypeEnum_Rough" xml:space="preserve">
+    <value>Rugueux</value>
+  </data>
+  <data name="HairTypeEnum_Wavy" xml:space="preserve">
+    <value>Ondulé</value>
+  </data>
+  <data name="HealthMeasureGroupEnum_CBG" xml:space="preserve">
+    <value>Corticostéroïdes</value>
+  </data>
+  <data name="HealthMeasureGroupEnum_Hemoglobin" xml:space="preserve">
+    <value>Hemoglobine</value>
+  </data>
+  <data name="HealthMeasureGroupEnum_Hemogram" xml:space="preserve">
+    <value>Hémogramme</value>
+  </data>
+  <data name="HealthMeasureGroupEnum_SerumElectrolytes" xml:space="preserve">
+    <value>Electrolytes du serum</value>
+  </data>
+  <data name="HealthMeasureGroupEnum_Vitals" xml:space="preserve">
+    <value>Signes Vitaux</value>
+  </data>
+  <data name="HealthMeasureTypeEnum_CBG" xml:space="preserve">
+    <value>Corticostéroïdes</value>
+  </data>
+  <data name="HealthMeasureTypeEnum_Height" xml:space="preserve">
+    <value>Taille</value>
+  </data>
+  <data name="HealthMeasureTypeEnum_Hemoglobin" xml:space="preserve">
+    <value>Hemoglobine</value>
+  </data>
+  <data name="HealthMeasureTypeEnum_Hemogram" xml:space="preserve">
+    <value>Hémogramme</value>
+  </data>
+  <data name="HealthMeasureTypeEnum_Pulse" xml:space="preserve">
+    <value>Pouls</value>
+  </data>
+  <data name="HealthMeasureTypeEnum_SerumElectrolytes" xml:space="preserve">
+    <value>Electrolytes du serum</value>
+  </data>
+  <data name="HealthMeasureTypeEnum_Temperature" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="HealthMeasureTypeEnum_Weight" xml:space="preserve">
+    <value>Poids</value>
+  </data>
+  <data name="HealthMeasureUnitEnum_MillimolesPerLitre" xml:space="preserve">
+    <value>Millimètre par litre</value>
+  </data>
+  <data name="LanguageEnum_English" xml:space="preserve">
+    <value>Anglais</value>
+  </data>
+  <data name="LanguageEnum_French" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="MessageTypeEnum_Received" xml:space="preserve">
+    <value>Reçu</value>
+  </data>
+  <data name="MessageTypeEnum_Sent" xml:space="preserve">
+    <value>Envoyé</value>
+  </data>
+  <data name="NotificationTypeEnum_AccountInactivity" xml:space="preserve">
+    <value>Compte inactif</value>
+  </data>
+  <data name="NotificationTypeEnum_Insurance" xml:space="preserve">
+    <value>Assurance</value>
+  </data>
+  <data name="NotificationTypeEnum_Medication" xml:space="preserve">
+    <value>Médicament</value>
+  </data>
+  <data name="NotificationTypeEnum_Reminder" xml:space="preserve">
+    <value>Rappel</value>
+  </data>
+  <data name="NotificationTypeEnum_SubscriptionExpiration" xml:space="preserve">
+    <value>Expiration de l'abonnement</value>
+  </data>
+  <data name="PathologyEnum_Coronavirus" xml:space="preserve">
+    <value>Coronavirus</value>
+  </data>
+  <data name="PathologyEnum_Distemper" xml:space="preserve">
+    <value>Maladie de Carré</value>
+  </data>
+  <data name="PathologyEnum_Giardia" xml:space="preserve">
+    <value>Giardia</value>
+  </data>
+  <data name="PathologyEnum_Hepatitis" xml:space="preserve">
+    <value>Hépatite</value>
+  </data>
+  <data name="PathologyEnum_Herpesvirus" xml:space="preserve">
+    <value>Herpès</value>
+  </data>
+  <data name="PathologyEnum_Influenza" xml:space="preserve">
+    <value>Grippe</value>
+  </data>
+  <data name="PathologyEnum_Leptospirosis" xml:space="preserve">
+    <value>Leptospirose</value>
+  </data>
+  <data name="PathologyEnum_Parvovirus" xml:space="preserve">
+    <value>Parvovirus</value>
+  </data>
+  <data name="ShareCategoryTypeEnum_ShareContacts" xml:space="preserve">
+    <value>Partager les contacts</value>
+  </data>
+  <data name="ShareCategoryTypeEnum_ShareGallery" xml:space="preserve">
+    <value>Partager la galerie</value>
+  </data>
+  <data name="ShareCategoryTypeEnum_ShareIDInformation" xml:space="preserve">
+    <value>Partager les informations sur l'identité</value>
+  </data>
+  <data name="ShareCategoryTypeEnum_ShareMedicalRecords" xml:space="preserve">
+    <value>Partager les dossiers médicaux</value>
+  </data>
+  <data name="ShareCategoryTypeEnum_ShareVeterinarians" xml:space="preserve">
+    <value>Partager les vétérinaires</value>
+  </data>
+  <data name="SMOOwnerRequestStatusEnum_Complete" xml:space="preserve">
+    <value>Complet</value>
+  </data>
+  <data name="SMOOwnerRequestStatusEnum_InProgress" xml:space="preserve">
+    <value>En progrès</value>
+  </data>
+  <data name="SMOOwnerRequestStatusEnum_Open" xml:space="preserve">
+    <value>Ouvert</value>
+  </data>
+  <data name="SMORequestStatusEnum_Assigned" xml:space="preserve">
+    <value>Assigné</value>
+  </data>
+  <data name="SMORequestStatusEnum_Complete" xml:space="preserve">
+    <value>Complet</value>
+  </data>
+  <data name="SMORequestStatusEnum_Open" xml:space="preserve">
+    <value>Ouvert</value>
+  </data>
+  <data name="SMORequestStatusEnum_Validated" xml:space="preserve">
+    <value>Validé</value>
+  </data>
+  <data name="SurgeryEnum_Neoplasms" xml:space="preserve">
+    <value>Tumeurs</value>
+  </data>
+  <data name="SurgeryEnum_OvarianHysterectomy" xml:space="preserve">
+    <value>Hystérectomie des ovaires</value>
+  </data>
+  <data name="SurgeryEnum_Paraphimosis" xml:space="preserve">
+    <value>Paraphimosis</value>
+  </data>
+  <data name="SurgeryEnum_Phimosis" xml:space="preserve">
+    <value>Phimosis</value>
+  </data>
+  <data name="SurgeryEnum_Thyroidectomy" xml:space="preserve">
+    <value>Thyroïdectomie</value>
+  </data>
+  <data name="SurgeryEnum_UterineProlapse" xml:space="preserve">
+    <value>Prolapsus utérin</value>
+  </data>
+  <data name="SurgeryEnum_Vasectomy" xml:space="preserve">
+    <value>La vasectomie</value>
+  </data>
+  <data name="UserStatusEnum_Active" xml:space="preserve">
+    <value>Actif</value>
+  </data>
+  <data name="UserStatusEnum_Disabled" xml:space="preserve">
+    <value>Handicapé</value>
+  </data>
+  <data name="CountryEnum_AFGHANISTAN" xml:space="preserve">
+    <value>AFGHANISTAN</value>
+  </data>
+  <data name="CountryEnum_ALANDISLANDS" xml:space="preserve">
+    <value>ALAND ILES</value>
+  </data>
+  <data name="CountryEnum_ALBANIA" xml:space="preserve">
+    <value>ALBANIE</value>
+  </data>
+  <data name="CountryEnum_ALGERIA" xml:space="preserve">
+    <value>ALGERIE</value>
+  </data>
+  <data name="CountryEnum_AMERICANSAMOA" xml:space="preserve">
+    <value>SAMOA AMERICAINES</value>
+  </data>
+  <data name="CountryEnum_ANDORRA" xml:space="preserve">
+    <value>ANDORRE</value>
+  </data>
+  <data name="CountryEnum_ANGOLA" xml:space="preserve">
+    <value>ANGOLA</value>
+  </data>
+  <data name="CountryEnum_ANGUILLA" xml:space="preserve">
+    <value>ANGUILLA</value>
+  </data>
+  <data name="CountryEnum_ANTARCTICA" xml:space="preserve">
+    <value>ANTARCTIQUE</value>
+  </data>
+  <data name="CountryEnum_ANTIGUAANDBARBUDA" xml:space="preserve">
+    <value>ANTIGUA ET BARBUDA</value>
+  </data>
+  <data name="CountryEnum_ARGENTINA" xml:space="preserve">
+    <value>ARGENTINE</value>
+  </data>
+  <data name="CountryEnum_ARMENIA" xml:space="preserve">
+    <value>ARMENIE</value>
+  </data>
+  <data name="CountryEnum_ARUBA" xml:space="preserve">
+    <value>ARUBA</value>
+  </data>
+  <data name="CountryEnum_AUSTRALIA" xml:space="preserve">
+    <value>AUSTRALIE</value>
+  </data>
+  <data name="CountryEnum_AUSTRIA" xml:space="preserve">
+    <value>AUTRICHE</value>
+  </data>
+  <data name="CountryEnum_AZERBAIJAN" xml:space="preserve">
+    <value>AZERBAIDJAN</value>
+  </data>
+  <data name="CountryEnum_BAHAMAS" xml:space="preserve">
+    <value>BAHAMAS</value>
+  </data>
+  <data name="CountryEnum_BAHRAIN" xml:space="preserve">
+    <value>BAHREIN</value>
+  </data>
+  <data name="CountryEnum_BANGLADESH" xml:space="preserve">
+    <value>BANGLADESH</value>
+  </data>
+  <data name="CountryEnum_BARBADOS" xml:space="preserve">
+    <value>BARBADE</value>
+  </data>
+  <data name="CountryEnum_BELARUS" xml:space="preserve">
+    <value>BELARUS</value>
+  </data>
+  <data name="CountryEnum_BELGIUM" xml:space="preserve">
+    <value>BELGIQUE</value>
+  </data>
+  <data name="CountryEnum_BELIZE" xml:space="preserve">
+    <value>BELIZE</value>
+  </data>
+  <data name="CountryEnum_BENIN" xml:space="preserve">
+    <value>BENIN</value>
+  </data>
+  <data name="CountryEnum_BERMUDA" xml:space="preserve">
+    <value>BERMUDES</value>
+  </data>
+  <data name="CountryEnum_BHUTAN" xml:space="preserve">
+    <value>BHOUTAN</value>
+  </data>
+  <data name="CountryEnum_BOLIVIAPLURINATIONALSTATEOF" xml:space="preserve">
+    <value>BOLIVIE, lETAT PLURINATIONAL DE</value>
+  </data>
+  <data name="CountryEnum_BONAIRESAINTEUSTATIUSANDSABA" xml:space="preserve">
+    <value>BONAIRE, SAINT-EUSTACHE ET SABA</value>
+  </data>
+  <data name="CountryEnum_BOSNIAANDHERZEGOVINA" xml:space="preserve">
+    <value>BOSNIE-HERZEGOVINE</value>
+  </data>
+  <data name="CountryEnum_BOTSWANA" xml:space="preserve">
+    <value>BOTSWANA</value>
+  </data>
+  <data name="CountryEnum_BOUVETISLAND" xml:space="preserve">
+    <value>BOUVET ILE</value>
+  </data>
+  <data name="CountryEnum_BRAZIL" xml:space="preserve">
+    <value>BRESIL</value>
+  </data>
+  <data name="CountryEnum_BRITISHINDIANOCEANTERRITORY" xml:space="preserve">
+    <value>OCEAN INDIEN,TERRITOIRE BRITANNIQUE DE</value>
+  </data>
+  <data name="CountryEnum_BRUNEIDARUSSALAM" xml:space="preserve">
+    <value>BRUNEI DARUSSALAM</value>
+  </data>
+  <data name="CountryEnum_BULGARIA" xml:space="preserve">
+    <value>BULGARIE</value>
+  </data>
+  <data name="CountryEnum_BURKINAFASO" xml:space="preserve">
+    <value>BURKINA FASO</value>
+  </data>
+  <data name="CountryEnum_BURUNDI" xml:space="preserve">
+    <value>BURUNDI</value>
+  </data>
+  <data name="CountryEnum_CAMBODIA" xml:space="preserve">
+    <value>CAMBODGE</value>
+  </data>
+  <data name="CountryEnum_CAMEROON" xml:space="preserve">
+    <value>CAMEROUN</value>
+  </data>
+  <data name="CountryEnum_CANADA" xml:space="preserve">
+    <value>CANADA</value>
+  </data>
+  <data name="CountryEnum_CAPEVERDE" xml:space="preserve">
+    <value>CAP-VERT</value>
+  </data>
+  <data name="CountryEnum_CAYMANISLANDS" xml:space="preserve">
+    <value>CAIMANES,ILES</value>
+  </data>
+  <data name="CountryEnum_CENTRALAFRICANREPUBLIC" xml:space="preserve">
+    <value>CENTRAFRICAINE,REPUBLIQUE</value>
+  </data>
+  <data name="CountryEnum_CHAD" xml:space="preserve">
+    <value>TCHAD</value>
+  </data>
+  <data name="CountryEnum_CHILE" xml:space="preserve">
+    <value>CHILI</value>
+  </data>
+  <data name="CountryEnum_CHINA" xml:space="preserve">
+    <value>CHINE</value>
+  </data>
+  <data name="CountryEnum_CHRISTMASISLAND" xml:space="preserve">
+    <value>CHRISTMAS ILE</value>
+  </data>
+  <data name="CountryEnum_COCOSKEELINGISLANDS" xml:space="preserve">
+    <value>COCOS (KEELING) ILES</value>
+  </data>
+  <data name="CountryEnum_COLOMBIA" xml:space="preserve">
+    <value>COLOMBIE</value>
+  </data>
+  <data name="CountryEnum_COMOROS" xml:space="preserve">
+    <value>COMORES</value>
+  </data>
+  <data name="CountryEnum_CONGO" xml:space="preserve">
+    <value>CONGO</value>
+  </data>
+  <data name="CountryEnum_CONGOTHEDEMOCRATICREPUBLICOFTHE" xml:space="preserve">
+    <value>CONGO, LA REPUBLIQUE DEMOCRATIQUE DU</value>
+  </data>
+  <data name="CountryEnum_COOKISLANDS" xml:space="preserve">
+    <value>COOK,ILES</value>
+  </data>
+  <data name="CountryEnum_COSTARICA" xml:space="preserve">
+    <value>COSTA RICA</value>
+  </data>
+  <data name="CountryEnum_COTEDIVOIRE" xml:space="preserve">
+    <value>COTE D'IVOIRE</value>
+  </data>
+  <data name="CountryEnum_CROATIA" xml:space="preserve">
+    <value>CROATIE</value>
+  </data>
+  <data name="CountryEnum_CUBA" xml:space="preserve">
+    <value>CUBA</value>
+  </data>
+  <data name="CountryEnum_CURACAO" xml:space="preserve">
+    <value>CURACAO</value>
+  </data>
+  <data name="CountryEnum_CYPRUS" xml:space="preserve">
+    <value>CHYPRE</value>
+  </data>
+  <data name="CountryEnum_CZECHREPUBLIC" xml:space="preserve">
+    <value>TCHEQUE REPUBLIQUE</value>
+  </data>
+  <data name="CountryEnum_DENMARK" xml:space="preserve">
+    <value>DANEMARK</value>
+  </data>
+  <data name="CountryEnum_DJIBOUTI" xml:space="preserve">
+    <value>DJIBOUTI</value>
+  </data>
+  <data name="CountryEnum_DOMINICA" xml:space="preserve">
+    <value>DOMINIQUE</value>
+  </data>
+  <data name="CountryEnum_DOMINICANREPUBLIC" xml:space="preserve">
+    <value>DOMINICAINE REPUBLIQUE</value>
+  </data>
+  <data name="CountryEnum_ECUADOR" xml:space="preserve">
+    <value>EQUATEUR</value>
+  </data>
+  <data name="CountryEnum_EGYPT" xml:space="preserve">
+    <value>EGYPTE</value>
+  </data>
+  <data name="CountryEnum_ELSALVADOR" xml:space="preserve">
+    <value>EL SALVADOR</value>
+  </data>
+  <data name="CountryEnum_EQUATORIALGUINEA" xml:space="preserve">
+    <value>GUINEE EQUATORIALE</value>
+  </data>
+  <data name="CountryEnum_ERITREA" xml:space="preserve">
+    <value>ERYTHREE</value>
+  </data>
+  <data name="CountryEnum_ESTONIA" xml:space="preserve">
+    <value>ESTONIE</value>
+  </data>
+  <data name="CountryEnum_ETHIOPIA" xml:space="preserve">
+    <value>ETHIOPIE</value>
+  </data>
+  <data name="CountryEnum_FALKLANDISLANDSMALVINAS" xml:space="preserve">
+    <value>FALKLAND ILES (MALVINAS)</value>
+  </data>
+  <data name="CountryEnum_FAROEISLANDS" xml:space="preserve">
+    <value>FEROE ILES</value>
+  </data>
+  <data name="CountryEnum_FIJI" xml:space="preserve">
+    <value>FIDJI</value>
+  </data>
+  <data name="CountryEnum_FINLAND" xml:space="preserve">
+    <value>FINLANDE</value>
+  </data>
+  <data name="CountryEnum_France" xml:space="preserve">
+    <value>France</value>
+  </data>
+  <data name="CountryEnum_FRENCHGUIANA" xml:space="preserve">
+    <value>GUYANE FRANCAISE</value>
+  </data>
+  <data name="CountryEnum_FRENCHPOLYNESIA" xml:space="preserve">
+    <value>POLYNESIE FRANCAISE</value>
+  </data>
+  <data name="CountryEnum_FRENCHSOUTHERNTERRITORIES" xml:space="preserve">
+    <value>TERRES AUSTRALES FRANCAISES</value>
+  </data>
+  <data name="CountryEnum_GABON" xml:space="preserve">
+    <value>GABON</value>
+  </data>
+  <data name="CountryEnum_GAMBIA" xml:space="preserve">
+    <value>GAMBIE</value>
+  </data>
+  <data name="CountryEnum_GEORGIA" xml:space="preserve">
+    <value>GEORGIE</value>
+  </data>
+  <data name="CountryEnum_GERMANY" xml:space="preserve">
+    <value>ALLEMAGNE</value>
+  </data>
+  <data name="CountryEnum_GHANA" xml:space="preserve">
+    <value>GHANA</value>
+  </data>
+  <data name="CountryEnum_GIBRALTAR" xml:space="preserve">
+    <value>GIBRALTAR</value>
+  </data>
+  <data name="CountryEnum_GREECE" xml:space="preserve">
+    <value>GRECE</value>
+  </data>
+  <data name="CountryEnum_GREENLAND" xml:space="preserve">
+    <value>GROENLAND</value>
+  </data>
+  <data name="CountryEnum_GRENADA" xml:space="preserve">
+    <value>GRENADE</value>
+  </data>
+  <data name="CountryEnum_GUADELOUPE" xml:space="preserve">
+    <value>GUADELOUPE</value>
+  </data>
+  <data name="CountryEnum_GUAM" xml:space="preserve">
+    <value>GUAM</value>
+  </data>
+  <data name="CountryEnum_GUATEMALA" xml:space="preserve">
+    <value>GUATEMALA</value>
+  </data>
+  <data name="CountryEnum_GUERNSEY" xml:space="preserve">
+    <value>GUERNESEY</value>
+  </data>
+  <data name="CountryEnum_GUINEA" xml:space="preserve">
+    <value>GUINEE</value>
+  </data>
+  <data name="CountryEnum_GUINEABISSAU" xml:space="preserve">
+    <value>GUINEE-BISSAU</value>
+  </data>
+  <data name="CountryEnum_GUYANA" xml:space="preserve">
+    <value>GUYANA</value>
+  </data>
+  <data name="CountryEnum_HAITI" xml:space="preserve">
+    <value>HAITI</value>
+  </data>
+  <data name="CountryEnum_HEARDISLANDANDMCDONALDISLANDS" xml:space="preserve">
+    <value>HEARD ILE ET MCDONALD ILES</value>
+  </data>
+  <data name="CountryEnum_HOLYSEEVATICANCITYSTATE" xml:space="preserve">
+    <value>SAINT-SIEGE (ETAT DE LA CITE DU VATICAN)</value>
+  </data>
+  <data name="CountryEnum_HONDURAS" xml:space="preserve">
+    <value>HONDURAS</value>
+  </data>
+  <data name="CountryEnum_HONGKONG" xml:space="preserve">
+    <value>HONG KONG</value>
+  </data>
+  <data name="CountryEnum_HUNGARY" xml:space="preserve">
+    <value>HONGRIE</value>
+  </data>
+  <data name="CountryEnum_ICELAND" xml:space="preserve">
+    <value>ISLANDE</value>
+  </data>
+  <data name="CountryEnum_India" xml:space="preserve">
+    <value>INDE</value>
+  </data>
+  <data name="CountryEnum_INDONESIA" xml:space="preserve">
+    <value>INDONESIE</value>
+  </data>
+  <data name="CountryEnum_IRANISLAMICREPUBLICOF" xml:space="preserve">
+    <value>IRAN, REPUBLIQUE ISLAMIQUE D'</value>
+  </data>
+  <data name="CountryEnum_IRAQ" xml:space="preserve">
+    <value>IRAQ</value>
+  </data>
+  <data name="CountryEnum_IRELAND" xml:space="preserve">
+    <value>IRLANDE</value>
+  </data>
+  <data name="CountryEnum_ISLEOFMAN" xml:space="preserve">
+    <value>ILE DE MAN</value>
+  </data>
+  <data name="CountryEnum_ISRAEL" xml:space="preserve">
+    <value>ISRAEL</value>
+  </data>
+  <data name="CountryEnum_ITALY" xml:space="preserve">
+    <value>ITALIE</value>
+  </data>
+  <data name="CountryEnum_JAMAICA" xml:space="preserve">
+    <value>JAMAIQUE</value>
+  </data>
+  <data name="CountryEnum_JAPAN" xml:space="preserve">
+    <value>JAPON</value>
+  </data>
+  <data name="CountryEnum_JERSEY" xml:space="preserve">
+    <value>JERSEY</value>
+  </data>
+  <data name="CountryEnum_JORDAN" xml:space="preserve">
+    <value>JORDANIE</value>
+  </data>
+  <data name="CountryEnum_KAZAKHSTAN" xml:space="preserve">
+    <value>KAZAKHSTAN</value>
+  </data>
+  <data name="CountryEnum_KENYA" xml:space="preserve">
+    <value>KENYA</value>
+  </data>
+  <data name="CountryEnum_KIRIBATI" xml:space="preserve">
+    <value>KIRIBATI</value>
+  </data>
+  <data name="CountryEnum_KOREADEMOCRATICPEOPLESREPUBLICOF" xml:space="preserve">
+    <value>COREE, REPUBLIQUE POPULAIRE DEMOCRATIQUE DE</value>
+  </data>
+  <data name="CountryEnum_KOREAREPUBLICOF" xml:space="preserve">
+    <value>COREE, REPUBLIQUE DE</value>
+  </data>
+  <data name="CountryEnum_KUWAIT" xml:space="preserve">
+    <value>KOWEIT</value>
+  </data>
+  <data name="CountryEnum_KYRGYZSTAN" xml:space="preserve">
+    <value>KIRGHIZISTAN</value>
+  </data>
+  <data name="CountryEnum_LAOPEOPLESDEMOCRATICREPUBLIC" xml:space="preserve">
+    <value>LAO REPUBLIQUE DEMOCRATIQUE POPULAIRE</value>
+  </data>
+  <data name="CountryEnum_LATVIA" xml:space="preserve">
+    <value>LETTONIE</value>
+  </data>
+  <data name="CountryEnum_LEBANON" xml:space="preserve">
+    <value>LIBAN</value>
+  </data>
+  <data name="CountryEnum_LESOTHO" xml:space="preserve">
+    <value>LESOTHO</value>
+  </data>
+  <data name="CountryEnum_LIBERIA" xml:space="preserve">
+    <value>LIBERIA</value>
+  </data>
+  <data name="CountryEnum_LIBYANARABJAMAHIRIYA" xml:space="preserve">
+    <value>LIBYENNE,JAMAHIRIYA ARABE</value>
+  </data>
+  <data name="CountryEnum_LIECHTENSTEIN" xml:space="preserve">
+    <value>LIECHTENSTEIN</value>
+  </data>
+  <data name="CountryEnum_LITHUANIA" xml:space="preserve">
+    <value>LITUANIE</value>
+  </data>
+  <data name="CountryEnum_LUXEMBOURG" xml:space="preserve">
+    <value>LUXEMBOURG</value>
+  </data>
+  <data name="CountryEnum_MACAO" xml:space="preserve">
+    <value>MACAO</value>
+  </data>
+  <data name="CountryEnum_MACEDONIATHEFORMERYUGOSLAVREPUBLICOF" xml:space="preserve">
+    <value>MACEDOINE, L'EX-REPUBLIQUE YOUGOSLAVE DE</value>
+  </data>
+  <data name="CountryEnum_MADAGASCAR" xml:space="preserve">
+    <value>MADAGASCAR</value>
+  </data>
+  <data name="CountryEnum_MALAWI" xml:space="preserve">
+    <value>MALAWI</value>
+  </data>
+  <data name="CountryEnum_MALAYSIA" xml:space="preserve">
+    <value>MALAISIE</value>
+  </data>
+  <data name="CountryEnum_MALDIVES" xml:space="preserve">
+    <value>MALDIVES</value>
+  </data>
+  <data name="CountryEnum_MALI" xml:space="preserve">
+    <value>MALI</value>
+  </data>
+  <data name="CountryEnum_MALTA" xml:space="preserve">
+    <value>MALTE</value>
+  </data>
+  <data name="CountryEnum_MARSHALLISLANDS" xml:space="preserve">
+    <value>MARSHALL, ILES</value>
+  </data>
+  <data name="CountryEnum_MARTINIQUE" xml:space="preserve">
+    <value>MARTINIQUE</value>
+  </data>
+  <data name="CountryEnum_MAURITANIA" xml:space="preserve">
+    <value>MAURITANIE</value>
+  </data>
+  <data name="CountryEnum_MAURITIUS" xml:space="preserve">
+    <value>MAURICE</value>
+  </data>
+  <data name="CountryEnum_MAYOTTE" xml:space="preserve">
+    <value>MAYOTTE</value>
+  </data>
+  <data name="CountryEnum_MEXICO" xml:space="preserve">
+    <value>MEXIQUE</value>
+  </data>
+  <data name="CountryEnum_MICRONESIAFEDERATEDSTATESOF" xml:space="preserve">
+    <value>MICRONESIE, ETATS FEDERES DE</value>
+  </data>
+  <data name="CountryEnum_MOLDOVAREPUBLICOF" xml:space="preserve">
+    <value>MOLDOVA, REPUBLIQUE DE</value>
+  </data>
+  <data name="CountryEnum_MONACO" xml:space="preserve">
+    <value>MONACO</value>
+  </data>
+  <data name="CountryEnum_MONGOLIA" xml:space="preserve">
+    <value>MONGOLIE</value>
+  </data>
+  <data name="CountryEnum_MONTENEGRO" xml:space="preserve">
+    <value>MONTENEGRO</value>
+  </data>
+  <data name="CountryEnum_MONTSERRAT" xml:space="preserve">
+    <value>MONTSERRAT</value>
+  </data>
+  <data name="CountryEnum_MOROCCO" xml:space="preserve">
+    <value>MAROC</value>
+  </data>
+  <data name="CountryEnum_MOZAMBIQUE" xml:space="preserve">
+    <value>MOZAMBIQUE</value>
+  </data>
+  <data name="CountryEnum_MYANMAR" xml:space="preserve">
+    <value>MYANMAR</value>
+  </data>
+  <data name="CountryEnum_NAMIBIA" xml:space="preserve">
+    <value>NAMIBIE</value>
+  </data>
+  <data name="CountryEnum_NAURU" xml:space="preserve">
+    <value>NAURU</value>
+  </data>
+  <data name="CountryEnum_NEPAL" xml:space="preserve">
+    <value>NEPAL</value>
+  </data>
+  <data name="CountryEnum_NETHERLANDS" xml:space="preserve">
+    <value>PAYS-BAS</value>
+  </data>
+  <data name="CountryEnum_NEWCALEDONIA" xml:space="preserve">
+    <value>NOUVELLE-CALEDONIE</value>
+  </data>
+  <data name="CountryEnum_NEWZEALAND" xml:space="preserve">
+    <value>NOUVELLE-ZELANDE</value>
+  </data>
+  <data name="CountryEnum_NICARAGUA" xml:space="preserve">
+    <value>NICARAGUA</value>
+  </data>
+  <data name="CountryEnum_NIGER" xml:space="preserve">
+    <value>NIGER</value>
+  </data>
+  <data name="CountryEnum_NIGERIA" xml:space="preserve">
+    <value>NIGERIA</value>
+  </data>
+  <data name="CountryEnum_NIUE" xml:space="preserve">
+    <value>NIUE</value>
+  </data>
+  <data name="CountryEnum_NORFOLKISLAND" xml:space="preserve">
+    <value>NORFOLK, ILE</value>
+  </data>
+  <data name="CountryEnum_NORTHERNMARIANAISLANDS" xml:space="preserve">
+    <value>MARIANNES DU NORD ILES</value>
+  </data>
+  <data name="CountryEnum_NORWAY" xml:space="preserve">
+    <value>NORVEGE</value>
+  </data>
+  <data name="CountryEnum_OMAN" xml:space="preserve">
+    <value>OMAN</value>
+  </data>
+  <data name="CountryEnum_PAKISTAN" xml:space="preserve">
+    <value>PAKISTAN</value>
+  </data>
+  <data name="CountryEnum_PALAU" xml:space="preserve">
+    <value>PALAOS</value>
+  </data>
+  <data name="CountryEnum_PALESTINIANTERRITORYOCCUPIED" xml:space="preserve">
+    <value>PALESTINIEN OCCUPE, TERRITOIRE</value>
+  </data>
+  <data name="CountryEnum_PANAMA" xml:space="preserve">
+    <value>PANAMA</value>
+  </data>
+  <data name="CountryEnum_PAPUANEWGUINEA" xml:space="preserve">
+    <value>PAPOUASIE-NOUVELLE-GUINEE</value>
+  </data>
+  <data name="CountryEnum_PARAGUAY" xml:space="preserve">
+    <value>PARAGUAY</value>
+  </data>
+  <data name="CountryEnum_PERU" xml:space="preserve">
+    <value>PEROU</value>
+  </data>
+  <data name="CountryEnum_PHILIPPINES" xml:space="preserve">
+    <value>PHILIPPINES</value>
+  </data>
+  <data name="CountryEnum_PITCAIRN" xml:space="preserve">
+    <value>PITCAIRN</value>
+  </data>
+  <data name="CountryEnum_POLAND" xml:space="preserve">
+    <value>POLOGNE</value>
+  </data>
+  <data name="CountryEnum_PORTUGAL" xml:space="preserve">
+    <value>PORTUGAL</value>
+  </data>
+  <data name="CountryEnum_PUERTORICO" xml:space="preserve">
+    <value>PORTO RICO</value>
+  </data>
+  <data name="CountryEnum_QATAR" xml:space="preserve">
+    <value>QATAR</value>
+  </data>
+  <data name="CountryEnum_REUNION" xml:space="preserve">
+    <value>REUNION</value>
+  </data>
+  <data name="CountryEnum_ROMANIA" xml:space="preserve">
+    <value>ROUMANIE</value>
+  </data>
+  <data name="CountryEnum_RUSSIANFEDERATION" xml:space="preserve">
+    <value>RUSSIE,FEDERATION DE</value>
+  </data>
+  <data name="CountryEnum_RWANDA" xml:space="preserve">
+    <value>RWANDA</value>
+  </data>
+  <data name="CountryEnum_SAHARAOCCIDENTAL" xml:space="preserve">
+    <value>SAHARA OCCIDENTAL</value>
+  </data>
+  <data name="CountryEnum_SAINTBARTHELEMY" xml:space="preserve">
+    <value>SAINT-BARTHELEMY</value>
+  </data>
+  <data name="CountryEnum_SAINTHELENAASCENSIONANDTRISTANDACUNHA" xml:space="preserve">
+    <value>SAINTE-HELENE, ASCENSION ET TRISTAN DA CUNHA</value>
+  </data>
+  <data name="CountryEnum_SAINTKITTSANDNEVIS" xml:space="preserve">
+    <value>SAINT-KITTS-ET-NEVIS</value>
+  </data>
+  <data name="CountryEnum_SAINTLUCIA" xml:space="preserve">
+    <value>SAINTE-LUCIE</value>
+  </data>
+  <data name="CountryEnum_SAINTMARTINFRENCHPART" xml:space="preserve">
+    <value>SAINT-MARTIN (PARTIE FRANCAISE)</value>
+  </data>
+  <data name="CountryEnum_SAINTPIERREANDMIQUELON" xml:space="preserve">
+    <value>SAINT-PIERRE-ET-MIQUELON</value>
+  </data>
+  <data name="CountryEnum_SAINTVINCENTANDTHEGRENADINES" xml:space="preserve">
+    <value>SAINT-VINCENT-ET-LES GRENADINES</value>
+  </data>
+  <data name="CountryEnum_SAMOA" xml:space="preserve">
+    <value>SAMOA</value>
+  </data>
+  <data name="CountryEnum_SANMARINO" xml:space="preserve">
+    <value>SAINT-MARIN</value>
+  </data>
+  <data name="CountryEnum_SAOTOMEANDPRINCIPE" xml:space="preserve">
+    <value>SAO TOME-ET-PRINCIPE</value>
+  </data>
+  <data name="CountryEnum_SAUDIARABIA" xml:space="preserve">
+    <value>ARABIE SAOUDITE</value>
+  </data>
+  <data name="CountryEnum_SENEGAL" xml:space="preserve">
+    <value>SENEGAL</value>
+  </data>
+  <data name="CountryEnum_SERBIA" xml:space="preserve">
+    <value>SERBIE</value>
+  </data>
+  <data name="CountryEnum_SEYCHELLES" xml:space="preserve">
+    <value>SEYCHELLES</value>
+  </data>
+  <data name="CountryEnum_SIERRALEONE" xml:space="preserve">
+    <value>SIERRA LEONE</value>
+  </data>
+  <data name="CountryEnum_SINGAPORE" xml:space="preserve">
+    <value>SINGAPOUR</value>
+  </data>
+  <data name="CountryEnum_SINTMAARTENDUTCHPART" xml:space="preserve">
+    <value>SAINT-MARTIN (PARTIE NEERLANDAISE)</value>
+  </data>
+  <data name="CountryEnum_SLOVAKIA" xml:space="preserve">
+    <value>SLOVAQUIE</value>
+  </data>
+  <data name="CountryEnum_SLOVENIA" xml:space="preserve">
+    <value>SLOVENIE</value>
+  </data>
+  <data name="CountryEnum_SOLOMONISLANDS" xml:space="preserve">
+    <value>SALOMON, ILES</value>
+  </data>
+  <data name="CountryEnum_SOMALIA" xml:space="preserve">
+    <value>SOMALIE</value>
+  </data>
+  <data name="CountryEnum_SOUTHAFRICA" xml:space="preserve">
+    <value>AFRIQUE DU SUD</value>
+  </data>
+  <data name="CountryEnum_SOUTHGEORGIAANDTHESOUTHSANDWICHISLANDS" xml:space="preserve">
+    <value>GEORGIE DU SUD ET LES ILES SANDWICH DU SUD</value>
+  </data>
+  <data name="CountryEnum_SPAIN" xml:space="preserve">
+    <value>ESPAGNE</value>
+  </data>
+  <data name="CountryEnum_SRILANKA" xml:space="preserve">
+    <value>SRI LANKA</value>
+  </data>
+  <data name="CountryEnum_SUDAN" xml:space="preserve">
+    <value>SOUDAN</value>
+  </data>
+  <data name="CountryEnum_SURINAME" xml:space="preserve">
+    <value>SURINAME</value>
+  </data>
+  <data name="CountryEnum_SVALBARDANDJANMAYEN" xml:space="preserve">
+    <value>SVALBARD ET ILE JAN MAYEN</value>
+  </data>
+  <data name="CountryEnum_SWAZILAND" xml:space="preserve">
+    <value>SWAZILAND</value>
+  </data>
+  <data name="CountryEnum_SWEDEN" xml:space="preserve">
+    <value>SUEDE</value>
+  </data>
+  <data name="CountryEnum_SWITZERLAND" xml:space="preserve">
+    <value>SUISSE</value>
+  </data>
+  <data name="CountryEnum_SYRIANARABREPUBLIC" xml:space="preserve">
+    <value>SYRIENNE,REPUBLIQUE ARABE</value>
+  </data>
+  <data name="CountryEnum_TAIWANPROVINCEOFCHINA" xml:space="preserve">
+    <value>TAIWAN, PROVINCE DE CHINE</value>
+  </data>
+  <data name="CountryEnum_TAJIKISTAN" xml:space="preserve">
+    <value>TADJIKISTAN</value>
+  </data>
+  <data name="CountryEnum_TANZANIAUNITEDREPUBLICOF" xml:space="preserve">
+    <value>TANZANIE, REPUBLIQUE-UNIE DE</value>
+  </data>
+  <data name="CountryEnum_THAILAND" xml:space="preserve">
+    <value>THAILANDE</value>
+  </data>
+  <data name="CountryEnum_TIMORLESTE" xml:space="preserve">
+    <value>TIMOR-LESTE</value>
+  </data>
+  <data name="CountryEnum_TOGO" xml:space="preserve">
+    <value>TOGO</value>
+  </data>
+  <data name="CountryEnum_TOKELAU" xml:space="preserve">
+    <value>TOKELAU</value>
+  </data>
+  <data name="CountryEnum_TONGA" xml:space="preserve">
+    <value>TONGA</value>
+  </data>
+  <data name="CountryEnum_TRINIDADANDTOBAGO" xml:space="preserve">
+    <value>TRINITE-ET-TOBAGO</value>
+  </data>
+  <data name="CountryEnum_TUNISIA" xml:space="preserve">
+    <value>TUNISIE</value>
+  </data>
+  <data name="CountryEnum_TURKEY" xml:space="preserve">
+    <value>TURQUIE</value>
+  </data>
+  <data name="CountryEnum_TURKMENISTAN" xml:space="preserve">
+    <value>TURKMENISTAN</value>
+  </data>
+  <data name="CountryEnum_TURKSANDCAICOSISLANDS" xml:space="preserve">
+    <value>TURKS ET CAIQUES, ILES</value>
+  </data>
+  <data name="CountryEnum_TUVALU" xml:space="preserve">
+    <value>TUVALU</value>
+  </data>
+  <data name="CountryEnum_UGANDA" xml:space="preserve">
+    <value>OUGANDA</value>
+  </data>
+  <data name="CountryEnum_UKRAINE" xml:space="preserve">
+    <value>UKRAINE</value>
+  </data>
+  <data name="CountryEnum_UNITEDARABEMIRATES" xml:space="preserve">
+    <value>EMIRATS ARABES UNIS</value>
+  </data>
+  <data name="CountryEnum_UNITEDKINGDOM" xml:space="preserve">
+    <value>ROYAUME-UNI</value>
+  </data>
+  <data name="CountryEnum_UnitedStates" xml:space="preserve">
+    <value>ETATS-UNIS</value>
+  </data>
+  <data name="CountryEnum_UNITEDSTATESMINOROUTLYINGISLANDS" xml:space="preserve">
+    <value>ILES MINEURES ELOIGNEES DES ETATS-UNIS</value>
+  </data>
+  <data name="CountryEnum_URUGUAY" xml:space="preserve">
+    <value>URUGUAY</value>
+  </data>
+  <data name="CountryEnum_UZBEKISTAN" xml:space="preserve">
+    <value>OUZBEKISTAN</value>
+  </data>
+  <data name="CountryEnum_VANUATU" xml:space="preserve">
+    <value>VANUATU</value>
+  </data>
+  <data name="CountryEnum_VENEZUELABOLIVARIANREPUBLICOF" xml:space="preserve">
+    <value>VENEZUELA, REPUBLIQUE BOLIVARIENNE DU</value>
+  </data>
+  <data name="CountryEnum_VIETNAM" xml:space="preserve">
+    <value>VIET NAM</value>
+  </data>
+  <data name="CountryEnum_VIRGINISLANDSBRITISH" xml:space="preserve">
+    <value>ILES VIERGES BRITANNIQUES</value>
+  </data>
+  <data name="CountryEnum_VIRGINISLANDSUS" xml:space="preserve">
+    <value>ILES VIERGES DES ETATS-UNIS</value>
+  </data>
+  <data name="CountryEnum_WALLISANDFUTUNA" xml:space="preserve">
+    <value>WALLIS ET FUTUNA</value>
+  </data>
+  <data name="CountryEnum_YEMEN" xml:space="preserve">
+    <value>YEMEN</value>
+  </data>
+  <data name="CountryEnum_ZAMBIA" xml:space="preserve">
+    <value>ZAMBIE</value>
+  </data>
+  <data name="CountryEnum_ZIMBABWE" xml:space="preserve">
+    <value>ZIMBABWE</value>
+  </data>
+  <data name="ShareCategoryTypeEnum_ExGroomersBreedersBoardersetc" xml:space="preserve">
+    <value>Ex. Toiletteurs, éleveurs, Boarders etc.</value>
+  </data>
+  <data name="ShareCategoryTypeEnum_HealthHistoryHealthMeasureTrackerDocuments" xml:space="preserve">
+    <value>Histoire de la santé, de la santé Mesurer Tracker, Documents</value>
+  </data>
+  <data name="ShareCategoryTypeEnum_PetprofileBreederInsurance" xml:space="preserve">
+    <value>Profil animal, Éleveur, Assurance</value>
+  </data>
+  <data name="ShareCategoryTypeEnum_VideoPhotoAlbums" xml:space="preserve">
+    <value>Vidéo, photo, Albums</value>
+  </data>
+  <data name="ShareCategoryTypeEnum_YourVeterinariansinfomation" xml:space="preserve">
+    <value>Vos informations vétérinaires</value>
+  </data>
+  <data name="PetTypeEnum_Fish" xml:space="preserve">
+    <value>Poisson</value>
+  </data>
+  <data name="ReferralSourceEnum_Other" xml:space="preserve">
+    <value>Autre</value>
+  </data>
+  <data name="PetGenderEnum_Female" xml:space="preserve">
+    <value>Femelle</value>
+  </data>
+  <data name="PetGenderEnum_Male" xml:space="preserve">
+    <value>Mâle</value>
+  </data>
+  <data name="ReferralSourceEnum_Event" xml:space="preserve">
+    <value>Evénement</value>
+  </data>
+  <data name="ReferralSourceEnum_FriendFamilyMember" xml:space="preserve">
+    <value>Ami Membre de la famille</value>
+  </data>
+  <data name="ReferralSourceEnum_PetRadioShow" xml:space="preserve">
+    <value>Pet radio show </value>
+  </data>
+  <data name="ReferralSourceEnum_SearchEngine" xml:space="preserve">
+    <value>Moteur de recherche</value>
+  </data>
+  <data name="ReferralSourceEnum_SocialMedia" xml:space="preserve">
+    <value>Réseaux sociaux</value>
+  </data>
+</root>

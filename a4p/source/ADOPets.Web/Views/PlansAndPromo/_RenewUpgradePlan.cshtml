@@ -1,0 +1,67 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@using Model
+@model ADOPets.Web.ViewModels.PlansAndPromo.PlanRenewUpgradeViewModel
+@using ADOPets.Web.Common.Extensions
+
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>@Resources.PlanAndPromo_Add_Title</h1>
+        </div>
+        <div class="col-md-6">
+            <a href="@Url.Action("Index", "PlansAndPromo")" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i>@Resources.PlanAndPromo_Add_Back</a>
+        </div>
+    </div>
+</div>
+<div id="mainContainer">
+    <div id="myAccount">
+        <a href="@Url.Action("AddPlan", "PlansAndPromo")" style="cursor: no-drop;">@Resources.PlanAndPromo_Add_PlanTitle <i class="fa fa-angle-right"></i></a>
+        <a href="@Url.Action("AddPromocode", "PlansAndPromo")" style="cursor: no-drop;">@Resources.PlanAndPromo_Add_PromocodeTitle <i class="fa fa-angle-right"></i></a>
+        <a href="javascript:void(0)" class="active">@Resources.PlanAndPromo_Add_PlanRenewalTitle</a>
+        <div class="clearfix"></div>
+    </div>
+    @using (Html.BeginForm("RenewUpgradePlan", "PlansAndPromo", FormMethod.Post, new { @id = "AddPlanForm", @class = "form-horizontal defaultForm bv-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel panel-info col-md-12 col-md-offset-0">
+            @*<label class="col-md-7 control-label" for="InvalidPromoCode" id="PromocodeErrMsg" style="color: #a94442; padding-right: 30px; display: none;">@Resources.Account_SignUp_InvalidPromoCode</label>*@
+            <div class="clearfix"></div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.PromoCodeId, new { @class = "col-sm-5 control-label" })
+                    <div class="col-sm-7">
+                        @Html.DropDownListFor(model => model.PromoCodeId, ViewBag.Promocode as IEnumerable<SelectListItem>, Resources.PlansAndPromo_RenewUpgrade_PromocodePlaceHolder, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PromoCodeId)
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.PlanId, new { @class = "col-sm-5 control-label" })
+                    <div class="col-sm-7">
+                        @Html.DropDownListFor(model => model.PlanId, ViewBag.Plans as IEnumerable<SelectListItem>, Resources.PlansAndPromo_RenewUpgrade_PlanPlaceHolder, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PlanId)
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.PlanatRenewalId, new { @class = "col-sm-5 control-label" })
+                    <div class="col-sm-7">
+                        @Html.DropDownListFor(model => model.PlanatRenewalId, ViewBag.Plans as IEnumerable<SelectListItem>, Resources.PlansAndPromo_RenewUpgrade_PlanPlaceHolder, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PlanatRenewalId)
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6">
+                <a id="cancelButton" href="@Url.Action("Index", "PlansAndPromo")" class="btn btn-warning btn-lg pull-right">@Resources.Pet_Add_CancelButton</a>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success btn-lg">@Resources.PlansAndPromo_Add_Save</button>
+            </div>
+        </div>
+    }
+</div>
+<div class="clearfix"></div>
+<script src="@Url.Content("~/Scripts/customs/views/PlansAndPromo/RenewUpgrade.js")"></script>

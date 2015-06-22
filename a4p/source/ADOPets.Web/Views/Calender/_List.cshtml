@@ -1,0 +1,81 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.Calender.DetailsViewModel>
+@using ADOPets.Web.Common.Extensions
+
+<div id="reminderList">
+
+    @Html.RenderSuccessMessage("reminderSuccessMessage", TempData["SuccessMessage"])
+
+    <table id="Table_Calender" class="table table-bordered">
+        <thead>
+            <tr>
+                <th width="10%">
+                    <div>@Resources.Calendar_Details_Date</div>
+
+                </th>
+                <th width="10%">
+                    <div>@Resources.Calendar_Details_Reason</div>
+
+                    <th width="10%">
+                        <div>@Resources.Calendar_Details_Time</div>
+
+                    </th>
+                <th width="10%">
+                    <div>@Resources.Calendar_Details_Physician</div>
+
+                </th>
+                <th>
+                    <div>@Resources.Calendar_Details_Comment</div>
+
+                </th>
+                <th>@Resources.Calendar_Details_Action</th>
+                <th style="display: none;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (Convert.ToDateTime(item.Date) >= DateTime.Now.Date)
+                {
+                        
+                <tr>
+                    <td>@item.Date</td>
+                    <td>@item.Reason</td>
+                    <td>@item.Time</td>
+                    <td>@item.Physician</td>
+                    <td>@item.Comment</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Calender", new { reminderId = item.Id, redirectToUrl = "List" })" class="btn btn-success btn-sm editReminder" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Calendar_Details_Edit"><i class="fa fa-pencil"></i></a>
+                        <a href="@Url.Action("DeleteConfirm", "Calender", new { reminderId = item.Id })"  class="btn btn-warning btn-sm deleteReminder" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Calendar_Details_Delete" aria-describedby="tooltip992278"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                    <td style="display: none;">@Resources.Calendar_Details_ViewUpcoming</td>
+                </tr>
+                }
+                else
+                {
+                        
+                <tr>
+                    <td>@item.Date</td>
+                    <td>@item.Reason</td>
+                    <td>@item.Time</td>
+                    <td>@item.Physician</td>
+                    <td>@item.Comment</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Calender", new { reminderId = item.Id, redirectToUrl = "List" })" class="btn btn-success btn-sm editReminder" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Calendar_Details_Edit"><i class="fa fa-pencil"></i></a>
+                        <a href="@Url.Action("DeleteConfirm", "Calender", new { reminderId = item.Id })"  class="btn btn-warning btn-sm deleteReminder" data-tooltip="tooltip" data-placement="top" data-original-title="@Resources.Calendar_Details_Delete" aria-describedby="tooltip992278"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                    <td style="display: none;"></td>
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+<script src="~/Scripts/customs/views/Calender/List.js"></script>
+
+<link href="@Url.Content("~/Content/css/fullcalendar.min.css")" rel="stylesheet">
+<script src="@Url.Content("~/Scripts/external/fullcalendar.min.js")"></script>
+<script src="@Url.Content("~/Scripts/external/lang-all.js")"></script>

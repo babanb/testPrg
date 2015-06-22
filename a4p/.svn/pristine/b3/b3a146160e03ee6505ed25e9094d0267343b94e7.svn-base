@@ -1,0 +1,180 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Veterinarian.DeleteViewModel
+@using Model
+
+<div class="modal-dialog">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">@Resources.Veterinarian_Delete_Message</h4>
+        </div>
+
+        <div class="modal-body">
+            <div style="overflow-x: auto; height: 550px; padding-right: 10px;">
+
+                @*  <h4 class="modal-title">@Resources.Message</h4>*@
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.IsCurrentVeterinarian, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@if (Model.IsCurrentVeterinarian == true)
+                                        {@Resources.Veterinarian_Delete_IsCurrentVeterinarianYes}
+                                        else
+                                        {@Resources.Veterinarian_Delete_IsCurrentVeterinarianNo}</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.IsEmergencyContact, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@if (Model.IsEmergencyContact == true)
+                                        {@Resources.Veterinarian_Delete_IsEmergencyContactYes}
+                                        else
+                                        {@Resources.Veterinarian_Delete_IsEmergencyContactNo}</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.StartDate, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@if (Model.StartDate.HasValue)
+                                        {@Model.StartDate.Value.ToShortDateString()}</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.EndDate, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@if (Model.EndDate.HasValue)
+                                        {@Model.EndDate.Value.ToShortDateString()}</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.LastName, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.LastName</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.FirstName, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.FirstName</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.NPI, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.NPI</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.HospitalName, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.HospitalName</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.Address1, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.Address1</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.Address2, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.Address2</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.Country, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.Country</td>
+                    </tr>
+                    @if (ADOPets.Web.Common.Helpers.DomainHelper.GetDomain() != DomainTypeEnum.French)
+                    {
+                        <tr>
+                            <td width="30%" align="right"><strong>@Html.LabelFor(model => model.State, new { @class = "control-label" })</strong></td>
+                            <td width="10%" align="center">:</td>
+                            <td width="70%">@Model.State</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.City, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.City</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.Zip, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.Zip</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.Home, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.Home</td>
+                    </tr>
+                    @if (ADOPets.Web.Common.Helpers.DomainHelper.GetDomain() != DomainTypeEnum.French)
+                    {
+                        <tr>
+                            <td width="30%" align="right"><strong>@Html.LabelFor(model => model.Office, new { @class = "control-label" })</strong></td>
+                            <td width="10%" align="center">:</td>
+                            <td width="70%">@Model.Office</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.Cell, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.Cell</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.Fax, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.Fax</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.Email, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.Email</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.Comments, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Html.Raw("<pre>" + Model.Comments + "</pre>")</td>
+                    </tr>
+                    <tr>
+                        <td width="30%" align="right"><strong>@Html.LabelFor(model => model.VetSpeciality, new { @class = "control-label" })</strong></td>
+                        <td width="10%" align="center">:</td>
+                        <td width="70%">@Model.VetSpeciality</td>
+                    </tr>
+
+
+                </table>
+
+            </div>
+        </div>
+
+        @using (Ajax.BeginForm("Delete", "Veterinarian", new AjaxOptions
+        {
+            UpdateTargetId = "veterinarianList",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogVeterinarian"
+        }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.PetId)
+            @Html.HiddenFor(m => m.Id)
+            
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.Veterinarian_Delete_SaveChanges</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Veterinarian_Delete_Cancel</button>
+            </div>
+        }
+
+    </div>
+</div>

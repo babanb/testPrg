@@ -1,0 +1,55 @@
+﻿@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.SerumElectrolyte.AddViewModel
+@using ADOPets.Web.Common.Extensions
+
+<div class="modal-dialog">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="SerumElectrolyteModalLabel">@Resources.SerumElectrolyte_Add_Title</h4>
+        </div>
+
+        @using (Ajax.BeginForm("Add", "SerumElectrolyte", new AjaxOptions
+        {
+            UpdateTargetId = "serumelectrolyteList",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogSerumElectrolyte"
+        }, new { @id = "addSerumElectrolyteForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="modal-body">
+
+                @Html.HiddenFor(model => model.PetId)
+
+                @Html.LabelRequiredFor(model => model.MeasureDate, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.MeasureDate, new { @class = "form-control datepicker datepickerPast", placeholder = Resources.SerumElectrolyte_Add_DatePlaceHolder, @Value = string.Empty })
+                @Html.ValidationMessageFor(model => model.MeasureDate)
+                <br>
+
+                @Html.LabelRequiredFor(model =>Model.LeftValue, new { @class = "control-label" })
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(model => model.LeftValue, new { @class = "form-control", placeholder = string.Format(Resources.SerumElectrolyte_Add_LeftValuePlaceHolder, EnumHelper.GetResourceValueForEnumValue(HealthMeasureUnitEnum.GramLiter))})
+                        @Html.ValidationMessageFor(model => model.LeftValue)
+                    </div>
+                                 
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.SerumElectrolyte_Add_SaveChanges</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.SerumElectrolyte_Add_Cancel</button>
+            </div>
+        }
+
+    </div>
+</div>
+

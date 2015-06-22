@@ -1,0 +1,52 @@
+﻿@using ADOPets.Web.Common.Enums
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.HealthHistory.HealthHistoryViewModel
+
+
+
+@Html.Hidden("currentHealthHistory", Model.Current)
+
+
+<div id="mrsubcatnavlevel2">
+
+    <ul class="nav nav-tabs  nav-pills healthHistory">
+        <li><a href='#@HealthHistoryTypeEnum.Condition' data-toggle="pill">@Resources.HealthHistory_Index_Conditions
+              <div class="talk-up"></div></a></li>
+        <li><a href='#@HealthHistoryTypeEnum.Surgery'data-toggle="pill" >@Resources.HealthHistory_Index_Surgeries</a></li>
+        <li><a href='#@HealthHistoryTypeEnum.Medication'data-toggle="pill" >@Resources.HealthHistory_Index_Medications</a></li>
+        <li><a href='#@HealthHistoryTypeEnum.Allergy' data-toggle="pill">@Resources.HealthHistory_Index_Allergies</a></li>
+        <li id="idmr1"><a href='#@HealthHistoryTypeEnum.Immunization'data-toggle="pill" >@Resources.HealthHistory_Index_Immunizations</a></li>
+        <li id="idmr2"><a href='#@HealthHistoryTypeEnum.FoodPlan'data-toggle="pill" >@Resources.HealthHistory_Index_FoodPlan</a></li>
+        <li id="idmr3"><a href='#@HealthHistoryTypeEnum.Hospitalization'data-toggle="pill" >@Resources.HealthHistory_Index_Hospitalizations</a></li>
+        <li id="idmr4"><a href='#@HealthHistoryTypeEnum.Consultation'data-toggle="pill" >@Resources.HealthHistory_Index_Consultations</a></li>
+    </ul>
+</div>
+<div class="tab-content">
+    <div class="tab-pane active" id='@HealthHistoryTypeEnum.Condition'>
+        @{ Html.RenderPartial("~/Views/Condition/_Index.cshtml", Model.Conditions); }
+    </div>
+    <div class="tab-pane" id='@HealthHistoryTypeEnum.Surgery'>
+        @{ Html.RenderPartial("~/Views/Surgery/_Index.cshtml", Model.Surgeries); }
+    </div>
+    <div class="tab-pane" id='@HealthHistoryTypeEnum.Medication'>
+        @{ Html.RenderPartial("~/Views/Medication/_Index.cshtml", Model.Medications); }
+    </div>
+    <div class="tab-pane"  id='@HealthHistoryTypeEnum.Allergy'>
+        @{ Html.RenderPartial("~/Views/Allergy/_Index.cshtml", Model.Allergies); }
+    </div>
+    <div class="tab-pane" id='@HealthHistoryTypeEnum.Immunization'>
+        @{ Html.RenderPartial("~/Views/Immunization/_Index.cshtml", Model.Immunizations); }
+    </div>
+    <div class="tab-pane" id='@HealthHistoryTypeEnum.FoodPlan'>
+        @{ Html.RenderPartial("~/Views/FoodPlan/_Index.cshtml", Model.FoodPlans); }
+    </div>
+    <div class="tab-pane" id='@HealthHistoryTypeEnum.Hospitalization'>
+        @{ Html.RenderPartial("~/Views/Hospitalization/_Index.cshtml", Model.Hospitalizations); }
+    </div>
+    <div class="tab-pane" id='@HealthHistoryTypeEnum.Consultation'>
+        @{ Html.RenderPartial("~/Views/Consultation/_Index.cshtml", Model.Consultations); }
+    </div>
+</div>
+
+
+<script src="~/Scripts/customs/views/HealthHistory/Index.js"></script>

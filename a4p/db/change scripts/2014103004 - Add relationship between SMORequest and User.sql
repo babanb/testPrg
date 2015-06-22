@@ -1,0 +1,3 @@
+ALTER TABLE [dbo].[SMORequest]  WITH CHECK ADD  CONSTRAINT [FK_SMORequest_User] FOREIGN KEY([UserId])
+REFERENCES [dbo].[User] ([Id])
+GO

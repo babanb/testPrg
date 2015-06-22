@@ -1,0 +1,123 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Profile.PlanDetailViewModel
+@using ADOPets.Web.Common.Authentication
+
+<div class="messageStyle">
+    @{ Html.RenderPartial("_Alerts"); }
+</div>
+@if (Model.isTrial)
+{
+    if (!Model.isRenewed)
+    {
+    <a class="btn btn-success editBtn" href="#UpgradeMyPlan" data-toggle="tab" style="float: right; margin-right: 10px"><i class="fa fa-pencil"></i>@Resources.Profile_PlanUpgrade_Title</a>
+    }
+}
+else
+{
+    if (Model.IsFreeUser)
+    { 
+    <a class="btn btn-success editBtn" href="#UpgradeMyPlan" data-toggle="tab" style="float: right; margin-right: 10px"><i class="fa fa-pencil"></i>@Resources.Profile_PlanUpgrade_Title</a>
+    }
+    else
+    {
+        if ((Model.NumberOfPets < 10 && Model.MaxPetcount < 10) && !System.Web.HttpContext.Current.User.HasPlanExpired() && Model.Promocode != ADOPets.Web.Common.Constants.FreeUserPromoCode)
+        {
+    <a class="btn btn-success editBtn" href="#MyPlanAddPets" data-toggle="tab" style="float: right;"><i class="fa fa-pencil"></i>@Resources.Profile_PlanDetail_AdditionalPets</a>
+        }
+        if (!Model.isRenewed && Model.Promocode != ADOPets.Web.Common.Constants.FreeUserPromoCode)
+        {
+    <a class="btn btn-success editBtn" href="#RenewaltMyPlan" data-toggle="tab" style="float: right; margin-right: 10px"><i class="fa fa-pencil"></i>@Resources.Profile_PlanDetail_RenewalPlan</a>
+        }
+    }
+}
+
+<div class="columnfull first" style="margin-top: 40px !important;">
+    <br />
+    <br />
+    <div class="detailrow">
+        <div style="color: #428bca; width: 35%;">@Resources.Profile_PlanDetail_YourPlan</div>
+        <div class="colonspace text-primary">:</div>
+        <div class="text-primary">@Model.FinalplanName</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="detailrow">
+        <div style="width: 35%;">@Resources.Profile_PlanDetail_Promocode</div>
+        <div class="colonspace">:</div>
+        <div>@Model.Promocode</div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="detailrow">
+        <div style="width: 35%;">@Resources.Profile_PlanDetail_PlanName</div>
+        <div class="colonspace">:</div>
+        <div>@Model.PlanName</div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="detailrow">
+        <div style="width: 35%;">@Resources.Profile_PlanDetail_Description</div>
+        <div class="colonspace">:</div>
+        <div>@Model.Description</div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="detailrow">
+        <div style="width: 35%;">@Resources.Profile_PlanDetail_AdditionalInfo</div>
+        <div class="colonspace">:</div>
+        <div>@Model.AdditionalInfo</div>
+        <div class="clearfix"></div>
+    </div>
+    @if (!Model.IsFreeUser)
+    {
+        <div class="detailrow">
+            <div style="width: 35%;">@Resources.Profile_PlanDetail_AdditionalPets</div>
+            <div class="colonspace">:</div>
+            <div>@Model.NumberOfPets</div>
+            <div class="clearfix"></div>
+        </div>
+    }
+    else
+    {
+        <div class="detailrow">
+            <div style="width: 35%;">@Resources.Profile_PlanDetail_AdditionalPets</div>
+            <div class="colonspace">:</div>
+            <div>@Model.MaxPetcount</div>
+            <div class="clearfix"></div>
+        </div>
+    }
+    @if (!Model.IsFreeUser)
+    {
+        <div class="detailrow">
+            <div style="width: 35%;">@Resources.Profile_PlanDetail_StartDate</div>
+            <div class="colonspace">:</div>
+            <div>@Model.StartDate.ToShortDateString()</div>
+            <div class="clearfix"></div>
+        </div>
+   
+        <div class="detailrow">
+            <div style="width: 35%;">@Resources.Profile_PlanDetail_ExpirationDate</div>
+            <div class="colonspace">:</div>
+            <div>@Model.EndDate.ToShortDateString()</div>
+            <div class="clearfix"></div>
+        </div>
+   
+        <div class="detailrow">
+            <div style="width: 35%;">@Resources.Profile_PlanDetail_Duration</div>
+            <div class="colonspace">:</div>
+            <div>@string.Format(Resources.Profile_PlanDetail_Days, Model.Duration)</div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="detailrow">
+            <div style="width: 35%;">@Resources.Profile_PlanDetail_RemainingDays</div>
+            <div class="colonspace">:</div>
+            <div>@string.Format(Resources.Profile_PlanDetail_Days, Model.RemainingDays)</div>
+            <div class="clearfix"></div>
+        </div>
+    }
+</div>
+<input type="hidden" value="@Model.NumberOfPets" name="PlanDetails_numberofPets" id="PlanDetails_numberofPets"/>
+
+<div id="PlanRenewalDetails" class="modal fade" tabindex="-1" role="dialog"></div>
+
+<script src="~/Scripts/customs/views/Profile/PlanDetails.js"></script>

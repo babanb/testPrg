@@ -1,0 +1,32 @@
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ReferralSource](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL	
+ CONSTRAINT [PK_ReferralSource] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+Alter Table [User] 
+Add ReferralSourceId int NULL 
+
+
+
+ALTER TABLE [dbo].[User]  WITH CHECK ADD  CONSTRAINT [FK_UserReferralSource] FOREIGN KEY([ReferralSourceId])
+REFERENCES [dbo].[ReferralSource] ([Id])
+GO
+
+ALTER TABLE [dbo].[User] CHECK CONSTRAINT [FK_UserReferralSource]
+GO
+
+

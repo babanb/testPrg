@@ -1,0 +1,57 @@
+﻿@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Pulse.AddViewModel
+@using ADOPets.Web.Common.Extensions
+
+<div class="modal-dialog">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="PulseModalLabel">@Resources.Pulse_Add_Title</h4>
+        </div>
+
+        @using (Ajax.BeginForm("Add", "Pulse", new AjaxOptions
+        {
+            UpdateTargetId = "pulseList",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "CloseDialogPulse"
+        }, new { @id = "addPulseForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="modal-body">
+
+                @Html.HiddenFor(model => model.PetId)
+
+                @Html.LabelRequiredFor(model => model.MeasureDate, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.MeasureDate, new { @class = "form-control datepicker datepickerPast", placeholder = Resources.Pulse_Add_DatePlaceHolder, @Value = string.Empty })
+                @Html.ValidationMessageFor(model => model.MeasureDate)
+                <br>
+
+                @Html.LabelRequiredFor(model =>model.LeftValue, new { @class = "control-label" })
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(model => model.LeftValue, new { @class = "form-control", placeholder = string.Format(Resources.Pulse_Add_LeftValuePlaceHolder, EnumHelper.GetResourceValueForEnumValue(HealthMeasureUnitEnum.BeatsPerMinute)) })
+                        @Html.ValidationMessageFor(model => model.LeftValue)
+                    </div>
+                    <div>
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">@Resources.Pulse_Add_SaveChanges</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Pulse_Add_Cancel</button>
+            </div>
+        }
+
+    </div>
+</div>
+

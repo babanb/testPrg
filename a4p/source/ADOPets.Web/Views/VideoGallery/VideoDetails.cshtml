@@ -1,0 +1,40 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.VideoGallery.IndexViewModel
+@{
+    ViewBag.Title = Resources.Pet_Index_Title;
+}
+<div class="messageStyle">
+    
+    @{ Html.RenderPartial("_Alerts"); }
+</div>
+<div id="hiderightsidebar">
+        <img src="@Url.Content("~/Content/images/hide-img.png")" width="22" height="34" alt="" />
+    </div>
+    <div id="showrightsidebar">
+        <img src="@Url.Content("~/Content/images/show-img.png")" width="22" height="34" alt="" />
+    </div>
+<div id="divVideoDetails">
+    @Html.Partial("_Details", Model)
+</div>
+<div id="deleteCommentModal" class="modal fade" tabindex="-1" role="dialog"></div>
+<div id="deleteReplyModal" class="modal fade" tabindex="-1" role="dialog"></div>
+<script>
+
+    function nextImage(thisObj) {
+        var hrefData = $(thisObj).attr('data-href');
+        $.get(hrefData, function (data) {
+            $('#divVideoDetails').html(data);
+        });
+    }
+    function prevImage(thisObj) {
+        var hrefData = $(thisObj).attr('data-href');
+        $.get(hrefData, function (data) {
+            $('#divVideoDetails').html(data);
+        });
+    }
+
+</script>
+<script src="@Url.Content("~/Scripts/customs/views/GalleryComment/GalleryComments.js")"></script>

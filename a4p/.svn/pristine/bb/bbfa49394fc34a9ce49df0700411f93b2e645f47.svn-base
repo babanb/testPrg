@@ -1,0 +1,152 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using Resources = ADOPets.Web.Resources.Wording
+@model ADOPets.Web.ViewModels.Profile.PlanBillingViewModel
+@using Model
+@{
+    bool isRenewal = ViewBag.IsRenewal != null && ViewBag.IsRenewal == true;
+    bool IsUpgrade = ViewBag.IsUpgrade != null && ViewBag.IsUpgrade == true;
+}
+
+<div class="well well-sm">
+    <div class="columnfull first">
+        <h3 style="text-align: center">@Resources.Profile_PlanEdit_BillingInformation</h3>
+        <hr />
+        <div id="payment-option">
+            <img src="~/Content/images/mastercard.png" width="100px">
+            <img src="~/Content/images/visa.png" width="100px">
+            <img src="~/Content/images/discover-network.png" width="100px">
+            <img src="~/Content/images/jcb.png" width="100px">
+        </div>
+    </div>
+
+    <h4 style="text-align: center; color: #63a00e;"></h4>
+    <div class="form-group">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-8">
+            @Html.ValidationSummary(true)
+        </div>
+    </div>
+
+    @using (Ajax.BeginForm("PlanBilling", "Profile", new AjaxOptions
+        {
+            UpdateTargetId = "PlanConfirmation",
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace
+        }, new { @id = "PlanBillingForm", @class = "form-horizontal" }))
+    {
+            
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label  text-primary">@Resources.Profile_PlanDetail_YourPlan : </label>
+                    <div class="col-xs-8">
+                        <label class="control-label  text-primary" id="UpgradePrice">@Model.Plan</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label text-primary">@Resources.Profile_PlanDetail_YourCharge :  </label>
+                    <div class="col-xs-8">
+                        <label class="control-label  text-primary" id="UpgradePlan">@ADOPets.Web.Common.Helpers.DomainHelper.GetCurrency()@Model.Price</label>
+                    </div>
+                </div>
+                @if (ADOPets.Web.Common.Helpers.DomainHelper.GetDomain() == DomainTypeEnum.US)
+                {
+                    <div class="form-group">
+
+                        @*<br>
+                        <div class="sep-line"></div>*@
+                        <br>
+                        @Html.LabelRequiredFor(model => model.CreditCardType, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-6">
+                            @Html.EnumDropDownListFor(m => m.CreditCardType, Resources.Profile_PlanEdit_CreditCardTypePlaceHolder, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CreditCardType)
+                        </div>
+                        <br>
+                        <br>
+                        @Html.LabelRequiredFor(model => model.CreditCardNumber, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.CreditCardNumber, new { @class = "form-control", placeholder = Resources.Profile_PlanEdit_CreditCardNumberPlaceHolder })
+                            @Html.ValidationMessageFor(model => model.CreditCardNumber)
+                        </div>
+                        <br>
+                        <br>
+                        @Html.LabelRequiredFor(model => model.ExpirationDate, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-6">
+                            <div class="input-group date">
+                                @Html.TextBoxFor(model => model.ExpirationDate, new { @class = "form-control datepicker datepickerMonthYear", placeholder = Resources.Profile_PlanEdit_ExpirationDatePlaceHolder })
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.ExpirationDate)
+                        </div>
+
+                        <br>
+                        <br>
+                        @Html.LabelRequiredFor(model => model.CVV, new { @class = "col-sm-4 control-label" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.CVV, new { @class = "form-control", placeholder = Resources.Profile_PlanEdit_CVVPlaceHolder })
+                            @Html.ValidationMessageFor(model => model.CVV)
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    @Html.LabelRequiredFor(model => model.BillingAddress1, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.BillingAddress1, new { @class = "form-control", placeholder = Resources.Profile_PlanEdit_Address1PlaceHolder })
+                        @Html.ValidationMessageFor(model => model.BillingAddress1)
+                    </div>
+                    <br>
+                    <br>
+                    @Html.LabelFor(model => model.BillingAddress2, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.BillingAddress2, new { @class = "form-control", placeholder = Resources.Profile_PlanEdit_Address2PlaceHolder })
+                    </div>
+                    <br>
+                    <br>
+                    @Html.LabelRequiredFor(model => model.BillingCity, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.BillingCity, new { @class = "form-control", placeholder = Resources.Profile_PlanEdit_CityPlaceHolder })
+                        @Html.ValidationMessageFor(model => model.BillingCity)
+                    </div>
+                    <br>
+                    <br>
+                    @Html.LabelRequiredFor(model => model.BillingCountry, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EnumDropDownListFor(m => m.BillingCountry, Resources.Profile_PlanEdit_CountryPlaceHolder, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BillingCountry)
+                    </div>
+                    <br>
+                    <br>
+                    @Html.LabelFor(model => model.BillingState, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        @Html.DropDownListFor(m => m.BillingState, new List<SelectListItem>(), Resources.Profile_PlanEdit_StatePlaceHolder, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BillingState)
+                    </div>
+                    <br>
+                    <br>
+                    @Html.LabelRequiredFor(model => model.BillingZip, new { @class = "col-sm-4 control-label" })
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.BillingZip, new { @class = "form-control", placeholder = Resources.Profile_PlanEdit_ZipPlaceholder })
+                        @Html.ValidationMessageFor(model => model.BillingZip)
+                    </div>
+
+                </div>
+
+                @Html.Hidden("IsRenewal", isRenewal)
+                @Html.Hidden("IsUpgrade", IsUpgrade)
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-4">
+                        <button type="button" class="btn btn-success" id="btnBack">@Resources.Profile_PlanEdit_Back</button>
+                        <button type="submit" class="btn btn-success">@Resources.Profile_PlanEdit_Next</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    }
+</div>
+
+<script src="/Scripts/customs/views/Profile/PlanBilling.js"></script>

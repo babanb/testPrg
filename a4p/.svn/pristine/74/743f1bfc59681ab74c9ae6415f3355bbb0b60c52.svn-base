@@ -1,0 +1,82 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.Common.Helpers
+@using Model
+@using Resources = ADOPets.Web.Resources.Wording
+
+@model ADOPets.Web.ViewModels.PhotoGallery.IndexViewModel
+
+
+<div id="pageTitle">
+    <div class="row">
+        <div class="col-md-3">
+            <h1>@Model.PetName</h1>
+        </div>
+        <div class="col-md-9">
+            <a href="@Url.Action("Edit", "Pet", new { id = Model.PetId })" class="btn btn-primary pull-right"><i class="fa fa-angle-left"></i>@Resources.SharePetInfo_MyContact_Back</a>
+        </div>
+    </div>
+</div>
+<div id="mainContainer">
+
+    @if (ViewBag.First)
+    {
+        <div id="galleryPrebtn" style="top: 315px;"><i class="fa fa-angle-left"></i></div>
+    }
+    else
+    {
+        <a href="javascript:void(0);" onclick="prevImage(this);"  data-href="@Url.Action("PrevNextImage", "PhotoGallery", new { imageId = Model.ImageId, petId = Model.PetId, type = "prev" })" id="galleryPrebtn" style="top:315px;"><i class="fa fa-angle-left"></i></a>
+    }
+    @if (ViewBag.Last)
+    {
+        <div id="galleryNextbtn" style="top: 315px;"><i class="fa fa-angle-right"></i></div>
+    }
+    else
+    {
+        <a href="javascript:void(0);" onclick="nextImage(this);" data-href="@Url.Action("PrevNextImage", "PhotoGallery", new { imageId = Model.ImageId, petId = Model.PetId, type = "next" })" id="galleryNextbtn" style="top:315px;"><i class="fa fa-angle-right"></i></a>
+    }
+    <div class="row">
+        <div id="mediaPreview">
+            <div id="photoMain">
+                <img src="@Url.Action("GetImage", "PhotoGallery", new { fileName = Model.ImageURL, imgType = "", petId = Model.PetId })" alt=""  />
+            </div>
+            <h3 class="pull-left">@Model.Title</h3>
+            <div class="pull-right" style="margin: 20px 0;">
+                <button type="button" class="btn btn-primary" onclick="AddLikes('@Model.ImageId','1','0');"><i class="fa fa-thumbs-o-up"></i><span id="spanlikes">@ViewBag.Likes</span></button>
+                <button type="button" class="btn btn-primary"><i class="fa fa-comments"></i><span id="spanComments">@ViewBag.Comments</span></button>
+                <div id="sharemediaPerent">
+                    <button type="button" class="btn btn-primary" id="sharemedia"><i class="fa fa-share-alt-square"></i>Share</button>
+                    <div id="sharebtbx" class="animated fadeIn">
+                        <div class="popover top">
+                            <div class="arrow"></div>
+                            <div class="popover-content">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=@Model.CompleteImageURL&t=@Model.Title" target="_blank" style="color: #3b5998;" data-toggle="tooltip" data-placement="top" data-original-title="Facebook"><i class="fa fa-facebook-square"></i></a>
+                                <a href="https://twitter.com/intent/tweet?url=@Model.CompleteImageURL" target="_blank" style="color: #1dcaff;" data-toggle="tooltip" data-placement="top" data-original-title="Twitter"><i class="fa fa-twitter-square"></i></a>
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&url=@Model.CompleteImageURL&title=@Model.Title&source=none" target="_blank" style="color: #007bb6;" data-toggle="tooltip" data-placement="top" data-original-title="Linkedin"><i class="fa fa-linkedin-square"></i></a>
+                                <a href="https://plus.google.com/share?url=@Model.CompleteImageURL" target="_blank" style="color: #d34836;" data-toggle="tooltip" data-placement="top" data-original-title="Google+"><i class="fa fa-google-plus-square"></i></a>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="well well-sm"><i class="fa fa-comment"></i>@Resources.Comment_RecentComments<span id="spanCommentsbadge" class="badge">@ViewBag.Comments</span></div>
+            <textarea id="varComment" class="form-control" rows="3" placeholder="@Resources.Gallery_Comment_Placeholder"></textarea><br>
+            <button type="button" onclick="CancelComment();" class="btn btn-default">@Resources.Comment_Cancel</button>
+            <button type="button" onclick="AddComments('@Model.ImageId','1','0');" class="btn btn-success">@Resources.Comment_AddComments</button>
+            <hr>
+            <div id="divComments">
+                @{
+                    Html.RenderAction("ShowComments", "GalleryComment", new { imageId = Model.ImageId, type = 1 });
+                }
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+
+
+<script src="@Url.Content("~/Scripts/customs/views/GalleryComment/GalleryComments.js")"></script>
+<script src="@Url.Content("~/Scripts/external/ui-custom.js")"></script>
+<script src="@Url.Content("~/Scripts/customs/views/GalleryComment/LoadComments.js")"></script>

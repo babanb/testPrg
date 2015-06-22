@@ -1,0 +1,47 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model List<ADOPets.Web.ViewModels.Account.SelectPlanViewModel>
+
+
+<div id="mainBox">
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label for="" class="col-sm-3 control-label">@Resources.Profile_PlanDetail_Promocode</label>
+            <div class="col-sm-6">
+                <input type="text" id="txtPromoCode" class="form-control" placeholder="@Resources.PlansAndPromo_Add_PromocodePlaceholder">
+            </div>
+            <div class="col-sm-3 infoPopup" style="padding-left: 0;">
+                <button id="PlansByPromoCode" type="button" class="btn btn-primary">@Resources.Users_AddUser_Submit</button>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <label for="ValidPromoCode" id="PromocodeSuccessmsg" style="text-align: left; color: #008c00; font-weight: 400; display: none;">@Resources.Account_SignUp_ValidPromoCode</label>
+                <label for="InvalidPromoCode" id="PromocodeErrMsg" style="color: #a94442; padding-right: 30px; display: none;">@Resources.Account_SignUp_InvalidPromoCode</label>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-warning alert-dismissible fade in" role="alert" style="text-align: center" hidden="hidden" id="EnableTrue">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <strong>@Resources.Account_signupWarning </strong>@Resources.Account_signupselectplan
+    </div>
+
+    <div class="customscroll" id="dvPlanList" style="border-bottom: none;">
+
+        @{ Html.RenderPartial("~/Views/Account/SelectPlanList.cshtml"); }
+    </div>
+</div>
+<div id="signUpBottom" class="col-sm-8" style="background: #FFF; position: fixed; bottom: 0; z-index: 5555;">
+    <div class="form-group col-sm-5 col-sm-offset-1">
+        <a href="@Url.Action("Login", "Account")" class="btn btn-default" style="width: 100%;">@Resources.Account_SignUp_Cancel</a>
+    </div>
+    <div class="form-group col-sm-5">
+        <a href="javascript:void(0)" class="btn btn-primary" id="btn-next" style="width: 100%;">@Resources.Signup_NextStep</a>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<script src="@Url.Content("~/Scripts/customs/views/Account/SelectPlan.js")"></script>

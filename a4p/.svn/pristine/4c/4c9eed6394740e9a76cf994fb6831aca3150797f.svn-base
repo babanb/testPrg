@@ -1,0 +1,47 @@
+﻿@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<ADOPets.Web.ViewModels.AlbumGallery.PhotoListViewModel>
+
+<div id="photoGallery-album" style="border-top: solid 1px #dadada; padding-top: 14px;">
+    <h4 class="pull-left">@Resources.AlbumGallery_Index_GalleryPhotoTitle</h4>
+    <button type="button" class="btn btn-primary pull-right" id="btnAddGP">@Resources.AlbumGallery_Index_AddPhoto</button>
+    <div class="clearfix"></div>
+    <hr style="margin-top: 10px;" />
+
+    <div class="row">
+        @if (Model != null && Model.Count() > 0)
+        {
+            var rowCount = 0;
+            foreach (var item in Model)
+            {
+                rowCount = rowCount + 1;
+                var imgName = "";
+                var isChecked = (item.IsAlbumPhoto) ? "checked='checked' disabled='disabled'" : "";
+                imgName = @item.ImageURL.Split('.')[0];
+                        
+            <div class="col-md-2" style="padding-bottom:20px;" id="dv-@item.Id">
+                <figure class="radius3" id="fig-@item.Id">
+                    <div class="sectectPhotocheck">
+                        <input type="checkbox" id="chkPhoto" data-chk="@item.Id" data-val="@imgName"  @isChecked/>
+                    </div>
+                    <input type="hidden" value="@item.Title" id="hdnPhotoTitle" />
+                    <input type="hidden" value="@item.ImageURL" id="hdnPhotoURL" />
+                    <img src="@Url.Action("GetImage", "PhotoGallery", new { fileName = item.ImageURL, imgType = "", petId = item.PetId  })" alt="@item.Title" class="img-thumbnail"  />
+                    <small>@item.Title</small>
+                </figure>
+            </div>                    
+                if (rowCount == 6)
+                {<div class="clearfix"></div>}
+            }              
+            <div class="clearfix"></div>       
+        }
+        else
+        {      
+            <h4 style="text-align: center; margin-top: 20px;" class="text-primary">
+                @Resources.AlbumGallery_Index_NoRecords_Photo<br>
+            </h4>        
+        }
+    </div>
+</div>
+
+<script src="@Url.Content("~/Scripts/customs/views/AlbumGallery/ListGalleryPhoto.js")"></script>
+<script src="@Url.Content("~/Scripts/external/ui-custom.js")"></script>

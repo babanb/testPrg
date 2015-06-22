@@ -1,0 +1,84 @@
+﻿@using ADOPets.Web.Common.Extensions
+@using ADOPets.Web.ViewModels.Profile
+@using Resources = ADOPets.Web.Resources.Wording
+@model IEnumerable<IndexViewModel>
+
+<div id="sub-container">
+
+    <div class="row">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text_alignL">
+            <h2 style="margin-bottom: 0;">@Resources.Profile_Index_Header</h2>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text_alignR" style="padding-top: 18px;">
+            <a href="@Url.Action("Add", "Profile")" class="btn btn-primary" id="addUser">
+                <i class="fa fa-plus-circle"></i><span class="hidden-md">@Resources.Profile_Index_AddUser</span>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+    
+    <hr style="margin-top: 15px;">
+    <div class="table-responsive">
+        <table id="UserList" class="table table-bordered">
+            <thead>
+                <tr class="text-primary">
+                    <th width="20%">
+                        <div class="pull-left">
+                            @Html.DisplayNameFor(m => m.UserType)
+                        </div>
+                        <div class="clearfix"></div>
+                    </th>
+                    <th width="5%">
+                        <div class="pull-left">@Html.DisplayNameFor(m => m.Id)</div>
+                        <div class="clearfix"></div>
+                    </th>
+                    <th width="20%">
+                        <div class="pull-left">@Html.DisplayNameFor(m => m.FirstName)</div>
+                        <div class="clearfix"></div>
+                    </th>
+                    <th width="20%">
+                        <div class="pull-left">@Html.DisplayNameFor(m => m.LastName)</div>
+                        <div class="clearfix"></div>
+                    </th>
+                    <th width="20%">
+                        <div class="pull-left">@Html.DisplayNameFor(m => m.Email)</div>
+                        <div class="clearfix"></div>
+                    </th>
+                    <th>@*Action*@</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.EnumDisplayFor(modelItem => item.UserType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div id="AddProfileDialog" class="modal fade" tabindex="-1" role="dialog"></div>
+<script src="~/Scripts/customs/views/Profile/Index.js"></script>
